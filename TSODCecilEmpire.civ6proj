@@ -13,8 +13,8 @@
     <SupportsMultiplayer>true</SupportsMultiplayer>
     <SupportsHotSeat>true</SupportsHotSeat>
     <CompatibleVersions>1.2,2.0</CompatibleVersions>
-    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File>Civilizations/CecilEmpire.xml</File><File>Leaders/GawainCecil.xml</File><File>Leaders/PlayerColors.xml</File><File>Buildings/ManaObelisk.xml</File><File>Units/ScoutAmber.xml</File></UpdateDatabase><UpdateText id="Text"><File>Configs/Text.xml</File><File>Units/Text.xml</File></UpdateText><UpdateIcons id="Icons"><File>Configs/Icons.xml</File><File>Buildings/Icons.xml</File><File>Units/Icons.xml</File></UpdateIcons><UpdateArt id="Art"><File>(Mod Art Dependency File)</File></UpdateArt></InGameActions>]]></InGameActionData>
-    <FrontEndActionData><![CDATA[<FrontEndActions><UpdateDatabase id="Config"><File>Configs/Config.xml</File></UpdateDatabase><UpdateText id="ConfigText"><File>Configs/Text.xml</File></UpdateText><UpdateIcons id="ConfigIcons"><File>Buildings/Icons.xml</File><File>Units/Icons.xml</File><File>Configs/Icons.xml</File></UpdateIcons><UpdateArt id="ConfigArt"><File>(Mod Art Dependency File)</File></UpdateArt></FrontEndActions>]]></FrontEndActionData>
+    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File>Civilizations/CecilEmpire.xml</File><File>Leaders/GawainCecil.xml</File><File>Leaders/PlayerColors.xml</File><File>Buildings/ManaObelisk.xml</File><File>Units/ScoutAmber.xml</File><File>Gameplay/Eras.xml</File></UpdateDatabase><UpdateText id="Text"><File>Units/Text.xml</File><File>Gameplay/Text.xml</File></UpdateText><UpdateIcons id="Icons"><File>Gameplay/Icons.xml</File><File>Buildings/Icons.xml</File><File>Units/Icons.xml</File></UpdateIcons><UpdateArt id="Art"><File>(Mod Art Dependency File)</File></UpdateArt></InGameActions>]]></InGameActionData>
+    <FrontEndActionData><![CDATA[<FrontEndActions><UpdateDatabase id="Config"><File>Gameplay/Config.xml</File></UpdateDatabase><UpdateText id="ConfigText"><File>Gameplay/Text.xml</File></UpdateText><UpdateIcons id="ConfigIcons"><File>Buildings/Icons.xml</File><File>Units/Icons.xml</File><File>Gameplay/Icons.xml</File></UpdateIcons><UpdateArt id="ConfigArt"><File>(Mod Art Dependency File)</File></UpdateArt></FrontEndActions>]]></FrontEndActionData>
     <ActionCriteriaData><![CDATA[<ActionCriteria><Criteria id="LeaderCriteria"><LeaderPlayable>StandardPlayers::LEADER_JASPER_KITTY</LeaderPlayable></Criteria></ActionCriteria>]]></ActionCriteriaData>
     <AssemblyName>TSODCecilEmpire</AssemblyName>
     <RootNamespace>TSODCecilEmpire</RootNamespace>
@@ -28,7 +28,7 @@
     <Folder Include="Civilizations" />
     <Folder Include="Buildings" />
     <Folder Include="Leaders" />
-    <Folder Include="Configs" />
+    <Folder Include="GamePlay" />
     <Folder Include="Units" />
     <Folder Include="Textures\" />
     <Folder Include="XLPs\" />
@@ -55,13 +55,16 @@
     <Content Include="Civilizations\CecilEmpire.xml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Configs\Config.xml">
+    <Content Include="Gameplay\Config.xml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Configs\Icons.xml">
+    <Content Include="Gameplay\Eras.xml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Configs\Text.xml">
+    <Content Include="Gameplay\Icons.xml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Gameplay\Text.xml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Leaders\GawainCecil.xml">
