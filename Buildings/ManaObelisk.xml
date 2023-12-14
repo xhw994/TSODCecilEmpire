@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cecil_Mana_Obelisk -->
+<!-- Author: Xegnal -->
+<!-- DateCreated: 12/11/2023 12:56:58 AM -->
+<GameData>
+    <Types>
+        <Row Type="BUILDING_TSOD_MANA_OBELISK" Kind="KIND_BUILDING"/>
+    </Types>
+
+    <BuildingReplaces>
+        <Row CivUniqueBuildingType="BUILDING_TSOD_MANA_OBELISK" ReplacesBuildingType="BUILDING_MONUMENT"/>
+    </BuildingReplaces>
+
+    <Buildings>
+        <Row BuildingType="BUILDING_TSOD_MANA_OBELISK" Name="LOC_BUILDING_TSOD_MANA_OBELISK_NAME" PrereqDistrict="DISTRICT_CITY_CENTER" PurchaseYield="YIELD_GOLD" Cost="60" AdvisorType="ADVISOR_CULTURE" PrereqTech="TECH_MATHEMATICS" TraitType="TRAIT_BUILDING_TSOD_MANA_OBELISK"/>
+    </Buildings>
+</GameData>

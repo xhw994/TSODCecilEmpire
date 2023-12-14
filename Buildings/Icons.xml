@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icons -->
+<!-- Author: Xegnal -->
+<!-- DateCreated: 12/12/2023 8:58:39 PM -->
+<GameData>
+    <IconTextureAtlases>
+        <Row Name="ATLAS_ICON_BUILDING_TSOD_MANA_OBELISK" IconSize="32" Filename="ICON_BUILDING_TSOD_MANA_OBELISK_32"/>
+        <Row Name="ATLAS_ICON_BUILDING_TSOD_MANA_OBELISK" IconSize="38" Filename="ICON_BUILDING_TSOD_MANA_OBELISK_38"/>
+        <Row Name="ATLAS_ICON_BUILDING_TSOD_MANA_OBELISK" IconSize="50" Filename="ICON_BUILDING_TSOD_MANA_OBELISK_50"/>
+        <Row Name="ATLAS_ICON_BUILDING_TSOD_MANA_OBELISK" IconSize="80" Filename="ICON_BUILDING_TSOD_MANA_OBELISK_80"/>
+        <Row Name="ATLAS_ICON_BUILDING_TSOD_MANA_OBELISK" IconSize="128" Filename="ICON_BUILDING_TSOD_MANA_OBELISK_128"/>
+        <Row Name="ATLAS_ICON_BUILDING_TSOD_MANA_OBELISK" IconSize="256" Filename="ICON_BUILDING_TSOD_MANA_OBELISK_256"/>
+    </IconTextureAtlases>
+    <IconDefinitions>
+        <Row Name="ICON_BUILDING_TSOD_MANA_OBELISK" Atlas="ATLAS_ICON_BUILDING_TSOD_MANA_OBELISK" Index="0"/>
+    </IconDefinitions>
+</GameData>
