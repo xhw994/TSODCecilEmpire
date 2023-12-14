@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cecil_Config -->
+<!-- Author: Xegnal -->
+<!-- DateCreated: 12/11/2023 12:54:33 AM -->
+<GameData>
+    <Players>
+        <Row CivilizationAbilityDescription="LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION"
+            CivilizationAbilityIcon="ICON_CIVILIZATION_TSOD_CECIL_EMPIRE"
+            CivilizationAbilityName="LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME"
+            CivilizationIcon="ICON_CIVILIZATION_TSOD_CECIL_EMPIRE"
+            CivilizationName="LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME"
+            CivilizationType="CIVILIZATION_TSOD_CECIL_EMPIRE"
+            LeaderAbilityDescription="LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_DESCRIPTION"
+            LeaderAbilityIcon="ICON_LEADER_TSOD_GAWAIN_CECIL"
+            LeaderAbilityName="LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME"
+            LeaderIcon="ICON_LEADER_TSOD_GAWAIN_CECIL"
+            LeaderName="LOC_LEADER_TSOD_GAWAIN_CECIL_NAME" LeaderType="LEADER_TSOD_GAWAIN_CECIL"
+            Portrait="IMG_SELECTION_FOREGROUND_CECIL_EMPIRE" />
+        <!-- Expansion 1 Support -->
+        <Row CivilizationAbilityDescription="LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION"
+            CivilizationAbilityIcon="ICON_CIVILIZATION_TSOD_CECIL_EMPIRE"
+            CivilizationAbilityName="LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME"
+            CivilizationIcon="ICON_CIVILIZATION_TSOD_CECIL_EMPIRE"
+            CivilizationName="LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME"
+            CivilizationType="CIVILIZATION_TSOD_CECIL_EMPIRE"
+            LeaderAbilityDescription="LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_DESCRIPTION"
+            LeaderAbilityIcon="ICON_LEADER_TSOD_GAWAIN_CECIL"
+            LeaderAbilityName="LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME"
+            LeaderIcon="ICON_LEADER_TSOD_GAWAIN_CECIL"
+            LeaderName="LOC_LEADER_TSOD_GAWAIN_CECIL_NAME" LeaderType="LEADER_TSOD_GAWAIN_CECIL"
+            Portrait="IMG_SELECTION_FOREGROUND_CECIL_EMPIRE" Domain="Players:Expansion1_Players" />
+        <!-- Expansion 2 Support -->
+        <Row CivilizationAbilityDescription="LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION"
+            CivilizationAbilityIcon="ICON_CIVILIZATION_TSOD_CECIL_EMPIRE"
+            CivilizationAbilityName="LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME"
+            CivilizationIcon="ICON_CIVILIZATION_TSOD_CECIL_EMPIRE"
+            CivilizationName="LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME"
+            CivilizationType="CIVILIZATION_TSOD_CECIL_EMPIRE"
+            LeaderAbilityDescription="LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_DESCRIPTION"
+            LeaderAbilityIcon="ICON_LEADER_TSOD_GAWAIN_CECIL"
+            LeaderAbilityName="LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME"
+            LeaderIcon="ICON_LEADER_TSOD_GAWAIN_CECIL"
+            LeaderName="LOC_LEADER_TSOD_GAWAIN_CECIL_NAME" LeaderType="LEADER_TSOD_GAWAIN_CECIL"
+            Portrait="IMG_SELECTION_FOREGROUND_CECIL_EMPIRE" Domain="Players:Expansion2_Players" />
+    </Players>
+    <PlayerItems>
+        <Row CivilizationType="CIVILIZATION_TSOD_CECIL_EMPIRE" LeaderType="LEADER_TSOD_GAWAIN_CECIL"
+            Type="TRAIT_UNIT_TSOD_SCOUT_AMBER" Name="LOC_TRAIT_UNIT_TSOD_SCOUT_AMBER_NAME"
+            Description="LOC_TRAIT_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION"
+            Icon="ICON_UNIT_TSOD_SCOUT_AMBER" SortIndex="10" />
+        <Row CivilizationType="CIVILIZATION_TSOD_CECIL_EMPIRE" LeaderType="LEADER_TSOD_GAWAIN_CECIL"
+            Type="TRAIT_BUILDING_TSOD_MANA_OBELISK" Name="LOC_BUILDING_TSOD_MANA_OBELISK_NAME"
+            Description="LOC_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION"
+            Icon="ICON_BUILDING_TSOD_MANA_OBELISK" SortIndex="20" />
+        <!-- Expansion 1 Support -->
+        <Row Domain="Players:Expansion1_Players" CivilizationType="CIVILIZATION_TSOD_CECIL_EMPIRE"
+            LeaderType="LEADER_TSOD_GAWAIN_CECIL" Type="TRAIT_UNIT_TSOD_SCOUT_AMBER"
+            Name="LOC_TRAIT_UNIT_TSOD_SCOUT_AMBER_NAME"
+            Description="LOC_TRAIT_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION"
+            Icon="ICON_UNIT_TSOD_SCOUT_AMBER" SortIndex="10" />
+        <Row Domain="Players:Expansion1_Players" CivilizationType="CIVILIZATION_TSOD_CECIL_EMPIRE"
+            LeaderType="LEADER_TSOD_GAWAIN_CECIL" Type="TRAIT_BUILDING_TSOD_MANA_OBELISK"
+            Name="LOC_BUILDING_TSOD_MANA_OBELISK_NAME"
+            Description="LOC_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION"
+            Icon="ICON_BUILDING_TSOD_MANA_OBELISK" SortIndex="20" />
+        <!-- Expansion 2 Support -->
+        <Row Domain="Players:Expansion2_Players" CivilizationType="CIVILIZATION_TSOD_CECIL_EMPIRE"
+            LeaderType="LEADER_TSOD_GAWAIN_CECIL" Type="TRAIT_UNIT_TSOD_SCOUT_AMBER"
+            Name="LOC_TRAIT_UNIT_TSOD_SCOUT_AMBER_NAME"
+            Description="LOC_TRAIT_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION"
+            Icon="ICON_UNIT_TSOD_SCOUT_AMBER" SortIndex="10" />
+        <Row Domain="Players:Expansion2_Players" CivilizationType="CIVILIZATION_TSOD_CECIL_EMPIRE"
+            LeaderType="LEADER_TSOD_GAWAIN_CECIL" Type="TRAIT_BUILDING_TSOD_MANA_OBELISK"
+            Name="LOC_BUILDING_TSOD_MANA_OBELISK_NAME"
+            Description="LOC_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION"
+            Icon="ICON_BUILDING_TSOD_MANA_OBELISK" SortIndex="20" />
+    </PlayerItems>
+</GameData>
