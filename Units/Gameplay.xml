@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Author: Xegnal -->
+<!-- DateCreated: 11/17/23 23:44:18 Fri -->
+<GameData>
+	<Types>
+		<Row Type="UNIT_TSOD_SCOUT_AMBER" Kind="KIND_UNIT"/>
+	</Types>
+	<UnitAiInfos>
+		<Row UnitType="UNIT_TSOD_SCOUT_AMBER" AiType="UNITAI_EXPLORE"/>
+		<Row UnitType="UNIT_TSOD_SCOUT_AMBER" AiType="UNITTYPE_LAND_COMBAT"/>
+	</UnitAiInfos>
+	<TypeTags>
+		<Row Type="UNIT_TSOD_SCOUT_AMBER" Tag="CLASS_RECON"/>
+		<Row Type="UNIT_TSOD_SCOUT_AMBER" Tag="CLASS_REVEAL_STEALTH"/>
+	</TypeTags>
+	<Units>
+		<Row UnitType="UNIT_TSOD_SCOUT_AMBER" Domain="DOMAIN_LAND" ZoneOfControl="1" FormationClass="FORMATION_CLASS_LAND_COMBAT" Combat="5" Description="LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION" CanRetreatWhenCaptured="1" PseudoYieldType="PSEUDOYIELD_UNIT_EXPLORER" BaseSightRange="4" Name="LOC_UNIT_TSOD_SCOUT_AMBER_NAME" Cost="30" AdvisorType="ADVISOR_GENERIC" BaseMoves="3"/>
+	</Units>
+</GameData>

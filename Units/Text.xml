@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<LocalizedText>
+        <!-- Unique unit: Amber the scout -->
+        <Row Tag="LOC_UNIT_TSOD_SCOUT_AMBER_NAME" Language="zh_Hans_CN">
+			<Text>琥珀</Text>
+		</Row>
+        <Row Tag="LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION" Language="zh_Hans_CN">
+			<Text>战斗力不足5的暗影突击鹅。</Text>
+		</Row>
+        <Row Tag="LOC_UNIT_TSOD_SCOUT_AMBER_NAME" Language="en_US">
+			<Text>Amber</Text>
+		</Row>
+        <Row Tag="LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION" Language="en_US">
+			<Text>Has power level of 5, can't even beat a goose.</Text>
+		</Row>
+
+	</LocalizedText>
+</GameData>
