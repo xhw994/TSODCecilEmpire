@@ -4,48 +4,48 @@ VALUES
     (
         'ERA_ANCIENT',
         'UNIT_TSOD_SCOUT_AMBER',
-        'true',
-        'true'
+        1,
+        1
     ),
     (
         'ERA_CLASSICAL',
         'UNIT_TSOD_SCOUT_AMBER',
-        'true',
-        'true'
+        1,
+        1
     ),
     (
         'ERA_MEDIEVAL',
         'UNIT_TSOD_SCOUT_AMBER',
-        'true',
-        'true'
+        1,
+        1
     ),
     (
         'ERA_RENAISSANCE',
         'UNIT_TSOD_SCOUT_AMBER',
-        'true',
-        'true'
+        1,
+        1
     ),
     (
         'ERA_INDUSTRIAL',
         'UNIT_TSOD_SCOUT_AMBER',
-        'true',
-        'true'
+        1,
+        1
     ),
     (
         'ERA_MODERN',
         'UNIT_TSOD_SCOUT_AMBER',
-        'true',
-        'true'
+        1,
+        1
     ),
     (
         'ERA_ATOMIC',
         'UNIT_TSOD_SCOUT_AMBER',
-        'true',
-        'true'
+        1,
+        1
     ),
     (
         'ERA_INFORMATION',
         'UNIT_TSOD_SCOUT_AMBER',
-        'true',
-        'true'
+        1,
+        1
     );
