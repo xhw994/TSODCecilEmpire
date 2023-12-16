@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Icons -->
+<!-- Author: Xegnal -->
+<!-- DateCreated: 12/15/2023 10:59:59 PM -->
 <GameData>
     <IconTextureAtlases>
         <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER" IconSize="22" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_22"/>
