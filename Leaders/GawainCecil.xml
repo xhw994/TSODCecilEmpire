@@ -4,32 +4,16 @@
 <!-- DateCreated: 12/11/2023 12:58:24 AM -->
 <GameData>
     <Types>
-        <Row Type="LEADER_TSOD_GAWAIN_CECIL" Kind="KIND_LEADER"/>
+        <Row Type="LEADER_TSOD_GAWAIN_CECIL" Kind="KIND_LEADER" />
     </Types>
     <Leaders>
-        <Row LeaderType="LEADER_TSOD_GAWAIN_CECIL" Name="LOC_LEADER_TSOD_GAWAIN_CECIL_NAME" InheritFrom="LEADER_DEFAULT" Sex="Male"/>
+        <Row LeaderType="LEADER_TSOD_GAWAIN_CECIL" Name="LOC_LEADER_TSOD_GAWAIN_CECIL_NAME"
+            InheritFrom="LEADER_DEFAULT" Sex="Male" />
     </Leaders>
     <LeaderQuotes>
-        <Row LeaderType="LEADER_TSOD_GAWAIN_CECIL" Quote="LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING"/>
+        <Row LeaderType="LEADER_TSOD_GAWAIN_CECIL" Quote="LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING" />
     </LeaderQuotes>
-    <Colors>
-        <Row>
-            <Type>COLOR_PLAYER_LEADER_TSOD_GAWAIN_CECIL_PRIMARY</Type>
-            <Color>0,28,48,255</Color>
-        </Row>
-        <Row>
-            <Type>COLOR_PLAYER_LEADER_TSOD_GAWAIN_CECIL_SECONDARY</Type>
-            <Color>209,166,99,255</Color>
-        </Row>
-    </Colors>
-    <PlayerColors>
-        <Row>
-            <Type>LEADER_TSOD_GAWAIN_CECIL</Type>
-            <Usage>Unique</Usage>
-            <PrimaryColor>COLOR_PLAYER_LEADER_TSOD_GAWAIN_CECIL_PRIMARY</PrimaryColor>
-            <SecondaryColor>COLOR_PLAYER_LEADER_TSOD_GAWAIN_CECIL_SECONDARY</SecondaryColor>
-        </Row>
-    </PlayerColors>
+
     <LoadingInfo>
         <Row LeaderType="LEADER_TSOD_GAWAIN_CECIL" ForegroundImage="IMG_LOADING_FOREGROUND_CECIL_EMPIRE" BackgroundImage="IMG_LOADING_BACKGROUND_CECIL_EMPIRE" PlayDawnOfManAudio="1" LeaderText="LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL"/>
     </LoadingInfo>
