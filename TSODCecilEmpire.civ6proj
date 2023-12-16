@@ -13,7 +13,7 @@
     <SupportsMultiplayer>true</SupportsMultiplayer>
     <SupportsHotSeat>true</SupportsHotSeat>
     <CompatibleVersions>1.2,2.0</CompatibleVersions>
-    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File>Civilizations/CecilEmpire.xml</File><File>Leaders/GawainCecil.xml</File><File>Leaders/PlayerColors.xml</File><File>Gameplay/Eras.xml</File><File>Units/ScoutAmber/Gameplay.sql</File><File>Buildings/ManaObelisk/Gameplay.sql</File></UpdateDatabase><UpdateText id="Text"><File>Gameplay/Text.xml</File><File>Units/ScoutAmber/Text.sql</File></UpdateText><UpdateIcons id="Icons"><File>Gameplay/Icons.xml</File><File>Units/ScoutAmber/Icons.xml</File><File>Buildings/ManaObelisk/Icons.xml</File></UpdateIcons><UpdateArt id="Art"><File>(Mod Art Dependency File)</File></UpdateArt></InGameActions>]]></InGameActionData>
+    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File>Civilizations/CecilEmpire.xml</File><File>Gameplay/Eras.xml</File><File>Units/ScoutAmber/Gameplay.sql</File><File>Buildings/ManaObelisk/Gameplay.sql</File><File>Leaders/GawainCecil.sql</File><File>Leaders/PlayerColors.sql</File></UpdateDatabase><UpdateText id="Text"><File>Gameplay/Text.xml</File><File>Units/ScoutAmber/Text.sql</File></UpdateText><UpdateIcons id="Icons"><File>Gameplay/Icons.xml</File><File>Units/ScoutAmber/Icons.xml</File><File>Buildings/ManaObelisk/Icons.xml</File></UpdateIcons><UpdateArt id="Art"><File>(Mod Art Dependency File)</File></UpdateArt></InGameActions>]]></InGameActionData>
     <FrontEndActionData><![CDATA[<FrontEndActions><UpdateDatabase id="Config"><File>Gameplay/Config.xml</File></UpdateDatabase><UpdateText id="ConfigText"><File>Gameplay/Text.xml</File></UpdateText><UpdateIcons id="ConfigIcons"><File>Gameplay/Icons.xml</File><File>Units/ScoutAmber/Icons.xml</File><File>Buildings/ManaObelisk/Icons.xml</File></UpdateIcons><UpdateArt id="ConfigArt"><File>(Mod Art Dependency File)</File></UpdateArt></FrontEndActions>]]></FrontEndActionData>
     <AssemblyName>TSODCecilEmpire</AssemblyName>
     <RootNamespace>TSODCecilEmpire</RootNamespace>
@@ -68,10 +68,10 @@
     <Content Include="Gameplay\Text.xml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Leaders\GawainCecil.xml">
+    <Content Include="Leaders\GawainCecil.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Leaders\PlayerColors.xml">
+    <Content Include="Leaders\PlayerColors.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="TSODCecilEmpire.Art.xml">
