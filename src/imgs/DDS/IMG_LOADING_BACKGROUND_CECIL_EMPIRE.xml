@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GameData>
+    <IconTextureAtlases>
+        <Row Name="ATLAS_IMG_LOADING_BACKGROUND" IconSize="2134" Filename="IMG_LOADING_BACKGROUND_"/>
+    </IconTextureAtlases>
+    <IconDefinitions>
+        <Row Name="ICON_0" Atlas="ATLAS_IMG_LOADING_BACKGROUND" Index="0"/>
+    </IconDefinitions>
+</GameData>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icons -->
+<!-- Author: Xegnal -->
+<!-- DateCreated: 12/15/2023 10:59:59 PM -->
+<GameData>
+    <IconTextureAtlases>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER" IconSize="22" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_22"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER" IconSize="32" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_32"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER" IconSize="38" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_38"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER" IconSize="50" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_50"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER" IconSize="80" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_80"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER" IconSize="256" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_256"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT" IconSize="38" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT_38"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT" IconSize="50" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT_50"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT" IconSize="70" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT_70"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT" IconSize="95" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT_95"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT" IconSize="200" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT_200"/>
+        <Row Name="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT" IconSize="256" Filename="ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT_256"/>
+    </IconTextureAtlases>
+    <IconDefinitions>
+        <Row Name="ICON_UNIT_TSOD_SCOUT_AMBER" Atlas="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER" Index="0"/>
+        <Row Name="ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT" Atlas="ATLAS_ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT" Index="0"/>
+    </IconDefinitions>
+</GameData>

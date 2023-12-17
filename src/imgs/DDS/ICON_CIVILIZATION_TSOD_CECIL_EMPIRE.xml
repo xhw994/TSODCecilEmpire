@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GameData>
+    <IconTextureAtlases>
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="22"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_22" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="30"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_30" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="32"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_32" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="36"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_36" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="44"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_44" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="45"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_45" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="48"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_48" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="50"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_50" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="64"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_64" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="80"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_80" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="128"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_128" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="200"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_200" />
+        <Row Name="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" IconSize="256"
+            Filename="ICON_CIVILIZATION_CECIL_EMPIRE_256" />
+    </IconTextureAtlases>
+    <IconDefinitions>
+        <Row Name="ICON_0" Atlas="ATLAS_ICON_CIVILIZATION_CECIL_EMPIRE" Index="0" />
+    </IconDefinitions>
+</GameData>

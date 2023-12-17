@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <Name>TSOD Cecil Empire Civilization</Name>
+    <Guid>4883e185-c2d7-4031-aae3-b67e4e885a24</Guid>
+    <ProjectGuid>5708e05e-1c10-490d-9b60-6fcefaec9649</ProjectGuid>
+    <ModVersion>1</ModVersion>
+    <Teaser>This example mod demonstrates how to add a new leader and civilization to the game.</Teaser>
+    <Description>This example mod demonstrates how to add a new leader and civilization to the game.</Description>
+    <AffectsSavedGames>true</AffectsSavedGames>
+    <SupportsSinglePlayer>true</SupportsSinglePlayer>
+    <SupportsMultiplayer>true</SupportsMultiplayer>
+    <SupportsHotSeat>true</SupportsHotSeat>
+    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File>Core/CecilEmpire.sql</File><File>Core/GawainCecil.sql</File><File>Core/Colors.sql</File><File>Units/ScoutAmber.sql</File><File>Buildings/ManaObelisk.sql</File></UpdateDatabase><UpdateText id="Text"><File>Core/Text.sql</File><File>Units/Text.sql</File><File>Buildings/Text.sql</File></UpdateText><UpdateIcons id="Icons"><File>Core/Icons.xml</File><File>Units/Icons.xml</File><File>Buildings/Icons.xml</File></UpdateIcons><UpdateArt id="Art"><File>(Mod Art Dependency File)</File></UpdateArt></InGameActions>]]></InGameActionData>
+    <FrontEndActionData><![CDATA[<FrontEndActions><UpdateDatabase id="Config"><File>Core/Config.sql</File></UpdateDatabase><UpdateText id="ConfigText"><File>Core/Text.sql</File><File>Buildings/Text.sql</File><File>Units/Text.sql</File></UpdateText><UpdateIcons id="ConfigIcons"><File>Core/Icons.xml</File><File>Buildings/Icons.xml</File><File>Units/Icons.xml</File></UpdateIcons><UpdateArt id="ConfigArt"><File>(Mod Art Dependency File)</File></UpdateArt></FrontEndActions>]]></FrontEndActionData>
+    <AssemblyName>TSODCecilEmpire</AssemblyName>
+    <RootNamespace>TSODCecilEmpire</RootNamespace>
+    <Authors>Brus Gwyn Fuchkyo</Authors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Artdefs\" />
+    <Folder Include="Buildings" />
+    <Folder Include="Core\" />
+    <Folder Include="Units" />
+    <Folder Include="Textures\" />
+    <Folder Include="XLPs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Artdefs\Buildings.artdef">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Artdefs\Civilizations.artdef">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Artdefs\FallbackLeaders.artdef">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Artdefs\Units.artdef">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Buildings\Icons.xml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Buildings\ManaObelisk.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Buildings\Text.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Core\CecilEmpire.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Core\Colors.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Core\Config.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Core\GawainCecil.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Core\Icons.xml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Core\Text.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="TSODCecilEmpire.Art.xml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Units\Icons.xml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Units\ScoutAmber.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Units\Text.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="XLPs\CecilEmpireUITextureDDS.xlp">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="XLPs\LeaderFallbacks.xlp">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildLocalExtensionPath)Civ6.targets" />
+</Project>
