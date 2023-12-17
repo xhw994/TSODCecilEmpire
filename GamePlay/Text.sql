@@ -52,16 +52,6 @@ VALUES
         '高文·塞西尔向你问好'
     ),
     (
-        'LOC_TRAIT_UNIT_TSOD_SCOUT_AMBER_NAME',
-        'zh_Hans_CN',
-        '琥珀'
-    ),
-    (
-        'LOC_TRAIT_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
-        'zh_Hans_CN',
-        '琥珀的介绍'
-    ),
-    (
         'LOC_BUILDING_TSOD_MANA_OBELISK_NAME',
         'zh_Hans_CN',
         '魔能方尖碑'
