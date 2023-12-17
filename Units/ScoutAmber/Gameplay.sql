@@ -50,7 +50,7 @@ VALUES
         'PSEUDOYIELD_UNIT_EXPLORER',
         4,
         'LOC_UNIT_TSOD_SCOUT_AMBER_NAME',
-        30,
+        66,
         'ADVISOR_GENERIC',
         3,
         0,
@@ -100,7 +100,7 @@ VALUES
         0,
         0,
         0,
-        NULL,
+        'REQUIREMENT_TSOD_AMBER_NEVER_SPAWN',
         NULL
     );
 
@@ -121,4 +121,44 @@ VALUES
         'MODIFIER_GRANT_TSOD_SCOUT_AMBER_ON_SETTLE',
         'UnitType',
         'UNIT_TSOD_SCOUT_AMBER'
+    );
+
+INSERT INTO
+    RequirementSets (RequirementSetId, RequirementSetType)
+VALUES
+    (
+        'REQUIREMENT_TSOD_AMBER_NEVER_SPAWN',
+        'REQUIREMENTSET_TEST_ALL'
+    );
+
+INSERT INTO
+    RequirementSetRequirements (RequirementSetId, RequirementId)
+VALUES
+    (
+        'REQUIREMENT_TSOD_AMBER_NEVER_SPAWN',
+        'REQUIREMENT_PLAYER_NEVER_SETTLED'
+    );
+
+INSERT INTO
+    Requirements (
+        RequirementId,
+        RequirementType,
+        Inverse,
+        ProgressWeight
+    )
+VALUES
+    (
+        'REQUIREMENT_PLAYER_NEVER_SETTLED',
+        'REQUIREMENT_PLAYER_HAS_BUILDING',
+        1,
+        0
+    );
+
+INSERT INTO
+    RequirementArguments (RequirementId, Name, Value)
+VALUES
+    (
+        'REQUIREMENT_PLAYER_NEVER_SETTLED',
+        'BuildingType',
+        'BUILDING_PALACE'
     );
