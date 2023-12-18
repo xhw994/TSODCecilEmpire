@@ -13,7 +13,7 @@
     <SupportsMultiplayer>true</SupportsMultiplayer>
     <SupportsHotSeat>true</SupportsHotSeat>
     <CompatibleVersions>1.2,2.0</CompatibleVersions>
-    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File>Core/CecilEmpire.sql</File><File>Core/GawainCecil.sql</File><File>Core/Colors.sql</File><File>Units/ScoutAmber.sql</File><File>Buildings/ManaObelisk.sql</File></UpdateDatabase><UpdateText id="Text"><File>Core/Text.sql</File><File>Units/Text.sql</File><File>Buildings/Text.sql</File></UpdateText><UpdateIcons id="Icons"><File>Core/Icons.xml</File><File>Units/Icons.xml</File><File>Buildings/Icons.xml</File></UpdateIcons><UpdateArt id="Art"><File>(Mod Art Dependency File)</File></UpdateArt></InGameActions>]]></InGameActionData>
+    <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="Gameplay"><File>Core/CecilEmpire.sql</File><File>Core/GawainCecil.sql</File><File>Core/Colors.sql</File><File>Units/ScoutAmber.sql</File><File>Buildings/ManaObelisk.sql</File><File>Core/CivilizationTraits.sql</File></UpdateDatabase><UpdateText id="Text"><File>Core/Text.sql</File><File>Units/Text.sql</File><File>Buildings/Text.sql</File></UpdateText><UpdateIcons id="Icons"><File>Core/Icons.xml</File><File>Units/Icons.xml</File><File>Buildings/Icons.xml</File></UpdateIcons><UpdateArt id="Art"><File>(Mod Art Dependency File)</File></UpdateArt></InGameActions>]]></InGameActionData>
     <FrontEndActionData><![CDATA[<FrontEndActions><UpdateDatabase id="Config"><File>Core/Config.sql</File></UpdateDatabase><UpdateText id="ConfigText"><File>Core/Text.sql</File><File>Buildings/Text.sql</File><File>Units/Text.sql</File></UpdateText><UpdateIcons id="ConfigIcons"><File>Core/Icons.xml</File><File>Buildings/Icons.xml</File><File>Units/Icons.xml</File></UpdateIcons><UpdateArt id="ConfigArt"><File>(Mod Art Dependency File)</File></UpdateArt></FrontEndActions>]]></FrontEndActionData>
     <AssemblyName>TSODCecilEmpire</AssemblyName>
     <RootNamespace>TSODCecilEmpire</RootNamespace>
@@ -53,6 +53,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Core\CecilEmpire.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Core\CivilizationTraits.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Core\Colors.sql">
