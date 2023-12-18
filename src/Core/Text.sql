@@ -19,7 +19,7 @@ VALUES
     (
         'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME',
         'zh_Hans_CN',
-        '塞西尔帝国的技能'
+        '丈量真理'
     ),
     (
         'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
@@ -34,7 +34,7 @@ VALUES
     (
         'LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME',
         'zh_Hans_CN',
-        '高文·塞西尔的技能'
+        '黎明之剑'
     ),
     (
         'LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_DESCRIPTION',
@@ -44,7 +44,7 @@ VALUES
     (
         'LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL',
         'zh_Hans_CN',
-        '高文·塞西尔的生平介绍'
+        '高文·塞西尔，骑士之主，开拓者，保护者，王国奠基之人，我们尊其为南境守护。'
     ),
     (
         'LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING',
@@ -83,7 +83,7 @@ VALUES
         'zh_Hans_CN',
         '红枫城'
     ),
-    ('LOC_CITY_NAME_TSOD_POMPEII', 'zh_Hans_CN', '庞贝城'),
+    ('LOC_CITY_NAME_TSOD_POMPEII', 'zh_Hans_CN', '培波城'),
     ('LOC_CITY_NAME_TSOD_ELRON', 'zh_Hans_CN', '埃尔隆城'),
     (
         'LOC_CITY_NAME_TSOD_FERTILE_WOODLANDS',
