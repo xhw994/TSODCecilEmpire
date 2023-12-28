@@ -23,7 +23,15 @@ INSERT INTO
 VALUES
     ('UNIT_TSOD_SCOUT_AMBER', 'CLASS_RECON'),
     ('UNIT_TSOD_SCOUT_AMBER', 'CLASS_REVEAL_STEALTH'),
-    ('UNIT_TSOD_SCOUT_AMBER', 'CLASS_TSOD_SCOUT_AMBER');
+    ('UNIT_TSOD_SCOUT_AMBER', 'CLASS_TSOD_SCOUT_AMBER'),
+    (
+        'ABILITY_IGNORE_TERRAIN_COST',
+        'CLASS_TSOD_SCOUT_AMBER'
+    ),
+    (
+        'ABILITY_IGNORE_CROSSING_RIVERS_COST',
+        'CLASS_TSOD_SCOUT_AMBER'
+    );
 
 INSERT INTO
     Units (
@@ -89,7 +97,7 @@ INSERT INTO
 VALUES
     (
         'DISTRICT_CITY_CENTER',
-        'MODIFIER_GRANT_TSOD_SCOUT_AMBER_ON_SETTLE'
+        'MODIFIER_GRANT_TSOD_SCOUT_AMBER'
     );
 
 INSERT INTO
@@ -100,96 +108,32 @@ INSERT INTO
         Permanent,
         NewOnly,
         OwnerRequirementSetId,
-        SubjectRequirementSetId
+        SubjectRequirementSetId,
+        SubjectStackLimit
     )
 VALUES
     (
-        'MODIFIER_GRANT_TSOD_SCOUT_AMBER_ON_SETTLE',
+        'MODIFIER_GRANT_TSOD_SCOUT_AMBER',
         'MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL',
         0,
         0,
         0,
-        'REQUIREMENT_TSOD_AMBER_NEVER_SPAWN',
-        NULL
+        'PLAYER_IS_TSOD_CECIL_EMPIRE_REQUIREMENTS',
+        NULL,
+        1
     );
 
 INSERT INTO
     ModifierArguments (ModifierId, Name, Value)
 VALUES
     (
-        'MODIFIER_GRANT_TSOD_SCOUT_AMBER_ON_SETTLE',
+        'MODIFIER_GRANT_TSOD_SCOUT_AMBER',
         'AllowUniqueOverride',
         '0'
     ),
+    ('MODIFIER_GRANT_TSOD_SCOUT_AMBER', 'Amount', '1'),
     (
-        'MODIFIER_GRANT_TSOD_SCOUT_AMBER_ON_SETTLE',
-        'Amount',
-        '1'
-    ),
-    (
-        'MODIFIER_GRANT_TSOD_SCOUT_AMBER_ON_SETTLE',
+        'MODIFIER_GRANT_TSOD_SCOUT_AMBER',
         'UnitType',
         'UNIT_TSOD_SCOUT_AMBER'
-    );
-
-INSERT INTO
-    RequirementSets (RequirementSetId, RequirementSetType)
-VALUES
-    (
-        'REQUIREMENT_TSOD_AMBER_NEVER_SPAWN',
-        'REQUIREMENTSET_TEST_ALL'
-    );
-
-INSERT INTO
-    RequirementSetRequirements (RequirementSetId, RequirementId)
-VALUES
-    (
-        'REQUIREMENT_TSOD_AMBER_NEVER_SPAWN',
-        'REQUIREMENT_PLAYER_NEVER_SETTLED'
-    );
-
-INSERT INTO
-    Requirements (
-        RequirementId,
-        RequirementType,
-        Inverse,
-        ProgressWeight
-    )
-VALUES
-    (
-        'REQUIREMENT_PLAYER_NEVER_SETTLED',
-        'REQUIREMENT_PLAYER_HAS_BUILDING',
-        1,
-        0
-    );
-
-INSERT INTO
-    RequirementArguments (RequirementId, Name, Value)
-VALUES
-    (
-        'REQUIREMENT_PLAYER_NEVER_SETTLED',
-        'BuildingType',
-        'BUILDING_PALACE'
-    );
-
-INSERT INTO
-    UnitAbilities (UnitAbilityType, Name, Description, Inactive)
-VALUES
-    (
-        'ABILITY_TSOD_SCOUT_AMBER_IGNORE_TERRAIN',
-        'LOC_ABILITY_TSOD_SCOUT_AMBER_IGNORE_TERRAIN_TERRAIN_NAME',
-        'LOC_ABILITY_TSOD_SCOUT_AMBER_IGNORE_TERRAIN_DESCRIPTION',
-        0
-    );
-
-INSERT INTO
-    UnitAbilityModifiers (UnitAbilityType, ModifierId)
-VALUES
-    (
-        'ABILITY_TSOD_SCOUT_AMBER_IGNORE_TERRAIN',
-        'MOD_IGNORE_TERRAIN_COST'
-    ),
-    (
-        'ABILITY_TSOD_SCOUT_AMBER_IGNORE_TERRAIN',
-        'MOD_IGNORE_CROSSING_RIVERS_COST'
     );
