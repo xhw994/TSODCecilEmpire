@@ -83,7 +83,7 @@ VALUES
         'TRAIT_UNIT_TSOD_SCOUT_AMBER',
         'LOC_UNIT_TSOD_SCOUT_AMBER_NAME',
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
-        'ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT',
+        'ICON_UNIT_TSOD_SCOUT_AMBER',
         '10',
         'Players:StandardPlayers'
     ),
@@ -103,7 +103,7 @@ VALUES
         'TRAIT_UNIT_TSOD_SCOUT_AMBER',
         'LOC_UNIT_TSOD_SCOUT_AMBER_NAME',
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
-        'ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT',
+        'ICON_UNIT_TSOD_SCOUT_AMBER',
         '10',
         'Players:Expansion1_Players'
     ),
@@ -123,7 +123,7 @@ VALUES
         'TRAIT_UNIT_TSOD_SCOUT_AMBER',
         'LOC_UNIT_TSOD_SCOUT_AMBER_NAME',
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
-        'ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT',
+        'ICON_UNIT_TSOD_SCOUT_AMBER',
         '10',
         'Players:Expansion2_Players'
     ),
