@@ -24,7 +24,7 @@ VALUES
     (
         'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
         'zh_Hans_CN',
-        '塞西尔帝国的技能介绍'
+        '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}'
     ),
     (
         'LOC_LEADER_TSOD_GAWAIN_CECIL_NAME',
@@ -51,6 +51,7 @@ VALUES
         'zh_Hans_CN',
         '高文·塞西尔向你问好'
     ),
+    -- City names
     ('LOC_CITY_NAME_TSOD_CECIL', 'zh_Hans_CN', '塞西尔城'),
     (
         'LOC_CITY_NAME_TSOD_SAINT_SUNIL',
@@ -120,6 +121,7 @@ VALUES
         'zh_Hans_CN',
         '霍尔郡'
     ),
+    -- Citizen names
     ('LOC_CITIZEN_NAME_TSOD_SAM', 'zh_Hans_CN', '山姆'),
     ('LOC_CITIZEN_NAME_TSOD_TOM', 'zh_Hans_CN', '汤姆'),
     ('LOC_CITIZEN_NAME_TSOD_PEA', 'zh_Hans_CN', '豌豆'),
@@ -190,4 +192,15 @@ VALUES
         'LOC_CITIZEN_NAME_TSOD_SCARFACE_ANTON',
         'zh_Hans_CN',
         ''' 疤脸 ''安东'
+    ),
+    -- Traits
+    (
+        'LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION',
+        'zh_Hans_CN',
+        '改良的采石场+1[ICON_Science]科技。'
+    ),
+    (
+        'LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION',
+        'zh_Hans_CN',
+        '正确改良的硝石+3[ICON_Faith]信仰。'
     );

@@ -1,11 +1,7 @@
 INSERT INTO
     Types (Type, Kind)
 VALUES
-    ('UNIT_TSOD_SCOUT_AMBER', 'KIND_UNIT'),
-    (
-        'ABILITY_TSOD_SCOUT_AMBER_IGNORE_TERRAIN',
-        'KIND_ABILITY'
-    );
+    ('UNIT_TSOD_SCOUT_AMBER', 'KIND_UNIT');
 
 INSERT INTO
     UnitAiInfos (UnitType, AiType)
@@ -97,7 +93,7 @@ INSERT INTO
 VALUES
     (
         'DISTRICT_CITY_CENTER',
-        'MODIFIER_GRANT_TSOD_SCOUT_AMBER'
+        'GRANT_TSOD_SCOUT_AMBER'
     );
 
 INSERT INTO
@@ -113,7 +109,7 @@ INSERT INTO
     )
 VALUES
     (
-        'MODIFIER_GRANT_TSOD_SCOUT_AMBER',
+        'GRANT_TSOD_SCOUT_AMBER',
         'MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL',
         0,
         0,
@@ -127,13 +123,13 @@ INSERT INTO
     ModifierArguments (ModifierId, Name, Value)
 VALUES
     (
-        'MODIFIER_GRANT_TSOD_SCOUT_AMBER',
+        'GRANT_TSOD_SCOUT_AMBER',
         'AllowUniqueOverride',
         '0'
     ),
-    ('MODIFIER_GRANT_TSOD_SCOUT_AMBER', 'Amount', '1'),
+    ('GRANT_TSOD_SCOUT_AMBER', 'Amount', '1'),
     (
-        'MODIFIER_GRANT_TSOD_SCOUT_AMBER',
+        'GRANT_TSOD_SCOUT_AMBER',
         'UnitType',
         'UNIT_TSOD_SCOUT_AMBER'
     );
