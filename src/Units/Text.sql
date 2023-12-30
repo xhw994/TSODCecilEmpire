@@ -11,15 +11,15 @@ VALUES
         'zh_Hans_CN',
         '战斗力不足5的暗影突击鹅。'
     ),
-    (
-        'LOC_ABILITY_TSOD_SCOUT_AMBER_IGNORE_TERRAIN_TERRAIN_NAME',
+	(
+        'LOC_GREAT_PERSON_CLASS_TSOD_CECIL_EMPIRE_SCIENTIST_NAME',
         'zh_Hans_CN',
-        '遁入暗影界'
+        '塞西尔的大科学家'
     ),
-    (
-        'LOC_ABILITY_TSOD_SCOUT_AMBER_IGNORE_TERRAIN_DESCRIPTION',
+	(
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_REBECCA_CECIL_NAME',
         'zh_Hans_CN',
-        '无视地形、地貌和河流的移动力消耗。'
+        '瑞贝卡·塞西尔'
     );
 
 INSERT INTO
@@ -33,12 +33,4 @@ VALUES
     (
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
         'Has power level of 5, can''t even beat a goose.'
-    ),
-    (
-        'LOC_ABILITY_TSOD_SCOUT_AMBER_IGNORE_TERRAIN_TERRAIN_NAME',
-        'Into the Shadow Realm'
-    ),
-    (
-        'LOC_ABILITY_TSOD_SCOUT_AMBER_IGNORE_TERRAIN_DESCRIPTION',
-        'Ignore [ICON_MOVEMENT] movement penalty from all Terrians, Features and Rivers.'
     );
