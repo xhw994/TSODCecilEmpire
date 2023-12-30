@@ -89,10 +89,10 @@ VALUES
     );
 
 INSERT INTO
-    DistrictModifiers (DistrictType, ModifierId)
+    TraitModifiers (TraitType, ModifierId)
 VALUES
     (
-        'DISTRICT_CITY_CENTER',
+        'TRAIT_UNIT_TSOD_SCOUT_AMBER',
         'GRANT_TSOD_SCOUT_AMBER'
     );
 
@@ -104,8 +104,7 @@ INSERT INTO
         Permanent,
         NewOnly,
         OwnerRequirementSetId,
-        SubjectRequirementSetId,
-        SubjectStackLimit
+        SubjectRequirementSetId
     )
 VALUES
     (
@@ -114,9 +113,8 @@ VALUES
         0,
         0,
         0,
-        'PLAYER_IS_TSOD_CECIL_EMPIRE_REQUIREMENTS',
-        NULL,
-        1
+        'PLAYER_HAS_CITY_CENTER_DISTRICT_REQUIREMENTS',
+        NULL
     );
 
 INSERT INTO
@@ -132,4 +130,39 @@ VALUES
         'GRANT_TSOD_SCOUT_AMBER',
         'UnitType',
         'UNIT_TSOD_SCOUT_AMBER'
+    );
+
+-- RequirementSets
+INSERT
+OR REPLACE INTO RequirementSets (RequirementSetId, RequirementSetType)
+VALUES
+    (
+        'PLAYER_HAS_CITY_CENTER_DISTRICT_REQUIREMENTS',
+        'REQUIREMENTSET_TEST_ALL'
+    );
+
+INSERT
+OR REPLACE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+VALUES
+    (
+        'PLAYER_HAS_CITY_CENTER_DISTRICT_REQUIREMENTS',
+        'PLAYER_HAS_CITY_CENTER_DISTRICT_REQUIREMENT'
+    );
+
+-- Requirements
+INSERT
+OR REPLACE INTO Requirements (RequirementId, RequirementType)
+VALUES
+    (
+        'PLAYER_HAS_CITY_CENTER_DISTRICT_REQUIREMENT',
+        'REQUIREMENT_PLAYER_HAS_DISTRICT'
+    );
+
+INSERT
+OR REPLACE INTO RequirementArguments (RequirementId, Name, Value)
+VALUES
+    (
+        'PLAYER_HAS_CITY_CENTER_DISTRICT_REQUIREMENT',
+        'DistrictType',
+        'DISTRICT_CITY_CENTER'
     );
