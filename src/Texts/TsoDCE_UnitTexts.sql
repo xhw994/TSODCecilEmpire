@@ -25,12 +25,16 @@ VALUES
 INSERT INTO
     EnglishText (Tag, Text)
 VALUES
-    (
-        'LOC_ABILITY_MILLITARY_ENGINEER_IGNORE_TERRAIN_DESCRIPTION',
-        'Ignore [ICON_MOVEMENT] movement penalty from all Terrians, Features and Rivers.'
-    ),
     ('LOC_UNIT_TSOD_SCOUT_AMBER_NAME', 'Amber'),
     (
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
         'Has power level of 5, can''t even beat a goose.'
+    ),
+	(
+        'LOC_GREAT_PERSON_CLASS_TSOD_CECIL_EMPIRE_SCIENTIST_NAME',
+        'Great scientists of Cecil Empire'
+    ),
+	(
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_REBECCA_CECIL_NAME',
+        'Rebecca Cecil'
     );

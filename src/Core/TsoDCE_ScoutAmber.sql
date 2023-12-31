@@ -132,7 +132,6 @@ VALUES
         'UNIT_TSOD_SCOUT_AMBER'
     );
 
--- RequirementSets
 INSERT
 OR REPLACE INTO RequirementSets (RequirementSetId, RequirementSetType)
 VALUES
@@ -149,7 +148,6 @@ VALUES
         'PLAYER_HAS_CITY_CENTER_DISTRICT_REQUIREMENT'
     );
 
--- Requirements
 INSERT
 OR REPLACE INTO Requirements (RequirementId, RequirementType)
 VALUES
