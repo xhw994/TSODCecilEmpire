@@ -2,11 +2,11 @@ local CecilPlayersNum = nil
 local CecilPlayersMap = nil
 
 local TraitCecilEmpire = 'TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE'
-local GreatPeopleTypePrefix = 'GREAT_PERSON_INDIVIDUAL_TSOD_'
-local GreatPeopleClassPrefix = 'GREAT_PERSON_CLASS_TSOD_CECIL_EMPIRE_'
-local GreatPeopleOfCecilList = 'TSOD_GreatPeopleOfCecilList'
+local GreatPeopleTypePrefix = 'GREAT_PERSON_INDIVIDUAL_TSOD_CE_'
+local GreatPeopleClassPrefix = 'GREAT_PERSON_CLASS_TSOD_CE_'
+local GreatPeopleOfCecilAvailability = 'TSOD_GreatPeopleOfCecilAvailability'
 
-function startsWith(String, Start)
+local function startsWith(String, Start)
     return string.sub(String, 1, string.len(Start)) == Start
 end
 
@@ -38,7 +38,7 @@ end
 function GrantGreatPeopleOfCecil(iPlayer, sType, sClass, sEra)
     print('Start granting great people')
     local pPlayer = Players[iPlayer]
-    local tList = pPlayer:GetProperty(GreatPeopleOfCecilList)
+    local tList = pPlayer:GetProperty(GreatPeopleOfCecilAvailability)
     if not tList or #tList < 1 then
 		if tList == nil then
 			print("null tList")
@@ -74,7 +74,7 @@ function GrantGreatPeopleOfCecil(iPlayer, sType, sClass, sEra)
     Game.GetGreatPeople():GrantPerson(hIndividual, hClass, hEra, 0, iPlayer, false)
 
     tList[sFullType] = false
-    pPlayer:SetProperty(GreatPeopleOfCecilList, tList)
+    pPlayer:SetProperty(GreatPeopleOfCecilAvailability, tList)
 
     print('Granted great person ' .. sFullType .. ' to TSOD Cecil Empire player')
 end
@@ -102,7 +102,7 @@ end
 
 function InitGreatPeopleOfCecil()
     print('Initializing TSOD Cecil Empire civilization traits...')
-    local tGreatPeople = {}
+    local tGreatPeopleAvailability = {}
 
     CecilPlayersMap, CecilPlayersNum = GetPlayersWithTrait(TraitCecilEmpire)
     if (CecilPlayersNum < 1) then
@@ -110,7 +110,7 @@ function InitGreatPeopleOfCecil()
     end
 
     for _, pPlayer in pairs(CecilPlayersMap) do
-        local tList = pPlayer:GetProperty(GreatPeopleOfCecilList)
+        local tList = pPlayer:GetProperty(GreatPeopleOfCecilAvailability)
 
 		if tList == nil then
 			print("null tList")
@@ -121,19 +121,19 @@ function InitGreatPeopleOfCecil()
         if (not tList) or (#tList < 1) then
             for tRow in GameInfo.GreatPersonIndividuals() do
                 if startsWith(tRow.GreatPersonIndividualType, GreatPeopleTypePrefix) then
-					tGreatPeople[tRow.GreatPersonIndividualType] = true
-                    table.insert(tGreatPeople, tRow.GreatPersonIndividualType)
+					tGreatPeopleAvailability[tRow.GreatPersonIndividualType] = true
+                    table.insert(tGreatPeopleAvailability, tRow.GreatPersonIndividualType)
                 end
             end
-            for key, value in pairs(tGreatPeople) do
+            for key, value in pairs(tGreatPeopleAvailability) do
                 print(key .. ': ' .. tostring(value))
             end
-            pPlayer:SetProperty(GreatPeopleOfCecilList, tGreatPeople)
+            pPlayer:SetProperty(GreatPeopleOfCecilAvailability, tGreatPeopleAvailability)
         end
     end
 
     GameEvents.OnDistrictConstructed.Add(TsodCecilEmpireDistrictConstructed)
-    print('Successfully initialized TSOD Cecil Empire players')
+    print('Successfully initialized TSOD Cecil Empire civilization traits')
 end
 
 InitGreatPeopleOfCecil()

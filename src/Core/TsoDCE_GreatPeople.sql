@@ -1,147 +1,151 @@
---INSERT INTO
---Types (Type, Kind)
---VALUES
---('UNIT_TSOD_CECIL_EMPIRE_GREATPEOPLE', 'KIND_UNIT');
---
---INSERT INTO Units
---(
---UnitType,
---Name,
---Description,
---
---TraitType,
---Cost,
---
---BaseSightRange,
---BaseMoves,
---ZoneOfControl,
---
---Domain,
---FormationClass,
---
---CanCapture,
---CanRetreatWhenCaptured,
---CanTrain
---)
---SELECT
---'UNIT_TSOD_CECIL_EMPIRE_GREATPEOPLE',
---'LOC_UNIT_TSOD_CECIL_EMPIRE_GREATPEOPLE_NAME',
---'LOC_UNIT_TSOD_CECIL_EMPIRE_GREATPEOPLE_DESCRIPTION',
---
---'TRAIT_UNIT_TSOD_CECIL_EMPIRE_GREATPEOPLE',
---Cost,
---
---BaseSightRange,
---BaseMoves,
---ZoneOfControl,
---
---Domain,
---FormationClass,
---
---CanCapture,
---CanRetreatWhenCaptured,
---CanTrain
---
---FROM Units WHERE UnitType = 'UNIT_GREAT_GENERAL';
---
---INSERT INTO
---TypeTags (Type, Tag)
---VALUES
---(
---'UNIT_TSOD_CECIL_EMPIRE_GREATPEOPLE',
---'CLASS_LANDCIVILIAN'
---),
---(
---'UNIT_TSOD_CECIL_EMPIRE_GREATPEOPLE',
---'CLASS_ALL_ERAS'
---);
---
---INSERT INTO
---UnitAiInfos (UnitType, AiType)
---VALUES
---(
---'UNIT_TSOD_CECIL_EMPIRE_GREATPEOPLE',
---'UNITTYPE_CIVILIAN'
---);
--- Great people
+CREATE TEMPORARY TABLE TsoDGreatPeopleOfCecil (
+    IndividualType TEXT NOT NULL,
+    ClassType TEXT NOT NULL,
+    DistrictType TEXT NOT NULL,
+    EraType TEXT NOT NULL,
+    Gender TEXT NOT NULL,
+    ActionRequiresCompletedDistrictType TEXT NOT NULL,
+    ActionCharges INT NOT NULL,
+    PRIMARY KEY (IndividualType)
+);
+
 INSERT INTO
-    Types (Type, Kind)
+    TsoDGreatPeopleOfCecil (
+        IndividualType,
+        ClassType,
+        DistrictType,
+        EraType,
+        Gender,
+        ActionRequiresCompletedDistrictType,
+        ActionCharges
+    )
 VALUES
-    -- Great person classes
+    --(
+    --'SIR_PHILIP',
+    --'GENERAL',
+    --'DISTRICT_ENCAMPMENT',
+    --'ERA_CLASSICAL',
+    --'M',
+    --'DISTRICT_ENCAMPMENT',
+    --1
+    --),
+    --(
+    --'BYRON_KIRK',
+    --'ADMIRAL',
+    --'DISTRICT_HARBOR',
+    --'ERA_CLASSICAL',
+    --'M',
+    --'DISTRICT_HARBOR',
+    --1
+    --),
+    --(
+    --'ST_NICHOLAS_EGG_EXEC',
+    --'ENGINEER',
+    --'DISTRICT_INDUSTRIAL_ZONE',
+    --'ERA_CLASSICAL',
+    --'M',
+    --'DISTRICT_INDUSTRIAL_ZONE',
+    --1
+    --),
+    --(
+    --'PITMAN_LAUREN',
+    --'MERCHANT',
+    --'DISTRICT_COMMERCIAL_HUB',
+    --'ERA_CLASSICAL',
+    --'M',
+    --'DISTRICT_COMMERCIAL_HUB',
+    --1
+    --),
     (
-        'GREAT_PERSON_CLASS_TSOD_CECIL_EMPIRE_SCIENTIST',
-        'KIND_GREAT_PERSON_CLASS'
-    ),
-    -- Great person individuals
-    (
-        'GREAT_PERSON_INDIVIDUAL_TSOD_REBECCA_CECIL',
-        'KIND_GREAT_PERSON_INDIVIDUAL'
+        'REBECCA_CECIL',
+        'SCIENTIST',
+        'DISTRICT_CAMPUS',
+        'ERA_ANCIENT',
+        'F',
+        'DISTRICT_CAMPUS',
+        1
     );
 
 --(
---'GREAT_PERSON_INDIVIDUAL_TSOD_SANTIS_SAIDE',
---'KIND_GREAT_PERSON_INDIVIDUAL'
+--'JENNIE_PERRO',
+--'SCIENTIST',
+--'DISTRICT_CAMPUS',
+--'ERA_CLASSICAL',
+--'F',
+--'DISTRICT_CAMPUS',
+--1
 --),
 --(
---'GREAT_PERSON_INDIVIDUAL_TSOD_KAMEL_SLAYEN',
---'KIND_GREAT_PERSON_INDIVIDUAL'
+--'SANTIS_SAIDE',
+--'SCIENTIST',
+--'DISTRICT_CAMPUS',
+--'ERA_MEDIEVAL',
+--'M',
+--'DISTRICT_CAMPUS',
+--1
 --),
 --(
---'GREAT_PERSON_INDIVIDUAL_TSOD_JENNIE_PERRO',
---'KIND_GREAT_PERSON_INDIVIDUAL'
+--'KAMEL_SLAYEN',
+--'SCIENTIST',
+--'DISTRICT_CAMPUS',
+--'ERA_MODERN',
+--'F',
+--'DISTRICT_CAMPUS',
+--1
 --),
 --(
---'GREAT_PERSON_INDIVIDUAL_TSOD_HETTIE_CECIL',
---'KIND_GREAT_PERSON_INDIVIDUAL'
+--'LEITE_AVIKEN',
+--'PROPHET',
+--'DISTRICT_HOLY_SITE',
+--'ERA_ANCIENT',
+--'M',
+--'DISTRICT_HOLY_SITE',
+--1
 --),
 --(
---'GREAT_PERSON_INDIVIDUAL_TSOD_NORRIS',
---'KIND_GREAT_PERSON_INDIVIDUAL'
+--'HETTIE_CECIL',
+--'MERCHANT',
+--'DISTRICT_GOVERNMENT', -- Ep1 R:F
+--'ERA_ANCIENT',
+--'F',
+--'DISTRICT_GOVERNMENT',
+--1
 --),
 --(
---'GREAT_PERSON_INDIVIDUAL_TSOD_LEITE_AVIKEN',
---'KIND_GREAT_PERSON_INDIVIDUAL'
---),
---(
---'GREAT_PERSON_INDIVIDUAL_TSOD_PITMAN_LAUREN',
---'KIND_GREAT_PERSON_INDIVIDUAL'
---),
---(
---'GREAT_PERSON_INDIVIDUAL_TSOD_ST_NICHOLAS_EGG_EXEC',
---'KIND_GREAT_PERSON_INDIVIDUAL'
---),
---(
---'GREAT_PERSON_INDIVIDUAL_TSOD_SIR_PHILIP',
---'KIND_GREAT_PERSON_INDIVIDUAL'
---),
---(
---'GREAT_PERSON_INDIVIDUAL_TSOD_BYRON_KIRK',
---'KIND_GREAT_PERSON_INDIVIDUAL'
---),
---(
---'GREAT_PERSON_INDIVIDUAL_TSOD_GINA',
---'KIND_GREAT_PERSON_INDIVIDUAL'
---),
---(
---'GREAT_PERSON_INDIVIDUAL_TSOD_VISCOUNT_MARYLAND',
---'KIND_GREAT_PERSON_INDIVIDUAL'
+--'NORRIS',
+--'SCIENTIST',
+--'DISTRICT_CAMPUS',
+--'ERA_CLASSICAL',
+--'M',
+--'DISTRICT_PRESERVE', -- Kublai Khan Vietanam pack
+--1
 --);
---INSERT INTO
---Traits (TraitType, Name, Description)
---VALUES
---(
---'TRAIT_TSOD_CECIL_GREATPEOPLE',
---'LOC_TRAIT_TSOD_CECIL_GREATPEOPLE_NAME',
---'LOC_TRAIT_TSOD_CECIL_GREATPEOPLE_DESCRIPTION'
---);
---
---INSERT INTO
---CivilizationTraits (CivilizationType, TraitType)
---VALUES
---(
---'CIVILIZATION_TSOD_CECIL_EMPIRE',
---'TRAIT_TSOD_CECIL_GREATPEOPLE'
---);
+CREATE TEMPORARY TABLE TsoDGreatPersonClasses AS
+SELECT
+    ClassType,
+    DistrictType
+FROM
+    TsoDGreatPeopleOfCecil
+GROUP BY
+    ClassType,
+    DistrictType;
+
+INSERT INTO
+    Types (Type, Kind)
+SELECT
+    'GREAT_PERSON_CLASS_TSOD_CE_' || ClassType,
+    'KIND_GREAT_PERSON_CLASS'
+FROM
+    TsoDGreatPersonClasses;
+
+INSERT INTO
+    Types (Type, Kind)
+SELECT
+    'GREAT_PERSON_INDIVIDUAL_TSOD_CE_' || IndividualType,
+    'KIND_GREAT_PERSON_INDIVIDUAL'
+FROM
+    TsoDGreatPeopleOfCecil;
+
 INSERT INTO
     GreatPersonClasses (
         GreatPersonClassType,
@@ -154,18 +158,18 @@ INSERT INTO
         IconString,
         ActionIcon
     )
-VALUES
-    (
-        'GREAT_PERSON_CLASS_TSOD_CECIL_EMPIRE_SCIENTIST',
-        'LOC_GREAT_PERSON_CLASS_TSOD_CECIL_EMPIRE_SCIENTIST_NAME',
-        'UNIT_GREAT_SCIENTIST',
-        'DISTRICT_CAMPUS',
-        0,
-        0,
-        'PSEUDOYIELD_GPP_SCIENTIST',
-        '[ICON_GreatScientist]',
-        'ICON_UNITOPERATION_SCIENTIST_ACTION'
-    );
+SELECT
+    'GREAT_PERSON_CLASS_TSOD_CE_' || ClassType,
+    'LOC_GREAT_PERSON_CLASS_TSOD_CE_' || ClassType || '_NAME',
+    'UNIT_GREAT_' || ClassType,
+    DistrictType,
+    0,
+    0,
+    'PSEUDOYIELD_GPP_' || ClassType,
+    '[ICON_Great' || SUBSTR (ClassType, 1, 1) || LOWER(SUBSTR (ClassType, 2)) || ']',
+    'ICON_UNITOPERATION_' || ClassType || '_ACTION'
+FROM
+    TsoDGreatPersonClasses;
 
 INSERT INTO
     GreatPersonIndividuals (
@@ -177,16 +181,16 @@ INSERT INTO
         ActionRequiresCompletedDistrictType,
         ActionCharges
     )
-VALUES
-    (
-        'GREAT_PERSON_INDIVIDUAL_TSOD_REBECCA_CECIL',
-        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_REBECCA_CECIL_NAME',
-        'GREAT_PERSON_CLASS_TSOD_CECIL_EMPIRE_SCIENTIST',
-        'ERA_CLASSICAL',
-        'F',
-        'DISTRICT_CAMPUS',
-        1
-    );
+SELECT
+    'GREAT_PERSON_INDIVIDUAL_TSOD_CE_' || IndividualType,
+    'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_' || IndividualType || '_NAME',
+    'GREAT_PERSON_CLASS_TSOD_CE_' || ClassType,
+    EraType,
+    Gender,
+    ActionRequiresCompletedDistrictType,
+    ActionCharges
+FROM
+    TsoDGreatPeopleOfCecil;
 
 INSERT INTO
     GreatPersonIndividualActionModifiers (
@@ -196,8 +200,8 @@ INSERT INTO
     )
 VALUES
     (
-        'GREAT_PERSON_INDIVIDUAL_TSOD_REBECCA_CECIL',
-        'GREAT_PERSON_TSOD_REBECCA_CECIL_GIVE_SETTLER',
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL',
+        'GREAT_PERSON_TSOD_CE_REBECCA_CECIL_GIVE_SETTLER',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON'
     );
 
@@ -213,7 +217,7 @@ INSERT INTO
     )
 VALUES
     (
-        'GREAT_PERSON_TSOD_REBECCA_CECIL_GIVE_SETTLER',
+        'GREAT_PERSON_TSOD_CE_REBECCA_CECIL_GIVE_SETTLER',
         'MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL',
         0,
         0,
@@ -226,17 +230,17 @@ INSERT INTO
     ModifierArguments (ModifierId, Name, Value)
 VALUES
     (
-        'GREAT_PERSON_TSOD_REBECCA_CECIL_GIVE_SETTLER',
+        'GREAT_PERSON_TSOD_CE_REBECCA_CECIL_GIVE_SETTLER',
         'AllowUniqueOverride',
         '0'
     ),
     (
-        'GREAT_PERSON_TSOD_REBECCA_CECIL_GIVE_SETTLER',
+        'GREAT_PERSON_TSOD_CE_REBECCA_CECIL_GIVE_SETTLER',
         'Amount',
         '1'
     ),
     (
-        'GREAT_PERSON_TSOD_REBECCA_CECIL_GIVE_SETTLER',
+        'GREAT_PERSON_TSOD_CE_REBECCA_CECIL_GIVE_SETTLER',
         'UnitType',
         'UNIT_SETTLER'
     );
