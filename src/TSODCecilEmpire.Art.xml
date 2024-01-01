@@ -585,6 +585,18 @@
             </relativePackagePaths>
         </Element>
         <Element>
+            <libraryName text="UITexture"/>
+            <relativePackagePaths>
+                <Element text="UILeaders"/>
+            </relativePackagePaths>
+        </Element>
+        <Element>
+            <libraryName text="UITexture"/>
+            <relativePackagePaths>
+                <Element text="LeaderFallbacks"/>
+            </relativePackagePaths>
+        </Element>
+        <Element>
             <libraryName text="Unit"/>
             <relativePackagePaths>
             </relativePackagePaths>

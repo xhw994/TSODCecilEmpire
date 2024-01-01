@@ -10,8 +10,8 @@
 	<m_PackageName text="LeaderFallbacks"/>
 	<m_Entries>
 		<Element>
-			<m_EntryID text="IMG_DIPLOMACY_FOREGROUND_CECIL_EMPIRE"/>
-			<m_ObjectName text="IMG_DIPLOMACY_FOREGROUND_CECIL_EMPIRE"/>
+			<m_EntryID text="FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL"/>
+			<m_ObjectName text="FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL"/>
 		</Element>
 	</m_Entries>
 	<m_AllowedPlatforms>

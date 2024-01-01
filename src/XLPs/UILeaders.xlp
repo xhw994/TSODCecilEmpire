@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AssetObjects..XLP>
+	<m_Version>
+		<major>1</major>
+		<minor>0</minor>
+		<build>0</build>
+		<revision>0</revision>
+	</m_Version>
+	<m_ClassName text="UITexture"/>
+	<m_PackageName text="UILeaders"/>
+	<m_Entries>
+		<Element>
+			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_256"/>
+			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_256"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_32"/>
+			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_45"/>
+			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_45"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_48"/>
+			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_48"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_50"/>
+			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_50"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_55"/>
+			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_55"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_64"/>
+			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_64"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_80"/>
+			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_80"/>
+		</Element>
+		<Element>
+			<m_EntryID text="LEADER_TSOD_GAWAIN_CECIL_NEUTRAL"/>
+			<m_ObjectName text="LEADER_TSOD_GAWAIN_CECIL_NEUTRAL"/>
+		</Element>
+		<Element>
+			<m_EntryID text="LEADER_TSOD_GAWAIN_CECIL_BACKGROUND"/>
+			<m_ObjectName text="LEADER_TSOD_GAWAIN_CECIL_BACKGROUND"/>
+		</Element>
+		<Element>
+			<m_EntryID text="LEADER_TSOD_GAWAIN_CECIL_LOADING_BACKGROUND"/>
+			<m_ObjectName text="LEADER_TSOD_GAWAIN_CECIL_LOADING_BACKGROUND"/>
+		</Element>
+		<Element>
+			<m_EntryID text="LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND"/>
+			<m_ObjectName text="LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND"/>
+		</Element>
+		<Element>
+			<m_EntryID text="LEADER_TSOD_GAWAIN_CECIL_DIPLOMACY_BACKGROUND"/>
+			<m_ObjectName text="LEADER_TSOD_GAWAIN_CECIL_DIPLOMACY_BACKGROUND"/>
+		</Element>
+	</m_Entries>
+	<m_AllowedPlatforms>
+		<Element>WINDOWS</Element>
+		<Element>MACOS</Element>
+		<Element>IOS</Element>
+		<Element>LINUX</Element>
+		<Element>XBONE</Element>
+		<Element>PS4</Element>
+		<Element>SWITCH</Element>
+		<Element>STADIA</Element>
+	</m_AllowedPlatforms>
+</AssetObjects..XLP>
+

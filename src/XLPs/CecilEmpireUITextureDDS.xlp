@@ -10,22 +10,6 @@
 	<m_PackageName text="CecilEmpireUITextureDDS"/>
 	<m_Entries>
 		<Element>
-			<m_EntryID text="IMG_DIPLOMACY_BACKGROUND_CECIL_EMPIRE"/>
-			<m_ObjectName text="IMG_DIPLOMACY_BACKGROUND_CECIL_EMPIRE"/>
-		</Element>
-		<Element>
-			<m_EntryID text="IMG_LOADING_BACKGROUND_CECIL_EMPIRE"/>
-			<m_ObjectName text="IMG_LOADING_BACKGROUND_CECIL_EMPIRE"/>
-		</Element>
-		<Element>
-			<m_EntryID text="IMG_LOADING_FOREGROUND_CECIL_EMPIRE"/>
-			<m_ObjectName text="IMG_LOADING_FOREGROUND_CECIL_EMPIRE"/>
-		</Element>
-		<Element>
-			<m_EntryID text="IMG_SELECTION_FOREGROUND_CECIL_EMPIRE"/>
-			<m_ObjectName text="IMG_SELECTION_FOREGROUND_CECIL_EMPIRE"/>
-		</Element>
-		<Element>
 			<m_EntryID text="ICON_BUILDING_TSOD_MANA_OBELISK_128"/>
 			<m_ObjectName text="ICON_BUILDING_TSOD_MANA_OBELISK_128"/>
 		</Element>
@@ -72,38 +56,6 @@
 		<Element>
 			<m_EntryID text="ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT_95"/>
 			<m_ObjectName text="ICON_UNIT_TSOD_SCOUT_AMBER_PORTRAIT_95"/>
-		</Element>
-		<Element>
-			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_256"/>
-			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_256"/>
-		</Element>
-		<Element>
-			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_32"/>
-			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_32"/>
-		</Element>
-		<Element>
-			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_45"/>
-			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_45"/>
-		</Element>
-		<Element>
-			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_48"/>
-			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_48"/>
-		</Element>
-		<Element>
-			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_50"/>
-			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_50"/>
-		</Element>
-		<Element>
-			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_55"/>
-			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_55"/>
-		</Element>
-		<Element>
-			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_64"/>
-			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_64"/>
-		</Element>
-		<Element>
-			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_80"/>
-			<m_ObjectName text="ICON_LEADER_TSOD_GAWAIN_CECIL_80"/>
 		</Element>
 		<Element>
 			<m_EntryID text="ICON_CIVILIZATION_TSOD_CECIL_EMPIRE_128"/>

@@ -13,6 +13,7 @@ INSERT INTO
         LeaderName,
         LeaderType,
         Portrait,
+		PortraitBackground,
         Domain
     )
 VALUES
@@ -29,7 +30,8 @@ VALUES
         'ICON_LEADER_TSOD_GAWAIN_CECIL',
         'LOC_LEADER_TSOD_GAWAIN_CECIL_NAME',
         'LEADER_TSOD_GAWAIN_CECIL',
-        'IMG_SELECTION_FOREGROUND_CECIL_EMPIRE',
+        'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL',
+		'LEADER_TSOD_GAWAIN_CECIL_BACKGROUND',
         'Players:StandardPlayers'
     ),
     (
@@ -45,7 +47,8 @@ VALUES
         'ICON_LEADER_TSOD_GAWAIN_CECIL',
         'LOC_LEADER_TSOD_GAWAIN_CECIL_NAME',
         'LEADER_TSOD_GAWAIN_CECIL',
-        'IMG_SELECTION_FOREGROUND_CECIL_EMPIRE',
+        'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL',
+		'LEADER_TSOD_GAWAIN_CECIL_BACKGROUND',
         'Players:Expansion1_Players'
     ),
     (
@@ -61,7 +64,8 @@ VALUES
         'ICON_LEADER_TSOD_GAWAIN_CECIL',
         'LOC_LEADER_TSOD_GAWAIN_CECIL_NAME',
         'LEADER_TSOD_GAWAIN_CECIL',
-        'IMG_SELECTION_FOREGROUND_CECIL_EMPIRE',
+        'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL',
+		'LEADER_TSOD_GAWAIN_CECIL_BACKGROUND',
         'Players:Expansion2_Players'
     );
 

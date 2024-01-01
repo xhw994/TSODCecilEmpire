@@ -23,7 +23,7 @@
 							<m_Fields>
 								<m_Values>
 									<Element class="AssetObjects..BLPEntryValue">
-										<m_EntryName text="IMG_DIPLOMACY_FOREGROUND_CECIL_EMPIRE"/>
+										<m_EntryName text="FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL"/>
 										<m_XLPClass text="LeaderFallback"/>
 										<m_XLPPath text="LeaderFallbacks.xlp"/>
 										<m_BLPPackage text="LeaderFallbacks"/>
