@@ -4,12 +4,12 @@ VALUES
     (
         'LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME',
         'zh_Hans_CN',
-        '塞西尔帝国'
+        '塞西尔'
     ),
     (
         'LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
         'zh_Hans_CN',
-        '塞西尔帝国的介绍'
+        '塞西尔帝国'
     ),
     (
         'LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_ADJECTIVE',
@@ -44,7 +44,7 @@ VALUES
     (
         'LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL',
         'zh_Hans_CN',
-        '高文·塞西尔，骑士之主，开拓者，保护者，王国奠基之人，我们尊其为南境守护。'
+        '高文·塞西尔，骑士之主，开拓者，保护者，王国奠基之人，在这片土地还被称为安苏的时候，你便是它的南境守护。这些年，你立下了不少丰功伟绩，振兴南境，统一国家，引领一个时代，乃至于整合这颗星球上的文明——你收复了废土，击败了神明，现在你还将引领这个世界对抗魔潮，完成文明迈向星空前的最后一次考验……多么惊人的成就啊，而在许多人心中，这些功绩皆集于你一身，那么在完成这些丰功伟绩的时候，有没有那么一刻，哪怕只是一个瞬间，你意识到自己已经……宛若神明？'
     ),
     (
         'LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING',
