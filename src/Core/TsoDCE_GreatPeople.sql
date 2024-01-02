@@ -63,36 +63,36 @@ VALUES
         'ERA_ANCIENT',
         'F',
         'DISTRICT_CAMPUS',
+        3
+    ),
+    (
+        'JENNIE_PERRO',
+        'SCIENTIST',
+        'DISTRICT_CAMPUS',
+        'ERA_CLASSICAL',
+        'F',
+        'DISTRICT_CITY_CENTER',
+        2
+    ),
+    (
+        'SANTIS_SAIDE',
+        'SCIENTIST',
+        'DISTRICT_CAMPUS',
+        'ERA_MEDIEVAL',
+        'M',
+        'DISTRICT_CAMPUS',
+        1
+    ),
+    (
+        'KAMEL_SLAYEN',
+        'SCIENTIST',
+        'DISTRICT_CAMPUS',
+        'ERA_MODERN',
+        'M',
+        'DISTRICT_CAMPUS',
         1
     );
 
---(
---'JENNIE_PERRO',
---'SCIENTIST',
---'DISTRICT_CAMPUS',
---'ERA_CLASSICAL',
---'F',
---'DISTRICT_CAMPUS',
---1
---),
---(
---'SANTIS_SAIDE',
---'SCIENTIST',
---'DISTRICT_CAMPUS',
---'ERA_MEDIEVAL',
---'M',
---'DISTRICT_CAMPUS',
---1
---),
---(
---'KAMEL_SLAYEN',
---'SCIENTIST',
---'DISTRICT_CAMPUS',
---'ERA_MODERN',
---'F',
---'DISTRICT_CAMPUS',
---1
---),
 --(
 --'LEITE_AVIKEN',
 --'PROPHET',
@@ -179,7 +179,8 @@ INSERT INTO
         EraType,
         Gender,
         ActionRequiresCompletedDistrictType,
-        ActionCharges
+        ActionCharges,
+        ActionEffectTextOverride
     )
 SELECT
     'GREAT_PERSON_INDIVIDUAL_TSOD_CE_' || IndividualType,
@@ -188,59 +189,66 @@ SELECT
     EraType,
     Gender,
     ActionRequiresCompletedDistrictType,
-    ActionCharges
+    ActionCharges,
+    'LOC_GREATPERSON_TSOD_CE_' || IndividualType || '_ACTIVE'
 FROM
     TsoDGreatPeopleOfCecil;
 
 INSERT INTO
-    GreatPersonIndividualActionModifiers (
-        GreatPersonIndividualType,
-        ModifierId,
-        AttachmentTargetType
-    )
+    GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId,AttachmentTargetType)
 VALUES
+    -- Rebecca's ability is in TsoDCE_CivilizationTraits.lua
     (
-        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL',
-        'GREAT_PERSON_TSOD_CE_REBECCA_CECIL_GIVE_SETTLER',
-        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_UNIT_GREATPERSON'
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO',
+        'GRANT_TECHNOLOGY_MATHEMATICS',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO',
+        'GRANT_BUILDING_TSOD_MANA_OBELISK',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE'
     );
 
-INSERT INTO
-    Modifiers (
-        ModifierId,
-        ModifierType,
-        RunOnce,
-        Permanent,
-        NewOnly,
-        OwnerRequirementSetId,
-        SubjectRequirementSetId
-    )
+INSERT
+OR REPLACE INTO Modifiers (
+    ModifierId,
+    ModifierType,
+    RunOnce,
+    Permanent,
+    NewOnly,
+    OwnerRequirementSetId,
+    SubjectRequirementSetId
+)
 VALUES
     (
-        'GREAT_PERSON_TSOD_CE_REBECCA_CECIL_GIVE_SETTLER',
-        'MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL',
+        'GRANT_TECHNOLOGY_MATHEMATICS',
+        'MODIFIER_PLAYER_GRANT_SPECIFIC_TECHNOLOGY',
+        1,
+        1,
         0,
-        0,
+        NULL,
+        NULL
+    ),
+    (
+        'GRANT_BUILDING_TSOD_MANA_OBELISK',
+        'MODIFIER_SINGLE_CITY_GRANT_BUILDING_IN_CITY_IGNORE',
+        1,
+        1,
         0,
         NULL,
         NULL
     );
 
-INSERT INTO
-    ModifierArguments (ModifierId, Name, Value)
+INSERT
+OR REPLACE INTO ModifierArguments (ModifierId, Name, Value)
 VALUES
     (
-        'GREAT_PERSON_TSOD_CE_REBECCA_CECIL_GIVE_SETTLER',
-        'AllowUniqueOverride',
-        '0'
+        'GRANT_TECHNOLOGY_MATHEMATICS',
+        'TechType',
+        'TECH_MATHEMATICS'
     ),
     (
-        'GREAT_PERSON_TSOD_CE_REBECCA_CECIL_GIVE_SETTLER',
-        'Amount',
-        '1'
-    ),
-    (
-        'GREAT_PERSON_TSOD_CE_REBECCA_CECIL_GIVE_SETTLER',
-        'UnitType',
-        'UNIT_SETTLER'
+        'GRANT_BUILDING_TSOD_MANA_OBELISK',
+        'BuildingType',
+        'BUILDING_TSOD_MANA_OBELISK'
     );
