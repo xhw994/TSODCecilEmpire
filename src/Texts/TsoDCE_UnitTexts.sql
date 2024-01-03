@@ -9,7 +9,7 @@ VALUES
     (
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
         'zh_Hans_CN',
-        '战斗力不足5的暗影突击鹅。'
+        '塞西尔的特殊侦察单位。建立首都时自动获得，无法生产。初始拥有4视野，但正面战斗力极其薄弱。被击杀时将保留1点体力值，撤退至最近的城市。'
     ),
     (
         'LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME',
@@ -63,7 +63,7 @@ VALUES
     ('LOC_UNIT_TSOD_SCOUT_AMBER_NAME', 'Amber'),
     (
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
-        'Has power level of 5, can''t even beat a goose.'
+        'Cecil''s unique recon unit, automatically received upon establishing the Capital and cannot be produced. She starts with a vision range of 4 but has extremely weak combat strength. When killed, retreats with 1 HP to the nearest city.'
     ),
     (
         'LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME',
@@ -75,7 +75,7 @@ VALUES
     ),
     (
         'LOC_GREATPERSON_TSOD_CE_REBECCA_CECIL_ACTIVE',
-        ''
+        'Instantly complete the currently researching technology.'
     ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO_NAME',
@@ -83,7 +83,7 @@ VALUES
     ),
     (
         'LOC_GREATPERSON_TSOD_CE_JENNIE_PERRO_ACTIVE',
-        ''
+        'Instantly complete the Mathematics technology. Construct a Mana Obelisk in the City Center.'
     ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_NAME',
@@ -91,7 +91,7 @@ VALUES
     ),
     (
         'LOC_GREATPERSON_TSOD_CE_SANTIS_SAIDE_ACTIVE',
-        ''
+        'Immediately construct a University and Library in this district. The city gains +4 [ICON_Science] Science. All cities with a University receive +1 [ICON_Amenities] Amenities.'
     ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_NAME',
@@ -99,5 +99,5 @@ VALUES
     ),
     (
         'LOC_GREATPERSON_TSOD_CE_KAMEL_SLAYEN_ACTIVE',
-        ''
+        'Trigger a [ICON_TechBoosted] Eureka moment for the Electricity technology. Trigger an [ICON_CivicBoosted] Inspiration moment for the Cultural Heritage civic. Gain 350 Science (at standard speed) from each [ICON_GreatWork_Artifact] Artifact in this city.'
     );
