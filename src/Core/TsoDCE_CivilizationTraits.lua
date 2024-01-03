@@ -131,6 +131,9 @@ function OnGreatPersonActivated(unitOwner, unitID, greatPersonClassID, greatPers
         local playerTech = pPlayer:GetTechs()
         local currentTechId = playerTech:GetResearchingTech()
         playerTech:SetResearchProgress(currentTechId, playerTech:GetResearchCost(currentTechId))
+    elseif sIndividual == GreatPeopleTypePrefix .. 'KAMEL_SLAYEN' then
+        local culturaHerritageCivicId = GameInfo.Civics['CIVIC_CULTURAL_HERITAGE'].Index
+        pPlayer:GetCulture():TriggerBoost(culturaHerritageCivicId)
     end
 end
 

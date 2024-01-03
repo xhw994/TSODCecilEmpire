@@ -44,7 +44,7 @@ VALUES
     (
         'LOC_GREATPERSON_TSOD_CE_SANTIS_SAIDE_ACTIVE',
         'zh_Hans_CN',
-        '立即在该区域建造大学和图书馆。本大学+6[ICON_Science]科技。全国所有拥有大学的城市+1[ICON_Amenities]宜居度。'
+        '立即在该区域建造大学和图书馆。该城市+4[ICON_Science]科技。所有拥有大学的城市+1[ICON_Amenities]宜居度。'
     ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_NAME',
@@ -54,7 +54,7 @@ VALUES
     (
         'LOC_GREATPERSON_TSOD_CE_KAMEL_SLAYEN_ACTIVE',
         'zh_Hans_CN',
-        '为电力科技以及两个现代或原子时代的科技启动尤里卡时刻。本城的研究室+4[ICON_Science]科技。'
+        '为电力科技启动[ICON_TechBoosted]尤里卡时刻。为文化遗产市政启动[ICON_CivicBoosted]鼓舞时刻。从该城市每个[ICON_GreatWork_Artifact]文物获得350科技值（标准速度下）。'
     );
 
 INSERT INTO

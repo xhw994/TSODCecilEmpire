@@ -224,13 +224,23 @@ VALUES
     ),
     (
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE',
-        'GREATPERSON_CITY_ADD_6_SCIENCE_YIELD',
+        'GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_CITY'
     ),
     (
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE',
         'UNIVERSITY_BONUS_AMENITY_ATTACH',
-		'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN',
+        'GREATPERSON_ELECTRICITYTECHBOOST',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN',
+        'GREATPERSON_ARTIFACT_SCIENCE',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE'
     );
 
 INSERT
@@ -241,7 +251,8 @@ OR REPLACE INTO Modifiers (
     Permanent,
     NewOnly,
     OwnerRequirementSetId,
-    SubjectRequirementSetId
+    SubjectRequirementSetId,
+    SubjectStackLimit
 )
 VALUES
     (
@@ -250,6 +261,7 @@ VALUES
         1,
         1,
         0,
+        NULL,
         NULL,
         NULL
     ),
@@ -260,14 +272,16 @@ VALUES
         1,
         0,
         NULL,
+        NULL,
         NULL
     ),
     (
-        'GREATPERSON_CITY_ADD_6_SCIENCE_YIELD',
+        'GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE',
         'MODIFIER_SINGLE_CITY_ADJUST_YIELD_CHANGE',
         0,
         1,
         0,
+        NULL,
         NULL,
         NULL
     ),
@@ -278,6 +292,7 @@ VALUES
         0,
         0,
         NULL,
+        NULL,
         NULL
     ),
     (
@@ -287,7 +302,18 @@ VALUES
         0,
         0,
         NULL,
-        'CITY_HAS_UNIVERSITY_REQUIREMENTS'
+        'CITY_HAS_UNIVERSITY_REQUIREMENTS',
+        1
+    ),
+    (
+        'GREATPERSON_ELECTRICITYTECHBOOST',
+        'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',
+        1,
+        1,
+        0,
+        NULL,
+        NULL,
+        NULL
     );
 
 INSERT
@@ -304,12 +330,12 @@ VALUES
         'BUILDING_TSOD_MANA_OBELISK'
     ),
     (
-        'GREATPERSON_CITY_ADD_6_SCIENCE_YIELD',
+        'GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE',
         'Amount',
-        '6'
+        '4'
     ),
     (
-        'GREATPERSON_CITY_ADD_6_SCIENCE_YIELD',
+        'GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE',
         'YieldType',
         'YIELD_SCIENCE'
     ),
@@ -318,7 +344,12 @@ VALUES
         'ModifierId',
         'UNIVERSITY_BONUS_AMENITY'
     ),
-    ('UNIVERSITY_BONUS_AMENITY', 'Amount', '1');
+    ('UNIVERSITY_BONUS_AMENITY', 'Amount', '1'),
+    (
+        'GREATPERSON_ELECTRICITYTECHBOOST',
+        'TechType',
+        'TECH_ELECTRICITY'
+    );
 
 INSERT INTO
     RequirementSets (RequirementSetId, RequirementSetType)
@@ -336,7 +367,6 @@ VALUES
         'CITY_HAS_UNIVERSITY_REQUIREMENT'
     );
 
--- Requirements
 INSERT INTO
     Requirements (RequirementId, RequirementType)
 VALUES
