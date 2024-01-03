@@ -195,18 +195,42 @@ FROM
     TsoDGreatPeopleOfCecil;
 
 INSERT INTO
-    GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId,AttachmentTargetType)
+    GreatPersonIndividualActionModifiers (
+        GreatPersonIndividualType,
+        ModifierId,
+        AttachmentTargetType
+    )
 VALUES
     -- Rebecca's ability is in TsoDCE_CivilizationTraits.lua
     (
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO',
-        'GRANT_TECHNOLOGY_MATHEMATICS',
+        'GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
     ),
     (
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO',
-        'GRANT_BUILDING_TSOD_MANA_OBELISK',
+        'GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE',
+        'GREATPERSON_LIBRARY',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE',
+        'GREATPERSON_UNIVERSITY',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE',
+        'GREATPERSON_CITY_ADD_6_SCIENCE_YIELD',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_CITY'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE',
+        'UNIVERSITY_BONUS_AMENITY_ATTACH',
+		'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
     );
 
 INSERT
@@ -221,8 +245,8 @@ OR REPLACE INTO Modifiers (
 )
 VALUES
     (
-        'GRANT_TECHNOLOGY_MATHEMATICS',
-        'MODIFIER_PLAYER_GRANT_SPECIFIC_TECHNOLOGY',
+        'GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS',
+        'MODIFIER_PLAYER_GRANT_SPECIFIC_TECHNOLOGY', -- Requires EP2
         1,
         1,
         0,
@@ -230,25 +254,102 @@ VALUES
         NULL
     ),
     (
-        'GRANT_BUILDING_TSOD_MANA_OBELISK',
+        'GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK',
         'MODIFIER_SINGLE_CITY_GRANT_BUILDING_IN_CITY_IGNORE',
         1,
         1,
         0,
         NULL,
         NULL
+    ),
+    (
+        'GREATPERSON_CITY_ADD_6_SCIENCE_YIELD',
+        'MODIFIER_SINGLE_CITY_ADJUST_YIELD_CHANGE',
+        0,
+        1,
+        0,
+        NULL,
+        NULL
+    ),
+    (
+        'UNIVERSITY_BONUS_AMENITY_ATTACH',
+        'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER',
+        0,
+        0,
+        0,
+        NULL,
+        NULL
+    ),
+    (
+        'UNIVERSITY_BONUS_AMENITY',
+        'MODIFIER_PLAYER_CITIES_ADJUST_TRAIT_AMENITY',
+        0,
+        0,
+        0,
+        NULL,
+        'CITY_HAS_UNIVERSITY_REQUIREMENTS'
     );
 
 INSERT
 OR REPLACE INTO ModifierArguments (ModifierId, Name, Value)
 VALUES
     (
-        'GRANT_TECHNOLOGY_MATHEMATICS',
+        'GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS',
         'TechType',
         'TECH_MATHEMATICS'
     ),
     (
-        'GRANT_BUILDING_TSOD_MANA_OBELISK',
+        'GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK',
         'BuildingType',
         'BUILDING_TSOD_MANA_OBELISK'
+    ),
+    (
+        'GREATPERSON_CITY_ADD_6_SCIENCE_YIELD',
+        'Amount',
+        '6'
+    ),
+    (
+        'GREATPERSON_CITY_ADD_6_SCIENCE_YIELD',
+        'YieldType',
+        'YIELD_SCIENCE'
+    ),
+    (
+        'UNIVERSITY_BONUS_AMENITY_ATTACH',
+        'ModifierId',
+        'UNIVERSITY_BONUS_AMENITY'
+    ),
+    ('UNIVERSITY_BONUS_AMENITY', 'Amount', '1');
+
+INSERT INTO
+    RequirementSets (RequirementSetId, RequirementSetType)
+VALUES
+    (
+        'CITY_HAS_UNIVERSITY_REQUIREMENTS',
+        'REQUIREMENTSET_TEST_ALL'
+    );
+
+INSERT INTO
+    RequirementSetRequirements (RequirementSetId, RequirementId)
+VALUES
+    (
+        'CITY_HAS_UNIVERSITY_REQUIREMENTS',
+        'CITY_HAS_UNIVERSITY_REQUIREMENT'
+    );
+
+-- Requirements
+INSERT INTO
+    Requirements (RequirementId, RequirementType)
+VALUES
+    (
+        'CITY_HAS_UNIVERSITY_REQUIREMENT',
+        'REQUIREMENT_CITY_HAS_BUILDING'
+    );
+
+INSERT INTO
+    RequirementArguments (RequirementId, Name, Value)
+VALUES
+    (
+        'CITY_HAS_UNIVERSITY_REQUIREMENT',
+        'BuildingType',
+        'BUILDING_UNIVERSITY'
     );

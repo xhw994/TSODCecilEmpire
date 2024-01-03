@@ -24,7 +24,7 @@ VALUES
     (
         'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
         'zh_Hans_CN',
-        '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}首次建成一个行政区域、产出资源的特殊区域，或者是首次建造学院区建筑时，获赠一位塞西尔的独特伟人。'
+        '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}首次建成一个行政区域、产出资源的特殊区域，或者是首次建造学院区域建筑时，获赠一位塞西尔的独特伟人。'
     ),
     (
         'LOC_LEADER_TSOD_GAWAIN_CECIL_NAME',

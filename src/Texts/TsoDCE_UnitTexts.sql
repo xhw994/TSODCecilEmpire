@@ -44,7 +44,7 @@ VALUES
     (
         'LOC_GREATPERSON_TSOD_CE_SANTIS_SAIDE_ACTIVE',
         'zh_Hans_CN',
-        '立即在该区域建造大学和图书馆。本大学+6[ICON_Science]科技。全国所有大学+3[ICON_Housing]住房+1[ICON_Amenities]宜居度。'
+        '立即在该区域建造大学和图书馆。本大学+6[ICON_Science]科技。全国所有拥有大学的城市+1[ICON_Amenities]宜居度。'
     ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_NAME',
