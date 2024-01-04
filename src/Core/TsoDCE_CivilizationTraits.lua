@@ -93,6 +93,8 @@ function OnDistrictFirstConstructedGrantGreatPerson(iPlayer, iDistrictType, iX, 
     print('District type is ' .. sDistrict)
     if sDistrict == 'DISTRICT_CAMPUS' then
         GrantGreatPeopleOfCecil(iPlayer, 'REBECCA_CECIL', 'SCIENTIST', 'ERA_ANCIENT')
+    elseif sDistrict == 'DISTRICT_PRESERVE' then
+        GrantGreatPeopleOfCecil(iPlayer, 'NORRIS', 'SCIENTIST', 'ERA_ANCIENT')
     end
 end
 

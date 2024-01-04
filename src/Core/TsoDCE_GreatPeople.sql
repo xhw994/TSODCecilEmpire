@@ -91,35 +91,35 @@ VALUES
         'M',
         'DISTRICT_CAMPUS',
         1
+    ),
+    -- (
+    --     'LEITE_AVIKEN',
+    --     'PROPHET',
+    --     'DISTRICT_HOLY_SITE',
+    --     'ERA_ANCIENT',
+    --     'M',
+    --     'DISTRICT_HOLY_SITE',
+    --     1
+    -- ),
+     (
+         'HETTIE_CECIL',
+         'SCIENTIST',
+         'DISTRICT_CAMPUS', 
+         'ERA_ANCIENT',
+         'F',
+         'DISTRICT_GOVERNMENT', -- Ep1 R:F
+         1
+     ),
+    (
+        'NORRIS',
+        'SCIENTIST',
+        'DISTRICT_CAMPUS',
+        'ERA_ANCIENT',
+        'M',
+        'DISTRICT_PRESERVE', -- Kublai Khan Vietanam pack
+        1
     );
 
---(
---'LEITE_AVIKEN',
---'PROPHET',
---'DISTRICT_HOLY_SITE',
---'ERA_ANCIENT',
---'M',
---'DISTRICT_HOLY_SITE',
---1
---),
---(
---'HETTIE_CECIL',
---'MERCHANT',
---'DISTRICT_GOVERNMENT', -- Ep1 R:F
---'ERA_ANCIENT',
---'F',
---'DISTRICT_GOVERNMENT',
---1
---),
---(
---'NORRIS',
---'SCIENTIST',
---'DISTRICT_CAMPUS',
---'ERA_CLASSICAL',
---'M',
---'DISTRICT_PRESERVE', -- Kublai Khan Vietanam pack
---1
---);
 CREATE TEMPORARY TABLE TsoDGreatPersonClasses AS
 SELECT
     ClassType,
@@ -237,11 +237,13 @@ VALUES
         'GREATPERSON_ELECTRICITYTECHBOOST',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
     ),
+    -- Kamel's inspiration boost is in TsoDCE_CivilizationTraits.lua
     (
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN',
         'GREATPERSON_ARTIFACT_SCIENCE',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE'
-    );
+    ),
+	('GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS', 'GREATPERSON_SINGLE_CITY_20_GROWTH', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
 
 INSERT
 OR REPLACE INTO Modifiers (
@@ -314,7 +316,8 @@ VALUES
         NULL,
         NULL,
         NULL
-    );
+    ),
+	('GREATPERSON_SINGLE_CITY_20_GROWTH', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_GROWTH', 1, 1, 0, NULL,NULL, NULL);
 
 INSERT
 OR REPLACE INTO ModifierArguments (ModifierId, Name, Value)
@@ -349,7 +352,8 @@ VALUES
         'GREATPERSON_ELECTRICITYTECHBOOST',
         'TechType',
         'TECH_ELECTRICITY'
-    );
+    ),
+	('GREATPERSON_SINGLE_CITY_20_GROWTH', 'Amount', '20');
 
 INSERT INTO
     RequirementSets (RequirementSetId, RequirementSetType)

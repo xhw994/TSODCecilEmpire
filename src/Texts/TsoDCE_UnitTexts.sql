@@ -55,6 +55,16 @@ VALUES
         'LOC_GREATPERSON_TSOD_CE_KAMEL_SLAYEN_ACTIVE',
         'zh_Hans_CN',
         '为电力科技启动[ICON_TechBoosted]尤里卡时刻。为文化遗产市政启动[ICON_CivicBoosted]鼓舞时刻。从该城市每个[ICON_GreatWork_Artifact]文物获得350科技值（标准速度下）。'
+    ),
+    (
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS_NAME',
+        'zh_Hans_CN',
+        '诺里斯'
+    ),
+    (
+        'LOC_GREATPERSON_TSOD_CE_NORRIS_ACTIVE',
+        'zh_Hans_CN',
+        '该城市人口增长速度增加15%。'
     );
 
 INSERT INTO
