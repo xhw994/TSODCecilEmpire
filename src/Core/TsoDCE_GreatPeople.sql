@@ -101,15 +101,15 @@ VALUES
     --     'DISTRICT_HOLY_SITE',
     --     1
     -- ),
-     (
-         'HETTIE_CECIL',
-         'SCIENTIST',
-         'DISTRICT_CAMPUS', 
-         'ERA_ANCIENT',
-         'F',
-         'DISTRICT_GOVERNMENT', -- Ep1 R:F
-         1
-     ),
+    (
+        'HETTIE_CECIL',
+        'SCIENTIST',
+        'DISTRICT_CAMPUS',
+        'ERA_ANCIENT',
+        'F',
+        'DISTRICT_GOVERNMENT', -- Ep1 R:F
+        1
+    ),
     (
         'NORRIS',
         'SCIENTIST',
@@ -117,7 +117,7 @@ VALUES
         'ERA_ANCIENT',
         'M',
         'DISTRICT_PRESERVE', -- Kublai Khan Vietanam pack
-        1
+        3
     );
 
 CREATE TEMPORARY TABLE TsoDGreatPersonClasses AS
@@ -179,8 +179,7 @@ INSERT INTO
         EraType,
         Gender,
         ActionRequiresCompletedDistrictType,
-        ActionCharges,
-        ActionEffectTextOverride
+        ActionCharges
     )
 SELECT
     'GREAT_PERSON_INDIVIDUAL_TSOD_CE_' || IndividualType,
@@ -189,8 +188,7 @@ SELECT
     EraType,
     Gender,
     ActionRequiresCompletedDistrictType,
-    ActionCharges,
-    'LOC_GREATPERSON_TSOD_CE_' || IndividualType || '_ACTIVE'
+    ActionCharges
 FROM
     TsoDGreatPeopleOfCecil;
 
@@ -201,7 +199,12 @@ INSERT INTO
         AttachmentTargetType
     )
 VALUES
-    -- Rebecca's ability is in TsoDCE_CivilizationTraits.lua
+    (
+        -- Achieved in TsoDCE_CivilizationTraits.lua
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL',
+        'GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+    ),
     (
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO',
         'GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS',
@@ -237,13 +240,22 @@ VALUES
         'GREATPERSON_ELECTRICITYTECHBOOST',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
     ),
-    -- Kamel's inspiration boost is in TsoDCE_CivilizationTraits.lua
+    (
+        -- Achieved in TsoDCE_CivilizationTraits.lua
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN',
+        'GREATPERSON_DUMMY_TSOD_CE_KAMEL_SLAYEN_INSPIRATION',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+    ),
     (
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN',
         'GREATPERSON_ARTIFACT_SCIENCE',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE'
     ),
-	('GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS', 'GREATPERSON_SINGLE_CITY_20_GROWTH', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE');
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS',
+        'GREATPERSON_SINGLE_CITY_20_GROWTH',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_IN_TILE'
+    );
 
 INSERT
 OR REPLACE INTO Modifiers (
@@ -257,6 +269,16 @@ OR REPLACE INTO Modifiers (
     SubjectStackLimit
 )
 VALUES
+    (
+        'GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL',
+        'MODIFIER_ALLIANCE_DO_NOTHING',
+        0,
+        0,
+        0,
+        NULL,
+        NULL,
+        NULL
+    ),
     (
         'GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS',
         'MODIFIER_PLAYER_GRANT_SPECIFIC_TECHNOLOGY', -- Requires EP2
@@ -317,7 +339,26 @@ VALUES
         NULL,
         NULL
     ),
-	('GREATPERSON_SINGLE_CITY_20_GROWTH', 'MODIFIER_SINGLE_CITY_ADJUST_CITY_GROWTH', 1, 1, 0, NULL,NULL, NULL);
+    (
+        'GREATPERSON_DUMMY_TSOD_CE_KAMEL_SLAYEN_INSPIRATION',
+        'MODIFIER_ALLIANCE_DO_NOTHING',
+        0,
+        0,
+        0,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'GREATPERSON_SINGLE_CITY_20_GROWTH',
+        'MODIFIER_SINGLE_CITY_ADJUST_CITY_GROWTH',
+        1,
+        1,
+        0,
+        NULL,
+        NULL,
+        NULL
+    );
 
 INSERT
 OR REPLACE INTO ModifierArguments (ModifierId, Name, Value)
@@ -353,7 +394,11 @@ VALUES
         'TechType',
         'TECH_ELECTRICITY'
     ),
-	('GREATPERSON_SINGLE_CITY_20_GROWTH', 'Amount', '20');
+    (
+        'GREATPERSON_SINGLE_CITY_20_GROWTH',
+        'Amount',
+        '20'
+    );
 
 INSERT INTO
     RequirementSets (RequirementSetId, RequirementSetType)
@@ -386,4 +431,48 @@ VALUES
         'CITY_HAS_UNIVERSITY_REQUIREMENT',
         'BuildingType',
         'BUILDING_UNIVERSITY'
+    );
+
+INSERT INTO
+    ModifierStrings (ModifierId, Context, Text)
+VALUES
+    (
+        'GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL',
+        'Summary',
+        'LOC_GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL_DUMMY_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS',
+        'Summary',
+        'LOC_GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK',
+        'Summary',
+        'LOC_GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE',
+        'Summary',
+        'LOC_GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE_DESCRIPTION'
+    ),
+    (
+        'UNIVERSITY_BONUS_AMENITY_ATTACH',
+        'Summary',
+        'LOC_UNIVERSITY_BONUS_AMENITY_ATTACH_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_ELECTRICITYTECHBOOST',
+        'Summary',
+        'LOC_GREATPERSON_ELECTRICITYTECHBOOST_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_DUMMY_TSOD_CE_KAMEL_SLAYEN_INSPIRATION',
+        'Summary',
+        'LOC_GREATPERSON_DUMMY_TSOD_CE_KAMEL_SLAYEN_INSPIRATION_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_SINGLE_CITY_20_GROWTH',
+        'Summary',
+        'LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION'
     );

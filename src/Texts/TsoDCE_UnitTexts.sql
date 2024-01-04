@@ -22,7 +22,7 @@ VALUES
         '瑞贝卡·塞西尔'
     ),
     (
-        'LOC_GREATPERSON_TSOD_CE_REBECCA_CECIL_ACTIVE',
+        'LOC_GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL_DUMMY_DESCRIPTION',
         'zh_Hans_CN',
         '立即完成当前正在研究的科技。'
     ),
@@ -32,14 +32,29 @@ VALUES
         '詹妮·佩罗'
     ),
     (
-        'LOC_GREATPERSON_TSOD_CE_JENNIE_PERRO_ACTIVE',
+        'LOC_GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS_DESCRIPTION',
         'zh_Hans_CN',
-        '立即完成数学科技。在市中心建造一个魔能方尖碑。'
+        '立即完成数学科技。'
+    ),
+    (
+        'LOC_GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION',
+        'zh_Hans_CN',
+        '在市中心建造一个魔能方尖碑。'
     ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_NAME',
         'zh_Hans_CN',
         '桑提斯·赛德'
+    ),
+    (
+        'LOC_GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE_DESCRIPTION',
+        'zh_Hans_CN',
+        '该城市+4[ICON_Science]科技。'
+    ),
+    (
+        'LOC_UNIVERSITY_BONUS_AMENITY_ATTACH_DESCRIPTION',
+        'zh_Hans_CN',
+        '所有拥有大学的城市+1[ICON_Amenities]宜居度。'
     ),
     (
         'LOC_GREATPERSON_TSOD_CE_SANTIS_SAIDE_ACTIVE',
@@ -52,9 +67,14 @@ VALUES
         '卡迈尔·斯雷恩'
     ),
     (
-        'LOC_GREATPERSON_TSOD_CE_KAMEL_SLAYEN_ACTIVE',
+        'LOC_GREATPERSON_ELECTRICITYTECHBOOST_DESCRIPTION',
         'zh_Hans_CN',
-        '为电力科技启动[ICON_TechBoosted]尤里卡时刻。为文化遗产市政启动[ICON_CivicBoosted]鼓舞时刻。从该城市每个[ICON_GreatWork_Artifact]文物获得350科技值（标准速度下）。'
+        '为电力科技启动[ICON_TechBoosted]尤里卡时刻。'
+    ),
+    (
+        'LOC_GREATPERSON_DUMMY_TSOD_CE_KAMEL_SLAYEN_INSPIRATION_DESCRIPTION',
+        'zh_Hans_CN',
+        '为文化遗产市政启动[ICON_CivicBoosted]鼓舞时刻。'
     ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS_NAME',
@@ -62,9 +82,9 @@ VALUES
         '诺里斯'
     ),
     (
-        'LOC_GREATPERSON_TSOD_CE_NORRIS_ACTIVE',
+        'LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION',
         'zh_Hans_CN',
-        '该城市人口增长速度增加15%。'
+        '该城市人口增长速度增加20%。'
     );
 
 INSERT INTO
@@ -84,7 +104,7 @@ VALUES
         'Rebecca Cecil'
     ),
     (
-        'LOC_GREATPERSON_TSOD_CE_REBECCA_CECIL_ACTIVE',
+        'LOC_GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL_DUMMY_DESCRIPTION',
         'Instantly complete the currently researching technology.'
     ),
     (
@@ -92,22 +112,43 @@ VALUES
         'Jennie Perro'
     ),
     (
-        'LOC_GREATPERSON_TSOD_CE_JENNIE_PERRO_ACTIVE',
-        'Instantly complete the Mathematics technology. Construct a Mana Obelisk in the City Center.'
+        'LOC_GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS_DESCRIPTION',
+        'Instantly complete the Mathematics technology.'
+    ),
+    (
+        'LOC_GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION',
+        'Construct a Mana Obelisk in the City Center.'
     ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_NAME',
         'Santis Saide'
     ),
     (
-        'LOC_GREATPERSON_TSOD_CE_SANTIS_SAIDE_ACTIVE',
-        'Immediately construct a University and Library in this district. The city gains +4 [ICON_Science] Science. All cities with a University receive +1 [ICON_Amenities] Amenities.'
+        'LOC_GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE_DESCRIPTION',
+        'The city gains +4 [ICON_Science] Science.'
+    ),
+    (
+        'LOC_UNIVERSITY_BONUS_AMENITY_ATTACH_DESCRIPTION',
+        'All cities with a University receive +1 [ICON_Amenities] Amenities.'
     ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_NAME',
         'Kamel Slayen'
     ),
     (
-        'LOC_GREATPERSON_TSOD_CE_KAMEL_SLAYEN_ACTIVE',
-        'Trigger a [ICON_TechBoosted] Eureka moment for the Electricity technology. Trigger an [ICON_CivicBoosted] Inspiration moment for the Cultural Heritage civic. Gain 350 Science (at standard speed) from each [ICON_GreatWork_Artifact] Artifact in this city.'
+        'LOC_GREATPERSON_ELECTRICITYTECHBOOST_DESCRIPTION',
+        'Trigger a [ICON_TechBoosted] Eureka moment for the Electricity technology.'
+    ),
+    (
+        'LOC_GREATPERSON_DUMMY_TSOD_CE_KAMEL_SLAYEN_INSPIRATION_DESCRIPTION',
+        'Trigger an [ICON_CivicBoosted] Inspiration moment for the Cultural Heritage civic.'
+    ),
+    (
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS_NAME',
+        'Norris'
+    ),
+    (
+        'LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION',
+        'zh_Hans_CN',
+        'The city gains 20% growth, stackable.'
     );
