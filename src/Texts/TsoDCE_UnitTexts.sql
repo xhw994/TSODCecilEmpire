@@ -85,6 +85,11 @@ VALUES
         'LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION',
         'zh_Hans_CN',
         '该城市人口增长速度增加20%。'
+    ),
+	(
+        'LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION',
+        'zh_Hans_CN',
+        '大米和小麦地块+1[ICON_Food]食物。'
     );
 
 INSERT INTO
@@ -149,6 +154,10 @@ VALUES
     ),
     (
         'LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION',
-        'zh_Hans_CN',
         'The city gains 20% growth, stackable.'
+    ),
+	(
+        'LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION',
+        'zh_Hans_CN',
+        'Rice and wheat plots gain +1 [ICON_Food] food each.'
     );
