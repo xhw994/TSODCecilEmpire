@@ -111,10 +111,21 @@ VALUES
         'zh_Hans_CN',
         '菲利普'
     ),
+    
+    (
+        'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION',
+        'zh_Hans_CN',
+        '在两个单元格以内，为陆地单位+5 [ICON_Strength] 战斗力。'
+    ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_NAME',
         'zh_Hans_CN',
         '拜伦·柯克'
+    ),
+    (
+        'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION',
+        'zh_Hans_CN',
+        '在两个单元格以内，为海军单位+5 [ICON_Strength] 战斗力。'
     );
 
 INSERT INTO
@@ -202,6 +213,14 @@ VALUES
         'Sir Philip'
     ),
     (
+        'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION',
+        '+5 [ICON_Strength] Combat Strength to land units within 2 tiles.'
+    ),
+    (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_NAME',
         'Byron Kirk'
+    ),
+    (
+        'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION',
+        '+5 [ICON_Strength] Combat Strength to naval units within 2 tiles.'
     );

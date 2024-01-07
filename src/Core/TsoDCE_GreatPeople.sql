@@ -6,6 +6,7 @@ CREATE TEMPORARY TABLE TsoDGreatPeopleOfCecil (
     Gender TEXT NOT NULL,
     ActionRequiresCompletedDistrictType TEXT NOT NULL,
     ActionCharges INT NOT NULL,
+	AreaHighlightRadius INT,
     PRIMARY KEY (IndividualType)
 );
 
@@ -17,7 +18,8 @@ INSERT INTO
         EraType,
         Gender,
         ActionRequiresCompletedDistrictType,
-        ActionCharges
+        ActionCharges,
+        AreaHighlightRadius
     )
 VALUES
     (
@@ -27,7 +29,8 @@ VALUES
         'ERA_ANCIENT',
         'M',
         'DISTRICT_ENCAMPMENT',
-        1
+        1,
+        2
     ),
     (
         'BYRON_KIRK',
@@ -36,6 +39,7 @@ VALUES
         'ERA_ANCIENT',
         'M',
         'DISTRICT_HARBOR',
+        2,
         2
     ),
     --(
@@ -45,7 +49,7 @@ VALUES
     --'ERA_CLASSICAL',
     --'M',
     --'DISTRICT_INDUSTRIAL_ZONE',
-    --1
+    --1,NULL
     --),
     --(
     --'PITMAN_LAUREN',
@@ -54,7 +58,7 @@ VALUES
     --'ERA_CLASSICAL',
     --'M',
     --'DISTRICT_COMMERCIAL_HUB',
-    --1
+    --1,NULL
     --),
     (
         'REBECCA_CECIL',
@@ -63,7 +67,8 @@ VALUES
         'ERA_ANCIENT',
         'F',
         'DISTRICT_CAMPUS',
-        3
+        3,
+        NULL
     ),
     (
         'JENNIE_PERRO',
@@ -72,7 +77,8 @@ VALUES
         'ERA_CLASSICAL',
         'F',
         'DISTRICT_CITY_CENTER',
-        2
+        2,
+        NULL
     ),
     (
         'SANTIS_SAIDE',
@@ -81,7 +87,8 @@ VALUES
         'ERA_MEDIEVAL',
         'M',
         'DISTRICT_CAMPUS',
-        1
+        1,
+        NULL
     ),
     (
         'KAMEL_SLAYEN',
@@ -90,7 +97,8 @@ VALUES
         'ERA_MODERN',
         'M',
         'DISTRICT_CAMPUS',
-        1
+        1,
+        NULL
     ),
     -- (
     --     'LEITE_AVIKEN',
@@ -108,6 +116,7 @@ VALUES
         'ERA_ANCIENT',
         'F',
         'DISTRICT_GOVERNMENT', -- Ep1 R:F
+        1,
         1
     ),
     (
@@ -117,7 +126,8 @@ VALUES
         'ERA_ANCIENT',
         'M',
         'DISTRICT_PRESERVE', -- Kublai Khan Vietanam pack
-        2
+        2,
+        NULL
     );
 
 CREATE TEMPORARY TABLE TsoDGreatPersonClasses AS
@@ -179,7 +189,8 @@ INSERT INTO
         EraType,
         Gender,
         ActionRequiresCompletedDistrictType,
-        ActionCharges
+        ActionCharges,
+		AreaHighlightRadius
     )
 SELECT
     'GREAT_PERSON_INDIVIDUAL_TSOD_CE_' || IndividualType,
@@ -188,7 +199,8 @@ SELECT
     EraType,
     Gender,
     ActionRequiresCompletedDistrictType,
-    ActionCharges
+    ActionCharges,
+	AreaHighlightRadius
 FROM
     TsoDGreatPeopleOfCecil;
 
@@ -274,6 +286,14 @@ VALUES
     (
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL',
         'GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP',
+        'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK',
+        'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA'
     );
 
 INSERT
@@ -417,6 +437,26 @@ VALUES
         NULL,
         NULL,
         NULL
+    ),
+    (
+        'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND',
+        'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',
+        0,
+        0,
+        0,
+        NULL,
+        'AOE_ALL_ERA_LAND_REQUIREMENTS',
+        NULL
+    ),
+    (
+        'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA',
+        'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',
+        0,
+        0,
+        0,
+        NULL,
+        'AOE_ALL_ERA_SEA_REQUIREMENTS',
+        NULL
     );
 
 INSERT
@@ -478,10 +518,20 @@ VALUES
         'GREATPERSON_CITY_REDUCE_UNIT_PURCHASE_COST',
         'IncludeCivilian',
         '1'
+    ),
+    (
+        'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND',
+        'AbilityType',
+        'ABILITY_GREAT_GENERAL_STRENGTH'
+    ),
+    (
+        'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA',
+        'AbilityType',
+        'ABILITY_GREAT_ADMIRAL_STRENGTH'
     );
 
-INSERT INTO
-    RequirementSets (RequirementSetId, RequirementSetType)
+INSERT
+OR REPLACE INTO RequirementSets (RequirementSetId, RequirementSetType)
 VALUES
     (
         'CITY_HAS_UNIVERSITY_REQUIREMENTS',
@@ -494,10 +544,18 @@ VALUES
     (
         'CITY_HAS_UNIT_REQUIREMENTS',
         'REQUIREMENTSET_TEST_ALL'
+    ),
+    (
+        'AOE_ALL_ERA_LAND_REQUIREMENTS',
+        'REQUIREMENTSET_TEST_ALL'
+    ),
+    (
+        'AOE_ALL_ERA_SEA_REQUIREMENTS',
+        'REQUIREMENTSET_TEST_ALL'
     );
 
-INSERT INTO
-    RequirementSetRequirements (RequirementSetId, RequirementId)
+INSERT
+OR REPLACE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
 VALUES
     (
         'CITY_HAS_UNIVERSITY_REQUIREMENTS',
@@ -514,10 +572,26 @@ VALUES
     (
         'CITY_HAS_UNIT_REQUIREMENTS',
         'CITY_HAS_UNIT_REQUIREMENT'
+    ),
+    (
+        'AOE_ALL_ERA_LAND_REQUIREMENTS',
+        'AOE_REQUIRES_LAND_DOMAIN'
+    ),
+    (
+        'AOE_ALL_ERA_LAND_REQUIREMENTS',
+        'AOE_REQUIRES_OWNER_ADJACENCY'
+    ),
+    (
+        'AOE_ALL_ERA_SEA_REQUIREMENTS',
+        'AOE_REQUIRES_SEA_DOMAIN'
+    ),
+    (
+        'AOE_ALL_ERA_SEA_REQUIREMENTS',
+        'AOE_REQUIRES_OWNER_ADJACENCY'
     );
 
-INSERT INTO
-    Requirements (RequirementId, RequirementType)
+INSERT
+OR REPLACE INTO Requirements (RequirementId, RequirementType)
 VALUES
     (
         'CITY_HAS_UNIVERSITY_REQUIREMENT',
@@ -528,8 +602,8 @@ VALUES
         'REQUIREMENT_PLOT_ADJACENT_TO_OWNER'
     );
 
-INSERT INTO
-    RequirementArguments (RequirementId, Name, Value)
+INSERT
+OR REPLACE INTO RequirementArguments (RequirementId, Name, Value)
 VALUES
     (
         'CITY_HAS_UNIVERSITY_REQUIREMENT',
@@ -539,8 +613,8 @@ VALUES
     ('CITY_HAS_UNIT_REQUIREMENT', 'MaxDistance', '1'),
     ('CITY_HAS_UNIT_REQUIREMENT', 'MinDistance', '0');
 
-INSERT INTO
-    ModifierStrings (ModifierId, Context, Text)
+INSERT
+OR REPLACE INTO ModifierStrings (ModifierId, Context, Text)
 VALUES
     (
         'GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL',
@@ -596,4 +670,14 @@ VALUES
         'GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH',
         'Summary',
         'LOC_GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND',
+        'Summary',
+        'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA',
+        'Summary',
+        'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION'
     );
