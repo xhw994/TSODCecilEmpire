@@ -103,8 +103,8 @@ VALUES
     -- ),
     (
         'HETTIE_CECIL',
-        'SCIENTIST',
-        'DISTRICT_CAMPUS',
+        'MERCHANT',
+        'DISTRICT_COMMERCIAL_HUB',
         'ERA_ANCIENT',
         'F',
         'DISTRICT_GOVERNMENT', -- Ep1 R:F
