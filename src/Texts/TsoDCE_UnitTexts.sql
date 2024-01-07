@@ -105,6 +105,16 @@ VALUES
         'LOC_GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH_DESCRIPTION',
         'zh_Hans_CN',
         '如果单位位于或相邻市中心，所在城市购买单位时-20%花费。'
+    ),
+    (
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_NAME',
+        'zh_Hans_CN',
+        '菲利普'
+    ),
+    (
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_NAME',
+        'zh_Hans_CN',
+        '拜伦·柯克'
     );
 
 INSERT INTO
@@ -186,4 +196,12 @@ VALUES
     (
         'LOC_GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH_DESCRIPTION',
         'When the unit is at or adjacent to city center, reduce 20% cost when purchasing units in this city.'
+    ),
+    (
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_NAME',
+        'Sir Philip'
+    ),
+    (
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_NAME',
+        'Byron Kirk'
     );

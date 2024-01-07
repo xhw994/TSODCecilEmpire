@@ -20,24 +20,24 @@ INSERT INTO
         ActionCharges
     )
 VALUES
-    --(
-    --'SIR_PHILIP',
-    --'GENERAL',
-    --'DISTRICT_ENCAMPMENT',
-    --'ERA_CLASSICAL',
-    --'M',
-    --'DISTRICT_ENCAMPMENT',
-    --1
-    --),
-    --(
-    --'BYRON_KIRK',
-    --'ADMIRAL',
-    --'DISTRICT_HARBOR',
-    --'ERA_CLASSICAL',
-    --'M',
-    --'DISTRICT_HARBOR',
-    --1
-    --),
+    (
+        'SIR_PHILIP',
+        'GENERAL',
+        'DISTRICT_ENCAMPMENT',
+        'ERA_ANCIENT',
+        'M',
+        'DISTRICT_ENCAMPMENT',
+        1
+    ),
+    (
+        'BYRON_KIRK',
+        'ADMIRAL',
+        'DISTRICT_HARBOR',
+        'ERA_ANCIENT',
+        'M',
+        'DISTRICT_HARBOR',
+        2
+    ),
     --(
     --'ST_NICHOLAS_EGG_EXEC',
     --'ENGINEER',

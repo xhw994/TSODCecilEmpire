@@ -83,12 +83,16 @@ function OnDistrictFirstConstructedGrantGreatPerson(playerId, districtId, _, _)
         GrantGreatPeopleOfCecil(playerId, 'REBECCA_CECIL', 'SCIENTIST', 'ERA_ANCIENT')
     elseif sDistrict == 'DISTRICT_GOVERNMENT' then
         GrantGreatPeopleOfCecil(playerId, 'HETTIE_CECIL', 'SCIENTIST', 'ERA_ANCIENT')
+    elseif sDistrict == 'DISTRICT_ENCAMPMENT' then
+        GrantGreatPeopleOfCecil(playerId, 'SIR_PHILIP', 'GENERAL', 'ERA_ANCIENT')
+    elseif sDistrict == 'DISTRICT_HARBOR' then
+        GrantGreatPeopleOfCecil(playerId, 'BYRON_KIRK', 'ADMIRAL', 'ERA_ANCIENT')
     elseif sDistrict == 'DISTRICT_PRESERVE' then
         GrantGreatPeopleOfCecil(playerId, 'NORRIS', 'SCIENTIST', 'ERA_ANCIENT')
     end
 end
 
-function OnCampusBuildingFirstConstructedGrantGreatPerson(iPlayer, cityID, buildingID, plotID, bOriginalConstruction)
+function OnCampusBuildingFirstConstructedGrantGreatPerson(iPlayer, _, buildingID, _, _)
     if CecilPlayersMap == nil then
         return
     end
