@@ -117,7 +117,7 @@ VALUES
         'ERA_ANCIENT',
         'M',
         'DISTRICT_PRESERVE', -- Kublai Khan Vietanam pack
-        3
+        2
     );
 
 CREATE TEMPORARY TABLE TsoDGreatPersonClasses AS
@@ -260,6 +260,12 @@ VALUES
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS',
         'GREATPERSON_CITY_RICEWHEATYIELD',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_CITY'
+    ),
+    (
+	    -- Achieved in TsoDCE_CivilizationTraits.lua
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL',
+        'GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
     );
 
 INSERT
@@ -372,6 +378,16 @@ VALUES
         0,
         NULL,
         'RESOURCE_IS_RICE_OR_YIELD',
+        NULL
+    ),
+    (
+        'GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL',
+        'MODIFIER_ALLIANCE_DO_NOTHING',
+        0,
+        0,
+        0,
+        NULL,
+        NULL,
         NULL
     );
 
@@ -513,4 +529,9 @@ VALUES
         'GREATPERSON_CITY_RICEWHEATYIELD',
         'Summary',
         'LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL',
+        'Summary',
+        'LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION'
     );

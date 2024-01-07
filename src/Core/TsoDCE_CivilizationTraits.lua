@@ -1,3 +1,5 @@
+include('GameCapabilities')
+
 local CecilPlayersNum = nil
 local CecilPlayersMap = nil
 
@@ -5,6 +7,8 @@ local TraitCecilEmpire = 'TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE'
 local GreatPeopleTypePrefix = 'GREAT_PERSON_INDIVIDUAL_TSOD_CE_'
 local GreatPeopleClassPrefix = 'GREAT_PERSON_CLASS_TSOD_CE_'
 local GreatPeopleOfCecilAvailability = 'TSOD_GreatPeopleOfCecilAvailability'
+
+local IsHettiCecilActivated = GreatPeopleTypePrefix .. 'HETTIE_CECIL_ACTIVATED'
 
 local function startsWith(String, Start)
     return string.sub(String, 1, string.len(Start)) == Start
@@ -35,32 +39,19 @@ function GetPlayersWithTrait(sTrait)
     return tValid, iLength
 end
 
-function GrantGreatPeopleOfCecil(iPlayer, sType, sClass, sEra)
-    print('Start granting great people')
-    local pPlayer = Players[iPlayer]
+function GrantGreatPeopleOfCecil(playerId, sType, sClass, sEra)
+    local pPlayer = Players[playerId]
     local tList = pPlayer:GetProperty(GreatPeopleOfCecilAvailability)
     if not tList or #tList < 1 then
-        if tList == nil then
-            print('null tList')
-        else
-            print('Length of tList: ' .. #tList)
-        end
         return
-    end
-
-    for key, value in pairs(tList) do
-        print(key .. ': ' .. tostring(value))
     end
 
     local sFullType = GreatPeopleTypePrefix .. sType
     local sFullClass = GreatPeopleClassPrefix .. sClass
 
     if tList[sFullType] == false then
-        print(sFullType .. ' has already been granted')
         return
     end
-
-    print('Granting ' .. sFullType)
 
     if not GameInfo.GreatPersonIndividuals[sFullType] or not GameInfo.GreatPersonClasses[sFullClass] or not GameInfo.Eras[sEra] then
         print(string.format('Error: Invalid Great Person - Type: %s, Class: %s, Era: %s', sType, sClass, sEra))
@@ -71,30 +62,29 @@ function GrantGreatPeopleOfCecil(iPlayer, sType, sClass, sEra)
     local hClass = GameInfo.GreatPersonClasses[sFullClass].Hash
     local hEra = GameInfo.Eras[sEra].Hash
 
-    Game.GetGreatPeople():GrantPerson(hIndividual, hClass, hEra, 0, iPlayer, false)
+    Game.GetGreatPeople():GrantPerson(hIndividual, hClass, hEra, 0, playerId, false)
 
     tList[sFullType] = false
     pPlayer:SetProperty(GreatPeopleOfCecilAvailability, tList)
-
-    print('Granted great person ' .. sFullType .. ' to TSOD Cecil Empire player')
 end
 
-function OnDistrictFirstConstructedGrantGreatPerson(iPlayer, iDistrictType, iX, iY)
+function OnDistrictFirstConstructedGrantGreatPerson(playerId, districtId, _, _)
     if CecilPlayersMap == nil then
         return
     end
 
-    local pPlayer = CecilPlayersMap[iPlayer]
+    local pPlayer = CecilPlayersMap[playerId]
     if not pPlayer then
         return
     end
 
-    local sDistrict = GameInfo.Districts[iDistrictType].DistrictType
-    print('District type is ' .. sDistrict)
+    local sDistrict = GameInfo.Districts[districtId].DistrictType
     if sDistrict == 'DISTRICT_CAMPUS' then
-        GrantGreatPeopleOfCecil(iPlayer, 'REBECCA_CECIL', 'SCIENTIST', 'ERA_ANCIENT')
+        GrantGreatPeopleOfCecil(playerId, 'REBECCA_CECIL', 'SCIENTIST', 'ERA_ANCIENT')
+    elseif sDistrict == 'DISTRICT_GOVERNMENT' then
+        GrantGreatPeopleOfCecil(playerId, 'HETTIE_CECIL', 'SCIENTIST', 'ERA_ANCIENT')
     elseif sDistrict == 'DISTRICT_PRESERVE' then
-        GrantGreatPeopleOfCecil(iPlayer, 'NORRIS', 'SCIENTIST', 'ERA_ANCIENT')
+        GrantGreatPeopleOfCecil(playerId, 'NORRIS', 'SCIENTIST', 'ERA_ANCIENT')
     end
 end
 
@@ -118,17 +108,17 @@ function OnCampusBuildingFirstConstructedGrantGreatPerson(iPlayer, cityID, build
     end
 end
 
-function OnGreatPersonActivated(unitOwner, unitID, greatPersonClassID, greatPersonIndividualID)
+function OnGreatPersonActivated(playerId, _, _, greatPersonIndividualId)
     if CecilPlayersMap == nil then
         return
     end
 
-    local pPlayer = CecilPlayersMap[unitOwner]
+    local pPlayer = CecilPlayersMap[playerId]
     if not pPlayer then
         return
     end
 
-    local sIndividual = GameInfo.GreatPersonIndividuals[greatPersonIndividualID].GreatPersonIndividualType
+    local sIndividual = GameInfo.GreatPersonIndividuals[greatPersonIndividualId].GreatPersonIndividualType
     if sIndividual == GreatPeopleTypePrefix .. 'REBECCA_CECIL' then
         local playerTech = pPlayer:GetTechs()
         local currentTechId = playerTech:GetResearchingTech()
@@ -136,10 +126,39 @@ function OnGreatPersonActivated(unitOwner, unitID, greatPersonClassID, greatPers
     elseif sIndividual == GreatPeopleTypePrefix .. 'KAMEL_SLAYEN' then
         local culturaHerritageCivicId = GameInfo.Civics['CIVIC_CULTURAL_HERITAGE'].Index
         pPlayer:GetCulture():TriggerBoost(culturaHerritageCivicId)
+    elseif sIndividual == GreatPeopleTypePrefix .. 'HETTIE_CECIL' then
+        pPlayer:SetProperty(IsHettiCecilActivated, true)
     end
 end
 
-function InitGreatPeopleOfCecil()
+function OnMilitaryEngineerBuildRailroad(playerId, unitId, operationId)
+    if CecilPlayersMap == nil then
+        return
+    end
+
+    local pPlayer = CecilPlayersMap[playerId]
+    if not pPlayer or pPlayer:GetProperty(IsHettiCecilActivated) ~= true then
+        return
+    end
+
+    -- One of the worst and useless APIs FML
+    local pUnit = pPlayer:GetUnits():FindID(unitId)
+    if (not pUnit) then
+        return
+    end
+
+    local unitType = GameInfo.Units[pUnit:GetType()].UnitType
+    if (unitType ~= 'UNIT_MILITARY_ENGINEER') then
+        return
+    end
+
+    if operationId == UnitOperationTypes.BUILD_ROUTE then
+        local coal = GameInfo.Resources['RESOURCE_COAL'].Index
+        pPlayer:GetResources():ChangeResourceAmount(coal, 1)
+    end
+end
+
+function InitTsoDCecilEmpireTraits()
     print('Initializing TSOD Cecil Empire civilization traits...')
     local tGreatPeopleAvailability = {}
 
@@ -157,14 +176,17 @@ function InitGreatPeopleOfCecil()
                     table.insert(tGreatPeopleAvailability, tRow.GreatPersonIndividualType)
                 end
             end
+
             pPlayer:SetProperty(GreatPeopleOfCecilAvailability, tGreatPeopleAvailability)
+            pPlayer:SetProperty(IsHettiCecilActivated, false)
         end
     end
 
     GameEvents.OnDistrictConstructed.Add(OnDistrictFirstConstructedGrantGreatPerson)
     GameEvents.BuildingConstructed.Add(OnCampusBuildingFirstConstructedGrantGreatPerson)
     Events.UnitGreatPersonActivated.Add(OnGreatPersonActivated)
+    Events.UnitOperationStarted.Add(OnMilitaryEngineerBuildRailroad)
     print('Successfully initialized TSOD Cecil Empire civilization traits')
 end
 
-InitGreatPeopleOfCecil()
+InitTsoDCecilEmpireTraits()

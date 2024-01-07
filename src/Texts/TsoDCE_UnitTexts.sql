@@ -90,6 +90,16 @@ VALUES
         'LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION',
         'zh_Hans_CN',
         '大米和小麦地块+1[ICON_Food]食物。'
+    ),
+	(
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_NAME',
+        'zh_Hans_CN',
+        '赫蒂·塞西尔'
+    ),
+	(
+        'LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION',
+        'zh_Hans_CN',
+        '军事工程师建造铁路后会返还1点[ICON_RESOURCE_COAL]煤。'
     );
 
 INSERT INTO
@@ -158,6 +168,13 @@ VALUES
     ),
 	(
         'LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION',
-        'zh_Hans_CN',
         'Rice and wheat plots gain +1 [ICON_Food] food each.'
+    ),
+	(
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_NAME',
+        'Hettie Cecil'
+    ),
+	(
+        'LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION',
+        'Refund 1 [ICON_RESOURCE_COAL] coal after building a railroad.'
     );
