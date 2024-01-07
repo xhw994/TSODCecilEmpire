@@ -86,20 +86,25 @@ VALUES
         'zh_Hans_CN',
         '该城市人口增长速度增加20%。'
     ),
-	(
+    (
         'LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION',
         'zh_Hans_CN',
         '大米和小麦地块+1[ICON_Food]食物。'
     ),
-	(
+    (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_NAME',
         'zh_Hans_CN',
         '赫蒂·塞西尔'
     ),
-	(
+    (
         'LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION',
         'zh_Hans_CN',
         '军事工程师建造铁路后会返还1点[ICON_RESOURCE_COAL]煤。'
+    ),
+    (
+        'LOC_GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH_DESCRIPTION',
+        'zh_Hans_CN',
+        '如果单位位于或相邻市中心，所在城市购买单位时-20%花费。'
     );
 
 INSERT INTO
@@ -166,15 +171,19 @@ VALUES
         'LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION',
         'The city gains 20% growth, stackable.'
     ),
-	(
+    (
         'LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION',
         'Rice and wheat plots gain +1 [ICON_Food] food each.'
     ),
-	(
+    (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_NAME',
         'Hettie Cecil'
     ),
-	(
+    (
         'LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION',
         'Refund 1 [ICON_RESOURCE_COAL] coal after building a railroad.'
+    ),
+    (
+        'LOC_GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH_DESCRIPTION',
+        'When the unit is at or adjacent to city center, reduce 20% cost when purchasing units in this city.'
     );

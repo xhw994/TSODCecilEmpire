@@ -262,10 +262,18 @@ VALUES
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_CITY'
     ),
     (
-	    -- Achieved in TsoDCE_CivilizationTraits.lua
+        -- Achieved in TsoDCE_CivilizationTraits.lua
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL',
         'GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+    );
+
+INSERT INTO
+    GreatPersonIndividualBirthModifiers (GreatPersonIndividualType, ModifierId)
+VALUES
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL',
+        'GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH'
     );
 
 INSERT
@@ -389,6 +397,26 @@ VALUES
         NULL,
         NULL,
         NULL
+    ),
+    (
+        'GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH',
+        'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER',
+        0,
+        0,
+        0,
+        NULL,
+        'CITY_HAS_UNIT_REQUIREMENTS',
+        NULL
+    ),
+    (
+        'GREATPERSON_CITY_REDUCE_UNIT_PURCHASE_COST',
+        'MODIFIER_SINGLE_CITY_ADJUST_ALL_UNITS_PURCHASE_COST',
+        0,
+        0,
+        0,
+        NULL,
+        NULL,
+        NULL
     );
 
 INSERT
@@ -435,6 +463,21 @@ VALUES
         'GREATPERSON_CITY_RICEWHEATYIELD',
         'YieldType',
         'YIELD_FOOD'
+    ),
+    (
+        'GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH',
+        'ModifierId',
+        'GREATPERSON_CITY_REDUCE_UNIT_PURCHASE_COST'
+    ),
+    (
+        'GREATPERSON_CITY_REDUCE_UNIT_PURCHASE_COST',
+        'Amount',
+        '20'
+    ),
+    (
+        'GREATPERSON_CITY_REDUCE_UNIT_PURCHASE_COST',
+        'IncludeCivilian',
+        '1'
     );
 
 INSERT INTO
@@ -447,6 +490,10 @@ VALUES
     (
         'RESOURCE_IS_RICE_OR_YIELD',
         'REQUIREMENTSET_TEST_ANY'
+    ),
+    (
+        'CITY_HAS_UNIT_REQUIREMENTS',
+        'REQUIREMENTSET_TEST_ALL'
     );
 
 INSERT INTO
@@ -463,6 +510,10 @@ VALUES
     (
         'RESOURCE_IS_RICE_OR_YIELD',
         'REQUIRES_WHEAT_IN_PLOT'
+    ),
+    (
+        'CITY_HAS_UNIT_REQUIREMENTS',
+        'CITY_HAS_UNIT_REQUIREMENT'
     );
 
 INSERT INTO
@@ -471,6 +522,10 @@ VALUES
     (
         'CITY_HAS_UNIVERSITY_REQUIREMENT',
         'REQUIREMENT_CITY_HAS_BUILDING'
+    ),
+    (
+        'CITY_HAS_UNIT_REQUIREMENT',
+        'REQUIREMENT_PLOT_ADJACENT_TO_OWNER'
     );
 
 INSERT INTO
@@ -480,7 +535,9 @@ VALUES
         'CITY_HAS_UNIVERSITY_REQUIREMENT',
         'BuildingType',
         'BUILDING_UNIVERSITY'
-    );
+    ),
+    ('CITY_HAS_UNIT_REQUIREMENT', 'MaxDistance', '1'),
+    ('CITY_HAS_UNIT_REQUIREMENT', 'MinDistance', '0');
 
 INSERT INTO
     ModifierStrings (ModifierId, Context, Text)
@@ -525,7 +582,7 @@ VALUES
         'Summary',
         'LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION'
     ),
-	(
+    (
         'GREATPERSON_CITY_RICEWHEATYIELD',
         'Summary',
         'LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION'
@@ -534,4 +591,9 @@ VALUES
         'GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL',
         'Summary',
         'LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH',
+        'Summary',
+        'LOC_GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH_DESCRIPTION'
     );
