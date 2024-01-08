@@ -6,7 +6,7 @@ CREATE TEMPORARY TABLE TsoDGreatPeopleOfCecil (
     Gender TEXT NOT NULL,
     ActionRequiresCompletedDistrictType TEXT NOT NULL,
     ActionCharges INT NOT NULL,
-	AreaHighlightRadius INT,
+    AreaHighlightRadius INT,
     PRIMARY KEY (IndividualType)
 );
 
@@ -157,6 +157,32 @@ FROM
     TsoDGreatPeopleOfCecil;
 
 INSERT INTO
+    Types (Type, Kind)
+VALUES
+    (
+        'SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS',
+        'KIND_ABILITY'
+    );
+
+INSERT INTO
+    TypeTags (Type, Tag)
+VALUES
+    (
+        'SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS',
+        'CLASS_SIEGE'
+    );
+
+INSERT INTO
+    UnitAbilities (UnitAbilityType, Name, Description, Inactive)
+VALUES
+    (
+        'SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS',
+        'LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_NAME',
+        'LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION',
+        1
+    );
+
+INSERT INTO
     GreatPersonClasses (
         GreatPersonClassType,
         Name,
@@ -190,7 +216,7 @@ INSERT INTO
         Gender,
         ActionRequiresCompletedDistrictType,
         ActionCharges,
-		AreaHighlightRadius
+        AreaHighlightRadius
     )
 SELECT
     'GREAT_PERSON_INDIVIDUAL_TSOD_CE_' || IndividualType,
@@ -200,7 +226,7 @@ SELECT
     Gender,
     ActionRequiresCompletedDistrictType,
     ActionCharges,
-	AreaHighlightRadius
+    AreaHighlightRadius
 FROM
     TsoDGreatPeopleOfCecil;
 
@@ -278,6 +304,21 @@ VALUES
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL',
         'GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK',
+        'GREATPERSON_GRANT_INFLUENCE_TOKEN',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP',
+        'GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP',
+        'GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
     );
 
 INSERT INTO
@@ -294,6 +335,14 @@ VALUES
     (
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK',
         'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA'
+    );
+
+INSERT INTO
+    UnitAbilityModifiers (UnitAbilityType, ModifierId)
+VALUES
+    (
+        'SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS',
+        'SIEGE_UNIT_ATTACK_DAMAGE_BUFF'
     );
 
 INSERT
@@ -457,10 +506,70 @@ VALUES
         NULL,
         'AOE_ALL_ERA_SEA_REQUIREMENTS',
         NULL
+    ),
+    (
+        'GREATPERSON_GRANT_INFLUENCE_TOKEN',
+        'MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN',
+        1,
+        1,
+        0,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH',
+        'MODIFIER_PLAYER_UNITS_ATTACH_MODIFIER',
+        0,
+        0,
+        0,
+        NULL,
+        'UNIT_IS_SIEGE_REQUIREMENTS',
+        NULL
+    ),
+    (
+        'GREATPERSON_SIEGE_UNIT_ATTACK_RANGE',
+        'MODIFIER_UNIT_ADJUST_ATTACK_RANGE',
+        0,
+        0,
+        0,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH',
+        'MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER',
+        0,
+        0,
+        0,
+        NULL,
+        'PLAYER_IS_TSOD_CECIL_EMPIRE_REQUIREMENTS',
+        NULL
+    ),
+    (
+        'GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF',
+        'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',
+        0,
+        0,
+        0,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'SIEGE_UNIT_ATTACK_DAMAGE_BUFF',
+        'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH',
+        0,
+        0,
+        0,
+        NULL,
+        'OPPONENT_IS_LAND_OR_SEA_UNIT_REQUIREMENTS',
+        NULL
     );
 
-INSERT
-OR REPLACE INTO ModifierArguments (ModifierId, Name, Value)
+INSERT INTO
+    ModifierArguments (ModifierId, Name, Value)
 VALUES
     (
         'GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS',
@@ -528,10 +637,36 @@ VALUES
         'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA',
         'AbilityType',
         'ABILITY_GREAT_ADMIRAL_STRENGTH'
-    );
+    ),
+    (
+        'GREATPERSON_GRANT_INFLUENCE_TOKEN',
+        'Amount',
+        '1'
+    ),
+    (
+        'GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH',
+        'ModifierId',
+        'GREATPERSON_SIEGE_UNIT_ATTACK_RANGE'
+    ),
+    (
+        'GREATPERSON_SIEGE_UNIT_ATTACK_RANGE',
+        'Amount',
+        '1'
+    ),
+    (
+        'GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH',
+        'ModifierId',
+        'GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF'
+    ),
+    (
+        'GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF',
+        'AbilityType',
+        'SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS'
+    ),
+    ('SIEGE_UNIT_ATTACK_DAMAGE_BUFF', 'Amount', '20');
 
-INSERT
-OR REPLACE INTO RequirementSets (RequirementSetId, RequirementSetType)
+INSERT INTO
+    RequirementSets (RequirementSetId, RequirementSetType)
 VALUES
     (
         'CITY_HAS_UNIVERSITY_REQUIREMENTS',
@@ -552,10 +687,18 @@ VALUES
     (
         'AOE_ALL_ERA_SEA_REQUIREMENTS',
         'REQUIREMENTSET_TEST_ALL'
+    ),
+    (
+        'UNIT_IS_SIEGE_REQUIREMENTS',
+        'REQUIREMENTSET_TEST_ALL'
+    ),
+    (
+        'OPPONENT_IS_LAND_OR_SEA_UNIT_REQUIREMENTS',
+        'REQUIREMENTSET_TEST_ANY'
     );
 
-INSERT
-OR REPLACE INTO RequirementSetRequirements (RequirementSetId, RequirementId)
+INSERT INTO
+    RequirementSetRequirements (RequirementSetId, RequirementId)
 VALUES
     (
         'CITY_HAS_UNIVERSITY_REQUIREMENTS',
@@ -588,10 +731,22 @@ VALUES
     (
         'AOE_ALL_ERA_SEA_REQUIREMENTS',
         'AOE_REQUIRES_OWNER_ADJACENCY'
+    ),
+    (
+        'UNIT_IS_SIEGE_REQUIREMENTS',
+        'REQUIREMENT_UNIT_IS_SIEGE'
+    ),
+    (
+        'OPPONENT_IS_LAND_OR_SEA_UNIT_REQUIREMENTS',
+        'OPPONENT_IS_LAND_UNIT'
+    ),
+    (
+        'OPPONENT_IS_LAND_OR_SEA_UNIT_REQUIREMENTS',
+        'OPPONENT_IS_SEA_UNIT'
     );
 
-INSERT
-OR REPLACE INTO Requirements (RequirementId, RequirementType)
+INSERT INTO
+    Requirements (RequirementId, RequirementType)
 VALUES
     (
         'CITY_HAS_UNIVERSITY_REQUIREMENT',
@@ -602,8 +757,8 @@ VALUES
         'REQUIREMENT_PLOT_ADJACENT_TO_OWNER'
     );
 
-INSERT
-OR REPLACE INTO RequirementArguments (RequirementId, Name, Value)
+INSERT INTO
+    RequirementArguments (RequirementId, Name, Value)
 VALUES
     (
         'CITY_HAS_UNIVERSITY_REQUIREMENT',
@@ -613,8 +768,8 @@ VALUES
     ('CITY_HAS_UNIT_REQUIREMENT', 'MaxDistance', '1'),
     ('CITY_HAS_UNIT_REQUIREMENT', 'MinDistance', '0');
 
-INSERT
-OR REPLACE INTO ModifierStrings (ModifierId, Context, Text)
+INSERT INTO
+    ModifierStrings (ModifierId, Context, Text)
 VALUES
     (
         'GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL',
@@ -680,4 +835,24 @@ VALUES
         'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA',
         'Summary',
         'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_GRANT_INFLUENCE_TOKEN',
+        'Summary',
+        'LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH',
+        'Summary',
+        'LOC_GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH',
+        'Summary',
+        'LOC_GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH_DESCRIPTION'
+    ),
+    (
+        'SIEGE_UNIT_ATTACK_DAMAGE_BUFF',
+        'Summary',
+        'LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION'
     );

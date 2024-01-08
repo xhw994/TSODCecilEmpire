@@ -111,7 +111,26 @@ VALUES
         'zh_Hans_CN',
         '菲利普'
     ),
-    
+    (
+        'LOC_GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH_DESCRIPTION',
+        'zh_Hans_CN',
+        '攻城单位+1[ICON_Range]射程。'
+    ),
+    (
+        'LOC_GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH_DESCRIPTION',
+        'zh_Hans_CN',
+        '攻城单位对抗单位时没有减益并且+3[ICON_Bombard]轰炸攻击力。'
+    ),
+    (
+        'LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_NAME',
+        'zh_Hans_CN',
+        '艺术'
+    ),
+    (
+        'LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION',
+        'zh_Hans_CN',
+        '对抗单位时+20[ICON_Bombard]轰炸攻击力。'
+    ),
     (
         'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION',
         'zh_Hans_CN',
@@ -126,6 +145,11 @@ VALUES
         'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION',
         'zh_Hans_CN',
         '在两个单元格以内，为海军单位+5 [ICON_Strength] 战斗力。'
+    ),
+    (
+        'LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION',
+        'zh_Hans_CN',
+        '获得1位[ICON_Envoy]使者。'
     );
 
 INSERT INTO
@@ -213,6 +237,22 @@ VALUES
         'Sir Philip'
     ),
     (
+        'LOC_GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH_DESCRIPTION',
+        '+1 [ICON_Range] range to siege units.'
+    ),
+    (
+        'LOC_GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH_DESCRIPTION',
+        '+3[ICON_Bombard] Bombard Stregth to siege units vs. units, instead of debuff.'
+    ),
+    (
+        'LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_NAME',
+        'The "Art"'
+    ),
+    (
+        'LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION',
+        '+20[ICON_Bombard] Bombard Stregth vs. units.'
+    ),
+    (
         'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION',
         '+5 [ICON_Strength] Combat Strength to land units within 2 tiles.'
     ),
@@ -223,4 +263,8 @@ VALUES
     (
         'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION',
         '+5 [ICON_Strength] Combat Strength to naval units within 2 tiles.'
+    ),
+    (
+        'LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION',
+        'Gain 1 [ICON_Envoy] envoy.'
     );
