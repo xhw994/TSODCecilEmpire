@@ -170,6 +170,11 @@ VALUES
         'LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION',
         'zh_Hans_CN',
         '在两个单元格以内，为宗教单位+5[ICON_Religion]战斗力。'
+    ),
+    (
+        'LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION',
+        'zh_Hans_CN',
+        '如果该城信仰任意宗教，城市中每位公民额外产出+0.5[ICON_Faith]信仰值。'
     );
 
 INSERT INTO
@@ -303,4 +308,8 @@ VALUES
     (
         'LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION',
         '+5 [ICON_Religion] religious combat strength within 2 tiles adjacent to Grand Sheperd.'
+    ),
+    (
+        'LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION',
+        'If this city follows any religion, +0.5[ICON_Faith] faith yield per population.'
     );

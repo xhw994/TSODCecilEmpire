@@ -107,8 +107,8 @@ VALUES
         'ERA_ANCIENT',
         'M',
         'DISTRICT_HOLY_SITE',
-        1,
-        NULL
+        2,
+        2
     ),
     (
         'HETTIE_CECIL',
@@ -334,6 +334,11 @@ VALUES
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP',
         'GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH',
         'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN',
+        'GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH',
+        'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_CITY'
     );
 
 INSERT INTO
@@ -609,6 +614,26 @@ VALUES
         NULL,
         NULL,
         NULL
+    ),
+    (
+        'GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH',
+        'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER',
+        0,
+        0,
+        0,
+        NULL,
+        NULL,
+        NULL
+    ),
+    (
+        'GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD',
+        'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',
+        0,
+        0,
+        0,
+        NULL,
+        'CITY_FOLLOWS_RELIGION_REQUIREMENTS',
+        NULL
     );
 
 INSERT INTO
@@ -712,7 +737,22 @@ VALUES
         'AbilityType',
         'ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS'
     ),
-    ('COMBAT_STRENGTH_AOE_RELIGIOUS', 'Amount', '5');
+    ('COMBAT_STRENGTH_AOE_RELIGIOUS', 'Amount', '5'),
+    (
+        'GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH',
+        'ModifierId',
+        'GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD'
+    ),
+    (
+        'GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD',
+        'Amount',
+        '0.5'
+    ),
+    (
+        'GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD',
+        'YieldType',
+        'YIELD_FAITH'
+    );
 
 INSERT INTO
     RequirementSets (RequirementSetId, RequirementSetType)
@@ -917,4 +957,9 @@ VALUES
         'COMBAT_STRENGTH_AOE_RELIGIOUS',
         'Summary',
         'LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION'
+    ),
+    (
+        'GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH',
+        'Summary',
+        'LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION'
     );
