@@ -134,7 +134,7 @@ VALUES
     (
         'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION',
         'zh_Hans_CN',
-        '在两个单元格以内，为陆地单位+5 [ICON_Strength] 战斗力。'
+        '在两个单元格以内，为陆地单位+5[ICON_Strength]战斗力。'
     ),
     (
         'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_NAME',
@@ -144,12 +144,32 @@ VALUES
     (
         'LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION',
         'zh_Hans_CN',
-        '在两个单元格以内，为海军单位+5 [ICON_Strength] 战斗力。'
+        '在两个单元格以内，为海军单位+5[ICON_Strength]战斗力。'
     ),
     (
         'LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION',
         'zh_Hans_CN',
         '获得1位[ICON_Envoy]使者。'
+    ),
+    (
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN_NAME',
+        'zh_Hans_CN',
+        '莱特·艾维肯'
+    ),
+    (
+        'LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_NAME',
+        'zh_Hans_CN',
+        '大牧首的指引'
+    ),
+    (
+        'LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION',
+        'zh_Hans_CN',
+        '位于大牧首2单元格内时+5[ICON_Religion]宗教战斗力。'
+    ),
+    (
+        'LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION',
+        'zh_Hans_CN',
+        '在两个单元格以内，为宗教单位+5[ICON_Religion]战斗力。'
     );
 
 INSERT INTO
@@ -267,4 +287,20 @@ VALUES
     (
         'LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION',
         'Gain 1 [ICON_Envoy] envoy.'
+    ),
+    (
+        'LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN_NAME',
+        'Leite Aviken'
+    ),
+    (
+        'LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_NAME',
+        'Grand Sheperd''s guidance'
+    ),
+    (
+        'LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION',
+        '+5 [ICON_Religion] religious combat strength within 2 tiles adjacent to Grand Sheperd.'
+    ),
+    (
+        'LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION',
+        '+5 [ICON_Religion] religious combat strength within 2 tiles adjacent to Grand Sheperd.'
     );

@@ -100,15 +100,16 @@ VALUES
         1,
         NULL
     ),
-    -- (
-    --     'LEITE_AVIKEN',
-    --     'PROPHET',
-    --     'DISTRICT_HOLY_SITE',
-    --     'ERA_ANCIENT',
-    --     'M',
-    --     'DISTRICT_HOLY_SITE',
-    --     1
-    -- ),
+    (
+        'LEITE_AVIKEN',
+        'GENERAL',
+        'DISTRICT_ENCAMPMENT',
+        'ERA_ANCIENT',
+        'M',
+        'DISTRICT_HOLY_SITE',
+        1,
+        NULL
+    ),
     (
         'HETTIE_CECIL',
         'MERCHANT',
@@ -162,6 +163,10 @@ VALUES
     (
         'SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS',
         'KIND_ABILITY'
+    ),
+    (
+        'ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS',
+        'KIND_ABILITY'
     );
 
 INSERT INTO
@@ -170,6 +175,10 @@ VALUES
     (
         'SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS',
         'CLASS_SIEGE'
+    ),
+    (
+        'ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS',
+        'CLASS_RELIGIOUS_ALL'
     );
 
 INSERT INTO
@@ -179,6 +188,12 @@ VALUES
         'SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS',
         'LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_NAME',
         'LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION',
+        1
+    ),
+    (
+        'ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS',
+        'LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_NAME',
+        'LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION',
         1
     );
 
@@ -335,6 +350,10 @@ VALUES
     (
         'GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK',
         'GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA'
+    ),
+    (
+        'GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN',
+        'GREATPERSON_COMBAT_STRENGTH_AOE_RELIGIOUS'
     );
 
 INSERT INTO
@@ -343,6 +362,10 @@ VALUES
     (
         'SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS',
         'SIEGE_UNIT_ATTACK_DAMAGE_BUFF'
+    ),
+    (
+        'ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS',
+        'COMBAT_STRENGTH_AOE_RELIGIOUS'
     );
 
 INSERT
@@ -566,6 +589,26 @@ VALUES
         NULL,
         'OPPONENT_IS_LAND_OR_SEA_UNIT_REQUIREMENTS',
         NULL
+    ),
+    (
+        'GREATPERSON_COMBAT_STRENGTH_AOE_RELIGIOUS',
+        'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',
+        0,
+        0,
+        0,
+        NULL,
+        'AOE_RELIGIOUS_ADJACENCY',
+        NULL
+    ),
+    (
+        'COMBAT_STRENGTH_AOE_RELIGIOUS',
+        'MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH',
+        0,
+        0,
+        0,
+        NULL,
+        NULL,
+        NULL
     );
 
 INSERT INTO
@@ -663,7 +706,13 @@ VALUES
         'AbilityType',
         'SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS'
     ),
-    ('SIEGE_UNIT_ATTACK_DAMAGE_BUFF', 'Amount', '20');
+    ('SIEGE_UNIT_ATTACK_DAMAGE_BUFF', 'Amount', '20'),
+    (
+        'GREATPERSON_COMBAT_STRENGTH_AOE_RELIGIOUS',
+        'AbilityType',
+        'ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS'
+    ),
+    ('COMBAT_STRENGTH_AOE_RELIGIOUS', 'Amount', '5');
 
 INSERT INTO
     RequirementSets (RequirementSetId, RequirementSetType)
@@ -695,6 +744,10 @@ VALUES
     (
         'OPPONENT_IS_LAND_OR_SEA_UNIT_REQUIREMENTS',
         'REQUIREMENTSET_TEST_ANY'
+    ),
+    (
+        'AOE_RELIGIOUS_ADJACENCY',
+        'REQUIREMENTSET_TEST_ALL'
     );
 
 INSERT INTO
@@ -743,6 +796,10 @@ VALUES
     (
         'OPPONENT_IS_LAND_OR_SEA_UNIT_REQUIREMENTS',
         'OPPONENT_IS_SEA_UNIT'
+    ),
+    (
+        'AOE_RELIGIOUS_ADJACENCY',
+        'AOE_REQUIRES_OWNER_ADJACENCY'
     );
 
 INSERT INTO
@@ -855,4 +912,9 @@ VALUES
         'SIEGE_UNIT_ATTACK_DAMAGE_BUFF',
         'Summary',
         'LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION'
+    ),
+    (
+        'COMBAT_STRENGTH_AOE_RELIGIOUS',
+        'Summary',
+        'LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION'
     );
