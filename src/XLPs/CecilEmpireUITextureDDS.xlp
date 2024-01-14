@@ -133,6 +133,42 @@
 			<m_EntryID text="ICON_UNIT_TSOD_SCOUT_AMBER_80"/>
 			<m_ObjectName text="ICON_UNIT_TSOD_SCOUT_AMBER_80"/>
 		</Element>
+		<Element>
+			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_256"/>
+			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_256"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_38"/>
+			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_38"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_50"/>
+			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_50"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_64"/>
+			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_64"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_FOW_256"/>
+			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_FOW_256"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_FOW_38"/>
+			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_FOW_38"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_FOW_50"/>
+			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_FOW_50"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_FOW_64"/>
+			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_FOW_64"/>
+		</Element>
+		<Element>
+			<m_EntryID text="RESOURCE_TSOD_CE_POTION_22"/>
+			<m_ObjectName text="RESOURCE_TSOD_CE_POTION_22"/>
+		</Element>
 	</m_Entries>
 	<m_AllowedPlatforms>
 		<Element>WINDOWS</Element>

@@ -36,7 +36,8 @@ VALUES
     ('LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION', 'zh_Hans_CN', '位于大牧首2单元格内时+5[ICON_Religion]宗教战斗力。'),
     ('LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION', 'zh_Hans_CN', '在两个单元格以内，为宗教单位+5[ICON_Religion]战斗力。'),
     ('LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION', 'zh_Hans_CN', '如果该城信仰任意宗教，城市中每位公民额外产出+0.5[ICON_Faith]信仰值。'),
-    ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'zh_Hans_CN', '皮特曼·劳伦');
+    ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'zh_Hans_CN', '皮特曼·劳伦'),
+    ('LOC_GREATPERSON_GRANT_LUXURY_POTION_DESCRIPTION', 'zh_Hans_CN', '赠予2份 [ICON_RESOURCE_TSOD_CE_POTION] 炼金药剂，这是一种特殊的人造奢侈品资源，能+4宜居度。');
 
 INSERT INTO
     EnglishText (Tag, Text)
@@ -87,4 +88,8 @@ VALUES
         'LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION',
         'If this city follows any religion, +0.5[ICON_Faith] faith yield per population.'
     ),
-    ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'zh_Hans_CN', 'Pitman Lauren');
+    ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'zh_Hans_CN', 'Pitman Lauren'),
+    (
+        'LOC_GREATPERSON_GRANT_LUXURY_POTION_DESCRIPTION',
+        'Grants 2 [ICON_RESOURCE_TSOD_CE_POTION] Perfume, a uniquely manufactured Luxury resource which provides +4 Amenities.'
+    );

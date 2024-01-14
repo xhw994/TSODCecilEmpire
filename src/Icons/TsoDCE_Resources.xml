@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<GameData>
+    <IconTextureAtlases>
+        <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION" IconSize="38" Filename="ICON_RESOURCE_TSOD_CE_POTION_38"/>
+        <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION" IconSize="50" Filename="ICON_RESOURCE_TSOD_CE_POTION_50"/>
+        <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION" IconSize="64" Filename="ICON_RESOURCE_TSOD_CE_POTION_64"/>
+        <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION" IconSize="256" Filename="ICON_RESOURCE_TSOD_CE_POTION_256"/>
+
+        <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION_FOW" IconSize="38" Filename="ICON_RESOURCE_TSOD_CE_POTION_FOW_38"/>
+        <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION_FOW" IconSize="50" Filename="ICON_RESOURCE_TSOD_CE_POTION_FOW_50"/>
+        <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION_FOW" IconSize="64" Filename="ICON_RESOURCE_TSOD_CE_POTION_FOW_64"/>
+        <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION_FOW" IconSize="256" Filename="ICON_RESOURCE_TSOD_CE_POTION_FOW_256"/>
+
+        <!--font icons-->
+        <Row Name="ATLAS_RESOURCE_TSOD_CE_POTION" Baseline="6" IconSize="22" Filename="RESOURCE_TSOD_CE_POTION_22"/>
+    </IconTextureAtlases>
+    <IconDefinitions>
+        <Row Name="ICON_RESOURCE_TSOD_CE_POTION" Atlas="ATLAS_ICON_RESOURCE_TSOD_CE_POTION" Index="0"/>
+        <Row Name="ICON_RESOURCE_TSOD_CE_POTION_FOW" Atlas="ATLAS_ICON_RESOURCE_TSOD_CE_POTION_FOW" Index="0"/>
+        <Row Name="RESOURCE_TSOD_CE_POTION" Atlas="ATLAS_RESOURCE_TSOD_CE_POTION" Index="0"/>
+    </IconDefinitions>
+</GameData>

@@ -1,0 +1,9 @@
+INSERT INTO
+    Types (Type, Kind)
+VALUES
+    ('RESOURCE_TSOD_CE_POTION', 'KIND_RESOURCE');
+
+INSERT INTO
+    Resources (ResourceType, Name, ResourceClassType, Happiness, Frequency)
+VALUES
+    ('RESOURCE_TSOD_CE_POTION', 'LOC_RESOURCE_TSOD_CE_POTION_NAME', 'RESOURCECLASS_LUXURY', 4, 0)
