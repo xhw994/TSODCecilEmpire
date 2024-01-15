@@ -24,7 +24,7 @@ VALUES
     (
         'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
         'zh_Hans_CN',
-        '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}首次建成一个行政区域、产出资源的特殊区域，或者是首次建造学院区域建筑时，获赠一位塞西尔的独特伟人。'
+        '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}首次建成一个特殊区域，或者是首次建造学院区域建筑时，获赠一位塞西尔的独特伟人。'
     ),
     (
         'LOC_LEADER_TSOD_GAWAIN_CECIL_NAME',
@@ -39,7 +39,7 @@ VALUES
     (
         'LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_DESCRIPTION',
         'zh_Hans_CN',
-        '高文·塞西尔的技能介绍'
+        '招募一名伟人后，每回合将获得该类型伟人点数产出的额外20%。随后每增加一名同类型的伟人都会使这个比例额外增加10%。通过这种方式，每回合最多可获得100%的额外产出。此外，塞西尔的伟人们也将为招募他们的区域提供相应类型的伟人点数产出增益。'
     ),
     (
         'LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL',

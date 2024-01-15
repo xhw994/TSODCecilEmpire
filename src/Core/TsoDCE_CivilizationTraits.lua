@@ -10,8 +10,15 @@ local GreatPeopleOfCecilAvailability = 'TSOD_GreatPeopleOfCecilAvailability'
 
 local IsHettiCecilActivated = GreatPeopleTypePrefix .. 'HETTIE_CECIL_ACTIVATED'
 
+local AllClasses = { 'GENERAL', 'ADMIRAL', 'ENGINEER', 'MERCHANT', 'PROPHET', 'SCIENTIST', 'WRITER', 'ARTIST', 'MUSICIAN' }
+local GawainGreatPeopleActivated = 'TSOD_GawainGreatPeopleActivated'
+
 local function startsWith(String, Start)
     return string.sub(String, 1, string.len(Start)) == Start
+end
+
+local function endsWith(str, ending)
+    return ending == '' or str:sub(- #ending) == ending
 end
 
 function GetPlayersWithTrait(sTrait)
@@ -141,6 +148,70 @@ function OnGreatPersonActivated(playerId, _, _, greatPersonIndividualId)
     end
 end
 
+function OnUnitGreatPersonCreated(playerId, _, classId, _)
+    if CecilPlayersMap == nil then
+        return
+    end
+
+    local pPlayer = CecilPlayersMap[playerId]
+    if not pPlayer then
+        return
+    end
+
+    local tGreatPeopleActivatedList = pPlayer:GetProperty(GawainGreatPeopleActivated)
+    if not tGreatPeopleActivatedList then
+        print('Great person activated list was not intialized properly')
+        return
+    end
+
+    local classType = GameInfo.GreatPersonClasses[classId].GreatPersonClassType
+    for _, suffix in ipairs(AllClasses) do
+        print('Class type: ' .. classType .. ', suffix: ' .. suffix)
+        if (endsWith(classType, suffix)) then
+            tGreatPeopleActivatedList[suffix] = tGreatPeopleActivatedList[suffix] + 1
+            pPlayer:SetProperty(GawainGreatPeopleActivated, tGreatPeopleActivatedList)
+            print('Set activation count for ' .. classType .. ': ' .. tGreatPeopleActivatedList[suffix])
+            return
+        end
+    end
+end
+
+function OnTurnBegin()
+    if CecilPlayersMap == nil then
+        return
+    end
+
+    for playerId, pPlayer in pairs(CecilPlayersMap) do
+        local tGreatPeopleActivatedList = pPlayer:GetProperty(GawainGreatPeopleActivated)
+        if not tGreatPeopleActivatedList then
+            print('Great person activated list was not intialized properly')
+            for k, v in pairs(tGreatPeopleActivatedList) do
+                print('key:' .. k .. ',value:' .. v)
+                pPlayer:SetProperty(GawainGreatPeopleActivated, tGreatPeopleActivatedList)
+            end
+            print('Not?' .. tostring(not tGreatPeopleActivatedList))
+            print('Length:' .. tostring(#tGreatPeopleActivatedList))
+            return
+        end
+        print('Player ID:', playerId)
+
+        for _, classSuffix in ipairs(AllClasses) do
+            local classType = 'GREAT_PERSON_CLASS_' .. classSuffix
+            local classId = GameInfo.GreatPersonClasses[classType].Index
+            local points = pPlayer:GetGreatPeoplePoints():CalculatePointsPerTurn(classId)
+            print(classSuffix .. ': ' .. points)
+
+            local activationCount = tGreatPeopleActivatedList[classSuffix]
+            if (activationCount and activationCount > 0) then
+                local multiplier = math.min(0.2 + 0.1 * (activationCount - 1), 1)
+            local bonusPoints = math.ceil(points * multiplier)
+            print('Granting ' .. bonusPoints .. ' points for ' .. activationCount .. ' activated greatpersons')
+            pPlayer:GetGreatPeoplePoints():ChangePointsTotal(classId, bonusPoints)
+            end
+        end
+    end
+end
+
 function OnMilitaryEngineerBuildRailroad(playerId, unitId, operationId)
     if CecilPlayersMap == nil then
         return
@@ -190,12 +261,24 @@ function InitTsoDCecilEmpireTraits()
             pPlayer:SetProperty(GreatPeopleOfCecilAvailability, tGreatPeopleAvailability)
             pPlayer:SetProperty(IsHettiCecilActivated, false)
         end
+
+        local tGreatPeopleActivatedList = pPlayer:GetProperty(GawainGreatPeopleActivated)
+        if (not tGreatPeopleActivatedList) or (#tGreatPeopleActivatedList < 1) then
+            tGreatPeopleActivatedList = {}
+            for _, classSuffix in ipairs(AllClasses) do
+                tGreatPeopleActivatedList[classSuffix] = 0
+            end
+
+            pPlayer:SetProperty(GawainGreatPeopleActivated, tGreatPeopleActivatedList)
+        end
     end
 
     GameEvents.OnDistrictConstructed.Add(OnDistrictFirstConstructedGrantGreatPerson)
     GameEvents.BuildingConstructed.Add(OnCampusBuildingFirstConstructedGrantGreatPerson)
     Events.UnitGreatPersonActivated.Add(OnGreatPersonActivated)
     Events.UnitOperationStarted.Add(OnMilitaryEngineerBuildRailroad)
+    Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
+    Events.TurnBegin.Add(OnTurnBegin)
     print('Successfully initialized TSOD Cecil Empire civilization traits')
 end
 
