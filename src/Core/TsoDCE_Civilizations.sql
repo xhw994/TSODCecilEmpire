@@ -57,6 +57,26 @@ VALUES
     ),
     (
         'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LOC_CITY_NAME_TSOD_CAROL'
+    ),
+    (
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LOC_CITY_NAME_TSOD_KANT'
+    ),
+    (
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LOC_CITY_NAME_TSOD_GRAN'
+    ),
+    (
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LOC_CITY_NAME_TSOD_LESLIE'
+    ),
+    (
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LOC_CITY_NAME_TSOD_HOSMAN'
+    ),
+    (
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
         'LOC_CITY_NAME_TSOD_RED_MAPLE'
     ),
     (
@@ -93,7 +113,7 @@ VALUES
     ),
     (
         'CIVILIZATION_TSOD_CECIL_EMPIRE',
-        'LOC_CITY_NAME_TSOD_HOLLE_SHIRE'
+        'LOC_CITY_NAME_TSOD_HALL_SHIRE'
     ),
     (
         'CIVILIZATION_TSOD_CECIL_EMPIRE',
@@ -129,11 +149,6 @@ VALUES
     (
         'CIVILIZATION_TSOD_CECIL_EMPIRE',
         'LOC_CITIZEN_NAME_TSOD_BETTY',
-        '1'
-    ),
-    (
-        'CIVILIZATION_TSOD_CECIL_EMPIRE',
-        'LOC_CITIZEN_NAME_TSOD_JENNIE_PERRO',
         '1'
     ),
     (
@@ -215,6 +230,21 @@ VALUES
         'CIVILIZATION_TSOD_CECIL_EMPIRE',
         'LOC_CITIZEN_NAME_TSOD_GELIN',
         '0'
+    ),
+    (
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LOC_CITIZEN_NAME_TSOD_CODY_BALDWIN',
+        '0'
+    ),
+	(
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LOC_CITIZEN_NAME_TSOD_PATTY_GRAN',
+        '1'
+    ),
+	(
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LOC_CITIZEN_NAME_TSOD_ROPENI_GRAN',
+        '1'
     );
 
 INSERT INTO

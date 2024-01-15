@@ -1,41 +1,17 @@
 INSERT INTO
-    LocalizedText (Tag, Language, Text)
+    LocalizedText (Tag, LANGUAGE, Text)
 VALUES
-    (
-        'LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME',
-        'zh_Hans_CN',
-        '塞西尔'
-    ),
-    (
-        'LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
-        'zh_Hans_CN',
-        '塞西尔帝国'
-    ),
-    (
-        'LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_ADJECTIVE',
-        'zh_Hans_CN',
-        '塞西尔帝国的'
-    ),
-    (
-        'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME',
-        'zh_Hans_CN',
-        '丈量真理'
-    ),
+    ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME', 'zh_Hans_CN', '塞西尔'),
+    ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION', 'zh_Hans_CN', '塞西尔帝国'),
+    ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_ADJECTIVE', 'zh_Hans_CN', '塞西尔帝国的'),
+    ('LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME', 'zh_Hans_CN', '丈量真理'),
     (
         'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
         'zh_Hans_CN',
         '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}首次建成一个特殊区域，或者是首次建造学院区域建筑时，获赠一位塞西尔的独特伟人。'
     ),
-    (
-        'LOC_LEADER_TSOD_GAWAIN_CECIL_NAME',
-        'zh_Hans_CN',
-        '高文·塞西尔'
-    ),
-    (
-        'LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME',
-        'zh_Hans_CN',
-        '黎明之剑'
-    ),
+    ('LOC_LEADER_TSOD_GAWAIN_CECIL_NAME', 'zh_Hans_CN', '高文·塞西尔'),
+    ('LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME', 'zh_Hans_CN', '黎明之剑'),
     (
         'LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_DESCRIPTION',
         'zh_Hans_CN',
@@ -46,171 +22,127 @@ VALUES
         'zh_Hans_CN',
         '高文·塞西尔，骑士之主，开拓者，保护者，王国奠基之人，在这片土地还被称为安苏的时候，你便是它的南境守护。这些年，你立下了不少丰功伟绩，振兴南境，统一国家，引领一个时代，乃至于整合这颗星球上的文明——你收复了废土，击败了神明，现在你还将引领这个世界对抗魔潮，完成文明迈向星空前的最后一次考验……多么惊人的成就啊，而在许多人心中，这些功绩皆集于你一身，那么在完成这些丰功伟绩的时候，有没有那么一刻，哪怕只是一个瞬间，你意识到自己已经……宛若神明？'
     ),
-    (
-        'LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING',
-        'zh_Hans_CN',
-        '高文·塞西尔向你问好'
-    ),
+    ('LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING', 'zh_Hans_CN', '高文·塞西尔向你问好'),
     -- City names
     ('LOC_CITY_NAME_TSOD_CECIL', 'zh_Hans_CN', '塞西尔城'),
-    (
-        'LOC_CITY_NAME_TSOD_SAINT_SUNIL',
-        'zh_Hans_CN',
-        '圣苏尼尔城'
-    ),
-    (
-        'LOC_CITY_NAME_TSOD_LONGWIND_FORTRESS',
-        'zh_Hans_CN',
-        '长风要塞'
-    ),
-    (
-        'LOC_CITY_NAME_TSOD_FROSTWOOD_VILLAGE',
-        'zh_Hans_CN',
-        '霜林村'
-    ),
-    (
-        'LOC_CITY_NAME_TSOD_ROCKSTONE',
-        'zh_Hans_CN',
-        '磐石城'
-    ),
-    (
-        'LOC_CITY_NAME_TSOD_MEGALITH',
-        'zh_Hans_CN',
-        '巨石城'
-    ),
+    ('LOC_CITY_NAME_TSOD_SAINT_SUNIL', 'zh_Hans_CN', '圣苏尼尔城'),
+    ('LOC_CITY_NAME_TSOD_LONGWIND_FORTRESS', 'zh_Hans_CN', '长风要塞'),
+    ('LOC_CITY_NAME_TSOD_FROSTWOOD_VILLAGE', 'zh_Hans_CN', '霜林村'),
+    ('LOC_CITY_NAME_TSOD_ROCKSTONE', 'zh_Hans_CN', '磐石城'),
+    ('LOC_CITY_NAME_TSOD_MEGALITH', 'zh_Hans_CN', '巨石城'),
     ('LOC_CITY_NAME_TSOD_LUAN', 'zh_Hans_CN', '卢安城'),
-    (
-        'LOC_CITY_NAME_TSOD_RED_MAPLE',
-        'zh_Hans_CN',
-        '红枫城'
-    ),
+    ('LOC_CITY_NAME_TSOD_RED_MAPLE', 'zh_Hans_CN', '红枫城'),
     ('LOC_CITY_NAME_TSOD_POMPEII', 'zh_Hans_CN', '培波城'),
     ('LOC_CITY_NAME_TSOD_ELRON', 'zh_Hans_CN', '埃尔隆城'),
-    (
-        'LOC_CITY_NAME_TSOD_FERTILE_WOODLANDS',
-        'zh_Hans_CN',
-        '丰饶林地'
-    ),
-    (
-        'LOC_CITY_NAME_TSOD_SLANTWOOD_VALLEY',
-        'zh_Hans_CN',
-        '斜林河谷'
-    ),
-    (
-        'LOC_CITY_NAME_TSOD_LONGSTONE_TOWN',
-        'zh_Hans_CN',
-        '长石镇'
-    ),
-    (
-        'LOC_CITY_NAME_TSOD_TENWOODS',
-        'zh_Hans_CN',
-        '十林城'
-    ),
-    (
-        'LOC_CITY_NAME_TSOD_TAMDULUR',
-        'zh_Hans_CN',
-        '塔姆杜勒'
-    ),
-    (
-        'LOC_CITY_NAME_TSOD_LUNTATELLE_SHIRE',
-        'zh_Hans_CN',
-        '伦塔特尔郡'
-    ),
-    (
-        'LOC_CITY_NAME_TSOD_HOLLE_SHIRE',
-        'zh_Hans_CN',
-        '霍尔郡'
-    ),
+    ('LOC_CITY_NAME_TSOD_FERTILE_WOODLANDS', 'zh_Hans_CN', '丰饶林地'),
+    ('LOC_CITY_NAME_TSOD_SLANTWOOD_VALLEY', 'zh_Hans_CN', '斜林河谷'),
+    ('LOC_CITY_NAME_TSOD_LONGSTONE_TOWN', 'zh_Hans_CN', '长石镇'),
+    ('LOC_CITY_NAME_TSOD_TENWOODS', 'zh_Hans_CN', '十林城'),
+    ('LOC_CITY_NAME_TSOD_TAMDULUR', 'zh_Hans_CN', '塔姆杜勒'),
+    ('LOC_CITY_NAME_TSOD_LUNTATELLE_SHIRE', 'zh_Hans_CN', '伦塔特尔郡'),
+    ('LOC_CITY_NAME_TSOD_HALL_SHIRE', 'zh_Hans_CN', '霍尔郡'),
+    ('LOC_CITY_NAME_TSOD_CAROL', 'zh_Hans_CN', '卡洛尔城'),
+    ('LOC_CITY_NAME_TSOD_KANT', 'zh_Hans_CN', '康德城'),
+    ('LOC_CITY_NAME_TSOD_GRAN', 'zh_Hans_CN', '葛兰城'),
+    ('LOC_CITY_NAME_TSOD_LESLIE', 'zh_Hans_CN', '莱斯利城'),
+    ('LOC_CITY_NAME_TSOD_HOSMAN', 'zh_Hans_CN', '霍斯曼城'),
     -- Citizen names
     ('LOC_CITIZEN_NAME_TSOD_SAM', 'zh_Hans_CN', '山姆'),
     ('LOC_CITIZEN_NAME_TSOD_TOM', 'zh_Hans_CN', '汤姆'),
     ('LOC_CITIZEN_NAME_TSOD_PEA', 'zh_Hans_CN', '豌豆'),
-    (
-        'LOC_CITIZEN_NAME_TSOD_JENNIE_PERRO',
-        'zh_Hans_CN',
-        '詹妮·佩罗'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_GORDON',
-        'zh_Hans_CN',
-        '戈登'
-    ),
+    ('LOC_CITIZEN_NAME_TSOD_GORDON', 'zh_Hans_CN', '戈登'),
     ('LOC_CITIZEN_NAME_TSOD_HALL', 'zh_Hans_CN', '霍尔'),
-    (
-        'LOC_CITIZEN_NAME_TSOD_ELVIN_FRANKLIN',
-        'zh_Hans_CN',
-        '伊莱文·法兰克林'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_FENDIL_WILDER',
-        'zh_Hans_CN',
-        '芬迪尔·维尔德'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_VICTORIA_WILDER',
-        'zh_Hans_CN',
-        '维多利亚·维尔德'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_CROMWELL_WHITEMOUNTAIN',
-        'zh_Hans_CN',
-        '克伦威尔·白山'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_BODWIN_FRANKLIN',
-        'zh_Hans_CN',
-        '柏德文·法兰克林'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_VERONICA_MOEN',
-        'zh_Hans_CN',
-        '维罗妮卡·摩恩'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_SEWEN_TERRY',
-        'zh_Hans_CN',
-        '赛文·特里'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_HAMEL',
-        'zh_Hans_CN',
-        '汉默尔'
-    ),
+    ('LOC_CITIZEN_NAME_TSOD_ELVIN_FRANKLIN', 'zh_Hans_CN', '伊莱文·法兰克林'),
+    ('LOC_CITIZEN_NAME_TSOD_FENDIL_WILDER', 'zh_Hans_CN', '芬迪尔·维尔德'),
+    ('LOC_CITIZEN_NAME_TSOD_VICTORIA_WILDER', 'zh_Hans_CN', '维多利亚·维尔德'),
+    ('LOC_CITIZEN_NAME_TSOD_CROMWELL_WHITEMOUNTAIN', 'zh_Hans_CN', '克伦威尔·白山'),
+    ('LOC_CITIZEN_NAME_TSOD_BODWIN_FRANKLIN', 'zh_Hans_CN', '柏德文·法兰克林'),
+    ('LOC_CITIZEN_NAME_TSOD_VERONICA_MOEN', 'zh_Hans_CN', '维罗妮卡·摩恩'),
+    ('LOC_CITIZEN_NAME_TSOD_SEWEN_TERRY', 'zh_Hans_CN', '赛文·特里'),
+    ('LOC_CITIZEN_NAME_TSOD_HAMEL', 'zh_Hans_CN', '汉默尔'),
     ('LOC_CITIZEN_NAME_TSOD_HOLM', 'zh_Hans_CN', '霍姆'),
-    (
-        'LOC_CITIZEN_NAME_TSOD_MARGARITA',
-        'zh_Hans_CN',
-        '玛格丽塔'
-    ),
+    ('LOC_CITIZEN_NAME_TSOD_MARGARITA', 'zh_Hans_CN', '玛格丽塔'),
     ('LOC_CITIZEN_NAME_TSOD_BETTY', 'zh_Hans_CN', '贝蒂'),
-    (
-        'LOC_CITIZEN_NAME_TSOD_WITCH_GIPLY',
-        'zh_Hans_CN',
-        ''' 女巫 ''吉普莉'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_SCARFACE_ANTON',
-        'zh_Hans_CN',
-        ''' 疤脸 ''安东'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_BELK_LOREN',
-        'zh_Hans_CN',
-        '贝尔克·罗伦'
-    ),
-    (
-        'LOC_CITIZEN_NAME_TSOD_GELIN',
-        'zh_Hans_CN',
-        '葛林'
-    ),
+    ('LOC_CITIZEN_NAME_TSOD_WITCH_GIPLY', 'zh_Hans_CN', ''' 女巫 ''吉普莉'),
+    ('LOC_CITIZEN_NAME_TSOD_SCARFACE_ANTON', 'zh_Hans_CN', ''' 疤脸 ''安东'),
+    ('LOC_CITIZEN_NAME_TSOD_BELK_LOREN', 'zh_Hans_CN', '贝尔克·罗伦'),
+    ('LOC_CITIZEN_NAME_TSOD_GELIN', 'zh_Hans_CN', '葛林'),
+    ('LOC_CITIZEN_NAME_TSOD_CODY_BALDWIN', 'zh_Hans_CN', '科德·鲍德温'),
+    ('LOC_CITIZEN_NAME_TSOD_PATTY_GRAN', 'zh_Hans_CN', '帕蒂·葛兰'),
+    ('LOC_CITIZEN_NAME_TSOD_ROPENI_GRAN', 'zh_Hans_CN', '罗佩妮·葛兰'),
     -- Traits
+    ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', 'zh_Hans_CN', '改良的采石场+1[ICON_Science]科技。'),
+    ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', 'zh_Hans_CN', '正确改良的硝石+3[ICON_Faith]信仰。');
+
+INSERT INTO
+    EnglishText (Tag, Text)
+VALUES
+    ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME', 'Cecil'),
+    ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION', 'Cecil Empire'),
+    ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_ADJECTIVE', 'Cecil Empire''s'),
+    ('LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME', 'Quantifying the Truth'),
     (
-        'LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION',
-        'zh_Hans_CN',
-        '改良的采石场+1[ICON_Science]科技。'
+        'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
+        '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}Upon first completing a special district, or a campus building for the first time, receive a unique Great Person of Cecil.'
+    ),
+    ('LOC_LEADER_TSOD_GAWAIN_CECIL_NAME', 'Gawain Cecil'),
+    ('LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME', 'The Sword of Dawn'),
+    (
+        'LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_DESCRIPTION',
+        'After recruiting a Great Person, gain an extra 20% in that type''s Great Person points per turn. Each additional Great Person of the same type adds 10% more, up to 100% extra. Also, Cecil''s Great People boost their type''s point output of their recruitment region.'
     ),
     (
-        'LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION',
-        'zh_Hans_CN',
-        '正确改良的硝石+3[ICON_Faith]信仰。'
-    );
+        'LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL',
+        'Gawain Cecil, Lord of Knights, Pioneer, Protector, the Founder of the Kingdom. When this land was still called Ansu, you were its guardian in the south. Over the years, you have achieved numerous remarkable feats: revitalizing the southern lands, unifying a nation, leading an era, and even united the civilizations of this planet. you reclaimed wastelands, defeated deities, and now, you will lead this world against the Mana Tide, completing the final test before civilization steps into the stars... Such astonishing achievements, and to many people, all these feats are embodied in you. So, after these great deeds, was there ever a moment, even just a slight instant, you realized that you have almost become... a God?'
+    ),
+    ('LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING', 'Gawain Cecil sends his greetings.'),
+    -- City names
+    ('LOC_CITY_NAME_TSOD_CECIL', 'Cecil'),
+    ('LOC_CITY_NAME_TSOD_SAINT_SUNIL', 'Saint Sunil'),
+    ('LOC_CITY_NAME_TSOD_LONGWIND_FORTRESS', 'Longwind Fortress'),
+    ('LOC_CITY_NAME_TSOD_FROSTWOOD_VILLAGE', 'Frostwood Village'),
+    ('LOC_CITY_NAME_TSOD_ROCKSTONE', 'Rockstone'),
+    ('LOC_CITY_NAME_TSOD_MEGALITH', 'Megalith'),
+    ('LOC_CITY_NAME_TSOD_LUAN', 'Lu''an'),
+    ('LOC_CITY_NAME_TSOD_RED_MAPLE', 'Red Maple'),
+    ('LOC_CITY_NAME_TSOD_POMPEII', 'Pompeii'),
+    ('LOC_CITY_NAME_TSOD_ELRON', 'Elron'),
+    ('LOC_CITY_NAME_TSOD_FERTILE_WOODLANDS', 'Fertile Woodlands'),
+    ('LOC_CITY_NAME_TSOD_SLANTWOOD_VALLEY', 'Slantwood Valley'),
+    ('LOC_CITY_NAME_TSOD_LONGSTONE_TOWN', 'Longstone Town'),
+    ('LOC_CITY_NAME_TSOD_TENWOODS', 'Tenwoods'),
+    ('LOC_CITY_NAME_TSOD_TAMDULUR', 'Tamdulur'),
+    ('LOC_CITY_NAME_TSOD_LUNTATELLE_SHIRE', 'Luntatelle Shire'),
+    ('LOC_CITY_NAME_TSOD_HALL_SHIRE', 'Hall Shire'),
+    ('LOC_CITY_NAME_TSOD_CAROL', 'Carol'),
+    ('LOC_CITY_NAME_TSOD_KANT', 'Kant'),
+    ('LOC_CITY_NAME_TSOD_GRAN', 'Gran'),
+    ('LOC_CITY_NAME_TSOD_LESLIE', 'Leslie'),
+    ('LOC_CITY_NAME_TSOD_HOSMAN', 'Hosman'),
+    -- Citizen names
+    ('LOC_CITIZEN_NAME_TSOD_SAM', 'Sam'),
+    ('LOC_CITIZEN_NAME_TSOD_TOM', 'Tom'),
+    ('LOC_CITIZEN_NAME_TSOD_PEA', 'Pea'),
+    ('LOC_CITIZEN_NAME_TSOD_GORDON', 'Gordon'),
+    ('LOC_CITIZEN_NAME_TSOD_HALL', 'Hall'),
+    ('LOC_CITIZEN_NAME_TSOD_ELVIN_FRANKLIN', 'Elvin Franklin'),
+    ('LOC_CITIZEN_NAME_TSOD_FENDIL_WILDER', 'Fendil Wilder'),
+    ('LOC_CITIZEN_NAME_TSOD_VICTORIA_WILDER', 'Victoria Wilder'),
+    ('LOC_CITIZEN_NAME_TSOD_CROMWELL_WHITEMOUNTAIN', 'Cromwell Whitemountain'),
+    ('LOC_CITIZEN_NAME_TSOD_BODWIN_FRANKLIN', 'Bodwin Franklin'),
+    ('LOC_CITIZEN_NAME_TSOD_VERONICA_MOEN', 'Veronica Moen'),
+    ('LOC_CITIZEN_NAME_TSOD_SEWEN_TERRY', 'Sewen Terry'),
+    ('LOC_CITIZEN_NAME_TSOD_HAMEL', 'Hamel'),
+    ('LOC_CITIZEN_NAME_TSOD_HOLM', 'Holm'),
+    ('LOC_CITIZEN_NAME_TSOD_MARGARITA', 'Margarita'),
+    ('LOC_CITIZEN_NAME_TSOD_BETTY', 'Betty'),
+    ('LOC_CITIZEN_NAME_TSOD_WITCH_GIPLY', '''Witch'' Giply'),
+    ('LOC_CITIZEN_NAME_TSOD_SCARFACE_ANTON', '''Scarface'' Anton'),
+    ('LOC_CITIZEN_NAME_TSOD_BELK_LOREN', 'Belk Loren'),
+    ('LOC_CITIZEN_NAME_TSOD_GELIN', 'Gelin'),
+    ('LOC_CITIZEN_NAME_TSOD_CODY_BALDWIN', 'Cody Baldwin'),
+    ('LOC_CITIZEN_NAME_TSOD_PATTY_GRAN', 'Patty Gran'),
+    ('LOC_CITIZEN_NAME_TSOD_ROPENI_GRAN', 'Ropeni Gran'),
+    -- Traits
+    ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', '+1 [ICON_Science] to improved quarries.'),
+    ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', '+3 [ICON_Faith] faith to correctly improved Niter.');
