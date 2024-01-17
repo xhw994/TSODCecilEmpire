@@ -22,12 +22,14 @@ VALUES
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_NAME', 'zh_Hans_CN', '赫蒂·塞西尔'),
     ('LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION', 'zh_Hans_CN', '军事工程师建造铁路后会返还1点[ICON_RESOURCE_COAL]煤。'),
     ('LOC_GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH_DESCRIPTION', 'zh_Hans_CN', '如果单位位于或相邻市中心，所在城市购买单位时-20%花费。'),
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_GENERAL_NAME', 'zh_Hans_CN', '塞西尔的大将军'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_NAME', 'zh_Hans_CN', '菲利普'),
     ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH_DESCRIPTION', 'zh_Hans_CN', '攻城单位+1[ICON_Range]射程。'),
     ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH_DESCRIPTION', 'zh_Hans_CN', '攻城单位对抗单位时没有减益并且+3[ICON_Bombard]轰炸攻击力。'),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_NAME', 'zh_Hans_CN', '艺术'),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION', 'zh_Hans_CN', '对抗单位时+20[ICON_Bombard]轰炸攻击力。'),
     ('LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION', 'zh_Hans_CN', '在两个单元格以内，为陆地单位+5[ICON_Strength]战斗力。'),
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_ADMIRAL_NAME', 'zh_Hans_CN', '塞西尔的海军统帅'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_NAME', 'zh_Hans_CN', '拜伦·柯克'),
     ('LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION', 'zh_Hans_CN', '在两个单元格以内，为海军单位+5[ICON_Strength]战斗力。'),
     ('LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION', 'zh_Hans_CN', '获得1位[ICON_Envoy]使者。'),
@@ -36,9 +38,14 @@ VALUES
     ('LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION', 'zh_Hans_CN', '位于大牧首2单元格内时+5[ICON_Religion]宗教战斗力。'),
     ('LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION', 'zh_Hans_CN', '在两个单元格以内，为宗教单位+5[ICON_Religion]战斗力。'),
     ('LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION', 'zh_Hans_CN', '如果该城信仰任意宗教，城市中每位公民额外产出+0.5[ICON_Faith]信仰值。'),
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_MERCHANT_NAME', 'zh_Hans_CN', '塞西尔的大商人'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'zh_Hans_CN', '皮特曼·劳伦'),
     ('LOC_GREATPERSON_GRANT_LUXURY_POTION_DESCRIPTION', 'zh_Hans_CN', '赠予2份[ICON_RESOURCE_TSOD_CE_POTION]炼金药剂，这是一种特殊的人造奢侈品资源，能+4宜居度。'),
-	('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_NAME', 'zh_Hans_CN', '菲尔姆');
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_WRITER_NAME', 'zh_Hans_CN', '塞西尔的大剧作家'),
+    ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_NAME', 'zh_Hans_CN', '菲尔姆'),
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_ENGINEER_NAME', 'zh_Hans_CN', '塞西尔的大工程师'),
+    ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_NAME', 'zh_Hans_CN', '尼古拉斯·蛋'),
+    ('LOC_GREATPERSON_AOE_TSOD_CE_NICHOLAS_EGG_ATTACH_DESCRIPTION', 'zh_Hans_CN', '如果单位位于或相邻市中心，所在城市生产单位时+25%[ICON_Production]生产力。');
 
 INSERT INTO
     EnglishText (Tag, Text)
@@ -48,7 +55,7 @@ VALUES
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
         'Cecil''s unique recon unit, automatically received upon establishing the Capital and cannot be produced. She starts with a vision range of 4 but has extremely weak combat strength. When killed, retreats with 1 HP to the nearest city.'
     ),
-    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME', 'Great scientists of Cecil Empire'),
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME', 'Great Scientist of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_NAME', 'Rebecca Cecil'),
     ('LOC_GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL_DUMMY_DESCRIPTION', 'Instantly complete the currently researching technology.'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO_NAME', 'Jennie Perro'),
@@ -72,12 +79,14 @@ VALUES
         'LOC_GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH_DESCRIPTION',
         'When the unit is at or adjacent to city center, reduce 20% cost when purchasing units in this city.'
     ),
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_GENERAL_NAME', 'Great General of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_NAME', 'Sir Philip'),
     ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH_DESCRIPTION', '+1 [ICON_Range] range to siege units.'),
     ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH_DESCRIPTION', '+3[ICON_Bombard] Bombard Stregth to siege units vs. units, instead of debuff.'),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_NAME', 'The "Art"'),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION', '+20[ICON_Bombard] Bombard Stregth vs. units.'),
     ('LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION', '+5 [ICON_Strength] Combat Strength to land units within 2 tiles.'),
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_ADMIRAL_NAME', 'Great Admiral of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_NAME', 'Byron Kirk'),
     ('LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION', '+5 [ICON_Strength] Combat Strength to naval units within 2 tiles.'),
     ('LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION', 'Gain 1 [ICON_Envoy] envoy.'),
@@ -89,9 +98,17 @@ VALUES
         'LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION',
         'If this city follows any religion, +0.5[ICON_Faith] faith yield per population.'
     ),
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_MERCHANT_NAME', 'Great Merchant of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'zh_Hans_CN', 'Pitman Lauren'),
     (
         'LOC_GREATPERSON_GRANT_LUXURY_POTION_DESCRIPTION',
         'Grants 2 [ICON_RESOURCE_TSOD_CE_POTION] Perfume, a uniquely manufactured Luxury resource which provides +4 Amenities.'
     ),
-	('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_NAME', 'Felm');
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_WRITER_NAME', 'Great Playwright of Cecil'),
+    ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_NAME', 'Felm'),
+    ('LOC_GREAT_PERSON_CLASS_TSOD_CE_ENGINEER_NAME', 'Great Engineer of Cecil'),
+    ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_NAME', 'Nicholas Egg'),
+    (
+        'LOC_GREATPERSON_AOE_TSOD_CE_NICHOLAS_EGG_ATTACH_DESCRIPTION',
+        'When the unit is at or adjacent to city center, +25% [ICON_Production] towards unit production in this city.'
+    );
