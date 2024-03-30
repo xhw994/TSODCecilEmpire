@@ -144,5 +144,5 @@ VALUES
     ('LOC_CITIZEN_NAME_TSOD_PATTY_GRAN', 'Patty Gran'),
     ('LOC_CITIZEN_NAME_TSOD_ROPENI_GRAN', 'Ropeni Gran'),
     -- Traits
-    ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', '+1 [ICON_Science] to improved quarries.'),
+    ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', '+1[ICON_Science] to improved quarries.'),
     ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', '+3 [ICON_Faith] faith to correctly improved Niter.');
