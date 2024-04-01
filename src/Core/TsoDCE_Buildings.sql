@@ -31,57 +31,64 @@ VALUES
     ('BUILDING_TSOD_MANA_OBELISK', 'YIELD_PRODUCTION', 2);
 
 -- District adjacency bonus
--- CREATE TABLE TsoDDistrictYields (District TEXT NOT NULL, YieldType TEXT NOT NULL, PRIMARY KEY (District));
--- INSERT INTO
---     TsoDDistrictYields (District, YieldType)
--- VALUES
---     ('HOLY_SITE', 'FAITH'),
---     ('CAMPUS', 'SCIENCE'),
---     ('HARBOR', 'GOLD'),
---     ('COMMERCIAL_HUB', 'GOLD'),
---     ('THEATER', 'CULTURE'),
---     ('INDUSTRIAL_ZONE', 'PRODUCTION'),
---     ('ENCAMPMENT', 'PRODUCTION'),
---     ('PRESERVE', 'FOOD');
--- INSERT INTO
---     BuildingModifiers (BuildingType, ModifierId)
--- VALUES
---     ('BUILDING_TSOD_MANA_OBELISK', 'TSOD_MANA_OBELISK_' || District || '_ADJACENCY')
--- FROM
---     TsoDDistrictYields;
--- INSERT INTO
---     Modifiers (ModifierId, ModifierType)
--- SELECT
---     'TSOD_MANA_OBELISK_' || District ||         '_ADJACENCY',
---     'MODIFIER_PLAYER_CITIES_DISTRICT_ADJACENCY'
--- FROM
---     TsoDDistrictYields;
--- INSERT INTO
---     ModifierArguments (ModifierId, Name, VALUE)
--- SELECT
---     'TSOD_MANA_OBELISK_' || t.District || '_ADJACENCY' AS ModifierId,
---     CASE
---         WHEN x.Name = 'Amount' THEN '1'
---         WHEN x.Name = 'Description' THEN 'LOC_DISTRICT_DISTRICT_1_' || t.YieldType
---         WHEN x.Name = 'DistrictType' THEN 'DISTRICT_' || t.District
---         WHEN x.Name = 'YieldType' THEN 'YIELD_' || t.YieldType
---     END AS VALUE,
---     x.Name
--- FROM
---     TsoDDistrictYields t,
---     (
---         SELECT
---             'Amount' AS Name
---         UNION ALL
---         SELECT
---             'Description'
---         UNION ALL
---         SELECT
---             'DistrictType'
---         UNION ALL
---         SELECT
---             'YieldType'
---     ) x;
+CREATE TEMPORARY TABLE TsoDDistrictYields (District TEXT NOT NULL, YieldType TEXT NOT NULL, PRIMARY KEY (District));
+
+INSERT INTO
+    TsoDDistrictYields (District, YieldType)
+VALUES
+    ('HOLY_SITE', 'FAITH'),
+    ('CAMPUS', 'SCIENCE'),
+    ('HARBOR', 'GOLD'),
+    ('COMMERCIAL_HUB', 'GOLD'),
+    ('THEATER', 'CULTURE'),
+    ('INDUSTRIAL_ZONE', 'PRODUCTION'),
+    ('ENCAMPMENT', 'PRODUCTION'),
+    ('PRESERVE', 'FOOD');
+
+INSERT INTO
+    BuildingModifiers (BuildingType, ModifierId)
+SELECT
+    'BUILDING_TSOD_MANA_OBELISK',
+    'TSOD_MANA_OBELISK_' || District || '_ADJACENCY'
+FROM
+    TsoDDistrictYields;
+
+INSERT INTO
+    Modifiers (ModifierId, ModifierType, RunOnce, Permanent)
+SELECT
+    'TSOD_MANA_OBELISK_' || District || '_ADJACENCY',
+    'MODIFIER_PLAYER_CITIES_DISTRICT_ADJACENCY',
+    1,
+    1
+FROM
+    TsoDDistrictYields;
+
+INSERT INTO
+    ModifierArguments (ModifierId, Name, Value)
+SELECT
+    'TSOD_MANA_OBELISK_' || t.District || '_ADJACENCY' AS ModifierId,
+    x.Name,
+    CASE
+        WHEN x.Name = 'Amount' THEN '1'
+        WHEN x.Name = 'Description' THEN 'LOC_DISTRICT_DISTRICT_1_' || t.YieldType
+        WHEN x.Name = 'DistrictType' THEN 'DISTRICT_' || t.District
+        WHEN x.Name = 'YieldType' THEN 'YIELD_' || t.YieldType
+    END AS Value
+FROM
+    TsoDDistrictYields t,
+    (
+        SELECT
+            'Amount' AS Name
+        UNION ALL
+        SELECT
+            'Description'
+        UNION ALL
+        SELECT
+            'DistrictType'
+        UNION ALL
+        SELECT
+            'YieldType'
+    ) x;
 
 -- Building double yield
 INSERT INTO
