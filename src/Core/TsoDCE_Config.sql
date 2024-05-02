@@ -13,7 +13,7 @@ INSERT INTO
         LeaderName,
         LeaderType,
         Portrait,
-		PortraitBackground,
+        PortraitBackground,
         Domain
     )
 VALUES
@@ -31,7 +31,7 @@ VALUES
         'LOC_LEADER_TSOD_GAWAIN_CECIL_NAME',
         'LEADER_TSOD_GAWAIN_CECIL',
         'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL',
-		'LEADER_TSOD_GAWAIN_CECIL_BACKGROUND',
+        'LEADER_TSOD_GAWAIN_CECIL_BACKGROUND',
         'Players:StandardPlayers'
     ),
     (
@@ -48,7 +48,7 @@ VALUES
         'LOC_LEADER_TSOD_GAWAIN_CECIL_NAME',
         'LEADER_TSOD_GAWAIN_CECIL',
         'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL',
-		'LEADER_TSOD_GAWAIN_CECIL_BACKGROUND',
+        'LEADER_TSOD_GAWAIN_CECIL_BACKGROUND',
         'Players:Expansion1_Players'
     ),
     (
@@ -65,21 +65,12 @@ VALUES
         'LOC_LEADER_TSOD_GAWAIN_CECIL_NAME',
         'LEADER_TSOD_GAWAIN_CECIL',
         'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL',
-		'LEADER_TSOD_GAWAIN_CECIL_BACKGROUND',
+        'LEADER_TSOD_GAWAIN_CECIL_BACKGROUND',
         'Players:Expansion2_Players'
     );
 
 INSERT INTO
-    PlayerItems (
-        CivilizationType,
-        LeaderType,
-        Type,
-        Name,
-        Description,
-        Icon,
-        SortIndex,
-        Domain
-    )
+    PlayerItems (CivilizationType, LeaderType, Type, Name, Description, Icon, SortIndex, Domain)
 VALUES
     (
         'CIVILIZATION_TSOD_CECIL_EMPIRE',
@@ -94,6 +85,16 @@ VALUES
     (
         'CIVILIZATION_TSOD_CECIL_EMPIRE',
         'LEADER_TSOD_GAWAIN_CECIL',
+        'TRAIT_UNIT_TSOD_GORGON_PLATFORM',
+        'LOC_UNIT_TSOD_GORGON_PLATFORM_NAME',
+        'LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION',
+        'ICON_UNIT_TSOD_GORGON_PLATFORM',
+        '10',
+        'Players:StandardPlayers'
+    ),
+    (
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LEADER_TSOD_GAWAIN_CECIL',
         'TRAIT_BUILDING_TSOD_MANA_OBELISK',
         'LOC_BUILDING_TSOD_MANA_OBELISK_NAME',
         'LOC_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION',
@@ -114,6 +115,16 @@ VALUES
     (
         'CIVILIZATION_TSOD_CECIL_EMPIRE',
         'LEADER_TSOD_GAWAIN_CECIL',
+        'TRAIT_UNIT_TSOD_GORGON_PLATFORM',
+        'LOC_UNIT_TSOD_GORGON_PLATFORM_NAME',
+        'LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION',
+        'ICON_UNIT_TSOD_GORGON_PLATFORM',
+        '10',
+        'Players:Expansion1_Players'
+    ),
+    (
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LEADER_TSOD_GAWAIN_CECIL',
         'TRAIT_BUILDING_TSOD_MANA_OBELISK',
         'LOC_BUILDING_TSOD_MANA_OBELISK_NAME',
         'LOC_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION',
@@ -128,6 +139,16 @@ VALUES
         'LOC_UNIT_TSOD_SCOUT_AMBER_NAME',
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
         'ICON_UNIT_TSOD_SCOUT_AMBER',
+        '10',
+        'Players:Expansion2_Players'
+    ),
+    (
+        'CIVILIZATION_TSOD_CECIL_EMPIRE',
+        'LEADER_TSOD_GAWAIN_CECIL',
+        'TRAIT_UNIT_TSOD_GORGON_PLATFORM',
+        'LOC_UNIT_TSOD_GORGON_PLATFORM_NAME',
+        'LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION',
+        'ICON_UNIT_TSOD_GORGON_PLATFORM',
         '10',
         'Players:Expansion2_Players'
     ),

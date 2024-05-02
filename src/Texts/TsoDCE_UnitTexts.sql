@@ -47,7 +47,13 @@ VALUES
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_NAME', 'zh_Hans_CN', '菲尔姆'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_ENGINEER_NAME', 'zh_Hans_CN', '塞西尔的大工程师'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_NAME', 'zh_Hans_CN', '尼古拉斯·蛋'),
-    ('LOC_GREATPERSON_AOE_TSOD_CE_NICHOLAS_EGG_ATTACH_DESCRIPTION', 'zh_Hans_CN', '如果单位位于或相邻市中心，所在城市生产单位时+25%[ICON_Production]生产力。');
+    ('LOC_GREATPERSON_AOE_TSOD_CE_NICHOLAS_EGG_ATTACH_DESCRIPTION', 'zh_Hans_CN', '如果单位位于或相邻市中心，所在城市生产单位时+25%[ICON_Production]生产力。'),
+    ('LOC_UNIT_TSOD_GORGON_PLATFORM_NAME', 'zh_Hans_CN', '戈尔贡平台'),
+    (
+        'LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION',
+        'zh_Hans_CN',
+        '塞西尔的独特支援单位，替代无人机。为2单元格内的攻城单位+1[ICON_Range]射程，+5[ICON_Strength]攻击力。为两格内的所有单位提供15点回复。两格内的所有改良获得额外产出。'
+    );
 
 INSERT INTO
     EnglishText (Tag, Text)
@@ -115,4 +121,9 @@ VALUES
     (
         'LOC_GREATPERSON_AOE_TSOD_CE_NICHOLAS_EGG_ATTACH_DESCRIPTION',
         'When the unit is at or adjacent to city center, +25% [ICON_Production] towards unit production in this city.'
+    ),
+    ('LOC_UNIT_TSOD_GORGON_PLATFORM_NAME', 'Gorgon Platform'),
+    (
+        'LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION',
+        'Cecil''s unique support unit, replaces drones. Provides +1 [ICON_Range] range and +5 [ICON_Strength] combat strength to siege units within 2 cells. Heals all units within two cells by 15 points. All improvements within two cells gain extra output.'
     );
