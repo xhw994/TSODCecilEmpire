@@ -58,7 +58,8 @@ INSERT INTO
         BaseMoves,
         PurchaseYield,
         CanTrain,
-        Maintenance
+        Maintenance,
+        PrereqTech
     )
 VALUES
     (
@@ -80,7 +81,8 @@ VALUES
         3,
         NULL,
         0,
-        0
+        0,
+        NULL
     ),
     (
         'UNIT_TSOD_GORGON_PLATFORM',
@@ -101,7 +103,8 @@ VALUES
         2,
         'YIELD_GOLD',
         1,
-        3
+        3,
+        'TECH_COMPUTERS'
     );
 
 INSERT INTO
