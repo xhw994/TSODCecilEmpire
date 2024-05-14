@@ -52,7 +52,7 @@ VALUES
     (
         'LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION',
         'zh_Hans_CN',
-        '塞西尔的独特支援单位，替代无人机。为1单元格内的攻城单位+1[ICON_Range]射程，+5[ICON_Strength]攻击力。能治疗邻近单位。两格内的所有改良获得额外产出。'
+        '塞西尔的独特支援单位，替代无人机。为1单元格内的攻城单位+1[ICON_Range]射程，+5[ICON_Strength]攻击力。能治疗邻近单位。'
     ),
     ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_DESCRIPTION', 'zh_Hans_CN', '相邻戈尔贡平台的攻城单位+5[ICON_Strength]攻击力。'),
     ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_MODIFIER', 'zh_Hans_CN', '相邻戈尔贡平台+{1_Amount}战斗力。');
@@ -127,7 +127,7 @@ VALUES
     ('LOC_UNIT_TSOD_GORGON_PLATFORM_NAME', 'Gorgon Platform'),
     (
         'LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION',
-        'Cecil''s Atomic era support unit, replaces drone. Adds +1 [ICON_Range] range and +5 [ICON_Strength] bombard strength to siege units within 1 hex. Can heal adjacent units. Adjacent improvements gain bonus yield.'
+        'Cecil''s Atomic era support unit, replaces drone. Adds +1 [ICON_Range] range and +5 [ICON_Strength] bombard strength to siege units within 1 hex. Can heal adjacent units.'
     ),
     (
         'LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_DESCRIPTION',
