@@ -193,6 +193,30 @@
 			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_80"/>
 			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_80"/>
 		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_200"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_200"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_256"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_256"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_38"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_38"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_50"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_50"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_70"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_70"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_95"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_95"/>
+		</Element>
 	</m_Entries>
 	<m_AllowedPlatforms>
 		<Element>WINDOWS</Element>
