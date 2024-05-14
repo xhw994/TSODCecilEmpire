@@ -597,6 +597,12 @@
             </relativePackagePaths>
         </Element>
         <Element>
+            <libraryName text="UITexture"/>
+            <relativePackagePaths>
+                <Element text="UIPrideMoments"/>
+            </relativePackagePaths>
+        </Element>
+        <Element>
             <libraryName text="Unit"/>
             <relativePackagePaths>
             </relativePackagePaths>

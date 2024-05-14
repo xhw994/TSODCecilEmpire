@@ -12,7 +12,7 @@
     <SupportsSinglePlayer>true</SupportsSinglePlayer>
     <SupportsMultiplayer>true</SupportsMultiplayer>
     <SupportsHotSeat>true</SupportsHotSeat>
-    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+    <CompatibleVersions>2.0</CompatibleVersions>
     <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="TsoDCE_IG_UpdateDatabase"><File>Core/TsoDCE_Civilizations.sql</File><File>Core/TsoDCE_CivilizationTraits.sql</File><File>Core/TsoDCE_Leaders.sql</File><File>Core/TsoDCE_Resources.sql</File><File>Core/TsoDCE_Greatworks.sql</File><File>Core/TsoDCE_GreatPeople.sql</File><File>Core/TsoDCE_Units.sql</File><File>Core/TsoDCE_Buildings.sql</File></UpdateDatabase><AddGameplayScripts id="TsoDCE_IG_AddGameplayScripts"><File>Core/TsoDCE_CivilizationTraits.lua</File></AddGameplayScripts><UpdateIcons id="TsoDCE_IG_UpdateIcons"><File>Icons/TsoDCE_BuildingIcons.xml</File><File>Icons/TsoDCE_CivLeaderIcons.xml</File><File>Icons/TsoDCE_UnitIcons.xml</File><File>Icons/TsoDCE_ResourceIcons.xml</File><File>Icons/TsoDCE_GreatworkIcons.xml</File></UpdateIcons><UpdateColors id="TsoDCE_IG_UpdateColors"><File>Core/TsoDCE_Colors.sql</File></UpdateColors><UpdateText id="TsoDCE_IG_UpdateText"><File>Texts/TsoDCE_BuildingTexts.sql</File><File>Texts/TsoDCE_CivLeaderTexts.sql</File><File>Texts/TsoDCE_UnitTexts.sql</File><File>Texts/TsoDCE_ResourceTexts.sql</File><File>Texts/TsoDCE_GreatworkTexts.sql</File></UpdateText><UpdateArt id="TsoDCE_IG_UpdateArt"><File>(Mod Art Dependency File)</File></UpdateArt></InGameActions>]]></InGameActionData>
     <FrontEndActionData><![CDATA[<FrontEndActions><UpdateDatabase id="TsoDCE_FE_UpdateDatabase"><File>Core/TsoDCE_Config.sql</File></UpdateDatabase><UpdateIcons id="TsoDCE_FE_UpdateIcons"><File>Icons/TsoDCE_BuildingIcons.xml</File><File>Icons/TsoDCE_CivLeaderIcons.xml</File><File>Icons/TsoDCE_UnitIcons.xml</File></UpdateIcons><UpdateColors id="TsoDCE_FE_UpdateColors"><File>Core/TsoDCE_Colors.sql</File></UpdateColors><UpdateText id="TsoDCE_FE_UpdateText"><File>Texts/TsoDCE_BuildingTexts.sql</File><File>Texts/TsoDCE_CivLeaderTexts.sql</File><File>Texts/TsoDCE_UnitTexts.sql</File></UpdateText><UpdateArt id="TsoDCE_FE_UpdateArt"><File>(Mod Art Dependency File)</File></UpdateArt></FrontEndActions>]]></FrontEndActionData>
     <AssemblyName>TSODCecilEmpire</AssemblyName>
@@ -115,6 +115,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="XLPs\UILeaders.xlp">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="XLPs\UIPrideMoments.xlp">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>

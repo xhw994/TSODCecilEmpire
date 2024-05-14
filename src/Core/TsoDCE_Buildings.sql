@@ -56,7 +56,7 @@ FROM
 INSERT INTO
     Modifiers (ModifierId, ModifierType, RunOnce, Permanent)
 SELECT
-    'TSOD_MANA_OBELISK_' || District || '_ADJACENCY',
+    'TSOD_MANA_OBELISK_' || District ||         '_ADJACENCY',
     'MODIFIER_PLAYER_CITIES_DISTRICT_ADJACENCY',
     1,
     1
@@ -64,7 +64,7 @@ FROM
     TsoDDistrictYields;
 
 INSERT INTO
-    ModifierArguments (ModifierId, Name, Value)
+    ModifierArguments (ModifierId, Name, VALUE)
 SELECT
     'TSOD_MANA_OBELISK_' || t.District || '_ADJACENCY' AS ModifierId,
     x.Name,
@@ -73,7 +73,7 @@ SELECT
         WHEN x.Name = 'Description' THEN 'LOC_DISTRICT_DISTRICT_1_' || t.YieldType
         WHEN x.Name = 'DistrictType' THEN 'DISTRICT_' || t.District
         WHEN x.Name = 'YieldType' THEN 'YIELD_' || t.YieldType
-    END AS Value
+    END AS VALUE
 FROM
     TsoDDistrictYields t,
     (
@@ -150,3 +150,8 @@ INSERT INTO
     RequirementArguments (RequirementId, Name, VALUE)
 VALUES
     ('PLAYER_HAS_TECH_ELECTRICITY_REQUIREMENT', 'TechnologyType', 'TECH_ELECTRICITY');
+
+INSERT INTO
+    MomentIllustrations (MomentIllustrationType, MomentDataType, GameDataType, Texture)
+VALUES
+    ('MOMENT_ILLUSTRATION_UNIQUE_BUILDING', 'MOMENT_DATA_BUILDING', 'BUILDING_TSOD_MANA_OBELISK', 'MOMENT_BUILDING_TSOD_MANA_OBELISK');
