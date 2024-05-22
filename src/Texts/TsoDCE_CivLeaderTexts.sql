@@ -22,7 +22,54 @@ VALUES
         'zh_Hans_CN',
         '高文·塞西尔，骑士之主，开拓者，保护者，王国奠基之人，在这片土地还被称为安苏的时候，你便是它的南境守护。这些年，你立下了不少丰功伟绩，振兴南境，统一国家，引领一个时代，乃至于整合这颗星球上的文明——你收复了废土，击败了神明，现在你还将引领这个世界对抗魔潮，完成文明迈向星空前的最后一次考验……多么惊人的成就啊，而在许多人心中，这些功绩皆集于你一身，那么在完成这些丰功伟绩的时候，有没有那么一刻，哪怕只是一个瞬间，你意识到自己已经……宛若神明？'
     ),
-    ('LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING', 'zh_Hans_CN', '高文·塞西尔向你问好'),
+
+    -- Quotes
+    ('LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING', 'zh_Hans_CN', '骑士比法师牛逼！'),
+    ('LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '人类必将永存，纵使忤逆神明。'),
+    ('LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '只有更强大的合作伙伴才能带给你更大的利益，我从来不担心别人的发展，我只要能保证自己是发展最快的那个便足够了。'),
+    ('LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '人应敬畏自然，但却不可因敬畏自然而止步于自然。'),
+    ('LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '道别是为了下次再会，晚安是为了共同迎接下一個黎明。'),
+    ('LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '这个世界并不总是会发生好事很多时候，坏事可能还更多一些，但只要明天的太阳还能升起，就不妨对未来多期待一点。'),
+    ('LOC_DIPLO_DECLARE_WAR_FROM_HUMAN_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '唯有更强大的炮火才能给人类带来生存希望。'),
+    ('LOC_DIPLO_DECLARE_WAR_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '唯有更强大的炮火才能给人类带来生存希望。'),
+    ('LOC_DIPLO_DEFEAT_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '或许并不是所有人都能在这个艰难的世界生存下来，但每一位牺牲者的出现，都只能证明我们的无能。'),
+    ('LOC_DIPLO_DEFEAT_FROM_HUMAN_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '或许并不是所有人都能在这个艰难的世界生存下来，但每一位牺牲者的出现，都只能证明我们的无能。'),
+    ('LOC_DIPLO_ACCEPT_DELEGATION_FROM_HUMAN_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '知识永远都是有价值的，即使文明覆灭，即使最后一个有智慧的生命在星空下闭上了眼睛，知识——作为文明求索未知的脚印，它也永远有其意义。'),
+    ('LOC_DIPLO_REJECT_DELEGATION_FROM_HUMAN_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '领袖的一个决定，可能会让成百上千的人付出牺牲，有时候这个决定是必须的，有时候人民的牺牲是自愿的，伫领袖永远不能心安理得地接受这些牺牲，他必须知那些付出牺牲的人站在一起，并随时做好一同流血的准备。'),
+    ('LOC_DIPLO_DELEGATION_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '教导，学习，传播，知识的传递只要开始，就不会轻易停下，它会一直持续下去，直到每个人都有权利接触知识，都有权利思考和探究真理。'),
+    ('LOC_DIPLO_DENOUNCE_FROM_HUMAN_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '如果一个君主或领主只能用暴力和压迫来统治自己的子民，那么他的统治也就根本不是统治，因为随便换一只豺狼虎豹上去也能做到和他一样的事。[NEWLINE]（谴责你）'),
+    ('LOC_DIPLO_DENOUNCE_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '如果一个君主或领主只能用暴力和压迫来统治自己的子民，那么他的统治也就根本不是统治，因为随便换一只豺狼虎豹上去也能做到和他一样的事。[NEWLINE]（谴责你）'),
+    ('LOC_DIPLO_FIRST_MEET_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '人类必将永存，纵使忤逆神明。'),
+    ('LOC_DIPLO_FIRST_MEET_VISIT_RECIPIENT_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '欢迎来到塞西尔，欢迎来到未来。'),
+    ('LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '欢迎来到塞西尔，欢迎来到未来。'),
+    ('LOC_DIPLO_GREETING_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '高文·塞西尔向你问好'),
+    ('LOC_DIPLO_KUDO_EXIT_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '正义和仁慈才会让人民去依附，就像人会自然而然地向往光明一样。'),
+    ('LOC_DIPLO_KUDO_TSOD_GAWAIN_CECIL_REASON_ANY', 'zh_Hans_CN', '（高文·塞西尔对你的好感增加了）'),
+    ('LOC_DIPLO_WARNING_EXIT_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '你从未真的低头看过，看一眼那些卑微的人。'),
+    ('LOC_DIPLO_WARNING_TSOD_GAWAIN_CECIL_REASON_ANY', 'zh_Hans_CN', '（高文·塞西尔对你的好感减少了）'),
+    ('LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '行了，有什么阶级矛盾意识冲突的都先放一边吧。现在咱们是一条船上的人了。'),
+    ('LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '路就在那里，门只是一个虚无缥缈的装饰品罢了，只要抛开心理上的问题，哪怕是皇家宝库的大门也只需要一根芹菜而已。'),
+    ('LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '我就是规矩。'),
+    ('LOC_DIPLO_MAKE_PEACE_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '人人吃饱穿暖，就是最大的正义。'),
+    ('LOC_DIPLO_ACCEPT_OPEN_BORDERS_FROM_HUMAN_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '高文·塞西尔向你问好'),
+    ('LOC_DIPLO_REJECT_OPEN_BORDERS_FROM_HUMAN_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '我只是单纯地希望知识能传播出去，越广越好。'),
+    ('LOC_DIPLO_OPEN_BORDERS_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '教导，学习，传播，知识的传递只要开始，就不会轻易停下，它会一直持续下去，直到每个人都有权利接触知识，都有权利思考和探究真理。你愿意向我们敞开边境吗？'),
+    ('LOC_DIPLO_WARNING_TOO_MANY_TROOPS_NEAR_ME_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '请把你的部队从塞西尔的边境上移走。'),
+    ('LOC_DIPLO_ACCEPT_MAKE_DEAL_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '{LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_TSOD_GAWAIN_CECIL_ANY}'),
+    ('LOC_DIPLO_REJECT_MAKE_DEAL_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '{LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_TSOD_GAWAIN_CECIL_ANY}'),
+
+    -- Pedia
+    ('LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_1', 'zh_Hans_CN', '原身为安苏南境的塞西尔领，首都为塞西尔（与国名同名），初代皇帝为传奇英雄高文·塞西尔。'),
+    ('LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_2', 'zh_Hans_CN', '魔潮爆发后，一群难民（含高文·塞西尔在内）逃出刚铎帝国废土，于北方的边境外开拓领土、建立王国，施行封建领主制度。国王（摩恩家族）居住于中央首都白银堡，分封守护公爵（东境：罗伦；西境：法兰克林；南境：塞西尔；北境：维尔德）镇守四方，下辖袭爵领主无数。文明程度由于资源条件匮乏，退化至相当于中世纪中后期。'),
+    ('LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_3', 'zh_Hans_CN', '七百年后当高文“诈尸”时，安苏王国已因雾月内乱进入第二王朝，封建制度已经僵化腐败，文明进程几乎停滞。'),
+    ('LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_4', 'zh_Hans_CN', '高文揭棺而起后在安苏南境黑暗山脉地区建立了新塞西尔领（即后世的塞西尔城），大力发展魔导工业和新的社会制度。在安苏内战爆发后统一南境，“神灾”爆发后北上平定灾难。经过第二次内战、晶簇怪物（万物终亡会激活神孽因子）、猎神之战后完成政权交接，和平接管了安苏王国。'),
+    ('LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_CAPSULE_BODY', 'zh_Hans_CN', '高文带领人民终结神话时代，抵御魔潮，并最终带领洛伦文明迈向星空。在游戏中，他尝试用魔网科技以及招贤纳才获得胜利。'),
+    ('LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_DETAILED_BODY', 'zh_Hans_CN', '高文拥有以魔网科技为主导、招募伟人为辅助的游戏玩法。玩家需要在前期通过万神殿等方式获得[ICON_Culture]文化值以弥补无法建造纪念碑的劣势。当玩家可以建造魔能方尖碑后，便可以通过合理规划获得大量的区域相邻加成，并解锁相对自由的发展方向。第一次建造特殊区域都会附赠相应的伟人。他们都会提供改变游戏战术的加成。玩家可以通过建造军营获得菲利普骑士，解锁以炮击饱和轰炸为方向的征服玩法；可以建造圣地解锁莱特，配合宗教信条，通过信仰值反哺文明；通过组合市政广场、工业区、金融中心或保护区，可以高效率发展人口、提升地块产出；玩家也可以继续发展科技，获得学院区建筑赠送的伟人带来的大量加成。不论玩家选择哪种玩法都需要尽可能多的招纳伟人，获得相应领域的伟人点数加成。'),
+    ('LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_HISTORY_PARA_1', 'zh_Hans_CN', '《黎明之剑》主人公，灵魂来自地球，因飞机失事而穿越，清醒后变成了飘在某颗星球上的一个固定视角，这是星球的一颗同步轨道卫星（起航者遗留）。后疑似因卫星故障，灵魂被逃逸程序送至星球上，附身于七百年前逝世的安苏王国塞西尔家族先祖高文·塞西尔身上并借此复活。'),
+    ('LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_HISTORY_PARA_2', 'zh_Hans_CN', '拥有穿越前的记忆与知识，同时也拥有高文·塞西尔的记忆，但是相比700年前的高文·塞西尔实力有一定下降。'),
+    ('LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_HISTORY_PARA_3', 'zh_Hans_CN', '后开创塞西尔帝国，任皇帝，在种田、发展魔网科技的同时，追寻“魔潮”、“黑阱”、“神明”及“起航者”等事情的真相，各种努力以求带领大家走出上百万年的文明轮回。'),
+    ('LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_HISTORY_PARA_4', 'zh_Hans_CN', '斩杀战神后，联合大陆所有种族，建立“神权理事会”，寻求神明和凡人共处的方法，领导联盟反攻废土。领导联盟与诺伊文明的交流，并最终提出完善的母星屏障方案，带领洛伦诸凡人文明迎来黎明。'),
+
     -- City names
     ('LOC_CITY_NAME_TSOD_CECIL', 'zh_Hans_CN', '塞西尔城'),
     ('LOC_CITY_NAME_TSOD_SAINT_SUNIL', 'zh_Hans_CN', '圣苏尼尔城'),
@@ -46,6 +93,7 @@ VALUES
     ('LOC_CITY_NAME_TSOD_GRAN', 'zh_Hans_CN', '葛兰城'),
     ('LOC_CITY_NAME_TSOD_LESLIE', 'zh_Hans_CN', '莱斯利城'),
     ('LOC_CITY_NAME_TSOD_HOSMAN', 'zh_Hans_CN', '霍斯曼城'),
+
     -- Citizen names
     ('LOC_CITIZEN_NAME_TSOD_SAM', 'zh_Hans_CN', '山姆'),
     ('LOC_CITIZEN_NAME_TSOD_TOM', 'zh_Hans_CN', '汤姆'),
@@ -70,6 +118,7 @@ VALUES
     ('LOC_CITIZEN_NAME_TSOD_CODY_BALDWIN', 'zh_Hans_CN', '科德·鲍德温'),
     ('LOC_CITIZEN_NAME_TSOD_PATTY_GRAN', 'zh_Hans_CN', '帕蒂·葛兰'),
     ('LOC_CITIZEN_NAME_TSOD_ROPENI_GRAN', 'zh_Hans_CN', '罗佩妮·葛兰'),
+
     -- Traits
     ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', 'zh_Hans_CN', '改良的采石场+1[ICON_Science]科技。'),
     ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', 'zh_Hans_CN', '正确改良的硝石+3[ICON_Faith]信仰。');
@@ -96,6 +145,7 @@ VALUES
         'Gawain Cecil, Lord of Knights, Pioneer, Protector, the Founder of the Kingdom. When this land was still called Ansu, you were its guardian in the south. Over the years, you have achieved numerous remarkable feats: revitalizing the southern lands, unifying a nation, leading an era, and even united the civilizations of this planet. you reclaimed wastelands, defeated deities, and now, you will lead this world against the Mana Tide, completing the final test before civilization steps into the stars... Such astonishing achievements, and to many people, all these feats are embodied in you. So, after these great deeds, was there ever a moment, even just a slight instant, you realized that you have almost become... a God?'
     ),
     ('LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING', 'Gawain Cecil sends his greetings.'),
+
     -- City names
     ('LOC_CITY_NAME_TSOD_CECIL', 'Cecil'),
     ('LOC_CITY_NAME_TSOD_SAINT_SUNIL', 'Saint Sunil'),
@@ -119,6 +169,7 @@ VALUES
     ('LOC_CITY_NAME_TSOD_GRAN', 'Gran'),
     ('LOC_CITY_NAME_TSOD_LESLIE', 'Leslie'),
     ('LOC_CITY_NAME_TSOD_HOSMAN', 'Hosman'),
+
     -- Citizen names
     ('LOC_CITIZEN_NAME_TSOD_SAM', 'Sam'),
     ('LOC_CITIZEN_NAME_TSOD_TOM', 'Tom'),
@@ -143,6 +194,7 @@ VALUES
     ('LOC_CITIZEN_NAME_TSOD_CODY_BALDWIN', 'Cody Baldwin'),
     ('LOC_CITIZEN_NAME_TSOD_PATTY_GRAN', 'Patty Gran'),
     ('LOC_CITIZEN_NAME_TSOD_ROPENI_GRAN', 'Ropeni Gran'),
+
     -- Traits
     ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', '+1[ICON_Science] to improved quarries.'),
     ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', '+3 [ICON_Faith] faith to correctly improved Niter.');
