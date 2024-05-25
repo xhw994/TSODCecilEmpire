@@ -168,7 +168,6 @@ function OnUnitGreatPersonCreated(playerId, _, classId, _)
 
     local classType = GameInfo.GreatPersonClasses[classId].GreatPersonClassType
     for _, suffix in ipairs(AllClasses) do
-        print('Class type: ' .. classType .. ', suffix: ' .. suffix)
         if (endsWith(classType, suffix)) then
             tGreatPeopleActivatedList[suffix] = tGreatPeopleActivatedList[suffix] + 1
             pPlayer:SetProperty(GawainGreatPeopleActivated, tGreatPeopleActivatedList)
@@ -183,7 +182,7 @@ function OnTurnBegin()
         return
     end
 
-    for playerId, pPlayer in pairs(CecilPlayersMap) do
+    for _, pPlayer in pairs(CecilPlayersMap) do
         local tGreatPeopleActivatedList = pPlayer:GetProperty(GawainGreatPeopleActivated)
         if not tGreatPeopleActivatedList then
             print('Great person activated list was not intialized properly')
@@ -191,17 +190,15 @@ function OnTurnBegin()
                 print('key:' .. k .. ',value:' .. v)
                 pPlayer:SetProperty(GawainGreatPeopleActivated, tGreatPeopleActivatedList)
             end
-            print('Not?' .. tostring(not tGreatPeopleActivatedList))
-            print('Length:' .. tostring(#tGreatPeopleActivatedList))
+            print('Great person activated list undefined?' .. tostring(not tGreatPeopleActivatedList))
+            print('Great person activated list length:' .. tostring(#tGreatPeopleActivatedList))
             return
         end
-        print('Player ID:', playerId)
 
         for _, classSuffix in ipairs(AllClasses) do
             local classType = 'GREAT_PERSON_CLASS_' .. classSuffix
             local classId = GameInfo.GreatPersonClasses[classType].Index
             local points = pPlayer:GetGreatPeoplePoints():CalculatePointsPerTurn(classId)
-            print(classSuffix .. ': ' .. points)
 
             local activationCount = tGreatPeopleActivatedList[classSuffix]
             if (activationCount and activationCount > 0) then
