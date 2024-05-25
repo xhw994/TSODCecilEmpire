@@ -23,7 +23,7 @@ VALUES
         '高文·塞西尔，骑士之主，开拓者，保护者，王国奠基之人，在这片土地还被称为安苏的时候，你便是它的南境守护。这些年，你立下了不少丰功伟绩，振兴南境，统一国家，引领一个时代，乃至于整合这颗星球上的文明——你收复了废土，击败了神明，现在你还将引领这个世界对抗魔潮，完成文明迈向星空前的最后一次考验……多么惊人的成就啊，而在许多人心中，这些功绩皆集于你一身，那么在完成这些丰功伟绩的时候，有没有那么一刻，哪怕只是一个瞬间，你意识到自己已经……宛若神明？'
     ),
     -- Quotes
-    ('LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING', 'zh_Hans_CN', '骑士比法师牛逼！'),
+    ('LOC_LEADER_TSOD_GAWAIN_CECIL_INTRO_QUOTE', 'zh_Hans_CN', '骑士比法师牛逼！'),
     ('LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '人类必将永存，纵使忤逆神明。'),
     ('LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '只有更强大的合作伙伴才能带给你更大的利益，我从来不担心别人的发展，我只要能保证自己是发展最快的那个便足够了。'),
     ('LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '人应敬畏自然，但却不可因敬畏自然而止步于自然。'),
@@ -51,9 +51,9 @@ VALUES
     ('LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '欢迎来到塞西尔，欢迎来到未来。'),
     ('LOC_DIPLO_GREETING_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '高文·塞西尔向你问好'),
     ('LOC_DIPLO_KUDO_EXIT_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '正义和仁慈才会让人民去依附，就像人会自然而然地向往光明一样。'),
-    ('LOC_DIPLO_KUDO_TSOD_GAWAIN_CECIL_REASON_ANY', 'zh_Hans_CN', '（高文·塞西尔对你的好感增加了）'),
+    ('LOC_DIPLO_KUDO_TSOD_GAWAIN_CECIL_REASON_ANY', 'zh_Hans_CN', '你向人民传播知识的行为让高文·塞西尔很高兴'),
     ('LOC_DIPLO_WARNING_EXIT_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '你从未真的低头看过，看一眼那些卑微的人。'),
-    ('LOC_DIPLO_WARNING_TSOD_GAWAIN_CECIL_REASON_ANY', 'zh_Hans_CN', '（高文·塞西尔对你的好感减少了）'),
+    ('LOC_DIPLO_WARNING_TSOD_GAWAIN_CECIL_REASON_ANY', 'zh_Hans_CN', '你让人民保持愚昧的行为让高文·塞西尔很失望'),
     ('LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '行了，有什么阶级矛盾意识冲突的都先放一边吧。现在咱们是一条船上的人了。'),
     ('LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '路就在那里，门只是一个虚无缥缈的装饰品罢了，只要抛开心理上的问题，哪怕是皇家宝库的大门也只需要一根芹菜而已。'),
     ('LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '我就是规矩。'),
@@ -150,6 +150,9 @@ VALUES
     ('LOC_CITIZEN_NAME_TSOD_CODY_BALDWIN', 'zh_Hans_CN', '科德·鲍德温'),
     ('LOC_CITIZEN_NAME_TSOD_PATTY_GRAN', 'zh_Hans_CN', '帕蒂·葛兰'),
     ('LOC_CITIZEN_NAME_TSOD_ROPENI_GRAN', 'zh_Hans_CN', '罗佩妮·葛兰'),
+    -- Agendas
+    ('LOC_AGENDA_TSOD_TRUTH_SEEKER_NAME', 'zh_Hans_CN', '真理探求'),
+    ('LOC_AGENDA_TSOD_TRUTH_SEEKER_DESCRIPTION', 'zh_Hans_CN', '设法获得[ICON_Science]科技值，喜欢同样专注于[ICON_Science]科技的文明。不喜欢[ICON_SCIENCE]科技值低的文明。'),
     -- Traits
     ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', 'zh_Hans_CN', '改良的采石场+1[ICON_Science]科技。'),
     ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', 'zh_Hans_CN', '正确改良的硝石+3[ICON_Faith]信仰。');
@@ -175,9 +178,9 @@ VALUES
         'LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL',
         'Gawain Cecil, Lord of Knights, Pioneer, Protector, the Founder of the Kingdom. When this land was still called Ansu, you were its guardian in the south. Over the years, you have achieved numerous remarkable feats: revitalizing the southern lands, unifying a nation, leading an era, and even united the civilizations of this planet. you reclaimed wastelands, defeated deities, and now, you will lead this world against the Mana Tide, completing the final test before civilization steps into the stars... Such astonishing achievements, and to many people, all these feats are embodied in you. So, after these great deeds, was there ever a moment, even just a slight instant, you realized that you have almost become... a God?'
     ),
-    ('LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING', 'Gawain Cecil sends his greetings.'),
+    ('LOC_LEADER_TSOD_GAWAIN_CECIL_INTRO_QUOTE', 'Gawain Cecil sends his greetings.'),
     -- Quotes
-    ('LOC_LEADER_TSOD_GAWAIN_CECIL_GREETING', 'Knights are better than mages!'),
+    ('LOC_LEADER_TSOD_GAWAIN_CECIL_INTRO_QUOTE', 'Knights are better than mages!'),
     ('LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Humanity will endure, even if it defies the gods.'),
     (
         'LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY',
@@ -224,9 +227,9 @@ VALUES
     ('LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_TSOD_GAWAIN_CECIL_ANY', 'Welcome to Cecil, welcome to the future.'),
     ('LOC_DIPLO_GREETING_TSOD_GAWAIN_CECIL_ANY', 'Gawain Cecil greets you.'),
     ('LOC_DIPLO_KUDO_EXIT_TSOD_GAWAIN_CECIL_ANY', 'Only justice and kindness will make people adhere, just as they naturally yearn for light.'),
-    ('LOC_DIPLO_KUDO_TSOD_GAWAIN_CECIL_REASON_ANY', '(Gawain Cecil''s affection for you has increased)'),
+    ('LOC_DIPLO_KUDO_TSOD_GAWAIN_CECIL_REASON_ANY', 'Your efforts in spreading knowledge to the people have pleased Gawain Cecil.'),
     ('LOC_DIPLO_WARNING_EXIT_TSOD_GAWAIN_CECIL_ANY', 'You have never really looked down to see the humble people.'),
-    ('LOC_DIPLO_WARNING_TSOD_GAWAIN_CECIL_REASON_ANY', '(Gawain Cecil''s affection for you has decreased)'),
+    ('LOC_DIPLO_WARNING_TSOD_GAWAIN_CECIL_REASON_ANY', 'Your actions in keeping the people uneducated have disappointed Gawain Cecil.'),
     (
         'LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_TSOD_GAWAIN_CECIL_ANY',
         'Alright, let''s put aside any class struggles or ideological differences. We are now in the same boat.'
@@ -334,6 +337,12 @@ VALUES
     ('LOC_CITIZEN_NAME_TSOD_CODY_BALDWIN', 'Cody Baldwin'),
     ('LOC_CITIZEN_NAME_TSOD_PATTY_GRAN', 'Patty Gran'),
     ('LOC_CITIZEN_NAME_TSOD_ROPENI_GRAN', 'Ropeni Gran'),
+    -- Agendas
+    ('LOC_AGENDA_TSOD_TRUTH_SEEKER_NAME', 'Truth Seeker'),
+    (
+        'LOC_AGENDA_TSOD_TRUTH_SEEKER_DESCRIPTION',
+        'Tries to build up [ICON_Science] Science, and likes civilizations that also focus on [ICON_Science] Science. Dislikes those with low [ICON_SCIENCE] Science.'
+    ),
     -- Traits
     ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', '+1[ICON_Science] to improved quarries.'),
     ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', '+3 [ICON_Faith] faith to correctly improved Niter.');
