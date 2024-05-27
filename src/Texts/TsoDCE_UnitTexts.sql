@@ -42,7 +42,7 @@ VALUES
     ('LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION', 'zh_Hans_CN', '如果该城信仰任意宗教，城市中每位公民额外产出+0.5[ICON_Faith]信仰值。'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_MERCHANT_NAME', 'zh_Hans_CN', '塞西尔的大商人'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'zh_Hans_CN', '皮特曼·劳伦'),
-    ('LOC_GREATPERSON_GRANT_LUXURY_POTION_DESCRIPTION', 'zh_Hans_CN', '赠予2份[ICON_RESOURCE_TSOD_CE_POTION]炼金药剂，这是一种特殊的人造奢侈品资源，能+4宜居度。'),
+    ('LOC_GREATPERSON_GRANT_LUXURY_POTION_DESCRIPTION', 'zh_Hans_CN', '赠予2份[ICON_RESOURCE_TSOD_CE_POTION]炼金药剂，这是一种特殊的人造奢侈品资源，能+4[ICON_Amenities]宜居度。'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_WRITER_NAME', 'zh_Hans_CN', '塞西尔的大剧作家'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_NAME', 'zh_Hans_CN', '菲尔姆'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_ENGINEER_NAME', 'zh_Hans_CN', '塞西尔的大工程师'),
@@ -69,7 +69,7 @@ VALUES
     ('LOC_GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION', 'Construct a Mana Obelisk in the City Center.'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_NAME', 'Santis Saide'),
     ('LOC_GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE_DESCRIPTION', 'The city gains +4 [ICON_Science] Science.'),
-    ('LOC_UNIVERSITY_BONUS_AMENITY_ATTACH_DESCRIPTION', 'All cities with a University receive +1[ICON_Amenities] Amenities.'),
+    ('LOC_UNIVERSITY_BONUS_AMENITY_ATTACH_DESCRIPTION', 'All cities with a university receive +1 [ICON_Amenities] Amenity.'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_NAME', 'Kamel Slayen'),
     ('LOC_GREATPERSON_ELECTRICITYTECHBOOST_DESCRIPTION', 'Trigger a [ICON_TechBoosted] Eureka moment for the Electricity technology.'),
     (
@@ -78,25 +78,25 @@ VALUES
     ),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS_NAME', 'Norris'),
     ('LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION', 'The city gains 20% growth, stackable.'),
-    ('LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION', 'Rice and wheat plots gain +1[ICON_Food] food each.'),
+    ('LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION', 'Rice and wheat plots gain +1 [ICON_Food] food each.'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_GOVERNOR_NAME', 'Great Governor of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_NAME', 'Hettie Cecil'),
-    ('LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION', 'Refund 1[ICON_RESOURCE_COAL] coal after building a railroad.'),
+    ('LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION', 'Refund 1 [ICON_RESOURCE_COAL] coal after building a railroad.'),
     (
         'LOC_GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH_DESCRIPTION',
         'When the unit is at or adjacent to city center, reduce 20% cost when purchasing units in this city.'
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_GENERAL_NAME', 'Great General of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_NAME', 'Sir Philip'),
-    ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH_DESCRIPTION', '+1[ICON_Range] range to siege units.'),
-    ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH_DESCRIPTION', '+3[ICON_Bombard] Bombard Stregth to siege units vs. units, instead of debuff.'),
+    ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH_DESCRIPTION', '+1 [ICON_Range] range to siege units.'),
+    ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH_DESCRIPTION', '+3 [ICON_Bombard] Bombard Strength to siege units vs. units, instead of the debuff.'),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_NAME', 'The "Art"'),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION', '+20[ICON_Bombard] Bombard Stregth vs. units.'),
     ('LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION', '+5 [ICON_Strength] Combat Strength to land units within 2 tiles.'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_ADMIRAL_NAME', 'Great Admiral of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_NAME', 'Byron Kirk'),
     ('LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION', '+5 [ICON_Strength] Combat Strength to naval units within 2 tiles.'),
-    ('LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION', 'Gain 1[ICON_Envoy] envoy.'),
+    ('LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION', 'Gain 1 [ICON_Envoy] envoy.'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_PROPHET_NAME', 'Great Patriarch of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN_NAME', 'Leite Aviken'),
     ('LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_NAME', 'Grand Sheperd''s guidance'),
@@ -104,13 +104,13 @@ VALUES
     ('LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION', '+5 [ICON_Religion] religious combat strength within 2 tiles adjacent to Grand Sheperd.'),
     (
         'LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION',
-        'If this city follows any religion, +0.5[ICON_Faith] faith yield per population.'
+        'If this city follows any religion, +0.5 [ICON_Faith] faith yield per population.'
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_MERCHANT_NAME', 'Great Merchant of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'Pitman Lauren'),
     (
         'LOC_GREATPERSON_GRANT_LUXURY_POTION_DESCRIPTION',
-        'Grants 2 [ICON_RESOURCE_TSOD_CE_POTION] Perfume, a uniquely manufactured Luxury resource which provides +4 Amenities.'
+        'Grants 2 [ICON_RESOURCE_TSOD_CE_POTION] Potion, a uniquely manufactured Luxury resource which provides +4 [ICON_Amenities] Amenities.'
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_WRITER_NAME', 'Great Playwright of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_NAME', 'Felm'),

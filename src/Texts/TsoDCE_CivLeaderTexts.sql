@@ -272,7 +272,7 @@ VALUES
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_DETAILED_BODY',
-        'Gawain has a gameplay focused on magitech and recruiting great people. Players need to obtain [ICON_Culture] culture points through pantheons in the early game to offset the disadvantage of not being able to build monuments. Once players can build the Mana Obelisk, they can gain significant district adjacency bonuses through strategic planning and unlock relatively free development paths. The first time a unique district is built, it grants a corresponding great person. These great people provide tactical bonuses that can change the game. Players can build barracks to obtain Philip the Knight and unlock a conquest playstyle focused on artillery saturation bombing; build holy sites to unlock Leite and, with religious tenets, use faith points to support civilization; combine government plaza, industrial zone, commercial hub, or preserve to efficiently develop population and increase tile yields; or continue developing technology to gain massive bonuses from great people granted by the campus district buildings. No matter which playstyle the player chooses, recruiting as many great people as possible and gaining great person point bonuses in the respective fields is essential.'
+        'Gawain has a gameplay focused on magitech and recruiting great people. Players need to obtain [ICON_Culture] culture points through pantheons in the early game to offset the disadvantage of not being able to build monuments. Once players can build the Mana Obelisk, they can gain significant district adjacency bonuses through strategic planning and unlock relatively free development paths. The first time a unique district is built, it grants a corresponding great person. These great people provide tactical bonuses that can change the game. Players can build barracks to obtain Sir and unlock a conquest playstyle focused on artillery saturation bombing; build holy sites to unlock Leite and, with religious tenets, use faith points to support civilization; combine government plaza, industrial zone, commercial hub, or preserve to efficiently develop population and increase tile yields; or continue developing technology to gain massive bonuses from great people granted by the campus district buildings. No matter which playstyle the player chooses, recruiting as many great people as possible and gaining great person point bonuses in the respective fields is essential.'
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_HISTORY_PARA_1',
@@ -344,5 +344,5 @@ VALUES
         'Tries to build up [ICON_Science] Science, and likes civilizations that also focus on [ICON_Science] Science. Dislikes those with low [ICON_SCIENCE] Science.'
     ),
     -- Traits
-    ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', '+1[ICON_Science] to improved quarries.'),
+    ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', '+1 [ICON_Science] science to improved quarries.'),
     ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', '+3 [ICON_Faith] faith to correctly improved Niter.');

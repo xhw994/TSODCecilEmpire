@@ -26,7 +26,7 @@ VALUES
     ('LOC_BUILDING_TSOD_MANA_OBELISK_NAME', 'Mana Obelisk'),
     (
         'LOC_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION',
-        'Cecil''s unique building, replacing Monuments. Provides +2[ICON_Science] Science, +2[ICON_Production] Production, and +1 [ICON_Amenities] Amenity. All districts receive an additional standard adjacency bonus. After researching Electricity, doubles the base yield of all buildings.'
+        'Cecil''s unique building, replacing Monuments. Provides +2[ICON_Science] Science, +2[ICON_Production] Production, and +1 [ICON_Amenities] Amenity. All districts receive an additional standard adjacency bonus. After researching Electricity, it doubles the base yield of all buildings.'
     ),
     ('LOC_DISTRICT_DISTRICT_1_FOOD', '+1[ICON_Food] Food from the adjacent districts.'),
     (
