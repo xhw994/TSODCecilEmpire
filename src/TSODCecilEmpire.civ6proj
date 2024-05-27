@@ -6,8 +6,8 @@
     <Guid>4883e185-c2d7-4031-aae3-b67e4e885a24</Guid>
     <ProjectGuid>5708e05e-1c10-490d-9b60-6fcefaec9649</ProjectGuid>
     <ModVersion>1</ModVersion>
-    <Teaser>This example mod demonstrates how to add a new leader and civilization to the game.</Teaser>
-    <Description>This example mod demonstrates how to add a new leader and civilization to the game.</Description>
+    <Teaser>Cecil Empire lead by Gawain Cecil</Teaser>
+    <Description>This MOD adds the civilization Cecil Empire from the online novel "The Sword of Dawn", including the leader, Gawain Cecil, and his team. &nbsp; Requires Gathering Storm ruleset and Vietnam &amp; Kublai Khan Pack DLC.</Description>
     <AffectsSavedGames>true</AffectsSavedGames>
     <SupportsSinglePlayer>true</SupportsSinglePlayer>
     <SupportsMultiplayer>true</SupportsMultiplayer>
@@ -18,9 +18,13 @@
     <AssemblyName>TSODCecilEmpire</AssemblyName>
     <RootNamespace>TSODCecilEmpire</RootNamespace>
     <Authors>Brus Gwyn Fuchkyo</Authors>
-    <AssociationData><![CDATA[<Associations />]]></AssociationData>
-    <SpecialThanks>Hemmelfort</SpecialThanks>
-    <Homepage>http://https://steamcommunity.com/sharedfiles/filedetails/?id=3251898146</Homepage>
+    <AssociationData><![CDATA[<Associations>
+  <Dependency type="Dlc" title="Expansion: Gathering Storm" id="4873eb62-8ccc-4574-b784-dda455e74e68" />
+  <Dependency type="Dlc" title="Expansion: Rise and Fall" id="1B28771A-C749-434B-9053-D1380C553DE9" />
+</Associations>]]></AssociationData>
+    <SpecialThanks>
+    </SpecialThanks>
+    <Homepage>http://steamcommunity.com/sharedfiles/filedetails/?id=3251898146</Homepage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
