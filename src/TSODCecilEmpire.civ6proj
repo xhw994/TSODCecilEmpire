@@ -18,6 +18,9 @@
     <AssemblyName>TSODCecilEmpire</AssemblyName>
     <RootNamespace>TSODCecilEmpire</RootNamespace>
     <Authors>Brus Gwyn Fuchkyo</Authors>
+    <AssociationData><![CDATA[<Associations />]]></AssociationData>
+    <SpecialThanks>Hemmelfort</SpecialThanks>
+    <Homepage>http://https://steamcommunity.com/sharedfiles/filedetails/?id=3251898146</Homepage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>
@@ -106,6 +109,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="TSODCecilEmpire.Art.xml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="TSODCecilEmpire.jpg">
       <SubType>Content</SubType>
     </Content>
     <Content Include="XLPs\CecilEmpireUITextureDDS.xlp">

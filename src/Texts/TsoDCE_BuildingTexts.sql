@@ -1,5 +1,5 @@
-INSERT INTO
-    LocalizedText (Tag, LANGUAGE, Text)
+INSERT
+OR REPLACE INTO LocalizedText (Tag, LANGUAGE, Text)
 VALUES
     ('LOC_BUILDING_TSOD_MANA_OBELISK_NAME', 'zh_Hans_CN', '魔能方尖碑'),
     (
@@ -20,8 +20,8 @@ VALUES
     ),
     ('LOC_PEDIA_BUILDINGS_PAGE_BUILDING_TSOD_MANA_OBELISK_CHAPTER_HISTORY_PARA_3', 'zh_Hans_CN', '魔能方尖碑可以让魔力在魔网周边一定范围内使用，可传递信息，可以类比wifi与无线输电装置的综合体。');
 
-INSERT INTO
-    EnglishText (Tag, Text)
+INSERT
+OR REPLACE INTO BaseGameText (Tag, Text)
 VALUES
     ('LOC_BUILDING_TSOD_MANA_OBELISK_NAME', 'Mana Obelisk'),
     (
@@ -40,4 +40,4 @@ VALUES
     (
         'LOC_PEDIA_BUILDINGS_PAGE_BUILDING_TSOD_MANA_OBELISK_CHAPTER_HISTORY_PARA_3',
         'The mana obelisk allows the use of magic power within a certain range around the maginet. It can transmit information, similar to a combination of Wi-Fi and wireless power transmission devices.'
-    ),;
+    );

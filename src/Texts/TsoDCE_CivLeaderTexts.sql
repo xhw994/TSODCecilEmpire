@@ -1,5 +1,5 @@
-INSERT INTO
-    LocalizedText (Tag, LANGUAGE, Text)
+INSERT
+OR REPLACE INTO LocalizedText (Tag, LANGUAGE, Text)
 VALUES
     ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME', 'zh_Hans_CN', '塞西尔'),
     ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION', 'zh_Hans_CN', '塞西尔帝国'),
@@ -157,8 +157,8 @@ VALUES
     ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', 'zh_Hans_CN', '改良的采石场+1[ICON_Science]科技。'),
     ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', 'zh_Hans_CN', '正确改良的硝石+3[ICON_Faith]信仰。');
 
-INSERT INTO
-    EnglishText (Tag, Text)
+INSERT
+OR REPLACE INTO BaseGameText (Tag, Text)
 VALUES
     ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME', 'Cecil'),
     ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION', 'Cecil Empire'),

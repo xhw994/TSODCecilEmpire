@@ -1,5 +1,5 @@
-INSERT INTO
-	LocalizedText (Tag, LANGUAGE, Text)
+INSERT
+OR REPLACE INTO LocalizedText (Tag, LANGUAGE, Text)
 VALUES
 	('LOC_GREATWORK_TSOD_CE_IMMIGRANTS_NAME', 'zh_Hans_CN', '《移民》'),
 	(
@@ -14,8 +14,8 @@ VALUES
 		'它带着某种真实到令人窒息的压抑，却又透露出某种难以描述的力量，仿佛有钢铁和火焰的味道从画面深处不断逸散出来，围绕在那一身戎装的年轻骑士身旁。[NEWLINE]“那些涂脂抹粉的金丝雀承受不了铁与火的炙烤。”[NEWLINE]——三十二号'
 	);
 
-INSERT INTO
-	EnglishText (Tag, Text)
+INSERT
+OR REPLACE INTO BaseGameText (Tag, Text)
 VALUES
 	('LOC_GREATWORK_TSOD_CE_IMMIGRANTS_NAME', 'The Immigrants'),
 	(

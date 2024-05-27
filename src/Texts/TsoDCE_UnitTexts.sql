@@ -1,5 +1,5 @@
-INSERT INTO
-    LocalizedText (Tag, LANGUAGE, Text)
+INSERT
+OR REPLACE INTO LocalizedText (Tag, LANGUAGE, Text)
 VALUES
     ('LOC_UNIT_TSOD_SCOUT_AMBER_NAME', 'zh_Hans_CN', '琥珀'),
     ('LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION', 'zh_Hans_CN', '塞西尔的特殊侦察单位。建立首都时自动获得，无法生产。初始拥有4视野，但正面战斗力极其薄弱。被击杀时将保留1点体力值，撤退至最近的城市。'),
@@ -49,16 +49,12 @@ VALUES
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_NAME', 'zh_Hans_CN', '尼古拉斯·蛋'),
     ('LOC_GREATPERSON_AOE_TSOD_CE_NICHOLAS_EGG_ATTACH_DESCRIPTION', 'zh_Hans_CN', '如果单位位于或相邻市中心，所在城市生产单位时+25%[ICON_Production]生产力。'),
     ('LOC_UNIT_TSOD_GORGON_PLATFORM_NAME', 'zh_Hans_CN', '戈尔贡平台'),
-    (
-        'LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION',
-        'zh_Hans_CN',
-        '塞西尔的独特支援单位，替代无人机。为1单元格内的攻城单位+1[ICON_Range]射程，+5[ICON_Strength]攻击力。能治疗邻近单位。'
-    ),
+    ('LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION', 'zh_Hans_CN', '塞西尔的独特支援单位，替代无人机。为1单元格内的攻城单位+1[ICON_Range]射程，+5[ICON_Strength]攻击力。能治疗邻近单位。'),
     ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_DESCRIPTION', 'zh_Hans_CN', '相邻戈尔贡平台的攻城单位+5[ICON_Strength]攻击力。'),
     ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_MODIFIER', 'zh_Hans_CN', '相邻戈尔贡平台+{1_Amount}战斗力。');
 
-INSERT INTO
-    EnglishText (Tag, Text)
+INSERT
+OR REPLACE INTO BaseGameText (Tag, Text)
 VALUES
     ('LOC_UNIT_TSOD_SCOUT_AMBER_NAME', 'Amber'),
     (
@@ -111,7 +107,7 @@ VALUES
         'If this city follows any religion, +0.5[ICON_Faith] faith yield per population.'
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_MERCHANT_NAME', 'Great Merchant of Cecil'),
-    ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'zh_Hans_CN', 'Pitman Lauren'),
+    ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'Pitman Lauren'),
     (
         'LOC_GREATPERSON_GRANT_LUXURY_POTION_DESCRIPTION',
         'Grants 2 [ICON_RESOURCE_TSOD_CE_POTION] Perfume, a uniquely manufactured Luxury resource which provides +4 Amenities.'
