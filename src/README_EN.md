@@ -34,7 +34,7 @@ Activate: Refund 1 coal after building a railroad.
 Passive: When the unit is at or adjacent to city center, reduce 20% cost when purchasing units in this city.
 [h3]Great Patriarch Leite Aviken (Holy Site)[/h3]
 Activate: If this city follows any religion, gain 0.5 faith per population.
-Passive: +5 religious combat strength within 2 tiles adjacent to Grand Sheperd.
+Passive: +5 religious combat strength within 2 tiles adjacent to Grand Patriarch.
 [h3]Great General Sir Philip (Encampment)[/h3]
 Active: +1 range and +3 Bombard Strength to siege units vs. units, instead of the debuff.
 Passive: Land units within two tiles gain +5 Combat Strength.
