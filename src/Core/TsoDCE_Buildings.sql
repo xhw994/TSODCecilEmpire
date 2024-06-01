@@ -54,11 +54,13 @@ FROM
     TsoDDistrictYields;
 
 INSERT INTO
-    Modifiers (ModifierId, ModifierType, RunOnce, Permanent)
+    Modifiers (ModifierId, ModifierType, RunOnce, Permanent, SubjectRequirementSetId, SubjectStackLimit)
 SELECT
     'TSOD_MANA_OBELISK_' || District ||         '_ADJACENCY',
     'MODIFIER_PLAYER_CITIES_DISTRICT_ADJACENCY',
     1,
+    1,
+    'CITY_HAS_TSOD_MANA_OBELISK_REQS',
     1
 FROM
     TsoDDistrictYields;
@@ -134,21 +136,25 @@ FROM
 INSERT INTO
     RequirementSets (RequirementSetId, RequirementSetType)
 VALUES
+    ('CITY_HAS_TSOD_MANA_OBELISK_REQS', 'REQUIREMENTSET_TEST_ALL'),
     ('PLAYER_HAS_TECH_ELECTRICITY_REQUIREMENTS', 'REQUIREMENTSET_TEST_ALL');
 
 INSERT INTO
     RequirementSetRequirements (RequirementSetId, RequirementId)
 VALUES
+    ('CITY_HAS_TSOD_MANA_OBELISK_REQS', 'CITY_HAS_TSOD_MANA_OBELISK_REQ'),
     ('PLAYER_HAS_TECH_ELECTRICITY_REQUIREMENTS', 'PLAYER_HAS_TECH_ELECTRICITY_REQUIREMENT');
 
 INSERT INTO
     Requirements (RequirementId, RequirementType)
 VALUES
+    ('CITY_HAS_TSOD_MANA_OBELISK_REQ', 'REQUIREMENT_CITY_HAS_BUILDING'),
     ('PLAYER_HAS_TECH_ELECTRICITY_REQUIREMENT', 'REQUIREMENT_PLAYER_HAS_TECHNOLOGY');
 
 INSERT INTO
     RequirementArguments (RequirementId, Name, VALUE)
 VALUES
+    ('CITY_HAS_TSOD_MANA_OBELISK_REQ', 'BuildingType', 'BUILDING_TSOD_MANA_OBELISK'),
     ('PLAYER_HAS_TECH_ELECTRICITY_REQUIREMENT', 'TechnologyType', 'TECH_ELECTRICITY');
 
 INSERT INTO
