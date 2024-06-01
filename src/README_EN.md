@@ -45,7 +45,7 @@ Passive: +5 Combat Strength to naval units within 2 tiles.
 Active: Grants 2 Potion, a uniquely manufactured Luxury resource which provides +4 Amenities.
 Passive: Adjacent allies restore 25 health.
 [h3]Great Playwright Felm (Theater Square)[/h3]
-Produces "The Immigrants" and "The Beacon Fires".
+Produces "The Immigrants" and "The Beacon Fire".
 [h3]Great Scientist Norris (Preserve)[/h3]
 Has 2 charges, the city gains 20% growth, stackable. Rice and wheat plots gain +1 food each.
 [/code]
