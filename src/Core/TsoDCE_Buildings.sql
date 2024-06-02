@@ -102,11 +102,12 @@ FROM
     Building_YieldChanges;
 
 INSERT INTO
-    Modifiers (ModifierId, ModifierType, OwnerRequirementSetId)
+    Modifiers (ModifierId, ModifierType, OwnerRequirementSetId, SubjectStackLimit)
 SELECT
     'TSOD_MANA_OBELISK_DOUBLE_YIELD_' || BuildingType || '_' || YieldType,
     'MODIFIER_PLAYER_CITIES_ADJUST_BUILDING_YIELD_CHANGE',
-    'PLAYER_HAS_TECH_ELECTRICITY_REQUIREMENTS'
+    'PLAYER_HAS_TECH_ELECTRICITY_REQUIREMENTS',
+    1
 FROM
     Building_YieldChanges;
 
