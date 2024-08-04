@@ -171,7 +171,7 @@ function OnUnitGreatPersonCreated(playerId, _, classId, _)
         if (endsWith(classType, suffix)) then
             tGreatPeopleActivatedList[suffix] = tGreatPeopleActivatedList[suffix] + 1
             pPlayer:SetProperty(GawainGreatPeopleActivated, tGreatPeopleActivatedList)
-            print('Set activation count for ' .. classType .. ': ' .. tGreatPeopleActivatedList[suffix])
+            print('Set activation count for GREAT_PERSON_CLASS_' .. suffix .. ': ' .. tGreatPeopleActivatedList[suffix])
             return
         end
     end
@@ -204,7 +204,7 @@ function OnTurnBegin()
             if (activationCount and activationCount > 0) then
                 local multiplier = math.min(0.2 + 0.1 * (activationCount - 1), 1)
             local bonusPoints = math.ceil(points * multiplier)
-            print('Granting ' .. bonusPoints .. ' points for ' .. activationCount .. ' activated greatpersons')
+            print('Granting ' .. bonusPoints .. ' points for ' .. activationCount .. ' activated ' .. classSuffix .. ' great people')
             pPlayer:GetGreatPeoplePoints():ChangePointsTotal(classId, bonusPoints)
             end
         end
