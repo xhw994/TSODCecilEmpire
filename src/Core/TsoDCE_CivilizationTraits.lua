@@ -248,8 +248,9 @@ function InitTsoDCecilEmpireTraits()
     end
 
     for _, pPlayer in pairs(CecilPlayersMap) do
-        local tList = pPlayer:GetProperty(GreatPeopleOfCecilAvailability)
-        if (not tList) or (#tList < 1) then
+        local tAvailability = pPlayer:GetProperty(GreatPeopleOfCecilAvailability)
+        if (not tAvailability) or (#tAvailability < 1) then
+            print('Cecil player availability list is undefined, initializing...')
             for tRow in GameInfo.GreatPersonIndividuals() do
                 if startsWith(tRow.GreatPersonIndividualType, GreatPeopleTypePrefix) then
                     tGreatPeopleAvailability[tRow.GreatPersonIndividualType] = true
@@ -259,16 +260,19 @@ function InitTsoDCecilEmpireTraits()
 
             pPlayer:SetProperty(GreatPeopleOfCecilAvailability, tGreatPeopleAvailability)
             pPlayer:SetProperty(IsHettiCecilActivated, false)
+            print('Initialized Cecil player availability list.')
         end
 
         local tGreatPeopleActivatedList = pPlayer:GetProperty(GawainGreatPeopleActivated)
-        if (not tGreatPeopleActivatedList) or (#tGreatPeopleActivatedList < 1) then
+        if (not tGreatPeopleActivatedList) or next(tGreatPeopleActivatedList) == nil then
+            print('Cecil player great people activated list is undefined, initializing...')
             tGreatPeopleActivatedList = {}
             for _, classSuffix in ipairs(AllClasses) do
                 tGreatPeopleActivatedList[classSuffix] = 0
             end
 
             pPlayer:SetProperty(GawainGreatPeopleActivated, tGreatPeopleActivatedList)
+            print('Initialized Cecil player great people activated list.')
         end
     end
 
