@@ -44,6 +44,9 @@ Passive: +5 Combat Strength to naval units within 2 tiles.
 [h3]Great Merchant Pitman Lauren (Commercial District)[/h3]
 Active: Grants 2 Potion, a uniquely manufactured Luxury resource which provides +4 Amenities.
 Passive: Adjacent allies restore 25 health.
+[h3]Great Engineer Nicholas Egg (Industrial Zone)[/h3]
+Active: Grants productivity for space race projects.
+Passive: When the unit is at or adjacent to city center, +25% productivity when producing in this city.
 [h3]Great Playwright Felm (Theater Square)[/h3]
 Produces "The Immigrants" and "The Beacon Fire".
 [h3]Great Scientist Norris (Preserve)[/h3]
