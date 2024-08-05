@@ -15,7 +15,7 @@ VALUES
     (
         'LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_DESCRIPTION',
         'zh_Hans_CN',
-        '招募一名伟人后，每回合将获得该类型伟人点数产出的额外20%。随后每增加一名同类型的伟人都会使这个比例额外增加10%。通过这种方式，每回合最多可获得100%的额外产出。此外，塞西尔的伟人们也将为招募他们的区域提供相应类型的伟人点数产出增益。'
+        '招募一名伟人后，每回合将获得该类型伟人点数产出的额外20%。随后每增加一名同类型的伟人都会使这个比例额外增加10%。另外，每位招募的伟人将提供额外5%的全类型伟人点数产出。通过这两种方式，每回合最多可分别获得100%的额外产出。此外，塞西尔的伟人们也将为招募他们的区域提供相应类型的伟人点数产出增益。'
     ),
     (
         'LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL',
@@ -172,7 +172,7 @@ VALUES
     ('LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME', 'The Sword of Dawn'),
     (
         'LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_DESCRIPTION',
-        'After recruiting a Great Person, gain an extra 20% in that type''s Great Person points per turn. Each additional Great Person of the same type adds 10% more, up to 100% extra. Also, Cecil''s Great People boost their type''s point output of their recruitment region.'
+        'After recruiting a Great Person, gain an extra 20% in that type''s Great Person points per turn. Each additional Great Person of the same type increases this bonus by 10%. Additionally, each recruited Great Person provides an extra 5% in all types of Great Person points per turn. Each of these two mechanisms can independently provide up to 100% bonus points. Furthermore, Cecil''s Great People enhance the point output for their respective type in their recruitment region.'
     ),
     (
         'LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL',

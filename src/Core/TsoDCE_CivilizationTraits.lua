@@ -100,7 +100,7 @@ function OnDistrictFirstConstructedGrantGreatPerson(playerId, districtId, _, _)
         GrantGreatPeopleOfCecil(playerId, 'FELM', 'WRITER', 'ERA_ANCIENT')
     elseif sDistrict == 'DISTRICT_COMMERCIAL_HUB' then
         GrantGreatPeopleOfCecil(playerId, 'PITMAN_LAUREN', 'MERCHANT', 'ERA_ANCIENT')
-	elseif sDistrict == 'DISTRICT_INDUSTRIAL_ZONE' then
+    elseif sDistrict == 'DISTRICT_INDUSTRIAL_ZONE' then
         GrantGreatPeopleOfCecil(playerId, 'NICHOLAS_EGG', 'ENGINEER', 'ERA_ANCIENT')
     elseif sDistrict == 'DISTRICT_PRESERVE' then
         GrantGreatPeopleOfCecil(playerId, 'NORRIS', 'SCIENTIST', 'ERA_ANCIENT')
@@ -162,7 +162,7 @@ function OnUnitGreatPersonCreated(playerId, _, classId, _)
 
     local tGreatPeopleActivatedList = pPlayer:GetProperty(GawainGreatPeopleActivated)
     if not tGreatPeopleActivatedList then
-        print('Great person activated list was not intialized properly')
+        print('Error: Great person activated list was not intialized properly')
         return
     end
 
@@ -185,27 +185,50 @@ function OnTurnBegin()
     for _, pPlayer in pairs(CecilPlayersMap) do
         local tGreatPeopleActivatedList = pPlayer:GetProperty(GawainGreatPeopleActivated)
         if not tGreatPeopleActivatedList then
-            print('Great person activated list was not intialized properly')
-            for k, v in pairs(tGreatPeopleActivatedList) do
-                print('key:' .. k .. ',value:' .. v)
-                pPlayer:SetProperty(GawainGreatPeopleActivated, tGreatPeopleActivatedList)
-            end
-            print('Great person activated list undefined?' .. tostring(not tGreatPeopleActivatedList))
-            print('Great person activated list length:' .. tostring(#tGreatPeopleActivatedList))
+            print('Error: Great person activated list was not intialized properly')
             return
         end
 
+        -- Calculate total Great People recruited
+        local activatedCountTotal = 0
+        for _, count in pairs(tGreatPeopleActivatedList) do
+            activatedCountTotal = activatedCountTotal + (count or 0)
+        end
+        local multiplierByTotal = math.min(0.05 * activatedCountTotal, 1)
+
+        -- Calculate and grant bonus points based on recruited Great People
         for _, classSuffix in ipairs(AllClasses) do
             local classType = 'GREAT_PERSON_CLASS_' .. classSuffix
             local classId = GameInfo.GreatPersonClasses[classType].Index
             local points = pPlayer:GetGreatPeoplePoints():CalculatePointsPerTurn(classId)
+            local bonusPoint = 0
 
-            local activationCount = tGreatPeopleActivatedList[classSuffix]
-            if (activationCount and activationCount > 0) then
-                local multiplier = math.min(0.2 + 0.1 * (activationCount - 1), 1)
-            local bonusPoints = math.ceil(points * multiplier)
-            print('Granting ' .. bonusPoints .. ' points for ' .. activationCount .. ' activated ' .. classSuffix .. ' great people')
-            pPlayer:GetGreatPeoplePoints():ChangePointsTotal(classId, bonusPoints)
+            -- Grant bonus on same great person type
+            local activatedCountByType = tGreatPeopleActivatedList[classSuffix]
+            if (activatedCountByType and activatedCountByType > 0) then
+                local multiplierByType = math.min(0.2 + 0.1 * (activatedCountByType - 1), 1)
+                local bonusPointsByType = math.ceil(points * multiplierByType)
+                bonusPoint = bonusPoint + bonusPointsByType
+                if (bonusPointsByType > 0) then
+                    print(string.format('Granting %d points for %d activated GREAT_%s people', bonusPointsByType,
+                        activatedCountByType, classSuffix))
+                end
+            end
+
+            -- Grant bonus on all recruited great person individuals
+            if multiplierByTotal > 0 then
+                local bonusPointsByTotal = math.ceil(points * multiplierByTotal)
+                bonusPoint = bonusPoint + bonusPointsByTotal
+                if (bonusPointsByTotal > 0) then
+                    print(string.format('Granting %d bonus GREAT_%s points for %d total activated great people',
+                        bonusPointsByTotal, classSuffix,
+                        activatedCountTotal))
+                end
+            end
+
+            -- Apply the total bonus points
+            if bonusPoint > 0 then
+                pPlayer:GetGreatPeoplePoints():ChangePointsTotal(classId, bonusPoint)
             end
         end
     end
