@@ -71,4 +71,4 @@ Given that I am a heavy MOD player, I have tested with approximately 150 communi
 Most assets are from the game itself and status from the novel's author, 远瞳, on Bilibili. A small portion of the icons are generated using AI. Please contact for removal in case of any infringement.
 
 [h1]Special Thanks[/h1]
-Thanks to Hemmelfort and Sukritact for their tutorials, tools, and knowledge base. Thanks to Sukritact for the Ingolfur Arnarson mod, Ophidy for the Azur Lane: Ironblood faction mod, and the creators of 'Harmony in Diversity' and 'Mao Zedong and the Chinese Communist Party' mods for their technical references. Thanks to Civilopedia and Civilization Fandom for providing detailed information. Special thanks to ChatGPT4.0.
+Thanks to Hemmelfort, QQ group 711403691, and Sukritact for their tutorials, tools, and knowledge base. Thanks to Sukritact for the Ingolfur Arnarson mod, Ophidy for the Azur Lane: Ironblood faction mod, and the creators of 'Harmony in Diversity' and 'Mao Zedong and the Chinese Communist Party' mods for their technical references. Thanks to Civilopedia and Civilization Fandom for providing detailed information. Special thanks to ChatGPT4.0.

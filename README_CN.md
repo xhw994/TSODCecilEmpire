@@ -71,5 +71,5 @@ tldr：科技胜利、征服胜利
 大部分素材来源于游戏本体以及小说作者远瞳的B站动态，小部分图标素材来源于AI生成。如有侵权请联系删除。
 
 [h1]致谢[/h1]
-感谢 Hemmelfort 和 Sukritact 的教程、工具、以及知识库。感谢 Sukritact 制作的 Ingolfur Arnarson、Ophidy 制作的
+感谢 Hemmelfort、711403691 QQ群 和 Sukritact 的教程、工具、以及知识库。感谢 Sukritact 制作的 Ingolfur Arnarson、Ophidy 制作的
 碧蓝航线：铁血公国、和而不同制作组的和而不同、猫雷的毛泽东与中国共产党等 MOD 提供的技术参考。感谢 civilopedia 和 Civilization Fandom 提供的详实资料。感谢 ChatGPT4.0。
