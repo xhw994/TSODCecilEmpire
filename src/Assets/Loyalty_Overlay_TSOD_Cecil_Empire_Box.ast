@@ -30,7 +30,7 @@
 						<m_Values>
 							<m_Values>
 								<Element class="AssetObjects..ObjectValue">
-									<m_ObjectName text="Loyalty_Overlay_Landsol_material"/>
+									<m_ObjectName text="Loyalty_Overlay_Tsod_CE_material"/>
 									<m_eObjectType>MATERIAL</m_eObjectType>
 									<m_ParamName text="LensMaterial"/>
 								</Element>
@@ -114,8 +114,7 @@
 	<m_Materials/>
 	<m_ClassName text="UILensAsset"/>
 	<m_DataFiles/>
-	<m_Name text="Loyalty_Overlay_Landsol_Box"/>
+	<m_Name text="Loyalty_Overlay_Tsod_CE_Box"/>
 	<m_Description text=""/>
 	<m_Tags/>
 </AssetObjects..AssetInstance>
-
