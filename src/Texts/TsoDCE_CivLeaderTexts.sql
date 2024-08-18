@@ -341,7 +341,7 @@ VALUES
     ('LOC_AGENDA_TSOD_TRUTH_SEEKER_NAME', 'Truth Seeker'),
     (
         'LOC_AGENDA_TSOD_TRUTH_SEEKER_DESCRIPTION',
-        'Tries to build up [ICON_Science] Science, and likes civilizations that also focus on [ICON_Science] Science. Dislikes those with low [ICON_SCIENCE] Science.'
+        'Tries to build up [ICON_Science] Science, and likes those that also focus on [ICON_Science] Science. Dislikes civilizations with a weak [ICON_SCIENCE] Science output.'
     ),
     -- Traits
     ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', '+1 [ICON_Science] science to improved quarries.'),
