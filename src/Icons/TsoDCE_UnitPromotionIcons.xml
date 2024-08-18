@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameInfo>
+    <IconDefinitions>
+        <Row Name="ICON_PROMOTION_TSOD_CE_SHADOW_REALM" Atlas="ICON_ATLAS_PROMOTIONS" Index="15" />
+        <Row Name="ICON_PROMOTION_TSOD_CE_MASTER_THIEF" Atlas="ICON_ATLAS_PROMOTIONS" Index="15" />
+        <Row Name="ICON_PROMOTION_TSOD_CE_SHADOW_CREATURE" Atlas="ICON_ATLAS_PROMOTIONS" Index="18" />
+        <Row Name="ICON_PROMOTION_TSOD_CE_TAVERN_QUEEN" Atlas="ICON_ATLAS_PROMOTIONS" Index="22" />
+        <Row Name="ICON_PROMOTION_TSOD_CE_SHADOW_CHOSEN" Atlas="ICON_ATLAS_PROMOTIONS" Index="17" />
+        <Row Name="ICON_PROMOTION_TSOD_CE_NIGHT_MISTRESS" Atlas="ICON_ATLAS_PROMOTIONS" Index="5" />
+        <Row Name="ICON_PROMOTION_TSOD_CE_SHADOW_AUTHORITY" Atlas="ICON_ATLAS_PROMOTIONS" Index="26" />
+    </IconDefinitions>
+</GameInfo>

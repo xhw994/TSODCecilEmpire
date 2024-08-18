@@ -2,7 +2,7 @@ INSERT
 OR REPLACE INTO LocalizedText (Tag, LANGUAGE, Text)
 VALUES
     ('LOC_UNIT_TSOD_SCOUT_AMBER_NAME', 'zh_Hans_CN', '琥珀'),
-    ('LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION', 'zh_Hans_CN', '塞西尔的特殊侦察单位。建立首都时自动获得，无法生产。初始拥有4视野，但正面战斗力极其薄弱。被击杀时将保留1点体力值，撤退至最近的城市。'),
+    ('LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION', 'zh_Hans_CN', '塞西尔的特殊侦察单位，拥有独特的升级树。建立首都时自动获得，无法生产。初始拥有4视野，但正面战斗力极其薄弱。被击杀时将保留1点体力值，撤退至最近的城市。'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME', 'zh_Hans_CN', '塞西尔的大科学家'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_NAME', 'zh_Hans_CN', '瑞贝卡·塞西尔'),
     ('LOC_GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL_DUMMY_DESCRIPTION', 'zh_Hans_CN', '立即完成当前正在研究的科技。'),
@@ -51,7 +51,25 @@ VALUES
     ('LOC_UNIT_TSOD_GORGON_PLATFORM_NAME', 'zh_Hans_CN', '戈尔贡平台'),
     ('LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION', 'zh_Hans_CN', '塞西尔的独特支援单位，替代无人机。为1单元格内的攻城单位+1[ICON_Range]射程，+5[ICON_Strength]攻击力。能治疗邻近单位。'),
     ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_DESCRIPTION', 'zh_Hans_CN', '相邻戈尔贡平台的攻城单位+5[ICON_Strength]攻击力。'),
-    ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_MODIFIER', 'zh_Hans_CN', '相邻戈尔贡平台+{1_Amount}战斗力。');
+    ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_MODIFIER', 'zh_Hans_CN', '相邻戈尔贡平台+{1_Amount}战斗力。'),
+    ('LOC_PROMOTION_CLASS_TSOD_SCOUT_AMBER_NAME', 'zh_Hans_CN', '琥珀'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_REALM_NAME', 'zh_Hans_CN', '暗影视界'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_REALM_DESCRIPTION', 'zh_Hans_CN', '+1视野范围，视野能穿过所有地形和地貌。'),
+    ('LOC_PROMOTION_TSOD_CE_MASTER_THIEF_NAME', 'zh_Hans_CN', '南境盗圣'),
+    ('LOC_PROMOTION_TSOD_CE_MASTER_THIEF_DESCRIPTION', 'zh_Hans_CN', '与受损单位战斗时+15[ICON_Strength]战斗力。'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CREATURE_NAME', 'zh_Hans_CN', '暗影生物'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CREATURE_DESCRIPTION', 'zh_Hans_CN', '+1[ICON_Movement]移动力。忽视所有地形带来的移动力减益'),
+    ('LOC_PROMOTION_TSOD_CE_TAVERN_QUEEN_NAME', 'zh_Hans_CN', '酒馆女王'),
+    ('LOC_PROMOTION_TSOD_CE_TAVERN_QUEEN_DESCRIPTION', 'zh_Hans_CN', '在友军领土之外恢复。在每回合结束时（甚至是在移动或攻击后），自动恢复生命值。'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CHOSEN_NAME', 'zh_Hans_CN', '暗夜神选'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CHOSEN_DESCRIPTION', 'zh_Hans_CN', '+1[ICON_Movement]移动力。只有相邻敌军单位才能发现该单位。'),
+    ('LOC_PROMOTION_TSOD_CE_NIGHT_MISTRESS_NAME', 'zh_Hans_CN', '夜幕之城的女主人'),
+    ('LOC_PROMOTION_TSOD_CE_NIGHT_MISTRESS_DESCRIPTION', 'zh_Hans_CN', '+1视野范围，显示视野范围内的隐形单位。'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_NAME', 'zh_Hans_CN', '暗影权能'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_DESCRIPTION', 'zh_Hans_CN', '攻击后可移动。+1对所有文明的外交等级。'),
+    ('LOC_VIZSOURCE_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '琥·总而言之就是超厉害·珀'),
+    ('LOC_VIZSOURCE_ACTION_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '将琥珀提升至最高等级。'),
+    ('LOC_GOSSIP_SOURCE_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '{1_Name}，发现了');
 
 INSERT
 OR REPLACE INTO BaseGameText (Tag, Text)
@@ -59,7 +77,7 @@ VALUES
     ('LOC_UNIT_TSOD_SCOUT_AMBER_NAME', 'Amber'),
     (
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
-        'Cecil''s unique recon unit, automatically received upon establishing the Capital and cannot be produced. She starts with a vision range of 4 but has extremely weak combat strength. When killed, retreats with 1 HP to the nearest city.'
+        'Cecil''s unique recon unit with a unique Promotion tree. Automatically received upon establishing the Capital and cannot be produced. She starts with a vision range of 4 but has extremely weak combat strength. When killed, retreats with 1 HP to the nearest city.'
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME', 'Great Scientist of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_NAME', 'Rebecca Cecil'),
@@ -89,7 +107,10 @@ VALUES
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_GENERAL_NAME', 'Great General of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_NAME', 'Sir Philip'),
     ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH_DESCRIPTION', '+1 [ICON_Range] range to siege units.'),
-    ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH_DESCRIPTION', '+3 [ICON_Bombard] Bombard Strength to siege units vs. units, instead of the debuff.'),
+    (
+        'LOC_GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH_DESCRIPTION',
+        '+3 [ICON_Bombard] Bombard Strength to siege units vs. units, instead of the debuff.'
+    ),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_NAME', 'The "Art"'),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION', '+20[ICON_Bombard] Bombard Stregth vs. units.'),
     ('LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION', '+5 [ICON_Strength] Combat Strength to land units within 2 tiles.'),
@@ -129,4 +150,25 @@ VALUES
         'LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_DESCRIPTION',
         '+1 [ICON_Range] range and +5 [ICON_Strength] bombard strength to siege units adjacent to Gorgon Platform.'
     ),
-    ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_MODIFIER', '+{1_Amount} bombard strength adjacent to Gorgon Platform.');
+    ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_MODIFIER', '+{1_Amount} bombard strength adjacent to Gorgon Platform.'),
+    ('LOC_PROMOTION_CLASS_TSOD_SCOUT_AMBER_NAME', 'Amber'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_REALM_NAME', 'Shadow Realm'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_REALM_DESCRIPTION', '+1 sight range. Can see through all terrain types and features.'),
+    ('LOC_PROMOTION_TSOD_CE_MASTER_THIEF_NAME', 'Master Thief'),
+    ('LOC_PROMOTION_TSOD_CE_MASTER_THIEF_DESCRIPTION', '+15 [ICON_Strength] combat strength against wounded enemies.'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CREATURE_NAME', 'Shadow Creature'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CREATURE_DESCRIPTION', '+1 [ICON_Movement] movement. Ignore movement penalties from all terrain types.'),
+    ('LOC_PROMOTION_TSOD_CE_TAVERN_QUEEN_NAME', 'Tavern Queen'),
+    (
+        'LOC_PROMOTION_TSOD_CE_TAVERN_QUEEN_DESCRIPTION',
+        'Heals outside of friendly territory. Will always heal at the end of turn regardless of action.'
+    ),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CHOSEN_NAME', 'Night''s Chosen'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CHOSEN_DESCRIPTION', '+1 [ICON_Movement] movement. Only adjacent enemy units can reveal this unit.'),
+    ('LOC_PROMOTION_TSOD_CE_NIGHT_MISTRESS_NAME', 'Night Mistress'),
+    ('LOC_PROMOTION_TSOD_CE_NIGHT_MISTRESS_DESCRIPTION', '+1 sight range, reveals invisible units within the vision range.'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_NAME', 'Shadow Authority'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_DESCRIPTION', 'Can move after attacking. +1 diplomatic rank with all civilizations.'),
+    ('LOC_VIZSOURCE_TSOD_SCOUT_AMBER', 'zh_Hans_CN', 'Amber in Her Ultimate State!'),
+    ('LOC_VIZSOURCE_ACTION_TSOD_SCOUT_AMBER', 'zh_Hans_CN', 'Promote Amber to the highest level.'),
+    ('LOC_GOSSIP_SOURCE_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '{1_Name}, uncovered news that');
