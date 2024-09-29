@@ -169,6 +169,6 @@ VALUES
     ('LOC_PROMOTION_TSOD_CE_NIGHT_MISTRESS_DESCRIPTION', '+1 sight range, reveals invisible units within the vision range.'),
     ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_NAME', 'Shadow Authority'),
     ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_DESCRIPTION', 'Can move after attacking. +1 diplomatic rank with all civilizations.'),
-    ('LOC_VIZSOURCE_TSOD_SCOUT_AMBER', 'zh_Hans_CN', 'Amber in Her Ultimate State!'),
-    ('LOC_VIZSOURCE_ACTION_TSOD_SCOUT_AMBER', 'zh_Hans_CN', 'Promote Amber to the highest level.'),
-    ('LOC_GOSSIP_SOURCE_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '{1_Name}, uncovered news that');
+    ('LOC_VIZSOURCE_TSOD_SCOUT_AMBER', 'Amber in Her Ultimate State!'),
+    ('LOC_VIZSOURCE_ACTION_TSOD_SCOUT_AMBER', 'Promote Amber to the highest level.'),
+    ('LOC_GOSSIP_SOURCE_TSOD_SCOUT_AMBER', '{1_Name}, uncovered news that');
