@@ -2,12 +2,12 @@
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
-    <Name>TSOD Cecil Empire Civilization</Name>
+    <Name>LOC_TSOD_CECIL_EMPIRE_MOD_TITLE</Name>
     <Guid>4883e185-c2d7-4031-aae3-b67e4e885a24</Guid>
     <ProjectGuid>5708e05e-1c10-490d-9b60-6fcefaec9649</ProjectGuid>
     <ModVersion>1</ModVersion>
-    <Teaser>Cecil Empire lead by Gawain Cecil</Teaser>
-    <Description>This MOD adds the civilization Cecil Empire from the online novel "The Sword of Dawn", including the leader, Gawain Cecil, and his team.[NEWLINE][NEWLINE]Requires Gathering Storm ruleset and Vietnam &amp; Kublai Khan Pack DLC.</Description>
+    <Teaser>LOC_TSOD_CECIL_EMPIRE_MOD_TEASER</Teaser>
+    <Description>LOC_TSOD_CECIL_EMPIRE_MOD_DESCRIPTION</Description>
     <AffectsSavedGames>true</AffectsSavedGames>
     <SupportsSinglePlayer>true</SupportsSinglePlayer>
     <SupportsMultiplayer>true</SupportsMultiplayer>
@@ -15,6 +15,7 @@
     <CompatibleVersions>2.0</CompatibleVersions>
     <InGameActionData><![CDATA[<InGameActions><UpdateDatabase id="TsoDCE_IG_UpdateDatabase"><File>Core/TsoDCE_Civilizations.sql</File><File>Core/TsoDCE_CivilizationTraits.sql</File><File>Core/TsoDCE_Leaders.sql</File><File>Core/TsoDCE_Resources.sql</File><File>Core/TsoDCE_Greatworks.sql</File><File>Core/TsoDCE_GreatPeople.sql</File><File>Core/TsoDCE_UnitPromotions.sql</File><File>Core/TsoDCE_Units.sql</File><File>Core/TsoDCE_Buildings.sql</File></UpdateDatabase><AddGameplayScripts id="TsoDCE_IG_AddGameplayScripts"><File>Core/TsoDCE_CivilizationTraits.lua</File></AddGameplayScripts><UpdateIcons id="TsoDCE_IG_UpdateIcons"><File>Icons/TsoDCE_BuildingIcons.xml</File><File>Icons/TsoDCE_CivLeaderIcons.xml</File><File>Icons/TsoDCE_UnitIcons.xml</File><File>Icons/TsoDCE_ResourceIcons.xml</File><File>Icons/TsoDCE_GreatworkIcons.xml</File><File>Icons/TsoDCE_UnitPromotionIcons.xml</File></UpdateIcons><UpdateColors id="TsoDCE_IG_UpdateColors"><File>Core/TsoDCE_Colors.sql</File></UpdateColors><UpdateText id="TsoDCE_IG_UpdateText"><File>Texts/TsoDCE_BuildingTexts.sql</File><File>Texts/TsoDCE_CivLeaderTexts.sql</File><File>Texts/TsoDCE_UnitTexts.sql</File><File>Texts/TsoDCE_ResourceTexts.sql</File><File>Texts/TsoDCE_GreatworkTexts.sql</File></UpdateText><UpdateArt id="TsoDCE_IG_UpdateArt"><File>(Mod Art Dependency File)</File></UpdateArt></InGameActions>]]></InGameActionData>
     <FrontEndActionData><![CDATA[<FrontEndActions><UpdateDatabase id="TsoDCE_FE_UpdateDatabase"><File>Core/TsoDCE_Config.sql</File></UpdateDatabase><UpdateIcons id="TsoDCE_FE_UpdateIcons"><File>Icons/TsoDCE_BuildingIcons.xml</File><File>Icons/TsoDCE_CivLeaderIcons.xml</File><File>Icons/TsoDCE_UnitIcons.xml</File></UpdateIcons><UpdateColors id="TsoDCE_FE_UpdateColors"><File>Core/TsoDCE_Colors.sql</File></UpdateColors><UpdateText id="TsoDCE_FE_UpdateText"><File>Texts/TsoDCE_BuildingTexts.sql</File><File>Texts/TsoDCE_CivLeaderTexts.sql</File><File>Texts/TsoDCE_UnitTexts.sql</File></UpdateText><UpdateArt id="TsoDCE_FE_UpdateArt"><File>(Mod Art Dependency File)</File></UpdateArt></FrontEndActions>]]></FrontEndActionData>
+    <LocalizedTextData><![CDATA[<LocalizedText><Text id="LOC_TSOD_CECIL_EMPIRE_MOD_TITLE"><en_US>[The Sword of Dawn (TSOD)] Cecil Empire Civilization</en_US><zh_Hans_CN>《黎明之剑》塞西尔帝国文明</zh_Hans_CN></Text><Text id="LOC_TSOD_CECIL_EMPIRE_MOD_TEASER"><en_US>New Civilization and Leaders - Cecil Empire lead by Gawain Cecil, from the web novel The Sword of Dawn.</en_US><zh_Hans_CN>新文明和领袖——高文·塞西尔领导的塞西尔帝国文明</zh_Hans_CN></Text><Text id="LOC_TSOD_CECIL_EMPIRE_MOD_DESCRIPTION"><en_US>This MOD adds the civilization Cecil Empire from the online novel "The Sword of Dawn", including the leader, Gawain Cecil, and his team.[NEWLINE][NEWLINE]Requires Gathering Storm ruleset and Vietnam &amp; Kublai Khan Pack DLC.</en_US><zh_Hans_CN>此模组添加了来自网络小说《黎明之剑》的文明“塞西尔帝国”，包括领袖高文·塞西尔及其团队。[NEWLINE][NEWLINE]需要《风云变幻》资料片以及《越南和忽必烈包》。</zh_Hans_CN></Text></LocalizedText>]]></LocalizedTextData>
     <AssemblyName>TSODCecilEmpire</AssemblyName>
     <RootNamespace>TSODCecilEmpire</RootNamespace>
     <Authors>Brus Gwyn Fuchkyo</Authors>
