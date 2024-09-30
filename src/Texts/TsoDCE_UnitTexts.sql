@@ -2,7 +2,7 @@ INSERT
 OR REPLACE INTO LocalizedText (Tag, LANGUAGE, Text)
 VALUES
     ('LOC_UNIT_TSOD_SCOUT_AMBER_NAME', 'zh_Hans_CN', '琥珀'),
-    ('LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION', 'zh_Hans_CN', '塞西尔的特殊侦察单位，拥有独特的升级树。建立首都时自动获得，无法生产。初始拥有4视野，但正面战斗力极其薄弱。被击杀时将保留1点体力值，撤退至最近的城市。'),
+    ('LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION', 'zh_Hans_CN', '塞西尔的特殊侦察单位，拥有独特的升级树。建立首都时自动获得，无法生产。初始拥有4视野，但正面战斗力极其薄弱。被击杀时将保留1点体力值，撤退至最近的城市。无法从探索奇观中获得经验值，但是会获得三倍发现部落村庄的经验值。'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME', 'zh_Hans_CN', '塞西尔的大科学家'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_NAME', 'zh_Hans_CN', '瑞贝卡·塞西尔'),
     ('LOC_GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL_DUMMY_DESCRIPTION', 'zh_Hans_CN', '立即完成当前正在研究的科技。'),
@@ -77,7 +77,7 @@ VALUES
     ('LOC_UNIT_TSOD_SCOUT_AMBER_NAME', 'Amber'),
     (
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
-        'Cecil''s unique recon unit with a unique Promotion tree. Automatically received upon establishing the Capital and cannot be produced. She starts with a vision range of 4 but has extremely weak combat strength. When killed, retreats with 1 HP to the nearest city.'
+        'Cecil''s unique recon unit with a unique Promotion tree. Automatically received upon establishing the Capital and cannot be produced. She starts with a vision range of 4 but has extremely weak combat strength. When killed, retreats with 1 HP to the nearest city. She does not gain experience revealing Natural Wonders, but gains three times the experience from visiting Tribal Villages.'
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME', 'Great Scientist of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_NAME', 'Rebecca Cecil'),

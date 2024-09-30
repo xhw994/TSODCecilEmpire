@@ -13,6 +13,9 @@ local IsHettiCecilActivated = GreatPeopleTypePrefix .. 'HETTIE_CECIL_ACTIVATED'
 local AllClasses = { 'GENERAL', 'ADMIRAL', 'ENGINEER', 'MERCHANT', 'PROPHET', 'SCIENTIST', 'WRITER', 'ARTIST', 'MUSICIAN' }
 local GawainGreatPeopleActivated = 'TSOD_GawainGreatPeopleActivated'
 
+-- EXPERIENCE_ACTIVATE_GOODY_HUT (5) * 3
+local AmberGoodyHutExpReward = 15
+
 local function startsWith(String, Start)
     return string.sub(String, 1, string.len(Start)) == Start
 end
@@ -244,7 +247,6 @@ function OnMilitaryEngineerBuildRailroad(playerId, unitId, operationId)
         return
     end
 
-    -- One of the worst and useless APIs FML
     local pUnit = pPlayer:GetUnits():FindID(unitId)
     if (not pUnit) then
         return
@@ -259,6 +261,30 @@ function OnMilitaryEngineerBuildRailroad(playerId, unitId, operationId)
         local coal = GameInfo.Resources['RESOURCE_COAL'].Index
         pPlayer:GetResources():ChangeResourceAmount(coal, 1)
     end
+end
+
+function OnGoodyHutRewardByAmber(playerId, unitId, _, _)
+    if CecilPlayersMap == nil then
+        return
+    end
+
+    local pPlayer = CecilPlayersMap[playerId]
+    if not pPlayer then
+        return
+    end
+
+    local pUnit = pPlayer:GetUnits():FindID(unitId)
+    if (not pUnit) then
+        return
+    end
+
+    local unitType = GameInfo.Units[pUnit:GetType()].UnitType
+    if (unitType ~= 'UNIT_TSOD_SCOUT_AMBER') then
+        return
+    end
+
+    pUnit:GetExperience():ChangeExperience(AmberGoodyHutExpReward)
+    print('Grant ' .. AmberGoodyHutExpReward .. ' experience to Amber on goody hut reward')
 end
 
 function InitTsoDCecilEmpireTraits()
@@ -304,6 +330,7 @@ function InitTsoDCecilEmpireTraits()
     Events.UnitGreatPersonActivated.Add(OnGreatPersonActivated)
     Events.UnitOperationStarted.Add(OnMilitaryEngineerBuildRailroad)
     Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
+    Events.GoodyHutReward.Add(OnGoodyHutRewardByAmber)
     Events.TurnBegin.Add(OnTurnBegin)
     print('Successfully initialized TSOD Cecil Empire civilization traits')
 end
