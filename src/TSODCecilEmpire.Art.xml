@@ -154,6 +154,7 @@
 			<relativeArtDefPaths>
 				<Element text="Civilizations.artdef"/>
 				<Element text="Cultures.artdef"/>
+				<Element text="Landmarks.artdef"/>
 			</relativeArtDefPaths>
 			<libraryDependencies>
 				<Element text="CityBuildings"/>
@@ -623,6 +624,10 @@
 		<Element>
 			<name text="Civ6"/>
 			<id text="cb2f71b7-843e-4af3-9ca7-992acda9c195"/>
+		</Element>
+		<Element>
+			<name text="Expansion2" />
+			<id text="b1b63999-6b16-4dd2-a5b6-eb19794aa8ca" />
 		</Element>
 	</requiredGameArtIDs>
 </AssetObjects..GameArtSpecification>

@@ -50,6 +50,9 @@
     <Content Include="Artdefs\FallbackLeaders.artdef">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Artdefs\Landmarks.artdef">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Artdefs\Overlay.artdef">
       <SubType>Content</SubType>
     </Content>
