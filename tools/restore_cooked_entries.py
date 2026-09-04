@@ -19,7 +19,9 @@ Expansion2 / Shared / CivRoyaleScenario 五份 pantry，其余 DLC（Ethiopia �
 ----
     python tools/restore_cooked_entries.py <源 ArtDefs 目录> <已部署的 mod 目录>
 
-每次构建后都要跑一次 —— cook 会重新把它改回 TB_ERROR。
+平时不用手动跑：.civ6proj 里挂了一个 AfterTargets="Build" 的 target，
+每次构建完会自动调用本脚本。命令行和 ModBuddy 图形界面构建都会触发。
+留着这个入口是为了单独补跑，比如手工改过部署产物之后。
 """
 import sys, io, os, re
 import xml.etree.ElementTree as ET

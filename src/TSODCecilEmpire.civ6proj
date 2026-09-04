@@ -148,4 +148,22 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildLocalExtensionPath)Civ6.targets" />
+  <!--
+    构建后自动还原 cooker 解析不掉的 BLP entry。
+
+    AssetCooker 只在 SDK Assets 里真有 pantry 目录的 project 里查资产，
+    而它只带了 Civ6 / Shared / Expansion1 / Expansion2 / CivRoyaleScenario 五份。
+    引用其它 DLC 的资产（这里是 Ethiopia 的 DIS_CTY_Obelisk）时，cooker 既不报错
+    也不中断，只是把 m_EntryName 悄悄换成 TB_ERROR —— 游戏里的表现就是模型不见了。
+    运行时不受这个限制：装了那个 DLC 的玩家，游戏会照常加载它的 BLP 包。
+
+    所以每次构建完把 entry 名还原回去。挂 AfterTargets="Build"，
+    ReBuild 和 Default 都依赖 Build，命令行和 ModBuddy 图形界面构建都会触发，
+    不用再靠人记得手动跑一遍。
+  -->
+  <Target Name="TSODRestoreCookedEntries" AfterTargets="Build">
+    <Message Text="还原 cooker 解析不掉的 BLP entry..." Importance="high" />
+    <Exec Command="python &quot;$(MSBuildProjectDirectory)/../tools/restore_cooked_entries.py&quot; &quot;$(MSBuildProjectDirectory)/ArtDefs&quot; &quot;$(BuildDir)&quot;"
+          ContinueOnError="WarnAndContinue" />
+  </Target>
 </Project>
