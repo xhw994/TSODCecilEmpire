@@ -20,7 +20,7 @@ Cecil's unique building, replacing Monuments. Provides +2 Science, +2 Production
 [h2]Unique units: Great People of Cecil[/h2]
 * The specified district or building in (brackets) denotes the unit granted upon the first construction.
 [h3]Amber (Capital/City Center)[/h3]
-Cecil's unique recon unit with a unique Promotion tree. Automatically received upon establishing the Capital and cannot be produced. She starts with a vision range of 4 but has extremely weak combat strength. When killed, retreats with 1 HP to the nearest city. She does not gain experience revealing Natural Wonders, but gains three times the experience from visiting Tribal Villages.
+Cecil's unique recon unit with a unique Promotion tree. Automatically received upon establishing the Capital and cannot be produced. She starts with a vision range of 4 but has extremely weak combat strength. When killed, retreats with 1 HP to the nearest city. She gains three times the experience from revealing Natural Wonders and from visiting Tribal Villages.
 [h3]Great Scientist Rebecca Cecil (Capmus)[/h3]
 Has 3 charges: Instantly complete the currently researching technology.
 [h3]Great Scientist Jennie Perro (Library)[/h3]

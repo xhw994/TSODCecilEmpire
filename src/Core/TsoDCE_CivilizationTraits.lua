@@ -15,6 +15,15 @@ local GawainGreatPeopleActivated = 'TSOD_GawainGreatPeopleActivated'
 
 -- EXPERIENCE_ACTIVATE_GOODY_HUT (5) * 3
 local AmberGoodyHutExpReward = 15
+-- EXPERIENCE_REVEAL_NATURAL_WONDER (10) * 3
+-- The engine only grants this to PROMOTION_CLASS_RECON units, so Amber is
+-- rewarded from script instead.
+local AmberNaturalWonderExpReward = 30
+
+-- [featureId] = { { x, y }, ... } for every natural wonder on the map
+local NaturalWonderPlots = nil
+-- [playerId] = { [featureId] = true } snapshot of the wonders a player has revealed
+local RevealedNaturalWonders = {}
 
 local function startsWith(String, Start)
     return string.sub(String, 1, string.len(Start)) == Start
@@ -22,6 +31,64 @@ end
 
 local function endsWith(str, ending)
     return ending == '' or str:sub(- #ending) == ending
+end
+
+local function CollectNaturalWonderPlots()
+    local tWonders = {}
+    for iPlot = 0, Map.GetPlotCount() - 1 do
+        local pPlot = Map.GetPlotByIndex(iPlot)
+        local featureId = pPlot:GetFeatureType()
+        if featureId ~= nil and featureId ~= -1 then
+            local tFeature = GameInfo.Features[featureId]
+            if tFeature and tFeature.NaturalWonder then
+                local tPlots = tWonders[featureId]
+                if not tPlots then
+                    tPlots = {}
+                    tWonders[featureId] = tPlots
+                end
+                table.insert(tPlots, { pPlot:GetX(), pPlot:GetY() })
+            end
+        end
+    end
+    return tWonders
+end
+
+local function IsNaturalWonderRevealed(pVisibility, tPlots)
+    for _, tPlot in ipairs(tPlots) do
+        if pVisibility:IsRevealed(tPlot[1], tPlot[2]) then
+            return true
+        end
+    end
+    return false
+end
+
+-- Refresh the player's snapshot and return the wonders revealed since last call.
+local function SyncRevealedNaturalWonders(playerId)
+    if NaturalWonderPlots == nil then
+        return {}
+    end
+
+    -- Without visibility data every wonder would look undiscovered, so leave the
+    -- snapshot untouched and retry on the next call.
+    local pVisibility = PlayersVisibility[playerId]
+    if not pVisibility then
+        return {}
+    end
+
+    local tKnown = RevealedNaturalWonders[playerId]
+    if not tKnown then
+        tKnown = {}
+        RevealedNaturalWonders[playerId] = tKnown
+    end
+
+    local tNewlyRevealed = {}
+    for featureId, tPlots in pairs(NaturalWonderPlots) do
+        if (not tKnown[featureId]) and IsNaturalWonderRevealed(pVisibility, tPlots) then
+            tKnown[featureId] = true
+            table.insert(tNewlyRevealed, featureId)
+        end
+    end
+    return tNewlyRevealed
 end
 
 function GetPlayersWithTrait(sTrait)
@@ -185,7 +252,11 @@ function OnTurnBegin()
         return
     end
 
-    for _, pPlayer in pairs(CecilPlayersMap) do
+    for iPlayer, pPlayer in pairs(CecilPlayersMap) do
+        -- Wonders revealed by borders, trade routes or other units are recorded
+        -- silently so that Amber is only rewarded for her own discoveries.
+        SyncRevealedNaturalWonders(iPlayer)
+
         local tGreatPeopleActivatedList = pPlayer:GetProperty(GawainGreatPeopleActivated)
         if not tGreatPeopleActivatedList then
             print('Error: Great person activated list was not intialized properly')
@@ -263,6 +334,37 @@ function OnMilitaryEngineerBuildRailroad(playerId, unitId, operationId)
     end
 end
 
+function OnUnitMoveCompleteRevealNaturalWonder(playerId, unitId, _, _)
+    if CecilPlayersMap == nil then
+        return
+    end
+
+    local pPlayer = CecilPlayersMap[playerId]
+    if not pPlayer then
+        return
+    end
+
+    -- Always resync: wonders uncovered by other units must not credit Amber later.
+    local tNewlyRevealed = SyncRevealedNaturalWonders(playerId)
+    if #tNewlyRevealed < 1 then
+        return
+    end
+
+    local pUnit = pPlayer:GetUnits():FindID(unitId)
+    if (not pUnit) then
+        return
+    end
+
+    local unitType = GameInfo.Units[pUnit:GetType()].UnitType
+    if (unitType ~= 'UNIT_TSOD_SCOUT_AMBER') then
+        return
+    end
+
+    local expReward = AmberNaturalWonderExpReward * #tNewlyRevealed
+    pUnit:GetExperience():ChangeExperience(expReward)
+    print('Grant ' .. expReward .. ' experience to Amber for revealing ' .. #tNewlyRevealed .. ' natural wonder(s)')
+end
+
 function OnGoodyHutRewardByAmber(playerId, unitId, _, _)
     if CecilPlayersMap == nil then
         return
@@ -294,6 +396,13 @@ function InitTsoDCecilEmpireTraits()
     CecilPlayersMap, CecilPlayersNum = GetPlayersWithTrait(TraitCecilEmpire)
     if (CecilPlayersNum < 1) then
         return
+    end
+
+    -- Rebuilt on every load, so the snapshot always matches the current save.
+    NaturalWonderPlots = CollectNaturalWonderPlots()
+    RevealedNaturalWonders = {}
+    for iPlayer in pairs(CecilPlayersMap) do
+        SyncRevealedNaturalWonders(iPlayer)
     end
 
     for _, pPlayer in pairs(CecilPlayersMap) do
@@ -331,6 +440,7 @@ function InitTsoDCecilEmpireTraits()
     Events.UnitOperationStarted.Add(OnMilitaryEngineerBuildRailroad)
     Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
     Events.GoodyHutReward.Add(OnGoodyHutRewardByAmber)
+    Events.UnitMoveComplete.Add(OnUnitMoveCompleteRevealNaturalWonder)
     Events.TurnBegin.Add(OnTurnBegin)
     print('Successfully initialized TSOD Cecil Empire civilization traits')
 end
