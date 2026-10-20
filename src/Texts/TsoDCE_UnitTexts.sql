@@ -58,7 +58,7 @@ VALUES
     ('LOC_PROMOTION_TSOD_CE_MASTER_THIEF_NAME', 'zh_Hans_CN', '南境盗圣'),
     ('LOC_PROMOTION_TSOD_CE_MASTER_THIEF_DESCRIPTION', 'zh_Hans_CN', '与受损单位战斗时+15[ICON_Strength]战斗力。'),
     ('LOC_PROMOTION_TSOD_CE_SHADOW_CREATURE_NAME', 'zh_Hans_CN', '暗影生物'),
-    ('LOC_PROMOTION_TSOD_CE_SHADOW_CREATURE_DESCRIPTION', 'zh_Hans_CN', '+1[ICON_Movement]移动力。忽视所有地形带来的移动力减益'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CREATURE_DESCRIPTION', 'zh_Hans_CN', '+1[ICON_Movement]移动力。忽视所有地形带来的移动力减益。'),
     ('LOC_PROMOTION_TSOD_CE_TAVERN_QUEEN_NAME', 'zh_Hans_CN', '酒馆女王'),
     ('LOC_PROMOTION_TSOD_CE_TAVERN_QUEEN_DESCRIPTION', 'zh_Hans_CN', '在友军领土之外恢复。在每回合结束时（甚至是在移动或攻击后），自动恢复生命值。'),
     ('LOC_PROMOTION_TSOD_CE_SHADOW_CHOSEN_NAME', 'zh_Hans_CN', '暗夜神选'),
@@ -81,13 +81,17 @@ VALUES
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME', 'Great Scientist of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_NAME', 'Rebecca Cecil'),
-    ('LOC_GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL_DUMMY_DESCRIPTION', 'Instantly complete the currently researching technology.'),
+    ('LOC_GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL_DUMMY_DESCRIPTION', 'Instantly completes the technology currently being researched.'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO_NAME', 'Jennie Perro'),
     ('LOC_GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS_DESCRIPTION', 'Instantly complete the Mathematics technology.'),
     ('LOC_GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION', 'Construct a Mana Obelisk in the City Center.'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_NAME', 'Santis Saide'),
     ('LOC_GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE_DESCRIPTION', 'The city gains +4 [ICON_Science] Science.'),
-    ('LOC_UNIVERSITY_BONUS_AMENITY_ATTACH_DESCRIPTION', 'All cities with a university receive +1 [ICON_Amenities] Amenity.'),
+    ('LOC_UNIVERSITY_BONUS_AMENITY_ATTACH_DESCRIPTION', 'All cities with a University receive +1 [ICON_Amenities] Amenity.'),
+    (
+        'LOC_GREATPERSON_TSOD_CE_SANTIS_SAIDE_ACTIVE',
+        'Instantly builds a University and a Library in this district. +4 [ICON_Science] Science in this city. All cities with a University receive +1 [ICON_Amenities] Amenity.'
+    ),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_NAME', 'Kamel Slayen'),
     ('LOC_GREATPERSON_ELECTRICITYTECHBOOST_DESCRIPTION', 'Trigger a [ICON_TechBoosted] Eureka moment for the Electricity technology.'),
     (
@@ -95,14 +99,14 @@ VALUES
         'Trigger an [ICON_CivicBoosted] Inspiration moment for the Cultural Heritage civic.'
     ),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS_NAME', 'Norris'),
-    ('LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION', 'The city gains 20% growth, stackable.'),
-    ('LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION', 'Rice and wheat plots gain +1 [ICON_Food] food each.'),
+    ('LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION', '+20% population growth in this city.'),
+    ('LOC_GREATPERSON_CITY_RICEWHEATYIELD_DESCRIPTION', 'Rice and Wheat tiles gain +1 [ICON_Food] Food.'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_GOVERNOR_NAME', 'Great Governor of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_NAME', 'Hettie Cecil'),
-    ('LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION', 'Refund 1 [ICON_RESOURCE_COAL] coal after building a railroad.'),
+    ('LOC_GREATPERSON_DUMMY_TSOD_CE_HETTIE_CECIL_REFUND_COAL_DESCRIPTION', 'Military Engineers refund 1 [ICON_RESOURCE_COAL] Coal after building a Railroad.'),
     (
         'LOC_GREATPERSON_AOE_TSOD_CE_HETTIE_CECIL_ATTACH_DESCRIPTION',
-        'When the unit is at or adjacent to city center, reduce 20% cost when purchasing units in this city.'
+        'If this unit is in or adjacent to a City Center, units purchased in that city cost 20% less.'
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_GENERAL_NAME', 'Great General of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_NAME', 'Sir Philip'),
@@ -112,7 +116,7 @@ VALUES
         '+3 [ICON_Bombard] Bombard Strength to siege units vs. units, instead of the debuff.'
     ),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_NAME', 'The "Art"'),
-    ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION', '+20[ICON_Bombard] Bombard Stregth vs. units.'),
+    ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION', '+20 [ICON_Bombard] Bombard Strength vs. units.'),
     ('LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_LAND_DESCRIPTION', '+5 [ICON_Strength] Combat Strength to land units within 2 tiles.'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_ADMIRAL_NAME', 'Great Admiral of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_NAME', 'Byron Kirk'),
@@ -120,9 +124,9 @@ VALUES
     ('LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION', 'Gain 1 [ICON_Envoy] envoy.'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_PROPHET_NAME', 'Great Patriarch of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN_NAME', 'Leite Aviken'),
-    ('LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_NAME', 'Grand Sheperd''s guidance'),
-    ('LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION', '+5 [ICON_Religion] religious combat strength within 2 tiles adjacent to Grand Sheperd.'),
-    ('LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION', '+5 [ICON_Religion] religious combat strength within 2 tiles adjacent to Grand Sheperd.'),
+    ('LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_NAME', 'Guidance of the Great Patriarch'),
+    ('LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION', '+5 [ICON_Religion] Religious Strength when within 2 tiles of the Great Patriarch.'),
+    ('LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION', '+5 [ICON_Religion] Religious Strength to religious units within 2 tiles.'),
     (
         'LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION',
         'If this city follows any religion, +0.5 [ICON_Faith] faith yield per population.'
@@ -139,12 +143,12 @@ VALUES
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_NAME', 'Nicholas Egg'),
     (
         'LOC_GREATPERSON_AOE_TSOD_CE_NICHOLAS_EGG_ATTACH_DESCRIPTION',
-        'When the unit is at or adjacent to city center, +25% [ICON_Production] towards unit production in this city.'
+        'If this unit is in or adjacent to a City Center, +25% [ICON_Production] Production toward units in that city.'
     ),
     ('LOC_UNIT_TSOD_GORGON_PLATFORM_NAME', 'Gorgon Platform'),
     (
         'LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION',
-        'Cecil''s Atomic era support unit, replaces drone. Adds +1 [ICON_Range] range and +5 [ICON_Strength] bombard strength to siege units within 1 hex. Can heal adjacent units.'
+        'Cecil''s unique Atomic era support unit, replaces the Drone. Adds +1 [ICON_Range] range and +5 [ICON_Strength] bombard strength to siege units within 1 hex. Can heal adjacent units.'
     ),
     (
         'LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_DESCRIPTION',

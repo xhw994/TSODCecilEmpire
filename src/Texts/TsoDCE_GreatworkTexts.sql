@@ -20,7 +20,7 @@ VALUES
 	('LOC_GREATWORK_TSOD_CE_IMMIGRANTS_NAME', 'The Immigrants'),
 	(
 		'LOC_GREATWORK_TSOD_CE_IMMIGRANTS_QUOTE',
-		'In this city, 99 percent of the people are immigrants, or rather, displaced persons, refugees.[NEWLINE]They have experienced everything in the story: leaving their homeland, enduring long journeys, taking root in unfamiliar lands, working, building their own homes,  tilling the soil they came to own...[NEWLINE]No other story can resonate the people sitting here quite like "The Immigrants" does.'
+		'In this city, 99 percent of the people are immigrants, or rather, displaced persons, refugees.[NEWLINE]They have experienced everything in the story: leaving their homeland, enduring long journeys, taking root in unfamiliar lands, working, building their own homes, tilling the soil they came to own...[NEWLINE]No other story can resonate with the people sitting here quite like "The Immigrants" does.'
 	),
 	('LOC_GREATWORK_TSOD_CE_BEACON_FIRE_NAME', 'The Beacon Fire'),
 	(

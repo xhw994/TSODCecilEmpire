@@ -27,8 +27,8 @@ VALUES
     ('LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '人类必将永存，纵使忤逆神明。'),
     ('LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '只有更强大的合作伙伴才能带给你更大的利益，我从来不担心别人的发展，我只要能保证自己是发展最快的那个便足够了。'),
     ('LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '人应敬畏自然，但却不可因敬畏自然而止步于自然。'),
-    ('LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '道别是为了下次再会，晚安是为了共同迎接下一個黎明。'),
-    ('LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '这个世界并不总是会发生好事很多时候，坏事可能还更多一些，但只要明天的太阳还能升起，就不妨对未来多期待一点。'),
+    ('LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '道别是为了下次再会，晚安是为了共同迎接下一个黎明。'),
+    ('LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '这个世界并不总是会发生好事，很多时候，坏事可能还更多一些，但只要明天的太阳还能升起，就不妨对未来多期待一点。'),
     ('LOC_DIPLO_DECLARE_WAR_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '唯有更强大的炮火才能给人类带来生存希望。'),
     ('LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '唯有更强大的炮火才能给人类带来生存希望。'),
     ('LOC_DIPLO_DEFEAT_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '或许并不是所有人都能在这个艰难的世界生存下来，但每一位牺牲者的出现，都只能证明我们的无能。'),
@@ -37,7 +37,7 @@ VALUES
     (
         'LOC_DIPLO_REJECT_DELEGATION_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY',
         'zh_Hans_CN',
-        '领袖的一个决定，可能会让成百上千的人付出牺牲，有时候这个决定是必须的，有时候人民的牺牲是自愿的，伫领袖永远不能心安理得地接受这些牺牲，他必须知那些付出牺牲的人站在一起，并随时做好一同流血的准备。'
+        '领袖的一个决定，可能会让成百上千的人付出牺牲，有时候这个决定是必须的，有时候人民的牺牲是自愿的，但领袖永远不能心安理得地接受这些牺牲，他必须和那些付出牺牲的人站在一起，并随时做好一同流血的准备。'
     ),
     ('LOC_DIPLO_DELEGATION_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '教导，学习，传播，知识的传递只要开始，就不会轻易停下，它会一直持续下去，直到每个人都有权利接触知识，都有权利思考和探究真理。'),
     (
@@ -51,9 +51,9 @@ VALUES
     ('LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '欢迎来到塞西尔，欢迎来到未来。'),
     ('LOC_DIPLO_GREETING_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '高文·塞西尔向你问好'),
     ('LOC_DIPLO_KUDO_EXIT_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '正义和仁慈才会让人民去依附，就像人会自然而然地向往光明一样。'),
-    ('LOC_DIPLO_KUDO_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', 'zh_Hans_CN', '你向人民传播知识的行为让高文·塞西尔很高兴'),
+    ('LOC_DIPLO_KUDO_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', 'zh_Hans_CN', '（您有丰富的科技值）'),
     ('LOC_DIPLO_WARNING_EXIT_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '你从未真的低头看过，看一眼那些卑微的人。'),
-    ('LOC_DIPLO_WARNING_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', 'zh_Hans_CN', '你让人民保持愚昧的行为让高文·塞西尔很失望'),
+    ('LOC_DIPLO_WARNING_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', 'zh_Hans_CN', '（您的科技值很薄弱。）'),
     ('LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '行了，有什么阶级矛盾意识冲突的都先放一边吧。现在咱们是一条船上的人了。'),
     ('LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '路就在那里，门只是一个虚无缥缈的装饰品罢了，只要抛开心理上的问题，哪怕是皇家宝库的大门也只需要一根芹菜而已。'),
     ('LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '我就是规矩。'),
@@ -152,7 +152,9 @@ VALUES
     ('LOC_CITIZEN_NAME_TSOD_ROPENI_GRAN', 'zh_Hans_CN', '罗佩妮·葛兰'),
     -- Agendas
     ('LOC_AGENDA_TSOD_TRUTH_SEEKER_NAME', 'zh_Hans_CN', '真理探求'),
-    ('LOC_AGENDA_TSOD_TRUTH_SEEKER_DESCRIPTION', 'zh_Hans_CN', '设法获得[ICON_Science]科技值，喜欢同样专注于[ICON_Science]科技的文明。不喜欢[ICON_SCIENCE]科技值低的文明。'),
+    ('LOC_AGENDA_TSOD_TRUTH_SEEKER_DESCRIPTION', 'zh_Hans_CN', '设法获得[ICON_Science]科技值，喜欢同样专注于[ICON_Science]科技的文明。不喜欢[ICON_Science]科技值低的文明。'),
+    ('LOC_DIPLO_MODIFIER_TSOD_TRUTH_SEEKER_HIGH_SCIENCE', 'zh_Hans_CN', '你向人民传播知识的行为让高文·塞西尔很高兴'),
+    ('LOC_DIPLO_MODIFIER_TSOD_TRUTH_SEEKER_LOW_SCIENCE', 'zh_Hans_CN', '你让人民保持愚昧的行为让高文·塞西尔很失望'),
     -- Traits
     ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', 'zh_Hans_CN', '改良的采石场+1[ICON_Science]科技。'),
     ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', 'zh_Hans_CN', '正确改良的硝石+3[ICON_Faith]信仰。');
@@ -176,7 +178,7 @@ VALUES
     ),
     (
         'LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL',
-        'Gawain Cecil, Lord of Knights, Pioneer, Protector, the Founder of the Kingdom. When this land was still called Ansu, you were its guardian in the south. Over the years, you have achieved numerous remarkable feats: revitalizing the southern lands, unifying a nation, leading an era, and even united the civilizations of this planet. you reclaimed wastelands, defeated deities, and now, you will lead this world against the Mana Tide, completing the final test before civilization steps into the stars... Such astonishing achievements, and to many people, all these feats are embodied in you. So, after these great deeds, was there ever a moment, even just a slight instant, you realized that you have almost become... a God?'
+        'Gawain Cecil, Lord of Knights, Pioneer, Protector, the Founder of the Kingdom. When this land was still called Ansu, you were its guardian in the south. Over the years, you have achieved numerous remarkable feats: revitalizing the southern lands, unifying a nation, leading an era, and even uniting the civilizations of this planet. You reclaimed the wastelands, defeated deities, and now you will lead this world against the Mana Tide, completing the final test before civilization steps into the stars... Such astonishing achievements, and to many people, all these feats are embodied in you. So, while achieving these great deeds, was there ever a moment, even just a fleeting instant, when you realized that you had almost become... a God?'
     ),
     -- Quotes
     ('LOC_LEADER_TSOD_GAWAIN_CECIL_INTRO_QUOTE', 'Knights are better than mages!'),
@@ -226,9 +228,9 @@ VALUES
     ('LOC_DIPLO_FIRST_MEET_NEAR_INITIATOR_POSITIVE_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Welcome to Cecil, welcome to the future.'),
     ('LOC_DIPLO_GREETING_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Gawain Cecil greets you.'),
     ('LOC_DIPLO_KUDO_EXIT_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Only justice and kindness will make people adhere, just as they naturally yearn for light.'),
-    ('LOC_DIPLO_KUDO_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', 'Your efforts in spreading knowledge to the people have pleased Gawain Cecil.'),
+    ('LOC_DIPLO_KUDO_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', '(You are strong in Science)'),
     ('LOC_DIPLO_WARNING_EXIT_LEADER_TSOD_GAWAIN_CECIL_ANY', 'You have never really looked down to see the humble people.'),
-    ('LOC_DIPLO_WARNING_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', 'Your actions in keeping the people uneducated have disappointed Gawain Cecil.'),
+    ('LOC_DIPLO_WARNING_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', '(You are weak in Science.)'),
     (
         'LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY',
         'Alright, let''s put aside any class struggles or ideological differences. We are now in the same boat.'
@@ -255,7 +257,7 @@ VALUES
     ),
     (
         'LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_2',
-        'After the mana tide outbreak, a group of refugees (including Gawain Cecil) escaped from the Gondor Empire wasteland, opened up territories in the northern border, and established a kingdom, implementing the feudal lord system. The king (of the Morne family) resides in the central capital Silver Castle, with guardianship dukes (East: Loren; West: Franklin; South: Cecil; North: Vilde) guarding the four directions, under which countless fief lords are subordinate. Due to scarce resources, civilization level degraded to be equivalent to the mid-late medieval period.'
+        'After the mana tide outbreak, a group of refugees (including Gawain Cecil) escaped from the Gondor Empire wasteland, opened up territories in the northern border, and established a kingdom, implementing the feudal lord system. The king (of the Moen family) resides in the central capital Silver Castle, with guardianship dukes (East: Loren; West: Franklin; South: Cecil; North: Wilder) guarding the four directions, under which countless fief lords are subordinate. Due to scarce resources, civilization level degraded to be equivalent to the mid-late medieval period.'
     ),
     (
         'LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_3',
@@ -263,7 +265,7 @@ VALUES
     ),
     (
         'LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_4',
-        'After Gawain''s resurrection, he established the new Cecil territory (later known as Cecil City) in the southern Ansu Dark Mountains region, vigorously developing Arcane Industrialization and new social systems. After unifying the southern region following the Ansu Civil War, and stabilizing the northern disaster during the "Deity Catastrophe," they achieved a peaceful transfer of power and took over the Ansu Kingdom.'
+        'After Gawain''s resurrection, he established the new Cecil territory (later known as Cecil City) in the Dark Mountains of southern Ansu, vigorously developing magitech industry and a new social system. He unified the south after the Ansu Civil War broke out, and marched north to quell the "Deity Catastrophe" when it struck. After the Second Civil War, the crystal-cluster monsters, and the War of the God Hunt, power was handed over peacefully and he took over the Ansu Kingdom.'
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_CAPSULE_BODY',
@@ -271,7 +273,7 @@ VALUES
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_DETAILED_BODY',
-        'Gawain has a gameplay focused on magitech and recruiting great people. Players need to obtain [ICON_Culture] culture points through pantheons in the early game to offset the disadvantage of not being able to build monuments. Once players can build the Mana Obelisk, they can gain significant district adjacency bonuses through strategic planning and unlock relatively free development paths. The first time a unique district is built, it grants a corresponding great person. These great people provide tactical bonuses that can change the game. Players can build barracks to obtain Sir and unlock a conquest playstyle focused on artillery saturation bombing; build holy sites to unlock Leite and, with religious tenets, use faith points to support civilization; combine government plaza, industrial zone, commercial hub, or preserve to efficiently develop population and increase tile yields; or continue developing technology to gain massive bonuses from great people granted by the campus district buildings. No matter which playstyle the player chooses, recruiting as many great people as possible and gaining great person point bonuses in the respective fields is essential.'
+        'Gawain has a gameplay focused on magitech and recruiting great people. Players need to obtain [ICON_Culture] culture points through pantheons in the early game to offset the disadvantage of not being able to build monuments. Once players can build the Mana Obelisk, they can gain significant district adjacency bonuses through careful planning and unlock relatively flexible development paths. The first time each specialty district is built, it grants a corresponding great person. These great people provide tactical bonuses that can change the game. Players can build an Encampment to obtain Sir Philip and unlock a conquest playstyle focused on saturation artillery bombardment; build a Holy Site to obtain Leite Aviken and, with religious beliefs, use [ICON_Faith] Faith to support the civilization; combine the Government Plaza, Industrial Zone, Commercial Hub, or Preserve to grow population efficiently and increase tile yields; or keep advancing technology to gain massive bonuses from the great people granted by Campus buildings. No matter which playstyle the player chooses, recruiting as many great people as possible and gaining great person point bonuses in the respective fields is essential.'
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_HISTORY_PARA_1',
@@ -340,8 +342,10 @@ VALUES
     ('LOC_AGENDA_TSOD_TRUTH_SEEKER_NAME', 'Truth Seeker'),
     (
         'LOC_AGENDA_TSOD_TRUTH_SEEKER_DESCRIPTION',
-        'Tries to build up [ICON_Science] Science, and likes those that also focus on [ICON_Science] Science. Dislikes civilizations with a weak [ICON_SCIENCE] Science output.'
+        'Tries to build up [ICON_Science] Science, and likes those that also focus on [ICON_Science] Science. Dislikes civilizations with a weak [ICON_Science] Science output.'
     ),
+    ('LOC_DIPLO_MODIFIER_TSOD_TRUTH_SEEKER_HIGH_SCIENCE', 'Gawain Cecil is pleased with your efforts to spread knowledge to the people'),
+    ('LOC_DIPLO_MODIFIER_TSOD_TRUTH_SEEKER_LOW_SCIENCE', 'Gawain Cecil is disappointed that you keep your people uneducated'),
     -- Traits
     ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', '+1 [ICON_Science] science to improved quarries.'),
     ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', '+3 [ICON_Faith] faith to correctly improved Niter.');
