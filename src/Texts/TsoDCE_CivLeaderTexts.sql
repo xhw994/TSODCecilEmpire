@@ -178,7 +178,6 @@ VALUES
         'LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL',
         'Gawain Cecil, Lord of Knights, Pioneer, Protector, the Founder of the Kingdom. When this land was still called Ansu, you were its guardian in the south. Over the years, you have achieved numerous remarkable feats: revitalizing the southern lands, unifying a nation, leading an era, and even united the civilizations of this planet. you reclaimed wastelands, defeated deities, and now, you will lead this world against the Mana Tide, completing the final test before civilization steps into the stars... Such astonishing achievements, and to many people, all these feats are embodied in you. So, after these great deeds, was there ever a moment, even just a slight instant, you realized that you have almost become... a God?'
     ),
-    ('LOC_LEADER_TSOD_GAWAIN_CECIL_INTRO_QUOTE', 'Gawain Cecil sends his greetings.'),
     -- Quotes
     ('LOC_LEADER_TSOD_GAWAIN_CECIL_INTRO_QUOTE', 'Knights are better than mages!'),
     ('LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Humanity will endure, even if it defies the gods.'),
