@@ -176,3 +176,308 @@ VALUES
     ('LOC_VIZSOURCE_TSOD_SCOUT_AMBER', 'Amber in Her Ultimate State!'),
     ('LOC_VIZSOURCE_ACTION_TSOD_SCOUT_AMBER', 'Promote Amber to the highest level.'),
     ('LOC_GOSSIP_SOURCE_TSOD_SCOUT_AMBER', '{1_Name}, uncovered news that');
+
+INSERT
+OR REPLACE INTO LocalizedText (Tag, LANGUAGE, Text)
+VALUES
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_SCOUT_AMBER_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '琥珀是一名半精灵盗贼。塞西尔城堡被怪物攻破、众人退入先祖陵墓的那场混乱里，她为了找个地方躲避，竟然一路钻进了陵墓最深处的墓室，成了高文复活后见到的第一批人之一。'
+    ),
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_SCOUT_AMBER_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '她天生能踏入暗影界，自称是暗夜女神的“神选”，这份天赋被她主要用在潜行、探路和偷窃上。高文看中的却是另一样东西：她早年在南境闯荡时结识的那群市井底层的朋友。'
+    ),
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_SCOUT_AMBER_CHAPTER_HISTORY_PARA_3',
+        'zh_Hans_CN',
+        '这些混迹于酒馆与陋巷的“阴沟老鼠”消息灵通，只要报酬给足，就能保持起码的忠诚。在琥珀的牵线下，塞西尔领有了最早的一批探子，她也成了情报工作的负责人。游戏里她晋升路线上的“南境盗圣”“酒馆女王”等称号，正是取自她在那个圈子里的绰号。'
+    ),
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_GORGON_PLATFORM_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '戈尔贡平台是塞西尔的通用空中平台：一块结构简单、皮实耐用的大型反重力底盘。它出自瑞贝卡的一个构想——短期内造不出足够多的空天要塞，那就先造一种介于龙骑兵战机和空天要塞之间、便宜又好生产的平台，把兵营、医疗站乃至整座前进营地拆开装在上面，在地面部队的掩护下直接投放到废土。'
+    ),
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_GORGON_PLATFORM_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '底盘本身只提供动力和接口，用途全看背上搭载的“建筑物”。第一代“戈尔贡I型”的原型机是用几家工厂备件仓库里的零件焊起来的，勉强飞起后又摔进了山里，追加预算之后才算定型；投入战斗时，成批的平台与空天要塞同行，搭载着各式设施一起飞向前线。'
+    ),
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_GORGON_PLATFORM_CHAPTER_HISTORY_PARA_3',
+        'zh_Hans_CN',
+        '此后，经过降级改造的版本还被出口到巨龙的国度，在天空中充当跨海通信的反重力基站，帮助他们在失去原有系统之后重新接通与洛伦大陆的联络。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '瑞贝卡是塞西尔家族的年轻继承人，高文的后裔。她擅长数理与发明，“符文扳机”和“瑞贝卡水晶”这类通用、可复制的魔导部件都出自她手，后来更执掌了魔导技术研究所。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '她的思路常常走在老祖宗前面。通用空中平台的构想便是她提出的，连高文听完都承认，自己被前世的思维定式困住了太久。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '詹妮原是王都派来援建塞西尔领的一名符文师。她的法师等级只有学徒，被视作凑数的人选，而符文师本身也常被主流法师当作“魔法仆人”。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '然而她与同伴拉文凯斯一起研究一位无名野法师留下的笔记，发现不同导魔材料的性质之间存在一道“断层”，还有一个左右法阵稳定性的神秘常数——现代魔导理论由此起步。拉文凯斯去世后，她表面放弃了这套理论，暗地里仍把研究做了下去。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO_CHAPTER_HISTORY_PARA_3',
+        'zh_Hans_CN',
+        '来到塞西尔领之后，她与卡迈尔一起培养符文逻辑学的专业人员，让这门学问有了传承。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '桑提斯是来自王都皇家法师协会的二级奥术师，精神力天生羸弱，只能连续施放三四个二级法术，和詹妮一样被塞进援建队伍里凑数。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '到了塞西尔领，他成了第一位愿意去夜校给平民教书的正式施法者，并为没有魔力天赋的普通人摸索出一套理解符文常识和魔法理论的教法；后来他奉命回到王都招募人才，带回一百多名工匠与学者，充实了领地最缺的技术人手。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_CHAPTER_HISTORY_PARA_3',
+        'zh_Hans_CN',
+        '帝国学院建成后，他出任院长，站在大门口迎接第一批教师和学生。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '卡迈尔曾是一千年前刚铎魔导师团的高级顾问，“忤逆”要塞的守望者。他如今是一团由魔力构成的存在，身披刻有符文的护甲片，一度状态极不稳定——是高文喊出他的名字，才让他平静下来；他随后宣誓继续履行千年前的誓言，效忠塞西尔领主。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '他后来成为塞西尔帝国的首席智库长与大奥术师，专精古代符文、数理逻辑和奥术塑能。“门”计划所用的纯净奥术能量源由他亲自设计，他也是这项计划中塞西尔方面的最高技术长官。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '诺里斯起初只是塞西尔领的一个农夫，种地的手艺很好，被赫蒂找去商量开荒。高文注意到，他的眼中没有多数平民那种麻木——他懂得混种作物、用废弃的根茎叶沤肥、合理利用地力，也知道德鲁伊的药水虽不如神术灵验，却更养地。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '他后来成了领地的农业主管，进而成为农业部长。年岁渐长、咳嗽不断的他依然带着农业部的专家组走进圣灵平原的污染区，评估当地农业重建的方案。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '赫蒂是瑞贝卡的姑妈，一位端庄的贵妇，也是塞西尔家族的法师；她那套“魔法永远打不中人”的体质在家里人尽皆知。塞西尔城堡陷落时，是她和瑞贝卡一同战斗到了最后一刻，高文复活之后，她又第一个替他梳理起眼前的局面。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '高文建立领地后，她成了塞西尔的大管家，政务厅的实际掌舵人：统计人口、囤积物资、编制预算，还亲手带出了一批年轻的政务官。她也常常为了预算与瑞贝卡争得不可开交。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '菲利普是塞西尔家族的骑士。城堡陷落之前，他带着一队士兵掩护平民突围，并在坦桑镇一带安置了难民，等候主人归来。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '魔晶轨道炮列装后，塞西尔战斗兵团增设炮兵，菲利普成了炮兵指挥官。他在碎石岭设下炮兵阵地，一轮炮击打垮了贵族联军；其后又转为进攻方，带着炮兵阵地推进到磐石要塞前，用密集的炮火轰击城墙。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '拜伦是为塞西尔家族效忠二十年的骑士。他早年是南境小有名气的佣兵头目，一次几乎全军覆没的重创之后，被前代塞西尔子爵搭救，此后凭多年的忠诚和个人实力取得贵族身份，成了骑士。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '塞西尔需要海上力量时，高文能找到的人选只有他：他指挥过半成品的魔导战舰，用它进攻过磐石要塞，又亲自训练了第一批水兵。多年以后，他已是帝国的海军元帅，率领魔导旗舰为前往巨龙国度的联盟船队护航。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '莱特是圣光教会派往南境的传教士，身材高大健壮。高文起初还派人去核实过他的来历，之后他留在塞西尔领，成了这里唯一的圣光牧师，也是当地圣光教会的负责人。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '他亲眼见过圣灵平原上教会的情形，回程时带回一批被教会迫害的难民；他身穿全身重甲，身份却是医师，胸甲上印着醒目的红色三角标记。后来他成为白骑士的首领，兼任新教的大牧首。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '皮特曼是个精明又爱推销的老德鲁伊，一把年纪，眼神却比年轻的奸商还灵活。他在塞西尔领安顿下来后开了家“皮特曼药剂店”，招牌上写着药草、成品炼金药剂、德鲁伊护符、转运饰品，外加占卜、开锁和补房顶。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '真正让他派上大用场的是炼金：高文研究他调制药剂与祝福的过程，皮特曼则发明了炼金反应装置，塞西尔炼金工厂里量产的药剂，正是建立在他的手艺之上。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '菲尔姆是来自北方巴伦的青年，一位剧作家的儿子。他在前往南境的船上结识了一位爽朗的同伴，随后带着一段改编自父亲剧本的演出，求见了一位有名的大商人。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '他后来被介绍为“魔影剧”的创造者——一种借助魔网投影来上演的新式戏剧。他谦称自己还不算真正的剧作家，只是在尝试写自己的故事；而当第一部魔影剧上演时，片头出现的第一个名字，就是编剧菲尔姆。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_CHAPTER_HISTORY_PARA_1',
+        'zh_Hans_CN',
+        '尼古拉斯·蛋是一个直径一米出头、通体银白的金属球，能飘浮，也能操控金属。最初它是从一块“石头蛋”里孵出来的，所有人都以为那是龙蛋；它自己却坚决否认，也完全记不得自己的名字。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_CHAPTER_HISTORY_PARA_2',
+        'zh_Hans_CN',
+        '高文半开玩笑地称它“圣·尼古拉斯·蛋总”，它竟然很满意，从此就用上了这个名字。其实早在一千年前，它就被魔导师们抓进实验室，靠装成石头、又恰好赶上魔导师们奉命撤离，才逃过了被切开研究的命运。'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_CHAPTER_HISTORY_PARA_3',
+        'zh_Hans_CN',
+        '在塞西尔，它出任机械制造主管和机械制造所的第一任所长，加工零件、制造机床，还做出了史上第一个机械压力表。'
+    );
+
+INSERT
+OR REPLACE INTO BaseGameText (Tag, Text)
+VALUES
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_SCOUT_AMBER_CHAPTER_HISTORY_PARA_1',
+        'Amber is a half-elf thief. In the chaos of the monster assault on Cecil Castle, while the others fell back into the ancestral tomb, she had burrowed all the way into its deepest chamber looking for somewhere to hide, and so became one of the first people Gawain met after his resurrection.'
+    ),
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_SCOUT_AMBER_CHAPTER_HISTORY_PARA_2',
+        'She can step into the Shadow Realm by nature and claims to be the chosen of the Night Goddess, a gift she mostly uses for sneaking, scouting and stealing. What Gawain valued was something else: the friends she had made among the underworld of the south during her wandering years.'
+    ),
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_SCOUT_AMBER_CHAPTER_HISTORY_PARA_3',
+        'These "gutter rats" of the taverns and back alleys hear everything and, if paid well enough, stay loyal enough. Through Amber, Cecil gained its first network of informants, and she became the head of its intelligence work. The titles on her promotion path in the game, such as Master Thief and Tavern Queen, come from her nicknames in that circle.'
+    ),
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_GORGON_PLATFORM_CHAPTER_HISTORY_PARA_1',
+        'The Gorgon Platform is Cecil''s general-purpose aerial platform: a large, simple and sturdy anti-gravity chassis. It grew out of an idea of Rebecca''s. Sky fortresses could not be built in sufficient numbers any time soon, so she proposed something between a dragon-rider aircraft and a sky fortress, cheap and quick to produce, that could carry barracks, field hospitals and even an entire forward camp, to be dropped into the Wasteland under the cover of ground troops.'
+    ),
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_GORGON_PLATFORM_CHAPTER_HISTORY_PARA_2',
+        'The chassis itself supplies only power and mounting points; what it does depends on the "building" carried on its back. The prototype of the first model, the Gorgon Mk I, was welded together from spare parts in the storerooms of several factories, barely flew and then crashed into a mountainside before extra funding saw it finished. In battle, platforms in great numbers flew alongside the sky fortress, carrying all manner of facilities to the front.'
+    ),
+    (
+        'LOC_PEDIA_UNITS_PAGE_UNIT_TSOD_GORGON_PLATFORM_CHAPTER_HISTORY_PARA_3',
+        'Later, downgraded versions were exported to the dragons'' homeland, where they serve as anti-gravity relay stations in the sky, restoring cross-sea communication with the Loren continent after the dragons lost their original systems.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_CHAPTER_HISTORY_PARA_1',
+        'Rebecca is the young heir of House Cecil and a descendant of Gawain. Gifted in mathematics and invention, she created general, reproducible magitech components such as the rune trigger and the Rebecca crystal, and later came to lead the Magitech Research Institute.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_CHAPTER_HISTORY_PARA_2',
+        'Her thinking often runs ahead of her ancestor''s. The idea of the general-purpose aerial platform was hers, and even Gawain admitted that he had been boxed in by the habits of his previous life for far too long.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO_CHAPTER_HISTORY_PARA_1',
+        'Jennie was originally a runecaster sent from the royal capital to help build up the Cecil territory. Her rank as a mage was only apprentice, she was seen as filling out the numbers, and runecasters themselves were often regarded by mainstream mages as mere "magic servants."'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO_CHAPTER_HISTORY_PARA_2',
+        'Yet together with her colleague Ravenkiss she studied the notes left by a nameless wild mage, and found a "fault line" in the properties of different mana-conducting materials, along with a mysterious constant that governs the stability of a magic array. Modern magitech theory began there. After Ravenkiss died she pretended to give the theory up, but went on with the research in secret.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO_CHAPTER_HISTORY_PARA_3',
+        'Once in the Cecil territory, she and Kamel trained the first specialists in rune logic, giving the discipline a line of succession.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_CHAPTER_HISTORY_PARA_1',
+        'Santis is a second-rank arcanist from the Royal Mage Association in the capital. His mental power is naturally frail, so that he can cast only three or four second-rank spells in a row, and like Jennie he was slipped into the aid team to fill out the numbers.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_CHAPTER_HISTORY_PARA_2',
+        'In the Cecil territory he became the first full-fledged caster willing to teach commoners at the night school, working out for himself a way to teach rune basics and magic theory to ordinary people with no talent for mana. Later he was sent back to the capital to recruit, and returned with more than a hundred craftsmen and scholars, filling the territory''s most pressing need for skilled hands.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_CHAPTER_HISTORY_PARA_3',
+        'When the Imperial Academy was founded, he became its dean and stood at the gate to welcome its first teachers and students.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_CHAPTER_HISTORY_PARA_1',
+        'Kamel was once a senior adviser to the Gondor mage corps a thousand years ago, and the watcher of the Defiant Fortress. Now a being made of mana and clad in rune-inscribed armor plates, he was for a time dangerously unstable; it was Gawain calling out his name that settled him. He then swore to keep the oath he had sworn a thousand years before, and pledged himself to the lord of Cecil.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_CHAPTER_HISTORY_PARA_2',
+        'He later became Head of the Think Tank and Grand Arcanist of the Cecil Empire, specializing in ancient runes, mathematical logic and arcane evocation. The pure arcane energy source used in the Gate project was his own design, and he served as Cecil''s highest technical officer on that project.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS_CHAPTER_HISTORY_PARA_1',
+        'Norris began as a farmer in the Cecil territory, skilled at his work, whom Hettie sought out to discuss clearing new land. Gawain noticed that his eyes lacked the dullness of most commoners: he knew how to mix crops, how to rot down roots and stalks into fertilizer and how to make good use of the land''s fertility, and he knew that druids'' potions, though less potent than divine magic, are kinder to the soil.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS_CHAPTER_HISTORY_PARA_2',
+        'He went on to become the territory''s head of agriculture and later the Minister of Agriculture. Older and coughing now, he still led the ministry''s expert group into the contaminated zone of the Holy Spirit Plain to assess how its farmland could be rebuilt.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_CHAPTER_HISTORY_PARA_1',
+        'Hettie is Rebecca''s aunt, a dignified noblewoman and a mage of House Cecil, famous in the family for a constitution that makes her spells "never hit anyone." When Cecil Castle fell, she and Rebecca fought to the last moment, and after Gawain''s resurrection she was the first to help him make sense of the situation.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_HETTIE_CECIL_CHAPTER_HISTORY_PARA_2',
+        'Once Gawain founded his territory she became Cecil''s steward and the real helmsman of the Government Office: counting the population, stockpiling supplies, drawing up budgets, and personally training a generation of young officials. She also often fought with Rebecca over money.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_CHAPTER_HISTORY_PARA_1',
+        'Philip is a knight of House Cecil. Before the castle fell he led a detachment of soldiers to cover the commoners'' escape, and then looked after the refugees in the region of Tansan Town, waiting for his lords to return.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_CHAPTER_HISTORY_PARA_2',
+        'Once crystal rail guns were issued, the Cecil Combat Corps added artillery, and Philip became its commander. He set up his guns at Crushed Stone Ridge, where a single barrage broke the noble coalition; later, on the offensive, he advanced his artillery positions to the walls of the Rockstone Fortress and pounded them with concentrated fire.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_CHAPTER_HISTORY_PARA_1',
+        'Byron is a knight who served House Cecil for twenty years. In his youth he was a mercenary captain of some renown in the south; after a disaster that all but wiped out his company he was rescued by the previous Viscount Cecil, and in time earned noble rank through long loyalty and personal ability, becoming a knight.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_CHAPTER_HISTORY_PARA_2',
+        'When Cecil needed sea power, he was the only candidate Gawain could find: he had commanded a half-finished magitech warship, used it to attack the Rockstone Fortress, and trained the first sailors himself. Years later, as Marshal of the imperial navy, he led a magitech flagship to escort the alliance fleet bound for the dragons'' homeland.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN_CHAPTER_HISTORY_PARA_1',
+        'Leite is a tall, sturdy missionary sent south by the Holy Light Church. Gawain at first had his background checked; after that Leite stayed in the Cecil territory, where he became the only priest of the Light and the head of the local church.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN_CHAPTER_HISTORY_PARA_2',
+        'He saw for himself what the church had become on the Holy Spirit Plain, and on the way back he brought home a band of refugees the church had persecuted. He wears full plate armor but serves as a physician, with a conspicuous red triangle painted on his breastplate. In time he became the leader of the White Knights and Grand Patriarch of the new faith.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_CHAPTER_HISTORY_PARA_1',
+        'Pitman is a shrewd old druid with a salesman''s instincts, and eyes sharper than any young swindler''s. After settling in the Cecil territory he opened "Pitman''s Potion Shop," its sign advertising herbs, ready-made alchemical potions, druid amulets, luck-changing charms, and, on the side, fortune-telling, lock-picking and roof repair.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_CHAPTER_HISTORY_PARA_2',
+        'Where he truly proved his worth was alchemy: Gawain took an interest in how he brewed and blessed his potions, and Pitman went on to invent the alchemical reactor, so that the potions mass-produced in Cecil''s alchemy factory rest upon his craft.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_CHAPTER_HISTORY_PARA_1',
+        'Felm is a young man from Baren in the north, the son of a playwright. On the ship south he made friends with a cheerful companion, and then, carrying a performance adapted from one of his father''s scripts, he sought an audience with a well-known merchant.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_CHAPTER_HISTORY_PARA_2',
+        'He was later introduced as the creator of "shadow plays," a new kind of drama staged by projection over the maginet. He modestly insists that he is not yet a real playwright, only trying to write stories of his own; yet when the first shadow play was shown, the first name in the credits was that of its scriptwriter, Felm.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_CHAPTER_HISTORY_PARA_1',
+        'Nicholas Egg is a silvery metal sphere a little over a meter across, able to float and to command metal. It first hatched from a "stone egg" that everyone took for a dragon''s egg; he flatly denies it, and cannot remember his own name at all.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_CHAPTER_HISTORY_PARA_2',
+        'Gawain half-jokingly called him "Saint Nicholas Egg," and he was so pleased with it that the name stuck. In fact, a thousand years earlier he had been caught and locked in a laboratory by the mages, escaping dissection only by pretending to be a stone and by the lucky timing of the mages'' sudden orders to evacuate.'
+    ),
+    (
+        'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NICHOLAS_EGG_CHAPTER_HISTORY_PARA_3',
+        'In Cecil he became head of machinery and the first director of the Machinery Works, turning out parts and machine tools, and building the first mechanical pressure gauge in history.'
+    );

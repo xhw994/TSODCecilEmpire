@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameData>
     <IconTextureAtlases>
+        <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION" IconSize="32"
+            Filename="ICON_RESOURCE_TSOD_CE_POTION_32" />
         <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION" IconSize="38"
             Filename="ICON_RESOURCE_TSOD_CE_POTION_38" />
         <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION" IconSize="50"
@@ -10,6 +12,8 @@
         <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION" IconSize="256"
             Filename="ICON_RESOURCE_TSOD_CE_POTION_256" />
 
+        <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION_FOW" IconSize="32"
+            Filename="ICON_RESOURCE_TSOD_CE_POTION_FOW_32" />
         <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION_FOW" IconSize="38"
             Filename="ICON_RESOURCE_TSOD_CE_POTION_FOW_38" />
         <Row Name="ATLAS_ICON_RESOURCE_TSOD_CE_POTION_FOW" IconSize="50"

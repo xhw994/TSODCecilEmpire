@@ -138,6 +138,10 @@
 			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_256"/>
 		</Element>
 		<Element>
+			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_32"/>
+			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_32"/>
+		</Element>
+		<Element>
 			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_38"/>
 			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_38"/>
 		</Element>
@@ -152,6 +156,10 @@
 		<Element>
 			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_FOW_256"/>
 			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_FOW_256"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_FOW_32"/>
+			<m_ObjectName text="ICON_RESOURCE_TSOD_CE_POTION_FOW_32"/>
 		</Element>
 		<Element>
 			<m_EntryID text="ICON_RESOURCE_TSOD_CE_POTION_FOW_38"/>
