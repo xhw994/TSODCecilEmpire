@@ -417,6 +417,10 @@
 			<m_EntryID text="ICON_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_32"/>
 			<m_ObjectName text="ICON_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_32"/>
 		</Element>
+		<Element>
+			<m_EntryID text="ICON_PROMOTION_TSOD_CE_SHADOW_CHOSEN_32"/>
+			<m_ObjectName text="ICON_PROMOTION_TSOD_CE_SHADOW_CHOSEN_32"/>
+		</Element>
 	</m_Entries>
 	<m_AllowedPlatforms>
 		<Element>WINDOWS</Element>
