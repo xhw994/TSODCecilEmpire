@@ -196,31 +196,6 @@ Midjourney：
 semi-realistic painterly fantasy portrait, square bust, a lean weathered farmer in his forties or fifties with deeply tanned skin and wrinkles, a humble sincere smile and unusually bright eyes, coarse homespun clothes, one big rough hand holding a bundle of golden wheat at his chest, head centered with small headroom, blurred wheat field at dusk with warm sunset light --ar 1:1 --no text, frame, border, circle, watermark
 ```
 
-## ④ 外交立绘：补完画面右侧那条手臂（可选）
-
-外交画面用的坐姿高文，原画在画面右边缘把那条抬起扶额的手臂截断了（手肘和上臂在画外），游戏里会显示成一条直边。补上之后，立绘右边就是完整的手臂和身体侧面。
-
-- 输入图：`imgs/outpaint/gawain_seated_right_arm_input.png`（1376×1440）。人物放在纯品红底上，右边留了一条品红空白，就是要补的地方。
-- 交回：存成 `imgs/outpaint/gawain_seated_right_arm_result.png`。尺寸不限，但画面比例和人物位置不能变。
-
-**原画部分我不用生图结果里的**：拿回来后，原有区域一律用原画像素，只取右边新画的那一条，接缝处做一小段过渡。所以哈基米把脸或衣服改了一点也没关系，只看新补的手臂画得对不对。
-
-哈吉米（Gemini），上传输入图后发：
-```
-编辑这张图片，不要重新构图。
-这是一幅半写实厚涂风格的人物插画，背景是纯品红色。画面右侧那条抬起来扶着太阳穴的手臂，在画面右边缘被截断了，所以画布右边留了一块纯品红的空白。
-请只在右边这块品红空白里，把这条手臂和身体右侧补完整：黑色长袖的小臂从截断处继续往右下延伸到手肘，手肘弯曲，上臂再从手肘往左上回到画面右侧的肩膀；肩膀和身体侧面的黑色衣服一起补齐。手臂粗细、袖子的布料质感、光影方向（光从左上方来）和颜色都接着原画画，接缝处看不出来。
-原画已有的所有部分——脸、头发、扶额的手、蓝色披风、胸针、衣服——保持原样，不要修改、不要重画、不要移动、不要放大缩小。画布尺寸、人物的位置和比例都不变。
-补完之后，人物以外的背景仍然是纯品红色 #FF00FF，不要阴影、渐变、文字、边框。
-```
-
-验收：手肘的位置和弯曲方向合理（不像多出一条胳膊），袖子和原画的黑色长袖是同一件衣服，背景是一整块品红。
-
-如果哈基米把人物挪了位置、改了画布比例，或者手臂怎么都画不对，就改用 ComfyUI 外扩（outpaint）：同一张输入图加遮罩 `imgs/outpaint/gawain_seated_right_arm_mask.png`（白色是要画的区域，往原画里多盖了一点好让接缝自然），用 Flux.1 Fill 或 SDXL 的 inpaint 模型，遮罩外的像素不会动。英文提示词：
-```
-the rest of a raised arm in a black long sleeve, forearm continuing down to a bent elbow, upper arm going back up to the shoulder, side of the torso in black clothing, semi-realistic painterly illustration, lighting from top left, seamless with the existing painting, flat magenta #FF00FF background
-```
-
 ---
 
 ## 我这边拿到图后做的事

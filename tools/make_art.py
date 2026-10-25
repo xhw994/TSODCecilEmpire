@@ -12,7 +12,7 @@ What it makes:
   Gawain's portraits
     LEADER_TSOD_GAWAIN_CECIL_NEUTRAL             731 x 1461  setup screen      } armoured Gawain, cut-out
     LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND  731 x 1461  loading screen    } Processed Images/..._NEUTRAL.png
-    FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL    825 x 1024  diplomacy screen, figure in the left 643 px:
+    FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL    825 x 1024  diplomacy screen, figure in the left 594 px:
         seated Gawain, cut-out Processed Images/..._NEUTRAL-1.png of imgs/8ab7bc05….jpg (user's choice)
     LEADER_TSOD_GAWAIN_CECIL_DIPLOMACY_BACKGROUND 1920 x 1080 diplomacy background: the space scene
         imgs/57c9a50d….jpg, cropped so the planet sits behind Gawain (user's choice)
@@ -58,19 +58,25 @@ M = 1024          # master canvas for icons
 # Setup / loading portrait: drop 130 px of the empty top so the head sits ~10% down (was 18%).
 NEUTRAL_BOX = (20, 130, 686, 1461)          # 666 x 1331, aspect of 731 x 1461
 # Diplomacy screen (user's choice, 10-25): seated Gawain over the space scene, planet behind him.
-# DiplomacyActionView anchors the fallback image by its LEFT edge at 0.60 of the screen width while he
-# speaks (0.667 in normal diplomacy), vertically centred, so the figure in the left 580 px stands at about
-# 75-82% across; the rest of the 825 px canvas runs off the right edge. LeaderScene stretches the
-# background to the full screen (StretchMode Fill), so the planet goes at the same place in the background.
+# DiplomacyActionView anchors the fallback image by its LEFT edge, vertically centred: at 0.714 of the
+# screen width in the normal diplomacy view (SelectPlayer, w - w/3.5), 0.60 while the leader speaks
+# (cinema mode), 0.667 on the way out of it. At 1920 px the image therefore shows ~550 px at 0.714; the
+# rest of the 825 px canvas runs off the right edge. LeaderScene stretches the background to the full
+# screen (StretchMode Fill), so the planet goes at the same place in the background.
 SRC_GAWAIN_SEATED = os.path.join('Processed Images', 'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL-1.png')
 # Seated cut-out (2048 x 4096): head top y=1420, head centre x=1250, hand on the temple reaches x=1850;
-# cape runs off the left edge, arm off the right. Head to hips, head ~7% down, the whole arm included.
-# No edge fades (user, 10-25: the figure is already narrow, fading it makes him a stick). Content left of
-# the head pushes him further right on screen, so the head stays ~340 px from the image's left edge.
-FALLBACK_BOX = (353, 1231, 2048, 3931)      # 1695 x 2700 -> 643 x 1024, in the 825 x 1024 canvas
+# his resting right hand (viewer's lower left) spans x 70-600, y 3590-3990. The cut-out is the whole width
+# of the original art (imgs/8ab7bc05....jpg is 4134 wide, the cut-out covers x 24-4120), so nothing more
+# of him exists to the left or right: take all of it. No edge fades (user, 10-25: the figure is already
+# narrow, fading it makes him a stick), and no crop of the hand (it was cut in half at x=353 before).
+# Scale 0.29 fits the whole width into 594 px, so the face and both hands are on screen in the 0.714 view.
+FALLBACK_BOX = (0, 1231, 2048, 4096)        # 2048 x 2865, from just above the head to the bottom edge
+FALLBACK_SCALE = 0.29                       # -> 594 x 831, bottom-aligned in the 825 x 1024 canvas
 SRC_DIPLO_BG = '57c9a50de27fe58a5dbac4a33ecf461d4c709593.jpg'
-# 4000 x 2115; planet at x 1000-1850, y 900-1730. This 16:9 crop puts it at 54-100% across, 45% down.
-DIPLO_BG_BOX = (0, 843, 1844, 1880)         # 1844 x 1037 -> 1920 x 1080
+# 4000 x 2115; planet at x 1000-1850 (centre 1425), y 900-1730 (centre 1315). The head is at ~78% across
+# while he speaks and ~90% in the normal view, so the planet centre goes at 83%, 47% down: it stays behind
+# him in both views and runs a little off the right edge.
+DIPLO_BG_BOX = (0, 861, 1717, 1827)         # 1717 x 966 -> 1920 x 1080
 
 # FOW glyph colours (Typhon tools/icon_art.py unit_glyph): gold fill on a dark-brown outline
 FOW_FILL = (201, 164, 106, 255)
@@ -305,9 +311,9 @@ def portraits():
     if seated.size != (2048, 4096):
         raise SystemExit('%s is %dx%d; FALLBACK_BOX assumes 2048x4096' % (SRC_GAWAIN_SEATED, *seated.size))
     bw, bh = FALLBACK_BOX[2] - FALLBACK_BOX[0], FALLBACK_BOX[3] - FALLBACK_BOX[1]
-    fig = crop_resize(seated, FALLBACK_BOX, (round(bw * 1024 / bh), 1024))
+    fig = crop_resize(seated, FALLBACK_BOX, (round(bw * FALLBACK_SCALE), round(bh * FALLBACK_SCALE)))
     fallback = Image.new('RGBA', (825, 1024), (0, 0, 0, 0))
-    fallback.alpha_composite(fig, (0, 0))
+    fallback.alpha_composite(fig, (0, 1024 - fig.height))        # bottom edge sits under the screen's bottom gradient
     made['fallback'] = emit(fallback, 'FALLBACK_NEUTRAL_' + LEADER, fallback=True)
     bg = Image.open(os.path.join(IMG, SRC_DIPLO_BG)).convert('RGBA')
     made['diplo_bg'] = emit(crop_resize(bg, DIPLO_BG_BOX, (1920, 1080)), LEADER + '_DIPLOMACY_BACKGROUND')
@@ -603,8 +609,8 @@ def previews(out, art, fow):
         sheet.alpha_composite(bg, (i * 751, 0))
     sheet.convert('RGB').resize((sheet.width // 2, sheet.height // 2)).save(os.path.join(out, 'neutral_old_vs_new.jpg'), quality=88)
     # 2. diplomacy on a 1920 x 1080 screen: background stretched to fill, fallback's left edge at 0.60 w
-    #    (speaking) and 0.667 w (normal diplomacy), vertically centred, as DiplomacyActionView places it
-    for mode, fx in (('speaking', 0.60), ('normal', 2 / 3)):
+    #    (speaking) and 0.714 w (normal diplomacy), vertically centred, as DiplomacyActionView places it
+    for mode, fx in (('speaking', 0.60), ('normal', 1 - 1 / 3.5)):
         screen = art['diplo_bg'].resize((1920, 1080)).copy()
         x = int(1920 * fx)
         screen.alpha_composite(art['fallback'].crop((0, 0, 1920 - x, 1024)), (x, 540 - 512))
