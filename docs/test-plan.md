@@ -70,3 +70,7 @@
 - 哪一项不对，写编号就行（比如「4 左边缘太突兀」「8 暗夜神选看不清」）。
 - 日志我自己读：`%LOCALAPPDATA%\Firaxis Games\Sid Meier's Civilization VI\Logs\`，搜 `TsoDCE_`、`TB_ERROR`。
 - 结果我会记进 `docs/test-log.md`。
+
+## 八、实测结果（10-25）
+
+用户反馈第一至第三档都没问题；日志（`Modding.log`、`ArtDef.log`、`Lua.log`、`UserInterface.log`）里本模组 0 个错误，5 个改名后的包都加载了，我们新增的图标没有一条「找不到」。第四档里难触发的几项没有失败记录，是否出现过无法从日志确认。细节见 `docs/test-log.md` 最后一节。
