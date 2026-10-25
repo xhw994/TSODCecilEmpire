@@ -1,19 +1,26 @@
 """Generate the Cecil mod's derived textures from the user's art in imgs/.
 
 Run from the repo root:
-    python -X utf8 tools/make_art.py [--preview DIR]
+    python -X utf8 tools/make_art.py [--preview DIR] [--icons DIR]
 
 Writes src/Textures/<NAME>.dds + <NAME>.tex (uncompressed RGBA DDS, same layout as the other
 textures here) and art/generated/<NAME>.png as the editable source, then adds any new texture to
-its XLP package. --preview also writes contact sheets to DIR for review.
+its XLP package. --preview also writes contact sheets to DIR for review. --icons reads the
+user's generated icons from DIR instead of imgs/icons/.
 
 What it makes:
   Gawain's portraits, from the cut-out imgs/Processed Images/LEADER_TSOD_GAWAIN_CECIL_NEUTRAL.png
     LEADER_TSOD_GAWAIN_CECIL_NEUTRAL             731 x 1461  setup screen
     LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND  731 x 1461  loading screen (same image, as the base game does)
     FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL    825 x 1024  diplomacy screen, figure in the left 580 px
-  Fog-of-war versions of the two unit glyphs, from their current 256 px icons
+  Fog-of-war versions, from the current 256 px icons
     ICON_UNIT_TSOD_SCOUT_AMBER_FOW_*, ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_*  (22 32 38 50 80 256)
+    ICON_BUILDING_TSOD_MANA_OBELISK_FOW_*                                  (32 38 50 80 128 256)
+  Icons from the user's images in imgs/icons/ (specs in docs/icon-prompts.md), each only once its
+  image exists; until then the base-game icon it borrows stays:
+    promotion_<name>.png  -> ICON_PROMOTION_TSOD_CE_<NAME>_32 (glyph on a tier-coloured badge)
+    greatwork_<name>.png  -> ICON_GREATWORK_TSOD_CE_<NAME>_45/64/256
+    and rewrites src/Icons/TsoDCE_UnitPromotionIcons.xml / TsoDCE_GreatworkIcons.xml to match.
 
 Everything else in src/Textures is hand-made and left alone. Crops are in source-image pixels;
 adjust them here and re-run. Same approach as tools/make_art.py in the Typhon mod.
@@ -23,7 +30,7 @@ import re
 import struct
 import sys
 
-from PIL import Image, ImageChops, ImageFilter
+from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageOps
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG = os.path.join(ROOT, 'imgs')
@@ -47,6 +54,31 @@ FALLBACK_BOX = (0, 170, 731, 1461)          # 731 x 1291
 # FOW glyph colours (Typhon tools/icon_art.py unit_glyph): gold fill on a dark-brown outline
 FOW_FILL = (201, 164, 106, 255)
 FOW_EDGE = (52, 38, 24, 255)
+
+BUILDING_ICON = 'ICON_BUILDING_TSOD_MANA_OBELISK'
+BUILDING_SIZES = [32, 38, 50, 80, 128, 256]
+
+ICON_DIR = os.path.join(IMG, 'icons')
+ICON_XML_DIR = os.path.join(ROOT, 'src', 'Icons')
+# (promotion, level, borrowed ICON_ATLAS_PROMOTIONS index, image name in imgs/icons/)
+PROMOTIONS = [
+    ('SHADOW_REALM', 1, 15, 'promotion_shadow_realm'),
+    ('MASTER_THIEF', 1, 15, 'promotion_master_thief'),
+    ('SHADOW_CREATURE', 2, 18, 'promotion_shadow_creature'),
+    ('TAVERN_QUEEN', 2, 22, 'promotion_tavern_queen'),
+    ('SHADOW_CHOSEN', 3, 17, 'promotion_shadow_chosen'),
+    ('NIGHT_MISTRESS', 3, 5, 'promotion_night_mistress'),
+    ('SHADOW_AUTHORITY', 4, 26, 'promotion_shadow_authority'),
+]
+# (great work, image name); both borrow ICON_ATLAS_GREATWORKS index 0 like every base-game writing work
+GREATWORKS = [('IMMIGRANTS', 'greatwork_immigrants'), ('BEACON_FIRE', 'greatwork_beacon_fire')]
+GREATWORK_SIZES = [45, 64, 256]
+# Promotion badge colours by level, sampled from the base game's Promotions32.dds:
+# (light top corners, dark lower corners, bottom of the inset diamond)
+TIERS = {1: ((153, 131, 86), (98, 75, 35), (125, 105, 63)),      # bronze
+         2: ((145, 136, 136), (93, 82, 80), (126, 121, 122)),    # silver
+         3: ((179, 179, 77), (116, 114, 21), (144, 147, 47)),    # gold
+         4: ((185, 180, 187), (127, 120, 125), (149, 145, 159))}  # platinum
 
 
 # ----------------------------------------------------------------------------- DDS / TEX
@@ -239,6 +271,169 @@ def fow_icons():
     return made
 
 
+def sepia(img, tone=(214, 178, 120), contrast=0.85, brightness=1.0):
+    """Building FOW look (Typhon icon_art.py / art_pipeline.py): the painted icon toned brown-gold."""
+    a = img.getchannel('A')
+    gray = ImageEnhance.Contrast(img.convert('L')).enhance(contrast)
+    gray = ImageEnhance.Brightness(gray).enhance(brightness)
+    col = ImageOps.colorize(gray, black=(40, 28, 16), white=tone).convert('RGBA')
+    col.putalpha(a)
+    return col
+
+
+def building_fow():
+    icon = read_dds(os.path.join(TEX_DIR, BUILDING_ICON + '_256.dds'))
+    return icon, icon_sizes(sepia(icon), BUILDING_ICON + '_FOW', BUILDING_SIZES)
+
+
+# ----------------------------------------------------------------------------- user icons
+def find_image(folder, stem):
+    """The user's image for stem in .png / .jpg / .jpeg / .webp (most recently saved wins), or None."""
+    found = [os.path.join(folder, stem + ext) for ext in ('.png', '.jpg', '.jpeg', '.webp')
+             if os.path.exists(os.path.join(folder, stem + ext))]
+    return Image.open(max(found, key=os.path.getmtime)).convert('RGB') if found else None
+
+
+def key_white_glyph(img):
+    """Black glyph on white -> alpha from darkness."""
+    return ImageOps.invert(img.convert('L')).point(lambda v: min(255, int(v * 1.15)))
+
+
+def key_magenta(img, bg=(252, 25, 251)):
+    """Subject on flat magenta -> RGBA. Soft edges are un-mixed from the background colour so
+    smoke and glow keep their own colour instead of a pink fringe (Typhon icon_art.py)."""
+    rgb = img.convert('RGB')
+    span = min(bg[0], bg[2]) - bg[1]
+    out = []
+    for r, g, b in getattr(rgb, 'get_flattened_data', rgb.getdata)():
+        a = 1.0 - max(0.0, min(1.0, (min(r, b) - g) / span))
+        if a <= 0.08:
+            out.append((0, 0, 0, 0))
+            continue
+        if a < 1.0:
+            r, g, b = (max(0, min(255, int((c - (1 - a) * k) / a))) for c, k in zip((r, g, b), bg))
+        out.append((r, g, b, int(a * 255)))
+    res = Image.new('RGBA', rgb.size)
+    res.putdata(out)
+    return res
+
+
+def fit_rgba(img, fill, canvas=M):
+    """Trim to the alpha bounding box and centre it so its larger side is fill * canvas."""
+    img = img.crop(img.getchannel('A').point(lambda v: 255 if v > 8 else 0).getbbox())
+    scale = fill * canvas / max(img.size)
+    img = img.resize((max(1, round(img.width * scale)), max(1, round(img.height * scale))), Image.LANCZOS)
+    out = Image.new('RGBA', (canvas, canvas), (0, 0, 0, 0))
+    out.alpha_composite(img, ((canvas - img.width) // 2, (canvas - img.height) // 2))
+    return out
+
+
+def _poly(points, size):
+    m = Image.new('L', (size, size), 0)
+    ImageDraw.Draw(m).polygon(points, fill=255)
+    return m
+
+
+def _vgradient(size, top, bottom, y0, y1):
+    g = Image.new('RGBA', (size, size))
+    d = ImageDraw.Draw(g)
+    for y in range(size):
+        t = min(1.0, max(0.0, (y - y0) / float(y1 - y0)))
+        d.line((0, y, size, y), fill=tuple(int(top[i] + (bottom[i] - top[i]) * t) for i in range(3)) + (255,))
+    return g
+
+
+def _mix(c, other, t):
+    return tuple(int(c[i] + (other[i] - c[i]) * t) for i in range(3))
+
+
+def promotion_badge(glyph_alpha, level, S=512):
+    """32 px promotion icon in the base game's style: pentagon shield, black rim, light top corners,
+    a darker inset diamond, light glyph with a drop shadow; shield colour by level."""
+    light, dark, low = TIERS[level]
+    u = S / 32.0
+    pts = lambda seq: [(x * u, y * u) for x, y in seq]
+    out = Image.new('RGBA', (S, S), (0, 0, 0, 0))
+    out.alpha_composite(solid((14, 10, 8, 255), _poly(pts([(3.4, 3.4), (28.6, 3.4), (28.6, 19.6), (16, 31.2), (3.4, 19.6)]), S)))
+    face = _poly(pts([(4.6, 4.6), (27.4, 4.6), (27.4, 19.1), (16, 29.6), (4.6, 19.1)]), S)
+    white = (255, 255, 255)
+    # corners outside the diamond: bright at the top, dark at the lower sides
+    corners = _vgradient(S, _mix(light, white, 0.3), dark, 4.6 * u, 18 * u)
+    corners.putalpha(face)
+    out.alpha_composite(corners)
+    # the inset diamond, as four facets lit from the top
+    top, right, bottom, left, c = (16, 4.6), (27.4, 16.6), (16, 29.6), (4.6, 16.6), (16, 16.6)
+    for tri, col in (((left, top, c), _mix(light, white, 0.12)), ((top, right, c), _mix(light, dark, 0.2)),
+                     ((right, bottom, c), _mix(low, dark, 0.35)), ((bottom, left, c), low)):
+        out.alpha_composite(solid(col + (255,), ImageChops.multiply(_poly(pts(tri), S), face)))
+    # bevels: light along the upper diamond edges, dark along the lower ones
+    bevel = Image.new('RGBA', (S, S), (0, 0, 0, 0))
+    d = ImageDraw.Draw(bevel)
+    w = max(1, int(0.8 * u))
+    d.line(pts([left, top, right]), fill=_mix(light, white, 0.55) + (200,), width=w)
+    d.line(pts([left, bottom, right]), fill=_mix(dark, (0, 0, 0), 0.3) + (170,), width=w)
+    out.alpha_composite(bevel)
+    g = fit_alpha(glyph_alpha, 15.0 / 32, S)                      # glyph about 15 px of the 32
+    shift = int(0.9 * u)
+    shadow = Image.new('L', (S, S), 0)
+    shadow.paste(g, (shift, shift))
+    out.alpha_composite(solid((10, 6, 4, 190), ImageChops.multiply(shadow, face)))
+    out.alpha_composite(solid(_mix(light, (255, 255, 255), 0.7) + (255,), ImageChops.multiply(g, face)))
+    return out.resize((32, 32), Image.LANCZOS)
+
+
+def user_icons(icon_dir):
+    """Promotion and great-work icons from the user's images; returns (made, custom promos, custom works)."""
+    made, promos, works = {}, [], []
+    for name, level, _index, stem in PROMOTIONS:
+        src = find_image(icon_dir, stem)
+        if src is None:
+            continue
+        glyph = key_white_glyph(src.resize((M, M), Image.LANCZOS))
+        made['ICON_PROMOTION_TSOD_CE_' + name] = emit(promotion_badge(glyph, level), 'ICON_PROMOTION_TSOD_CE_%s_32' % name)
+        promos.append(name)
+    for name, stem in GREATWORKS:
+        src = find_image(icon_dir, stem)
+        if src is None:
+            continue
+        master = fit_rgba(key_magenta(src.resize((M, M), Image.LANCZOS)), 0.94)
+        made['ICON_GREATWORK_TSOD_CE_' + name] = icon_sizes(master, 'ICON_GREATWORK_TSOD_CE_' + name, GREATWORK_SIZES)[-1]
+        works.append(name)
+    return made, promos, works
+
+
+def write_if_changed(path, text):
+    data = text.replace('\n', '\r\n').encode('utf-8')          # these XML files are CRLF, no final newline
+    with open(path, 'rb') as f:
+        if f.read() == data:
+            return False
+    with open(path, 'wb') as f:
+        f.write(data)
+    return True
+
+
+def write_icon_xml(promos, works):
+    """Each promotion / great work points at its own atlas once its image exists, else at the base-game icon."""
+    atlases = ''.join('        <Row Name="ATLAS_ICON_PROMOTION_TSOD_CE_%s" IconSize="32" Filename="ICON_PROMOTION_TSOD_CE_%s_32" />\n'
+                      % (n, n) for n in promos)
+    defs = ''.join('        <Row Name="ICON_PROMOTION_TSOD_CE_%s" Atlas="%s" Index="%d" />\n'
+                   % (n, 'ATLAS_ICON_PROMOTION_TSOD_CE_' + n if n in promos else 'ICON_ATLAS_PROMOTIONS', 0 if n in promos else i)
+                   for n, _lv, i, _s in PROMOTIONS)
+    text = ('<?xml version="1.0" encoding="utf-8"?>\n<GameInfo>\n'
+            + ('    <IconTextureAtlases>\n%s    </IconTextureAtlases>\n' % atlases if promos else '')
+            + '    <IconDefinitions>\n%s    </IconDefinitions>\n</GameInfo>' % defs)
+    changed = write_if_changed(os.path.join(ICON_XML_DIR, 'TsoDCE_UnitPromotionIcons.xml'), text)
+    atlases = ''.join('        <Row Name="ATLAS_ICON_GREATWORK_TSOD_CE_%s" IconSize="%d" Filename="ICON_GREATWORK_TSOD_CE_%s_%d" />\n'
+                      % (n, s, n, s) for n in works for s in GREATWORK_SIZES)
+    defs = ''.join('        <Row Name="ICON_GREATWORK_TSOD_CE_%s" Atlas="%s" Index="0" />\n'
+                   % (n, 'ATLAS_ICON_GREATWORK_TSOD_CE_' + n if n in works else 'ICON_ATLAS_GREATWORKS')
+                   for n, _s in GREATWORKS)
+    text = ('<?xml version="1.0" encoding="UTF-8"?>\n<GameData>\n'
+            + ('    <IconTextureAtlases>\n%s    </IconTextureAtlases>\n' % atlases if works else '')
+            + '    <IconDefinitions>\n%s    </IconDefinitions>\n</GameData>' % defs)
+    return changed | write_if_changed(os.path.join(ICON_XML_DIR, 'TsoDCE_GreatworkIcons.xml'), text)
+
+
 # ----------------------------------------------------------------------------- packages
 XLP_ENTRY = '\t\t<Element>\n\t\t\t<m_EntryID text="{0}"/>\n\t\t\t<m_ObjectName text="{0}"/>\n\t\t</Element>\n'
 
@@ -257,12 +452,15 @@ def ensure_xlp_entries(xlp, names):
     return new
 
 
-def update_packages():
+def update_packages(promos=(), works=()):
     added = []
     added += ensure_xlp_entries('TsoDCE_UILeaders.xlp', [LEADER + '_NEUTRAL', LEADER + '_LOADING_FOREGROUND'])
     added += ensure_xlp_entries('TsoDCE_LeaderFallbacks.xlp', ['FALLBACK_NEUTRAL_' + LEADER])
-    added += ensure_xlp_entries('TsoDCE_UITextures.xlp',
-                                ['%s_FOW_%d' % (b, s) for b in UNIT_GLYPHS for s in UNIT_SIZES])
+    ui = ['%s_FOW_%d' % (b, s) for b in UNIT_GLYPHS for s in UNIT_SIZES]
+    ui += ['%s_FOW_%d' % (BUILDING_ICON, s) for s in BUILDING_SIZES]
+    ui += ['ICON_PROMOTION_TSOD_CE_%s_32' % n for n in promos]
+    ui += ['ICON_GREATWORK_TSOD_CE_%s_%d' % (n, s) for n in works for s in GREATWORK_SIZES]
+    added += ensure_xlp_entries('TsoDCE_UITextures.xlp', ui)
     return added
 
 
@@ -300,6 +498,27 @@ def previews(out, art, fow):
             sx += im.width + 8
         x += 512 + 30
     sheet.save(os.path.join(out, 'unit_fow_icons.png'))
+    # 5. building FOW next to the main icon
+    icon, sizes = art['building_fow']
+    sheet = Image.new('RGBA', (512 + 20, 256 + 140), (70, 90, 120, 255))
+    sheet.alpha_composite(icon, (0, 0))
+    sheet.alpha_composite(sizes[-1], (276, 0))
+    sx = 8
+    for im in sizes[:-1]:
+        sheet.alpha_composite(im, (sx, 266))
+        sx += im.width + 8
+    sheet.save(os.path.join(out, 'building_fow_icon.png'))
+    # 6. user icons: promotions at 32 px and 4x, great works at 256
+    if art['user']:
+        items = list(art['user'].items())
+        sheet = Image.new('RGBA', (len(items) * 266, 256 + 50), (60, 70, 90, 255))
+        for i, (name, im) in enumerate(items):
+            if im.width == 32:
+                sheet.alpha_composite(im.resize((128, 128), Image.NEAREST), (i * 266, 0))
+                sheet.alpha_composite(im, (i * 266 + 140, 0))
+            else:
+                sheet.alpha_composite(im, (i * 266, 0))
+        sheet.save(os.path.join(out, 'user_icons.png'))
 
 
 # ----------------------------------------------------------------------------- main
@@ -307,13 +526,19 @@ def main():
     preview = None
     if '--preview' in sys.argv:
         preview = sys.argv[sys.argv.index('--preview') + 1]
+    icon_dir = sys.argv[sys.argv.index('--icons') + 1] if '--icons' in sys.argv else ICON_DIR
     os.makedirs(GEN_DIR, exist_ok=True)
     art = portraits()
     fow = fow_icons()
-    added = update_packages()
+    art['building_fow'] = building_fow()
+    art['user'], promos, works = user_icons(icon_dir)
+    xml_changed = write_icon_xml(promos, works)
+    added = update_packages(promos, works)
     if preview:
         previews(preview, art, fow)
     print('textures written to', TEX_DIR)
+    print('own promotion icons:', ', '.join(promos) or 'none yet', '| own great work icons:', ', '.join(works) or 'none yet')
+    print('icon XML rewritten:', 'yes' if xml_changed else 'no change')
     print('new XLP entries:', ', '.join(added) if added else 'none')
 
 

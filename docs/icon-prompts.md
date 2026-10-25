@@ -114,7 +114,11 @@ Civilization VI great work icon style, a single paper movie poster with slightly
 
 ## 我这边拿到图后做的事
 
+图按上面的文件名放进 `imgs/icons/`（png / jpg / webp 都行，可以只交一部分），然后跑 `python -X utf8 tools/make_art.py`，它会：
+
 1. 按背景色抠图，裁掉多余留白，按官方留白比例放回正方形。
-2. 晋升：黑剪影转浅色，画五边形盾牌，按级别上铜 / 银 / 金 / 白金色，合成后出 32×32；把 `Icons/TsoDCE_UnitPromotionIcons.xml` 里借的官方格子换成自己的图集。
-3. 巨作：缩放到 45 / 64 / 256，把 `Icons/TsoDCE_GreatworkIcons.xml` 里的第 0 格换成自己的图集。
-4. 都加进 `tools/make_art.py`，登记进 XLP，构建、部署。
+2. 晋升：黑剪影转浅色，画五边形盾牌（颜色取自官方 `Promotions32.dds`，按级别铜 / 银 / 金 / 白金），出 32×32；`Icons/TsoDCE_UnitPromotionIcons.xml` 里有图的那几个改指自己的图集，没图的继续借官方格子。
+3. 巨作：缩放到 45 / 64 / 256，`Icons/TsoDCE_GreatworkIcons.xml` 同样只改有图的。
+4. 新贴图登记进 `TsoDCE_UITextures` 包。之后构建、部署，并在 `docs/test-log.md` 记一轮。
+
+用合成的测试图跑过这条路（4 个晋升 + 1 部巨作）：盾牌与官方同尺寸并排看是同一套样式，品红底抠图无粉边，XML 与 XLP 登记正确。真图来了再看一次效果。

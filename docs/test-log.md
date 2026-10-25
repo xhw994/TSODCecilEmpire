@@ -31,3 +31,19 @@
 3. 外交画面：用别的文明开局、把高文设为 AI，见面时显示高文立绘（以前是空的）。
 4. 改名后没丢东西：文明 / 领袖图标、琥珀与戈尔贡平台图标和肖像、魔力方尖碑图标、药剂资源图标、三张历史时刻插图、忠诚度压力与警告图层、外交背景都还在。
 5. 有问题时把 `Logs/Modding.log` 和 `Logs/ArtDef.log` 发来（搜 `TsoDCE_`）。
+
+## 清理旧文件、补魔力方尖碑 FOW · 10-24（未进游戏，与上一条一起测即可）
+
+- 构建：本条所在提交，`--clean` 重建。
+- 删掉的旧文件（都查过没有任何引用）：
+  - `src/Assets/Loyalty_Overlay_TSOD_Cecil_Empire_Box.ast`、`Loyalty_Pressure_TSOD_Cecil_Empire_Box.ast`：2024-08 改名留下的副本，和现用的 `Loyalty_*_Tsod_CE_Box.ast` 定义同名资产，材质名还是旧拼写；两份同名资产 cooker 取哪份没保证，删掉只留现用的。
+  - `src/Textures/ICON_LEADER_CECIL_EMPIRE_GAWAIN_*`（8 个尺寸）：2023 年旧命名的领袖图标，早已换成 `ICON_LEADER_TSOD_GAWAIN_CECIL_*`，没在任何 XLP 或图标表里。
+  - `src/` 下 10 个空的素材文件夹（Animations、Geometries 等，提丰没有它们也照常构建）。
+  - 仓库根目录 `Cooked/`（2024-05 的旧烘焙产物，含旧包名的 BLP；现在的构建不写这里）：已移到回收站，没进过 git。
+- 新增：魔力方尖碑 FOW 图标（32–256，棕褐色，同提丰燃石酸化工厂的做法；官方每个建筑都有 `_FOW`）。
+- `tools/make_art.py` 现在能处理用户交来的晋升、巨作图（`docs/icon-prompts.md`），没图时什么都不改。
+
+### 要你进游戏看的（追加）
+
+6. 忠诚度：塞西尔城市的忠诚度压力箭头和「将脱离」警告图层还在（删了重复的资产定义）。
+7. 魔力方尖碑在迷雾里显示正常（若能看到）。
