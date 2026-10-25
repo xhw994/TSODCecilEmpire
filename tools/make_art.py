@@ -12,7 +12,7 @@ What it makes:
   Gawain's portraits
     LEADER_TSOD_GAWAIN_CECIL_NEUTRAL             731 x 1461  setup screen      } armoured Gawain, cut-out
     LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND  731 x 1461  loading screen    } Processed Images/..._NEUTRAL.png
-    FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL    825 x 1024  diplomacy screen, figure in the left 580 px:
+    FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL    825 x 1024  diplomacy screen, figure in the left 643 px:
         seated Gawain, cut-out Processed Images/..._NEUTRAL-1.png of imgs/8ab7bc05….jpg (user's choice)
     LEADER_TSOD_GAWAIN_CECIL_DIPLOMACY_BACKGROUND 1920 x 1080 diplomacy background: the space scene
         imgs/57c9a50d….jpg, cropped so the planet sits behind Gawain (user's choice)
@@ -27,7 +27,9 @@ What it makes:
   image exists; until then the base-game icon it borrows stays:
     promotion_<name>.png  -> ICON_PROMOTION_TSOD_CE_<NAME>_32 (glyph on a tier-coloured badge)
     greatwork_<name>.png  -> ICON_GREATWORK_TSOD_CE_<NAME>_45/64/256
+      (until then the great works use a scene from imgs/ printed as a poster, GREATWORK_ART)
     and rewrites src/Icons/TsoDCE_UnitPromotionIcons.xml / TsoDCE_GreatworkIcons.xml to match.
+  Historic moments from imgs/ (MOMENTS): MOMENT_UNIT_TSOD_GORGON_PLATFORM 456 x 332.
 
 Everything else in src/Textures is hand-made and left alone. Crops are in source-image pixels;
 adjust them here and re-run. Same approach as tools/make_art.py in the Typhon mod.
@@ -61,9 +63,11 @@ NEUTRAL_BOX = (20, 130, 686, 1461)          # 666 x 1331, aspect of 731 x 1461
 # 75-82% across; the rest of the 825 px canvas runs off the right edge. LeaderScene stretches the
 # background to the full screen (StretchMode Fill), so the planet goes at the same place in the background.
 SRC_GAWAIN_SEATED = os.path.join('Processed Images', 'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL-1.png')
-# Seated cut-out (2048 x 4096): head top y=1420, hand on the temple reaches x=1850; cape runs off the left
-# edge, arm off the right. Head to hips, head ~7% down, hand included.
-FALLBACK_BOX = (300, 1219, 1930, 4096)      # 1630 x 2877, aspect 580 x 1024
+# Seated cut-out (2048 x 4096): head top y=1420, head centre x=1250, hand on the temple reaches x=1850;
+# cape runs off the left edge, arm off the right. Head to hips, head ~7% down, the whole arm included.
+# No edge fades (user, 10-25: the figure is already narrow, fading it makes him a stick). Content left of
+# the head pushes him further right on screen, so the head stays ~340 px from the image's left edge.
+FALLBACK_BOX = (353, 1231, 2048, 3931)      # 1695 x 2700 -> 643 x 1024, in the 825 x 1024 canvas
 SRC_DIPLO_BG = '57c9a50de27fe58a5dbac4a33ecf461d4c709593.jpg'
 # 4000 x 2115; planet at x 1000-1850, y 900-1730. This 16:9 crop puts it at 54-100% across, 45% down.
 DIPLO_BG_BOX = (0, 843, 1844, 1880)         # 1844 x 1037 -> 1920 x 1080
@@ -89,6 +93,20 @@ PROMOTIONS = [
 ]
 # (great work, image name); both borrow ICON_ATLAS_GREATWORKS index 0 like every base-game writing work
 GREATWORKS = [('IMMIGRANTS', 'greatwork_immigrants'), ('BEACON_FIRE', 'greatwork_beacon_fire')]
+# Until the user's generated poster (imgs/icons/greatwork_*.png) exists, print a scene from imgs/ as the
+# poster (user's new sketches, 10-25). Both works are magic films; the novel describes their posters.
+GREATWORK_ART = {
+    # 烽火: an old-era knight; the mounted knight charging under a banner (watermark below y=1220 left out)
+    'BEACON_FIRE': ('场景——旧时代的骑士们.jpg', (0, 120, 753, 1180)),
+    # 移民: the novel's poster is a ship of migrants; the magic train with a lone traveller and his dog
+    'IMMIGRANTS': ('场景速写——魔能列车穿过原野2.jpg', (250, 28, 1650, 2000)),
+}
+# Historic moment illustrations made from the user's art (456 x 332 like the other three)
+MOMENTS = {
+    # The Gorgon platforms are the smaller siblings of the flying fortress 尘世黎明号 (novel vol. 6):
+    # anti-gravity platform with a synthetic "main brain". Crop leaves out the watermark at bottom right.
+    'MOMENT_UNIT_TSOD_GORGON_PLATFORM': ('尘世黎明号4.jpg', (0, 150, 2340, 1854)),
+}
 GREATWORK_SIZES = [45, 64, 256]
 # Great person portraits, ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_<NAME>. 256 fills the Civilopedia portrait
 # slot (UI/CivilopediaPage_TsoDCE_GreatPersonPortraits.lua); 160 and 40 are what the "Real Great People"
@@ -286,8 +304,8 @@ def portraits():
     seated = Image.open(os.path.join(IMG, SRC_GAWAIN_SEATED)).convert('RGBA')
     if seated.size != (2048, 4096):
         raise SystemExit('%s is %dx%d; FALLBACK_BOX assumes 2048x4096' % (SRC_GAWAIN_SEATED, *seated.size))
-    # both side edges of the figure land mid-screen, so fade them (the bottom sits under the scene's gradient)
-    fig = feather(crop_resize(seated, FALLBACK_BOX, (580, 1024)), 60, 0, 90, 60)
+    bw, bh = FALLBACK_BOX[2] - FALLBACK_BOX[0], FALLBACK_BOX[3] - FALLBACK_BOX[1]
+    fig = crop_resize(seated, FALLBACK_BOX, (round(bw * 1024 / bh), 1024))
     fallback = Image.new('RGBA', (825, 1024), (0, 0, 0, 0))
     fallback.alpha_composite(fig, (0, 0))
     made['fallback'] = emit(fallback, 'FALLBACK_NEUTRAL_' + LEADER, fallback=True)
@@ -425,6 +443,32 @@ def promotion_badge(glyph_alpha, level, S=512):
     return out.resize((32, 32), Image.LANCZOS)
 
 
+def poster(scene):
+    """A scene printed as a paper poster, as a small object like the base game's great work icons:
+    warm print tone, off-white paper margin, a few degrees of tilt and a soft drop shadow."""
+    w = 600
+    h = round(w * scene.height / scene.width)
+    gray = ImageOps.autocontrast(scene.convert('L').resize((w, h), Image.LANCZOS), cutoff=1)
+    printed = ImageOps.colorize(gray, black=(34, 26, 20), white=(244, 232, 208)).convert('RGBA')
+    pad = 26
+    sheet = Image.new('RGBA', (w + 2 * pad, h + 2 * pad), (232, 220, 194, 255))
+    ImageDraw.Draw(sheet).rectangle((pad - 6, pad - 6, w + pad + 5, h + pad + 5), outline=(170, 150, 120, 255), width=2)
+    sheet.paste(printed, (pad, pad))
+    sheet = sheet.rotate(-5, resample=Image.BICUBIC, expand=True)
+    canvas = Image.new('RGBA', (sheet.width + 80, sheet.height + 80), (0, 0, 0, 0))
+    shadow = solid((0, 0, 0, 140), sheet.getchannel('A')).filter(ImageFilter.GaussianBlur(14))
+    canvas.alpha_composite(shadow, (48, 52))
+    canvas.alpha_composite(sheet, (36, 36))
+    return fit_rgba(canvas, 0.94)
+
+
+def moments():
+    made = {}
+    for name, (src, box) in MOMENTS.items():
+        made[name] = emit(crop_resize(Image.open(os.path.join(IMG, src)).convert('RGBA'), box, (456, 332)), name)
+    return made
+
+
 def user_icons(icon_dir):
     """Promotion and great-work icons from the user's images; returns (made, custom promos, custom works)."""
     made, promos, works = {}, [], []
@@ -437,9 +481,13 @@ def user_icons(icon_dir):
         promos.append(name)
     for name, stem in GREATWORKS:
         src = find_image(icon_dir, stem)
-        if src is None:
+        if src is not None:
+            master = fit_rgba(key_magenta(src.resize((M, M), Image.LANCZOS)), 0.94)
+        elif name in GREATWORK_ART:
+            art, box = GREATWORK_ART[name]
+            master = poster(Image.open(os.path.join(IMG, art)).convert('RGB').crop(box))
+        else:
             continue
-        master = fit_rgba(key_magenta(src.resize((M, M), Image.LANCZOS)), 0.94)
         made['ICON_GREATWORK_TSOD_CE_' + name] = icon_sizes(master, 'ICON_GREATWORK_TSOD_CE_' + name, GREATWORK_SIZES)[-1]
         works.append(name)
     return made, promos, works
@@ -595,7 +643,10 @@ def previews(out, art, fow):
         for i, (name, im) in enumerate(items):
             sheet.alpha_composite(im, (i * 310 + 20, 15))
         sheet.save(os.path.join(out, 'great_person_portraits.png'))
-    # 7. user icons: promotions at 32 px and 4x, great works at 256
+    # 7. historic moments made here
+    for name, im in art['moments'].items():
+        im.convert('RGB').save(os.path.join(out, name + '.jpg'), quality=90)
+    # 8. user icons: promotions at 32 px and 4x, great works at 256
     if art['user']:
         items = list(art['user'].items())
         sheet = Image.new('RGBA', (len(items) * 266, 256 + 50), (60, 70, 90, 255))
@@ -620,6 +671,7 @@ def main():
     art['building_fow'] = building_fow()
     art['user'], promos, works = user_icons(icon_dir)
     art['people'] = great_person_portraits(icon_dir)
+    art['moments'] = moments()
     people = list(art['people'])
     xml_changed = write_icon_xml(promos, works)
     xml_changed |= write_great_people_xml(people)
