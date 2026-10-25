@@ -7,7 +7,7 @@
 		<revision>0</revision>
 	</m_Version>
 	<m_ClassName text="UITexture"/>
-	<m_PackageName text="CecilEmpireUITextureDDS"/>
+	<m_PackageName text="TsoDCE_UITextures"/>
 	<m_Entries>
 		<Element>
 			<m_EntryID text="ICON_BUILDING_TSOD_MANA_OBELISK_128"/>
@@ -224,6 +224,54 @@
 		<Element>
 			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_95"/>
 			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_PORTRAIT_95"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_22"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_22"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_32"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_38"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_38"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_50"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_50"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_80"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_80"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_256"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_SCOUT_AMBER_FOW_256"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_22"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_22"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_32"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_38"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_38"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_50"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_50"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_80"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_80"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_256"/>
+			<m_ObjectName text="ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_256"/>
 		</Element>
 	</m_Entries>
 	<m_AllowedPlatforms>

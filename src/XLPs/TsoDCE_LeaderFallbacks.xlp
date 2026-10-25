@@ -7,7 +7,7 @@
 		<revision>0</revision>
 	</m_Version>
 	<m_ClassName text="LeaderFallback"/>
-	<m_PackageName text="LeaderFallbacks"/>
+	<m_PackageName text="TsoDCE_LeaderFallbacks"/>
 	<m_Entries>
 		<Element>
 			<m_EntryID text="FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL"/>

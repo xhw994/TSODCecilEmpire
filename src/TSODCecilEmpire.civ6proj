@@ -140,16 +140,19 @@
     <Content Include="TSODCecilEmpire.jpg">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="XLPs\CecilEmpireUITextureDDS.xlp">
+    <Content Include="XLPs\TsoDCE_LeaderFallbacks.xlp">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="XLPs\LeaderFallbacks.xlp">
+    <Content Include="XLPs\TsoDCE_UILeaders.xlp">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="XLPs\UILeaders.xlp">
+    <Content Include="XLPs\TsoDCE_UILensAsset.xlp">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="XLPs\UIPrideMoments.xlp">
+    <Content Include="XLPs\TsoDCE_UIPrideMoments.xlp">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="XLPs\TsoDCE_UITextures.xlp">
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>

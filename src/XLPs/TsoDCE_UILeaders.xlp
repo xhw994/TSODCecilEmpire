@@ -7,7 +7,7 @@
 		<revision>0</revision>
 	</m_Version>
 	<m_ClassName text="UITexture"/>
-	<m_PackageName text="UILeaders"/>
+	<m_PackageName text="TsoDCE_UILeaders"/>
 	<m_Entries>
 		<Element>
 			<m_EntryID text="ICON_LEADER_TSOD_GAWAIN_CECIL_256"/>

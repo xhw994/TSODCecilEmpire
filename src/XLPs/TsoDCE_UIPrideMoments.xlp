@@ -6,16 +6,20 @@
 		<build>0</build>
 		<revision>0</revision>
 	</m_Version>
-	<m_ClassName text="UILensAsset"/>
-	<m_PackageName text="UILensAsset"/>
+	<m_ClassName text="UITexture"/>
+	<m_PackageName text="TsoDCE_UIPrideMoments"/>
 	<m_Entries>
 		<Element>
-			<m_EntryID text="Loyalty_Overlay_Tsod_CE_Box"/>
-			<m_ObjectName text="Loyalty_Overlay_Tsod_CE_Box"/>
+			<m_EntryID text="MOMENT_BUILDING_TSOD_MANA_OBELISK"/>
+			<m_ObjectName text="MOMENT_BUILDING_TSOD_MANA_OBELISK"/>
 		</Element>
 		<Element>
-			<m_EntryID text="Loyalty_Pressure_Tsod_CE_Box"/>
-			<m_ObjectName text="Loyalty_Pressure_Tsod_CE_Box"/>
+			<m_EntryID text="MOMENT_UNIT_TSOD_GORGON_PLATFORM"/>
+			<m_ObjectName text="MOMENT_UNIT_TSOD_GORGON_PLATFORM"/>
+		</Element>
+		<Element>
+			<m_EntryID text="MOMENT_UNIT_TSOD_SCOUT_AMBER"/>
+			<m_ObjectName text="MOMENT_UNIT_TSOD_SCOUT_AMBER"/>
 		</Element>
 	</m_Entries>
 	<m_AllowedPlatforms>

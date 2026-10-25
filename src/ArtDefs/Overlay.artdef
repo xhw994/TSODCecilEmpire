@@ -41,8 +41,8 @@
 									<Element class="AssetObjects..BLPEntryValue">
 										<m_EntryName text="Loyalty_Pressure_Tsod_CE_Box"/>
 										<m_XLPClass text="UILensAsset"/>
-										<m_XLPPath text="uilensasset.xlp"/>
-										<m_BLPPackage text="UILensAsset"/>
+										<m_XLPPath text="TsoDCE_UILensAsset.xlp"/>
+										<m_BLPPackage text="TsoDCE_UILensAsset"/>
 										<m_LibraryName text="UILensAsset"/>
 										<m_ParamName text="BaseModel"/>
 									</Element>
@@ -87,8 +87,8 @@
 									<Element class="AssetObjects..BLPEntryValue">
 										<m_EntryName text="Loyalty_Overlay_Tsod_CE_Box"/>
 										<m_XLPClass text="UILensAsset"/>
-										<m_XLPPath text="uilensasset.xlp"/>
-										<m_BLPPackage text="UILensAsset"/>
+										<m_XLPPath text="TsoDCE_UILensAsset.xlp"/>
+										<m_BLPPackage text="TsoDCE_UILensAsset"/>
 										<m_LibraryName text="UILensAsset"/>
 										<m_ParamName text="BaseModel"/>
 									</Element>

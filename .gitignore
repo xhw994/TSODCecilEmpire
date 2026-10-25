@@ -2,3 +2,5 @@ cooker.log
 /imgs
 /Cooked
 /refs
+# PNG sources written by tools/make_art.py (the .dds/.tex in src/Textures are what ships)
+/art/generated/

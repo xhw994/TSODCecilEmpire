@@ -497,7 +497,7 @@
 		<Element>
 			<libraryName text="LeaderFallback"/>
 			<relativePackagePaths>
-				<Element text="LeaderFallbacks"/>
+				<Element text="TsoDCE_LeaderFallbacks"/>
 			</relativePackagePaths>
 		</Element>
 		<Element>
@@ -583,15 +583,15 @@
 		<Element>
 			<libraryName text="UILensAsset"/>
 			<relativePackagePaths>
-				<Element text="UILensAsset"/>
+				<Element text="TsoDCE_UILensAsset"/>
 			</relativePackagePaths>
 		</Element>
 		<Element>
 			<libraryName text="UITexture"/>
 			<relativePackagePaths>
-				<Element text="CecilEmpireUITextureDDS"/>
-				<Element text="UILeaders"/>
-				<Element text="UIPrideMoments"/>
+				<Element text="TsoDCE_UITextures"/>
+				<Element text="TsoDCE_UILeaders"/>
+				<Element text="TsoDCE_UIPrideMoments"/>
 			</relativePackagePaths>
 		</Element>
 		<Element>
