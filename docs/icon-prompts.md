@@ -1,12 +1,12 @@
 # 待生成图标：提示词与规格（塞西尔帝国）
 
-还在借用官方图标、或者没有图的内容，共三类。**先看下表的「游戏里现在显示什么」**：① ② 是照官方的做法借图，游戏里没有空白，换成自己的图是加分项。③ 伟人肖像已经能在百科里按个人显示：3 位用现成角色图裁好了，另外 9 位等你出图，没图之前还是显示伟人单位图标。
+还在借用官方图标、或者没有图的内容，共三类。**先看下表的「游戏里现在显示什么」**：① ② 是照官方的做法借图，游戏里没有空白，换成自己的图是加分项。③ 伟人肖像已经能在百科里按个人显示：6 位用现成角色图裁好了，另外 6 位等你出图，没图之前还是显示伟人单位图标。
 
 | 类 | 数量 | 游戏里在哪显示 | 现在显示什么 | 要你出的图 |
 |---|---|---|---|---|
 | ① 琥珀的晋升 | 7 | 晋升树，只用 32×32 | 照抄官方斥候晋升树的 7 个图标（官方晋升也是多个共用一个图标） | 7 张图案，盾形底座我来做 |
 | ② 巨作 | 2 | 巨作界面 64×64、提示框 | 官方所有文学巨作共用的那本摊开的书（`ICON_ATLAS_GREATWORKS` 第 0 格） | 2 张 |
-| ③ 伟人肖像 | 12 | 百科伟人页 256×256；装了 Real Great People 时它的伟人页和列表也显示 | 瑞贝卡、赫蒂、拜伦已有；其余 9 位是伟人单位图标 | 9 张 |
+| ③ 伟人肖像 | 12 | 百科伟人页 256×256；装了 Real Great People 时它的伟人页和列表也显示 | 瑞贝卡、赫蒂、拜伦、菲利普、皮特曼、莱特已有；其余 6 位是伟人单位图标 | 6 张 |
 
 风格参考图（官方同类图标，从 SDK 素材包里取出，放在 `imgs/icon-refs/`，生图时可以作为参考图上传，Midjourney 用 `--sref`）：
 
@@ -14,7 +14,7 @@
 |---|---|
 | `promotion_ranger_alpine_15.png`、`promotion_spyglass_17.png`、`promotion_26.png` | ① 晋升（铜 / 金 / 白金三种级别的样子） |
 | `greatwork_writing_index0.png` | ② 巨作（官方文学巨作那本书） |
-| `greatperson_ref_rebecca_cecil.png`、`greatperson_ref_hettie_cecil.png`、`greatperson_ref_byron_kirk.png` | ③ 伟人（已裁好的 3 张，9 位新图照它们的画风和构图） |
+| `greatperson_ref_*.png`（6 张） | ③ 伟人（已裁好的 6 张，剩下 6 位的新图照它们的画风和构图） |
 
 ## 通用规格（每张都要满足）
 
@@ -96,9 +96,9 @@ Civilization VI great work icon style, a single paper movie poster with slightly
 
 验收：缩到 64 像素能看出是一张海报、上面有一条船（或一个骑士）。
 
-## ③ 9 位伟人肖像 → `imgs/icons/greatperson_<英文名>.png`
+## ③ 6 位伟人肖像 → `imgs/icons/greatperson_<英文名>.png`
 
-显示在百科伟人页右上角的 256×256 方框里（`src/UI/CivilopediaPage_TsoDCE_GreatPersonPortraits.lua`）。图名和 Real Great People 一样都是 `ICON_<伟人类型>`，所以装了那个 mod 时，它的伟人页和列表也会显示（160、40）。瑞贝卡、赫蒂、拜伦已经用 `imgs/` 里的角色图裁好，9 张新图照这 3 张的画风和构图来；它们放在 `imgs/icon-refs/greatperson_ref_*.png`，生图时作为参考图上传。
+显示在百科伟人页右上角的 256×256 方框里（`src/UI/CivilopediaPage_TsoDCE_GreatPersonPortraits.lua`）。图名和 Real Great People 一样都是 `ICON_<伟人类型>`，所以装了那个 mod 时，它的伟人页和列表也会显示（160、40）。瑞贝卡、赫蒂、拜伦、菲利普、皮特曼·劳伦、莱特已经用 `imgs/` 里的角色图裁好（后三位的图是 10-25 你给的），剩下 6 张新图照这几张的画风和构图来；它们放在 `imgs/icon-refs/greatperson_ref_*.png`，生图时作为参考图上传。
 
 每张都要满足（本节替代上面「通用规格」里的背景要求）：
 
@@ -109,20 +109,6 @@ Civilization VI great work icon style, a single paper movie poster with slightly
 - 外貌照原著（每项后面注了出处），原著没写的地方不要乱加特征。
 
 验收：缩到 40 像素还能认出是谁（看发色、轮廓和手里的东西）。
-
-### 菲利普（大将军）→ `greatperson_sir_philip.png`
-
-原著第 1 卷：二十出头，淡金色短发，眼窝深邃，鼻梁高挺，五官不算出众，但有武人的英武气质，身材挺拔；腰挎长剑。
-
-哈吉米（Gemini）：
-```
-半写实厚涂插画，方形胸像：一位二十出头的年轻骑士，淡金色短发，眼窝深邃，鼻梁高挺，五官普通但神情坚毅、英气十足，身材挺拔。穿钢制胸甲和肩甲，肩上披着深蓝色披风，剑柄从画面下方露出。头部居中，头顶离上边约 8%，画到上胸口。背景是昏暗的军营，远处虚化的营火和蓝色战旗。不要文字、边框、圆框、水印。正方形 1024×1024。
-```
-
-Midjourney：
-```
-semi-realistic painterly fantasy portrait, square bust, a knight in his early twenties with short pale blond hair, deep-set eyes, high nose bridge, plain but resolute heroic face, upright posture, steel breastplate and pauldrons, dark blue cloak, sword hilt at the bottom edge, head centered with small headroom, dim military camp background with blurred campfire and blue banners --ar 1:1 --no text, frame, border, circle, watermark
-```
 
 ### 尼古拉斯·蛋（大工程师）→ `greatperson_nicholas_egg.png`
 
@@ -136,20 +122,6 @@ semi-realistic painterly fantasy portrait, square bust, a knight in his early tw
 Midjourney：
 ```
 semi-realistic painterly illustration, square composition, a floating perfectly smooth mirror-polished silver-white metal sphere filling most of the frame, reflecting warm workshop lamps, a few small metal parts (gears, bolts, springs) hovering around it as if held by an invisible force, no face, no eyes, no markings on the sphere, dim mechanical workshop background with blurred anvils and metal ingots --ar 1:1 --no text, frame, border, circle, watermark, face
-```
-
-### 皮特曼·劳伦（大商人）→ `greatperson_pitman_lauren.png`
-
-原著第 1 卷：隐士模样的小老头，破旧布袍、带洞的软帽、胡子拉碴，说话时爱按着胡子；林木之心学派的德鲁伊，兼古董鉴定师，嗜钱（管金币叫「亮晶晶的小可爱」）。
-
-哈吉米（Gemini）：
-```
-半写实厚涂插画，方形胸像：一个瘦小的老头，花白杂乱的胡子，戴一顶破了洞的旧软帽，穿打补丁的粗布袍，袍子上别着几片树叶。他露出狡黠又讨好的笑，一只手捏着一枚金币举到眼前打量，金币闪着光。头部居中，头顶离上边约 8%，画到上胸口。背景是昏暗的古董杂货铺，虚化的瓶瓶罐罐。不要文字、边框、圆框、水印。正方形 1024×1024。
-```
-
-Midjourney：
-```
-semi-realistic painterly fantasy portrait, square bust, a small scrawny old man with a scruffy grey beard, a battered soft cap with holes, a patched coarse cloth robe with a few leaves pinned to it, sly ingratiating grin, holding a shiny gold coin up near his eye, head centered with small headroom, dim cluttered antique shop background --ar 1:1 --no text, frame, border, circle, watermark
 ```
 
 ### 菲尔姆（大作家）→ `greatperson_felm.png`
@@ -220,20 +192,6 @@ semi-realistic painterly fantasy portrait, square bust, a humanoid being made en
 Midjourney：
 ```
 semi-realistic painterly fantasy portrait, square bust, a lean weathered farmer in his forties or fifties with deeply tanned skin and wrinkles, a humble sincere smile and unusually bright eyes, coarse homespun clothes, one big rough hand holding a bundle of golden wheat at his chest, head centered with small headroom, blurred wheat field at dusk with warm sunset light --ar 1:1 --no text, frame, border, circle, watermark
-```
-
-### 莱特·艾维肯（大预言家）→ `greatperson_leite_aviken.png`
-
-原著第 1 卷：圣光教会的牧师，本应华丽的神袍破旧不堪，腰间挎着圣经，胸前佩戴圣徽；看似牧师，却高大健壮得像一名武士（「很多圣骑士打不过我」）；独自从圣灵平原走到南境，干起活来比谁都卖力。原著没写发色。
-
-哈吉米（Gemini）：
-```
-半写实厚涂插画，方形胸像：一位高大魁梧的男性牧师，肌肉结实，袖子挽起露出粗壮的小臂，短发。穿一件本该华丽、但已经破旧磨损的白底金边圣光神袍，胸前挂着一枚金色的圣徽。露出爽朗憨直的笑容。头部居中，头顶离上边约 8%，画到上胸口。背景是清晨的乡间工地，虚化，暖金色的阳光。不要文字、边框、圆框、水印。正方形 1024×1024。
-```
-
-Midjourney：
-```
-semi-realistic painterly fantasy portrait, square bust, a huge muscular priest built like a warrior, short hair, sleeves rolled up over thick forearms, a once-ornate white and gold holy robe now worn and frayed, a golden holy symbol on his chest, a hearty honest grin, head centered with small headroom, blurred rural building site at dawn with warm golden light --ar 1:1 --no text, frame, border, circle, watermark
 ```
 
 ---

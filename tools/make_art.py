@@ -9,15 +9,19 @@ its XLP package. --preview also writes contact sheets to DIR for review. --icons
 user's generated icons from DIR instead of imgs/icons/.
 
 What it makes:
-  Gawain's portraits, from the cut-out imgs/Processed Images/LEADER_TSOD_GAWAIN_CECIL_NEUTRAL.png
-    LEADER_TSOD_GAWAIN_CECIL_NEUTRAL             731 x 1461  setup screen
-    LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND  731 x 1461  loading screen (same image, as the base game does)
-    FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL    825 x 1024  diplomacy screen, figure in the left 580 px
+  Gawain's portraits
+    LEADER_TSOD_GAWAIN_CECIL_NEUTRAL             731 x 1461  setup screen      } armoured Gawain, cut-out
+    LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND  731 x 1461  loading screen    } Processed Images/..._NEUTRAL.png
+    FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL    825 x 1024  diplomacy screen, figure in the left 580 px:
+        seated Gawain, cut-out Processed Images/..._NEUTRAL-1.png of imgs/8ab7bc05….jpg (user's choice)
+    LEADER_TSOD_GAWAIN_CECIL_DIPLOMACY_BACKGROUND 1920 x 1080 diplomacy background: the space scene
+        imgs/57c9a50d….jpg, cropped so the planet sits behind Gawain (user's choice)
   Fog-of-war versions, from the current 256 px icons
     ICON_UNIT_TSOD_SCOUT_AMBER_FOW_*, ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_*  (22 32 38 50 80 256)
     ICON_BUILDING_TSOD_MANA_OBELISK_FOW_*                                  (32 38 50 80 128 256)
   Great person portraits ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_<NAME>_40/160/256: square bust crops of the
-  character art in imgs/ for Rebecca, Hettie and Byron; the other nine from imgs/icons/greatperson_<name>.png
+  character art in imgs/ for Rebecca, Hettie, Byron, Philip, Pitman and Leite; the other six from
+  imgs/icons/greatperson_<name>.png
   once the user makes them. Writes src/Icons/TsoDCE_GreatPeopleIcons.xml.
   Icons from the user's images in imgs/icons/ (specs in docs/icon-prompts.md), each only once its
   image exists; until then the base-game icon it borrows stays:
@@ -51,8 +55,18 @@ M = 1024          # master canvas for icons
 # the gauntlet touches the left edge, the sword blade and cape run off the right edge.
 # Setup / loading portrait: drop 130 px of the empty top so the head sits ~10% down (was 18%).
 NEUTRAL_BOX = (20, 130, 686, 1461)          # 666 x 1331, aspect of 731 x 1461
-# Diplomacy figure: full width, aspect 580 x 1024, head ~7% down.
-FALLBACK_BOX = (0, 170, 731, 1461)          # 731 x 1291
+# Diplomacy screen (user's choice, 10-25): seated Gawain over the space scene, planet behind him.
+# DiplomacyActionView anchors the fallback image by its LEFT edge at 0.60 of the screen width while he
+# speaks (0.667 in normal diplomacy), vertically centred, so the figure in the left 580 px stands at about
+# 75-82% across; the rest of the 825 px canvas runs off the right edge. LeaderScene stretches the
+# background to the full screen (StretchMode Fill), so the planet goes at the same place in the background.
+SRC_GAWAIN_SEATED = os.path.join('Processed Images', 'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL-1.png')
+# Seated cut-out (2048 x 4096): head top y=1420, hand on the temple reaches x=1850; cape runs off the left
+# edge, arm off the right. Head to hips, head ~7% down, hand included.
+FALLBACK_BOX = (300, 1219, 1930, 4096)      # 1630 x 2877, aspect 580 x 1024
+SRC_DIPLO_BG = '57c9a50de27fe58a5dbac4a33ecf461d4c709593.jpg'
+# 4000 x 2115; planet at x 1000-1850, y 900-1730. This 16:9 crop puts it at 54-100% across, 45% down.
+DIPLO_BG_BOX = (0, 843, 1844, 1880)         # 1844 x 1037 -> 1920 x 1080
 
 # FOW glyph colours (Typhon tools/icon_art.py unit_glyph): gold fill on a dark-brown outline
 FOW_FILL = (201, 164, 106, 255)
@@ -86,15 +100,15 @@ GREAT_PEOPLE = [
     ('REBECCA_CECIL', '瑞贝卡·塞西尔.jpeg', (352, 85, 742, 475)),
     ('HETTIE_CECIL', '赫蒂·塞西尔.jpeg', (605, 40, 1185, 620)),
     ('BYRON_KIRK', '拜伦·柯克.jpeg', (305, 26, 585, 306)),
-    ('SIR_PHILIP', None, None),
+    ('SIR_PHILIP', '菲利普.jpg', (1225, 0, 2675, 1450)),
     ('NICHOLAS_EGG', None, None),
-    ('PITMAN_LAUREN', None, None),
+    ('PITMAN_LAUREN', '皮特曼·劳伦.jpg', (60, 0, 1020, 960)),
     ('FELM', None, None),
     ('JENNIE_PERRO', None, None),
     ('SANTIS_SAIDE', None, None),
     ('KAMEL_SLAYEN', None, None),
     ('NORRIS', None, None),
-    ('LEITE_AVIKEN', None, None),
+    ('LEITE_AVIKEN', '莱特.jpg', (252, 440, 622, 810)),
 ]
 # Promotion badge colours by level, sampled from the base game's Promotions32.dds:
 # (light top corners, dark lower corners, bottom of the inset diamond)
@@ -269,10 +283,16 @@ def portraits():
     neutral = feather(crop_resize(src, NEUTRAL_BOX, (731, 1461)), 30, 0, 60, 90)
     made = {'neutral': emit(neutral, LEADER + '_NEUTRAL')}
     emit(neutral, LEADER + '_LOADING_FOREGROUND')
-    fig = feather(crop_resize(src, FALLBACK_BOX, (580, 1024)), 30, 0, 90, 60)
+    seated = Image.open(os.path.join(IMG, SRC_GAWAIN_SEATED)).convert('RGBA')
+    if seated.size != (2048, 4096):
+        raise SystemExit('%s is %dx%d; FALLBACK_BOX assumes 2048x4096' % (SRC_GAWAIN_SEATED, *seated.size))
+    # both side edges of the figure land mid-screen, so fade them (the bottom sits under the scene's gradient)
+    fig = feather(crop_resize(seated, FALLBACK_BOX, (580, 1024)), 60, 0, 90, 60)
     fallback = Image.new('RGBA', (825, 1024), (0, 0, 0, 0))
     fallback.alpha_composite(fig, (0, 0))
     made['fallback'] = emit(fallback, 'FALLBACK_NEUTRAL_' + LEADER, fallback=True)
+    bg = Image.open(os.path.join(IMG, SRC_DIPLO_BG)).convert('RGBA')
+    made['diplo_bg'] = emit(crop_resize(bg, DIPLO_BG_BOX, (1920, 1080)), LEADER + '_DIPLOMACY_BACKGROUND')
     made['source'] = src
     return made
 
@@ -534,11 +554,13 @@ def previews(out, art, fow):
         bg.alpha_composite(im)
         sheet.alpha_composite(bg, (i * 751, 0))
     sheet.convert('RGB').resize((sheet.width // 2, sheet.height // 2)).save(os.path.join(out, 'neutral_old_vs_new.jpg'), quality=88)
-    # 2. diplomacy: fallback over the diplomacy background
-    dip = read_dds(os.path.join(TEX_DIR, LEADER + '_DIPLOMACY_BACKGROUND.dds')).convert('RGBA')
-    dip = dip.resize((round(dip.width * 1024 / dip.height), 1024))
-    dip.alpha_composite(art['fallback'], (dip.width // 2 - 600, 0))
-    dip.convert('RGB').resize((dip.width // 2, dip.height // 2)).save(os.path.join(out, 'diplomacy_fallback.jpg'), quality=88)
+    # 2. diplomacy on a 1920 x 1080 screen: background stretched to fill, fallback's left edge at 0.60 w
+    #    (speaking) and 0.667 w (normal diplomacy), vertically centred, as DiplomacyActionView places it
+    for mode, fx in (('speaking', 0.60), ('normal', 2 / 3)):
+        screen = art['diplo_bg'].resize((1920, 1080)).copy()
+        x = int(1920 * fx)
+        screen.alpha_composite(art['fallback'].crop((0, 0, 1920 - x, 1024)), (x, 540 - 512))
+        screen.convert('RGB').resize((960, 540)).save(os.path.join(out, 'diplomacy_%s.jpg' % mode), quality=88)
     # 3. loading screen: foreground over the loading background
     load = read_dds(os.path.join(TEX_DIR, LEADER + '_LOADING_BACKGROUND.dds')).convert('RGBA')
     load = load.resize((round(load.width * 1461 / load.height), 1461))
