@@ -440,12 +440,15 @@ def promotion_badge(glyph_alpha, level, S=512):
     d.line(pts([left, top, right]), fill=_mix(light, white, 0.55) + (200,), width=w)
     d.line(pts([left, bottom, right]), fill=_mix(dark, (0, 0, 0), 0.3) + (170,), width=w)
     out.alpha_composite(bevel)
-    g = fit_alpha(glyph_alpha, 15.0 / 32, S)                      # glyph about 15 px of the 32
+    # The base game's glyphs are ~20 px of the 32 with a thin dark edge; at 15 px wide shapes (a boot with a
+    # smoke trail, an eye over battlements) turned to blobs, and a light glyph on the platinum badge vanished.
+    g = fit_alpha(glyph_alpha, 19.0 / 32, S)
     shift = int(0.9 * u)
     shadow = Image.new('L', (S, S), 0)
     shadow.paste(g, (shift, shift))
     out.alpha_composite(solid((10, 6, 4, 190), ImageChops.multiply(shadow, face)))
-    out.alpha_composite(solid(_mix(light, (255, 255, 255), 0.7) + (255,), ImageChops.multiply(g, face)))
+    out.alpha_composite(solid((26, 18, 14, 235), ImageChops.multiply(dilate(g, 12), face)))   # ~0.75 px dark edge
+    out.alpha_composite(solid(_mix(light, (255, 255, 255), 0.82) + (255,), ImageChops.multiply(g, face)))
     return out.resize((32, 32), Image.LANCZOS)
 
 

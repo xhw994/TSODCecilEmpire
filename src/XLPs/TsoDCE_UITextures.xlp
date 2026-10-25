@@ -393,6 +393,30 @@
 			<m_EntryID text="ICON_GREATWORK_TSOD_CE_BEACON_FIRE_256"/>
 			<m_ObjectName text="ICON_GREATWORK_TSOD_CE_BEACON_FIRE_256"/>
 		</Element>
+		<Element>
+			<m_EntryID text="ICON_PROMOTION_TSOD_CE_SHADOW_REALM_32"/>
+			<m_ObjectName text="ICON_PROMOTION_TSOD_CE_SHADOW_REALM_32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_PROMOTION_TSOD_CE_MASTER_THIEF_32"/>
+			<m_ObjectName text="ICON_PROMOTION_TSOD_CE_MASTER_THIEF_32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_PROMOTION_TSOD_CE_SHADOW_CREATURE_32"/>
+			<m_ObjectName text="ICON_PROMOTION_TSOD_CE_SHADOW_CREATURE_32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_PROMOTION_TSOD_CE_TAVERN_QUEEN_32"/>
+			<m_ObjectName text="ICON_PROMOTION_TSOD_CE_TAVERN_QUEEN_32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_PROMOTION_TSOD_CE_NIGHT_MISTRESS_32"/>
+			<m_ObjectName text="ICON_PROMOTION_TSOD_CE_NIGHT_MISTRESS_32"/>
+		</Element>
+		<Element>
+			<m_EntryID text="ICON_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_32"/>
+			<m_ObjectName text="ICON_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_32"/>
+		</Element>
 	</m_Entries>
 	<m_AllowedPlatforms>
 		<Element>WINDOWS</Element>

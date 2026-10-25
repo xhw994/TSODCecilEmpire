@@ -4,7 +4,7 @@
 
 | 类 | 数量 | 游戏里在哪显示 | 现在显示什么 | 要你出的图 |
 |---|---|---|---|---|
-| ① 琥珀的晋升 | 7 | 晋升树，只用 32×32 | 照抄官方斥候晋升树的 7 个图标（官方晋升也是多个共用一个图标） | 7 张图案，盾形底座我来做 |
+| ① 琥珀的晋升 | 7 | 晋升树，只用 32×32 | 6 个已换成你出的图案（10-25）；「暗夜神选」还借官方望远镜图标 | 1 张（暗夜神选重做） |
 | ② 巨作 | 2 | 巨作界面 64×64、提示框 | 场景速写印成的海报：《烽火》用旧时代的骑士们，《移民》用魔能列车穿过原野2 | 可选 2 张（按原著海报，会替换速写版） |
 | ③ 伟人肖像 | 12 | 百科伟人页 256×256；装了 Real Great People 时它的伟人页和列表也显示 | 瑞贝卡、赫蒂、拜伦、菲利普、皮特曼、莱特已有；其余 6 位是伟人单位图标 | 6 张 |
 
@@ -31,7 +31,7 @@
 
 游戏只在晋升树里用 **32×32** 显示（`UnitPromotionPopup.lua` 调 `FindIconAtlas(..., 32)`）。官方晋升图标是一个下端尖的五边形盾牌，盾面颜色表示级别：1 级铜、2 级银、3 级金、4 级白金，中间一个浅色图案。**盾牌和级别颜色我来画**，你只生成中间的图案。
 
-现在的问题：图标是按官方斥候晋升树的位置照抄的，和效果对不上，比如「南境盗圣」（打受伤单位 +15）显示的是一座山。新图案按每个晋升的效果来。
+**状态（10-25）**：你用哈基米出的 6 张已经收进 `imgs/icons/promotion_*.jpg` 并做成盾形图标；「暗夜神选」那张画成了新月加四芒星，像伊斯兰的新月星标，不能用，见下面的重做提示词。
 
 画法：**纯黑色的平面剪影符号，放在纯白背景上**。32 像素比单位图标还小，所以要更粗：只有一两个大块面，像路牌上的符号，不要细线、不要小零件、不要多个物体堆在一起。
 
@@ -41,7 +41,7 @@
 | `promotion_master_thief.png` | 南境盗圣 | 1 铜 | 打受伤单位 +15 战斗力 | 第 15 格（山） | 一把刀尖朝下的短匕首 / a short dagger pointing down |
 | `promotion_shadow_creature.png` | 暗影生物 | 2 银 | +1 移动力，无视地形减速 | 第 18 格（望远镜） | 一只向右迈步的靴子，后面拖着两三道烟影 / a boot striding right with two or three smoke streaks trailing behind |
 | `promotion_tavern_queen.png` | 酒馆女王 | 2 银 | 每回合自动回血，领土外也回 | 第 22 格（十字箭头） | 一只冒着泡沫的大酒杯 / a large tankard with foam spilling over |
-| `promotion_shadow_chosen.png` | 暗夜神选 | 3 金 | +1 移动力，只有相邻敌人能发现 | 第 17 格（望远镜） | 一弯新月，月牙内侧有一颗四芒星 / a crescent moon with a four-pointed star inside its curve |
+| `promotion_shadow_chosen.png` | 暗夜神选 | 3 金 | +1 移动力，只有相邻敌人能发现 | 第 17 格（望远镜） | **重做**，见下 |
 | `promotion_night_mistress.png` | 夜幕之城的女主人 | 3 金 | +1 视野，看见隐形单位 | 第 5 格（准星） | 城墙垛口上方一只睁开的眼睛 / an open eye above a row of castle battlements |
 | `promotion_shadow_authority.png` | 暗影权能 | 4 白金 | 攻击后可移动，外交 +1 | 第 26 格（兜帽人） | 一顶小王冠下面一把竖直的匕首 / a small crown above an upright dagger |
 
@@ -58,6 +58,49 @@ flat black silhouette pictogram, [content], one or two bold chunky shapes, no fi
 ```
 
 验收：缩到 32 像素看一眼，还能认出是什么。
+
+### 暗夜神选重做 → `imgs/icons/promotion_shadow_chosen.png`
+
+上一版（月牙加四芒星）撞上了真实的宗教 / 国旗符号，是我给的图案建议不好。这次**整个图案里不要出现新月、星星、十字、六芒星**，也不要任何像旗帜、徽章、宗教标志的东西。
+
+这个晋升的意思是「被黑夜选中的人」：+1 移动力，只有相邻的敌人才能发现他（潜行）。下面三个方案任选一个，推荐 A。已经出过的图里，眼睛、匕首、靴子、酒杯、眼睛加垛口、王冠加匕首都用掉了，所以这里避开它们。
+
+**方案 A（推荐）：披着兜帽斗篷的人**
+
+兜帽和斗篷是一整块黑色，兜帽里面是一个空的白色椭圆，没有五官，只有头和肩。32 像素下是「黑色圆顶里一个白椭圆」，一眼就是兜帽。
+
+哈吉米（Gemini）：
+```
+画一个游戏界面用的小图标符号：纯黑色平面剪影，纯白背景（#FFFFFF）。内容是一个披着兜帽斗篷的人的头和肩膀：兜帽和斗篷是一整块黑色，兜帽正面是一个空的白色椭圆形开口，里面没有眼睛、鼻子、嘴，什么都没有。斗篷在肩部向两侧垂开，整体像一个圆顶加宽肩的钟形，宽度和高度差不多。只用大块面，粗线条，没有细节和细线，像路牌上的符号，缩小到 32 像素也能认出。不要新月、不要星星、不要十字、不要六芒星，不要任何像旗帜或宗教标志的图案。不要盾牌外框、圆环、阴影、渐变、文字、边框。正方形 1024×1024。
+```
+Midjourney：
+```
+flat black silhouette pictogram, head and shoulders of a hooded cloaked figure, solid black hood and cloak, the hood opening is an empty white oval with no face, cloak spreading wide at the shoulders, bold chunky shapes, no fine detail, readable at tiny size like a road sign symbol, pure white background --ar 1:1 --style raw --no text, watermark, border, shield, frame, circle, shadow, moon, crescent, star, cross, flag, religious symbol
+```
+
+**方案 B：夜行的乌鸦**
+
+一只展翅飞的乌鸦，正面或侧面，翅膀张开，宽度不小于高度的 80%。黑夜加潜行加「被选中」，轮廓非常简单。
+
+哈吉米（Gemini）：
+```
+画一个游戏界面用的小图标符号：纯黑色平面剪影，纯白背景（#FFFFFF）。内容是一只展翅飞行的乌鸦，翅膀向两侧张开、羽尖朝上，整体宽度大于高度，翅膀只用三四根粗壮的羽毛表示。只用大块面，粗线条，没有细节和细线，像路牌上的符号，缩小到 32 像素也能认出。不要新月、不要星星、不要十字、不要六芒星，不要任何像旗帜或宗教标志的图案。不要盾牌外框、圆环、阴影、渐变、文字、边框。正方形 1024×1024。
+```
+Midjourney：
+```
+flat black silhouette pictogram, a raven in flight with wings spread wide, only three or four bold feathers per wing, wider than tall, bold chunky shapes, no fine detail, readable at tiny size like a road sign symbol, pure white background --ar 1:1 --style raw --no text, watermark, border, shield, frame, circle, shadow, moon, crescent, star, cross, flag, religious symbol
+```
+
+**方案 C：一根黑羽毛**
+
+一根斜放的长羽毛，羽轴粗、羽片宽，没有别的东西。最简单，32 像素下最稳，但和「书写用的羽毛笔」有点像。
+
+哈吉米（Gemini）：
+```
+画一个游戏界面用的小图标符号：纯黑色平面剪影，纯白背景（#FFFFFF）。内容是一根从左下斜向右上的大羽毛，羽轴粗壮，羽片宽大，边缘有两三个简单的缺口。只用大块面，粗线条，没有细节和细线，像路牌上的符号，缩小到 32 像素也能认出。不要新月、不要星星、不要十字、不要六芒星，不要任何像旗帜或宗教标志的图案。不要盾牌外框、圆环、阴影、渐变、文字、边框。正方形 1024×1024。
+```
+
+验收：缩到 32 像素还能认出是兜帽人 / 乌鸦 / 羽毛，整张图里没有新月和星星。
 
 ## ② 两部巨作
 
