@@ -16,6 +16,9 @@ What it makes:
   Fog-of-war versions, from the current 256 px icons
     ICON_UNIT_TSOD_SCOUT_AMBER_FOW_*, ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_*  (22 32 38 50 80 256)
     ICON_BUILDING_TSOD_MANA_OBELISK_FOW_*                                  (32 38 50 80 128 256)
+  Great person portraits ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_<NAME>_40/160/256: square bust crops of the
+  character art in imgs/ for Rebecca, Hettie and Byron; the other nine from imgs/icons/greatperson_<name>.png
+  once the user makes them. Writes src/Icons/TsoDCE_GreatPeopleIcons.xml.
   Icons from the user's images in imgs/icons/ (specs in docs/icon-prompts.md), each only once its
   image exists; until then the base-game icon it borrows stays:
     promotion_<name>.png  -> ICON_PROMOTION_TSOD_CE_<NAME>_32 (glyph on a tier-coloured badge)
@@ -73,6 +76,26 @@ PROMOTIONS = [
 # (great work, image name); both borrow ICON_ATLAS_GREATWORKS index 0 like every base-game writing work
 GREATWORKS = [('IMMIGRANTS', 'greatwork_immigrants'), ('BEACON_FIRE', 'greatwork_beacon_fire')]
 GREATWORK_SIZES = [45, 64, 256]
+# Great person portraits, ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_<NAME>. 256 fills the Civilopedia portrait
+# slot (UI/CivilopediaPage_TsoDCE_GreatPersonPortraits.lua); 160 and 40 are what the "Real Great People"
+# mod asks for on its own page and list, under the same icon name.
+GP_SIZES = [40, 160, 256]
+# (individual, source in imgs/ and square crop box with the head centred) or (individual, None, None):
+# then the portrait comes from imgs/icons/greatperson_<name>.png once the user makes it.
+GREAT_PEOPLE = [
+    ('REBECCA_CECIL', '瑞贝卡·塞西尔.jpeg', (352, 85, 742, 475)),
+    ('HETTIE_CECIL', '赫蒂·塞西尔.jpeg', (605, 40, 1185, 620)),
+    ('BYRON_KIRK', '拜伦·柯克.jpeg', (305, 26, 585, 306)),
+    ('SIR_PHILIP', None, None),
+    ('NICHOLAS_EGG', None, None),
+    ('PITMAN_LAUREN', None, None),
+    ('FELM', None, None),
+    ('JENNIE_PERRO', None, None),
+    ('SANTIS_SAIDE', None, None),
+    ('KAMEL_SLAYEN', None, None),
+    ('NORRIS', None, None),
+    ('LEITE_AVIKEN', None, None),
+]
 # Promotion badge colours by level, sampled from the base game's Promotions32.dds:
 # (light top corners, dark lower corners, bottom of the inset diamond)
 TIERS = {1: ((153, 131, 86), (98, 75, 35), (125, 105, 63)),      # bronze
@@ -402,11 +425,45 @@ def user_icons(icon_dir):
     return made, promos, works
 
 
+def great_person_portraits(icon_dir):
+    """Square bust portraits: crops of the user's character art, or the user's generated images."""
+    made = {}
+    for name, src, box in GREAT_PEOPLE:
+        if src:
+            img = Image.open(os.path.join(IMG, src)).convert('RGBA').crop(box)
+        else:
+            img = find_image(icon_dir, 'greatperson_' + name.lower())
+            if img is None:
+                continue
+            side = min(img.size)                               # centre-crop to square if needed
+            img = img.crop(((img.width - side) // 2, (img.height - side) // 2,
+                            (img.width + side) // 2, (img.height + side) // 2)).convert('RGBA')
+        base = 'ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_' + name
+        made[name] = icon_sizes(img, base, GP_SIZES)[-1]
+    return made
+
+
+def write_great_people_xml(names):
+    atlases = ''.join('        <Row Name="ATLAS_ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_%s" IconSize="%d" '
+                      'Filename="ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_%s_%d" />\n' % (n, s, n, s)
+                      for n in names for s in GP_SIZES)
+    defs = ''.join('        <Row Name="ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_%s" '
+                   'Atlas="ATLAS_ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_%s" Index="0" />\n' % (n, n) for n in names)
+    text = ('<?xml version="1.0" encoding="utf-8"?>\n'
+            '<!-- Written by tools/make_art.py: one atlas per great person that has a portrait. The Civilopedia\n'
+            '     shows ICON_<GreatPersonIndividualType> through UI/CivilopediaPage_TsoDCE_GreatPersonPortraits.lua;\n'
+            '     great people without one keep the unit icon. -->\n<GameData>\n'
+            '    <IconTextureAtlases>\n%s    </IconTextureAtlases>\n'
+            '    <IconDefinitions>\n%s    </IconDefinitions>\n</GameData>' % (atlases, defs))
+    return write_if_changed(os.path.join(ICON_XML_DIR, 'TsoDCE_GreatPeopleIcons.xml'), text)
+
+
 def write_if_changed(path, text):
     data = text.replace('\n', '\r\n').encode('utf-8')          # these XML files are CRLF, no final newline
-    with open(path, 'rb') as f:
-        if f.read() == data:
-            return False
+    if os.path.exists(path):
+        with open(path, 'rb') as f:
+            if f.read() == data:
+                return False
     with open(path, 'wb') as f:
         f.write(data)
     return True
@@ -452,7 +509,7 @@ def ensure_xlp_entries(xlp, names):
     return new
 
 
-def update_packages(promos=(), works=()):
+def update_packages(promos=(), works=(), people=()):
     added = []
     added += ensure_xlp_entries('TsoDCE_UILeaders.xlp', [LEADER + '_NEUTRAL', LEADER + '_LOADING_FOREGROUND'])
     added += ensure_xlp_entries('TsoDCE_LeaderFallbacks.xlp', ['FALLBACK_NEUTRAL_' + LEADER])
@@ -460,6 +517,7 @@ def update_packages(promos=(), works=()):
     ui += ['%s_FOW_%d' % (BUILDING_ICON, s) for s in BUILDING_SIZES]
     ui += ['ICON_PROMOTION_TSOD_CE_%s_32' % n for n in promos]
     ui += ['ICON_GREATWORK_TSOD_CE_%s_%d' % (n, s) for n in works for s in GREATWORK_SIZES]
+    ui += ['ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_%s_%d' % (n, s) for n in people for s in GP_SIZES]
     added += ensure_xlp_entries('TsoDCE_UITextures.xlp', ui)
     return added
 
@@ -508,7 +566,14 @@ def previews(out, art, fow):
         sheet.alpha_composite(im, (sx, 266))
         sx += im.width + 8
     sheet.save(os.path.join(out, 'building_fow_icon.png'))
-    # 6. user icons: promotions at 32 px and 4x, great works at 256
+    # 6. great person portraits at 256 and the small sizes, inside the Civilopedia's 298 x 295 frame area
+    if art['people']:
+        items = list(art['people'].items())
+        sheet = Image.new('RGBA', (len(items) * 310, 256 + 30), (40, 34, 30, 255))
+        for i, (name, im) in enumerate(items):
+            sheet.alpha_composite(im, (i * 310 + 20, 15))
+        sheet.save(os.path.join(out, 'great_person_portraits.png'))
+    # 7. user icons: promotions at 32 px and 4x, great works at 256
     if art['user']:
         items = list(art['user'].items())
         sheet = Image.new('RGBA', (len(items) * 266, 256 + 50), (60, 70, 90, 255))
@@ -532,12 +597,17 @@ def main():
     fow = fow_icons()
     art['building_fow'] = building_fow()
     art['user'], promos, works = user_icons(icon_dir)
+    art['people'] = great_person_portraits(icon_dir)
+    people = list(art['people'])
     xml_changed = write_icon_xml(promos, works)
-    added = update_packages(promos, works)
+    xml_changed |= write_great_people_xml(people)
+    added = update_packages(promos, works, people)
     if preview:
         previews(preview, art, fow)
     print('textures written to', TEX_DIR)
     print('own promotion icons:', ', '.join(promos) or 'none yet', '| own great work icons:', ', '.join(works) or 'none yet')
+    waiting = [n for n, _s, _b in GREAT_PEOPLE if n not in art['people']]
+    print('great person portraits:', ', '.join(people), '| waiting for images:', ', '.join(waiting) or 'none')
     print('icon XML rewritten:', 'yes' if xml_changed else 'no change')
     print('new XLP entries:', ', '.join(added) if added else 'none')
 

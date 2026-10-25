@@ -1,12 +1,12 @@
 # 待生成图标：提示词与规格（塞西尔帝国）
 
-还在借用官方图标、或者没有图的内容，共三类。**先看下表的「游戏里现在显示什么」**：三类都是照官方的做法借图，游戏里没有空白；换成自己的图是加分项。第 ③ 类目前游戏里根本没有地方显示，要先定要不要做。
+还在借用官方图标、或者没有图的内容，共三类。**先看下表的「游戏里现在显示什么」**：① ② 是照官方的做法借图，游戏里没有空白，换成自己的图是加分项。③ 伟人肖像已经能在百科里按个人显示：3 位用现成角色图裁好了，另外 9 位等你出图，没图之前还是显示伟人单位图标。
 
 | 类 | 数量 | 游戏里在哪显示 | 现在显示什么 | 要你出的图 |
 |---|---|---|---|---|
 | ① 琥珀的晋升 | 7 | 晋升树，只用 32×32 | 照抄官方斥候晋升树的 7 个图标（官方晋升也是多个共用一个图标） | 7 张图案，盾形底座我来做 |
 | ② 巨作 | 2 | 巨作界面 64×64、提示框 | 官方所有文学巨作共用的那本摊开的书（`ICON_ATLAS_GREATWORKS` 第 0 格） | 2 张 |
-| ③ 伟人肖像 | 12 | **目前没有界面会显示** | — | 先定要不要做，见 ③ |
+| ③ 伟人肖像 | 12 | 百科伟人页 256×256；装了 Real Great People 时它的伟人页和列表也显示 | 瑞贝卡、赫蒂、拜伦已有；其余 9 位是伟人单位图标 | 9 张 |
 
 风格参考图（官方同类图标，从 SDK 素材包里取出，放在 `imgs/icon-refs/`，生图时可以作为参考图上传，Midjourney 用 `--sref`）：
 
@@ -14,7 +14,7 @@
 |---|---|
 | `promotion_ranger_alpine_15.png`、`promotion_spyglass_17.png`、`promotion_26.png` | ① 晋升（铜 / 金 / 白金三种级别的样子） |
 | `greatwork_writing_index0.png` | ② 巨作（官方文学巨作那本书） |
-| `greatperson_generic_admiral.png` | ③ 伟人（官方只有按类别的铜章，没有个人肖像） |
+| `greatperson_ref_rebecca_cecil.png`、`greatperson_ref_hettie_cecil.png`、`greatperson_ref_byron_kirk.png` | ③ 伟人（已裁好的 3 张，9 位新图照它们的画风和构图） |
 
 ## 通用规格（每张都要满足）
 
@@ -96,25 +96,153 @@ Civilization VI great work icon style, a single paper movie poster with slightly
 
 验收：缩到 64 像素能看出是一张海报、上面有一条船（或一个骑士）。
 
-## ③ 12 位伟人肖像：先定要不要做
+## ③ 9 位伟人肖像 → `imgs/icons/greatperson_<英文名>.png`
 
-**目前游戏里没有任何界面会显示伟人的个人肖像**，做了也看不到：
+显示在百科伟人页右上角的 256×256 方框里（`src/UI/CivilopediaPage_TsoDCE_GreatPersonPortraits.lua`）。图名和 Real Great People 一样都是 `ICON_<伟人类型>`，所以装了那个 mod 时，它的伟人页和列表也会显示（160、40）。瑞贝卡、赫蒂、拜伦已经用 `imgs/` 里的角色图裁好，9 张新图照这 3 张的画风和构图来；它们放在 `imgs/icon-refs/greatperson_ref_*.png`，生图时作为参考图上传。
 
-- 伟人界面（`GreatPeoplePopup.lua`）只用按类别的铜章 `ICON_GENERIC_<类别>`，而且只列时间线上的伟人。塞西尔的伟人由 `Core/TsoDCE_CivilizationTraits.lua` 在区域首次建成时直接授予，所在类别 `AvailableInTimeline = 0`，不会进这个界面。
-- 百科伟人页（`CivilopediaPage_GreatPerson.lua`）用的是伟人单位的图标 `ICON_<UnitType>`（官方的大科学家等）。
-- 单位面板按单位类型和性别取肖像，也不分个人。
+每张都要满足（本节替代上面「通用规格」里的背景要求）：
 
-要让肖像显示出来，得改界面（比如替换百科伟人页的脚本，按个人取图），这是单独一件事，要你点头再做。如果要做：
+- 正方形 1:1，至少 1024×1024。**胸像**：头部居中，头顶离上边约 8%，画到上胸口。
+- 画风：参考图那种半写实厚涂插画（《黎明之剑》官方角色图的画风），脸朝向观众或四分之三侧脸。
+- 背景：**画出来的昏暗环境**，不是纯色，也不要杂乱，人物要从背景里清楚地跳出来（参考图都是深色背景加一点暖色或冷色的光）。
+- 不要文字、边框、圆框、水印。
+- 外貌照原著（每项后面注了出处），原著没写的地方不要乱加特征。
 
-- 尺寸：216 和 105（官方伟人图集的两个尺寸），正方形，胸像。
-- 其中 3 位 `imgs/` 里已有角色图，我直接裁：瑞贝卡·塞西尔（`瑞贝卡·塞西尔.jpeg`）、赫蒂·塞西尔（`赫蒂·塞西尔.jpeg`）、拜伦·柯克（`拜伦·柯克.jpeg`）。
-- 另外 9 位要出图：菲利普（大将军）、尼古拉斯·蛋（大工程师）、皮特曼·劳伦（大商人）、菲尔姆（大作家）、詹妮·佩罗、桑提斯·赛德、卡迈尔·斯雷恩、诺里斯（以上大科学家）、莱特·艾维肯（大预言家）。决定要做时我再按原著写每个人的外貌提示词。
+验收：缩到 40 像素还能认出是谁（看发色、轮廓和手里的东西）。
+
+### 菲利普（大将军）→ `greatperson_sir_philip.png`
+
+原著第 1 卷：二十出头，淡金色短发，眼窝深邃，鼻梁高挺，五官不算出众，但有武人的英武气质，身材挺拔；腰挎长剑。
+
+哈吉米（Gemini）：
+```
+半写实厚涂插画，方形胸像：一位二十出头的年轻骑士，淡金色短发，眼窝深邃，鼻梁高挺，五官普通但神情坚毅、英气十足，身材挺拔。穿钢制胸甲和肩甲，肩上披着深蓝色披风，剑柄从画面下方露出。头部居中，头顶离上边约 8%，画到上胸口。背景是昏暗的军营，远处虚化的营火和蓝色战旗。不要文字、边框、圆框、水印。正方形 1024×1024。
+```
+
+Midjourney：
+```
+semi-realistic painterly fantasy portrait, square bust, a knight in his early twenties with short pale blond hair, deep-set eyes, high nose bridge, plain but resolute heroic face, upright posture, steel breastplate and pauldrons, dark blue cloak, sword hilt at the bottom edge, head centered with small headroom, dim military camp background with blurred campfire and blue banners --ar 1:1 --no text, frame, border, circle, watermark
+```
+
+### 尼古拉斯·蛋（大工程师）→ `greatperson_nicholas_egg.png`
+
+原著第 1 卷第 92 章：从石头蛋里孵出来的金属球，直径约一米三，表面纯净银白、极端光滑如镜面，像工业精确打磨过，悬浮在离地不到半米的空中；能隔空把金属塑成零件，干活时身边四面八方飘着零件。**它没有脸，就是一个球。**
+
+哈吉米（Gemini）：
+```
+半写实厚涂插画，方形构图：一颗悬浮在半空的金属球，纯净的银白色，表面极其光滑像镜子，镜面上映出工坊里暖黄色的灯光和窗户。球占画面约七成，居中。球周围飘着几个小金属零件（齿轮、螺栓、弹簧），像被无形的力量托着。球上没有脸、没有眼睛、没有任何花纹。背景是昏暗的机械工坊，虚化的铁砧和金属锭。不要文字、边框、圆框、水印。正方形 1024×1024。
+```
+
+Midjourney：
+```
+semi-realistic painterly illustration, square composition, a floating perfectly smooth mirror-polished silver-white metal sphere filling most of the frame, reflecting warm workshop lamps, a few small metal parts (gears, bolts, springs) hovering around it as if held by an invisible force, no face, no eyes, no markings on the sphere, dim mechanical workshop background with blurred anvils and metal ingots --ar 1:1 --no text, frame, border, circle, watermark, face
+```
+
+### 皮特曼·劳伦（大商人）→ `greatperson_pitman_lauren.png`
+
+原著第 1 卷：隐士模样的小老头，破旧布袍、带洞的软帽、胡子拉碴，说话时爱按着胡子；林木之心学派的德鲁伊，兼古董鉴定师，嗜钱（管金币叫「亮晶晶的小可爱」）。
+
+哈吉米（Gemini）：
+```
+半写实厚涂插画，方形胸像：一个瘦小的老头，花白杂乱的胡子，戴一顶破了洞的旧软帽，穿打补丁的粗布袍，袍子上别着几片树叶。他露出狡黠又讨好的笑，一只手捏着一枚金币举到眼前打量，金币闪着光。头部居中，头顶离上边约 8%，画到上胸口。背景是昏暗的古董杂货铺，虚化的瓶瓶罐罐。不要文字、边框、圆框、水印。正方形 1024×1024。
+```
+
+Midjourney：
+```
+semi-realistic painterly fantasy portrait, square bust, a small scrawny old man with a scruffy grey beard, a battered soft cap with holes, a patched coarse cloth robe with a few leaves pinned to it, sly ingratiating grin, holding a shiny gold coin up near his eye, head centered with small headroom, dim cluttered antique shop background --ar 1:1 --no text, frame, border, circle, watermark
+```
+
+### 菲尔姆（大作家）→ `greatperson_felm.png`
+
+原著第 3 卷：从北方巴伦来的年轻人，金发，穿一件呢料蓝色外套，旧了但干净整洁、保养得当；笑容温和有礼，带着习惯性的谦逊；魔影剧《移民》的编剧。
+
+哈吉米（Gemini）：
+```
+半写实厚涂插画，方形胸像：一位年轻男子，金色头发，笑容温和有礼、略带谦逊。穿一件旧但干净整洁的蓝色呢料外套，里面是白衬衫。他手里拿着一叠写满字的剧本手稿，手稿边缘从画面下方露出。头部居中，头顶离上边约 8%，画到上胸口。背景是昏暗的船舱，一盏暖黄色的魔晶石灯。不要文字、边框、圆框、水印。正方形 1024×1024。
+```
+
+Midjourney：
+```
+semi-realistic painterly fantasy portrait, square bust, a young man with blond hair and a gentle, polite, slightly modest smile, an old but clean well-kept blue wool coat over a white shirt, holding a stack of handwritten script pages at the bottom edge, head centered with small headroom, dim ship cabin background lit by a warm crystal lamp --ar 1:1 --no text, frame, border, circle, watermark
+```
+
+### 詹妮·佩罗（大科学家）→ `greatperson_jennie_perro.png`
+
+原著第 1 卷：不到二十岁，高挑瘦弱、有点病恹恹；银白色长发，因疏于打理而干枯杂乱，从两侧垂在脸颊上；左侧三分之一的脸有一片像烫伤的疤痕，顺着脖子往下蔓延；性格拘谨；四级符文师，珍藏着一本前人留下的、写满公式的厚笔记。
+
+哈吉米（Gemini）：
+```
+半写实厚涂插画，方形胸像：一位不到二十岁的少女，瘦弱，脸色有点苍白，银白色长发略显干枯凌乱、从两侧垂在脸颊上。她左边脸颊到脖子有一片淡红色的旧烧伤疤痕（画清楚，但不要血腥恐怖）。神情拘谨、略带羞怯，双手把一本厚重的旧皮面笔记本抱在胸前。穿朴素的深色法师袍。头部居中，头顶离上边约 8%，画到上胸口。背景是昏暗的木屋书桌，桌上有几道发着淡蓝微光的符文。不要文字、边框、圆框、水印。正方形 1024×1024。
+```
+
+Midjourney：
+```
+semi-realistic painterly fantasy portrait, square bust, a frail pale girl under twenty with long silver-white hair, slightly dry and unkempt, hanging down both sides of her face, an old pinkish burn scar covering the left third of her face and running down her neck (clearly shown, not gory), shy reserved expression, hugging a thick old leather notebook to her chest, plain dark mage robe, head centered with small headroom, dim wooden cabin desk with faint glowing blue runes --ar 1:1 --no text, frame, border, circle, watermark, gore
+```
+
+### 桑提斯·赛德（大科学家）→ `greatperson_santis_saide.png`
+
+原著第 1 卷第 191 章：年轻的二级奥术师，一头乱糟糟的头发，眼窝发红凹陷（熬了夜），又瘦又高，穿一身洗得发白的旧法袍，紧张时手总下意识地拨弄衣服上的纽扣。原著没写发色。
+
+哈吉米（Gemini）：
+```
+半写实厚涂插画，方形胸像：一位又瘦又高的年轻法师，一头乱糟糟的深色头发，眼窝发红凹陷、带着熬夜的黑眼圈，神情紧张又认真。穿一件洗得发白的旧蓝灰色法袍，一只手正下意识地捏着法袍上的一颗纽扣。头部居中，头顶离上边约 8%，画到上胸口。背景是昏暗的书房，虚化的书架和一支蜡烛。不要文字、边框、圆框、水印。正方形 1024×1024。
+```
+
+Midjourney：
+```
+semi-realistic painterly fantasy portrait, square bust, a tall thin young mage with messy dark hair, reddened sunken eyes with dark circles from sleepless nights, nervous but earnest expression, a faded much-washed blue-grey robe, one hand fiddling with a button on his robe, head centered with small headroom, dim study background with blurred bookshelves and a candle --ar 1:1 --no text, frame, border, circle, watermark
+```
+
+### 卡迈尔·斯雷恩（大科学家）→ `greatperson_kamel_slayen.png`
+
+原著第 1 卷第 239 章：古刚铎帝国的魔导师，转化成了「由奥术能量汇聚而成的人型生物」，体表逸散噼啪的电光，说话带着颤音和劈啪声，眼睛是「两点明亮的电光」；胸前挂着护甲片，上面写着他的名字。
+
+哈吉米（Gemini）：
+```
+半写实厚涂插画，方形胸像：一个由奥术能量构成的人形生物，身体是半透明的、流动的蓝紫色魔力，体表不断迸出细小的白色电弧。脸上没有五官，只有两点明亮的白色电光作为眼睛。胸前挂着几片古旧的金属护甲，其中一片刻着一行古代文字。头部居中，头顶离上边约 8%，画到上胸口。背景是昏暗的古代魔导设施，墙上有微弱的蓝光纹路。除了护甲上的古文，不要别的文字、边框、圆框、水印。正方形 1024×1024。
+```
+
+Midjourney：
+```
+semi-realistic painterly fantasy portrait, square bust, a humanoid being made entirely of translucent flowing blue-violet arcane energy, small white electric arcs crackling off its body, no facial features except two bright white points of electric light for eyes, a few ancient metal armor plates hanging on its chest, one engraved with a line of old script, head centered with small headroom, dim ancient magitech facility background with faint blue glowing lines --ar 1:1 --no text, frame, border, circle, watermark
+```
+
+### 诺里斯（大科学家）→ `greatperson_norris.png`
+
+原著第 1 卷：典型的中世纪农夫，肤色黝黑，消瘦，手脚粗大，看上去四五十岁或更老（重活和营养不良让人早衰）；表情谦卑，会露出一个谦卑的笑容，但眼睛里有和别的平民不一样的神采；种地的手艺很好。
+
+哈吉米（Gemini）：
+```
+半写实厚涂插画，方形胸像：一位四五十岁的农夫，晒得黝黑，消瘦，脸上有风霜的皱纹，露出谦卑又真诚的微笑，眼睛明亮有神。穿粗布衣，一只粗大的手握着一把金黄的麦穗举在胸前。头部居中，头顶离上边约 8%，画到上胸口。背景是傍晚的麦田，虚化，暖色夕阳光。不要文字、边框、圆框、水印。正方形 1024×1024。
+```
+
+Midjourney：
+```
+semi-realistic painterly fantasy portrait, square bust, a lean weathered farmer in his forties or fifties with deeply tanned skin and wrinkles, a humble sincere smile and unusually bright eyes, coarse homespun clothes, one big rough hand holding a bundle of golden wheat at his chest, head centered with small headroom, blurred wheat field at dusk with warm sunset light --ar 1:1 --no text, frame, border, circle, watermark
+```
+
+### 莱特·艾维肯（大预言家）→ `greatperson_leite_aviken.png`
+
+原著第 1 卷：圣光教会的牧师，本应华丽的神袍破旧不堪，腰间挎着圣经，胸前佩戴圣徽；看似牧师，却高大健壮得像一名武士（「很多圣骑士打不过我」）；独自从圣灵平原走到南境，干起活来比谁都卖力。原著没写发色。
+
+哈吉米（Gemini）：
+```
+半写实厚涂插画，方形胸像：一位高大魁梧的男性牧师，肌肉结实，袖子挽起露出粗壮的小臂，短发。穿一件本该华丽、但已经破旧磨损的白底金边圣光神袍，胸前挂着一枚金色的圣徽。露出爽朗憨直的笑容。头部居中，头顶离上边约 8%，画到上胸口。背景是清晨的乡间工地，虚化，暖金色的阳光。不要文字、边框、圆框、水印。正方形 1024×1024。
+```
+
+Midjourney：
+```
+semi-realistic painterly fantasy portrait, square bust, a huge muscular priest built like a warrior, short hair, sleeves rolled up over thick forearms, a once-ornate white and gold holy robe now worn and frayed, a golden holy symbol on his chest, a hearty honest grin, head centered with small headroom, blurred rural building site at dawn with warm golden light --ar 1:1 --no text, frame, border, circle, watermark
+```
 
 ---
 
 ## 我这边拿到图后做的事
 
 图按上面的文件名放进 `imgs/icons/`（png / jpg / webp 都行，可以只交一部分），然后跑 `python -X utf8 tools/make_art.py`，它会：
+
+0. 伟人肖像：裁成正方形，出 40 / 160 / 256，写进 `Icons/TsoDCE_GreatPeopleIcons.xml`，百科自动换成肖像。
 
 1. 按背景色抠图，裁掉多余留白，按官方留白比例放回正方形。
 2. 晋升：黑剪影转浅色，画五边形盾牌（颜色取自官方 `Promotions32.dds`，按级别铜 / 银 / 金 / 白金），出 32×32；`Icons/TsoDCE_UnitPromotionIcons.xml` 里有图的那几个改指自己的图集，没图的继续借官方格子。
