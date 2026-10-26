@@ -4,3 +4,5 @@ cooker.log
 /refs
 # PNG sources written by tools/make_art.py (the .dds/.tex in src/Textures are what ships)
 /art/generated/
+# Claude Code local settings and notes
+.claude/
