@@ -11,7 +11,7 @@
 
 ## Overview
 
-This mod adds the **Cecil Empire** civilization to Civilization VI, led by **Gavin Cecil**. Inspired by the web novel *Sword of Dawn*, the civilization is built around great person recruitment, scientific advancement, and strategic district planning. It suits players who enjoy snowballing through technology while maintaining a credible military threat.
+This mod adds the **Cecil Empire** civilization to Civilization VI, led by **Gawain Cecil**. Inspired by the web novel *Sword of Dawn*, the civilization is built around great person recruitment, scientific advancement, and strategic district planning. It suits players who enjoy snowballing through technology while maintaining a credible military threat.
 
 ---
 
@@ -52,7 +52,7 @@ The Obelisk delays your early Monument but pays off dramatically in the mid-to-l
 
 ---
 
-### Leader: Gavin Cecil
+### Leader: Gawain Cecil
 
 #### Ability: *Sword of Dawn*
 
