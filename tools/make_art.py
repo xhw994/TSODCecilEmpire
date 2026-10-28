@@ -1,4 +1,5 @@
-"""Generate the Cecil mod's derived textures from the user's art in imgs/.
+"""Generate the Cecil mod's derived textures from the user's art library
+(../Civ6 modding/黎明之剑-素材/, catalogue in its README.md; this mod's own files under 模组/塞西尔帝国/).
 
 Run from the repo root:
     python -X utf8 tools/make_art.py [--preview DIR] [--icons DIR]
@@ -6,30 +7,30 @@ Run from the repo root:
 Writes src/Textures/<NAME>.dds + <NAME>.tex (uncompressed RGBA DDS, same layout as the other
 textures here) and art/generated/<NAME>.png as the editable source, then adds any new texture to
 its XLP package. --preview also writes contact sheets to DIR for review. --icons reads the
-user's generated icons from DIR instead of imgs/icons/.
+user's generated icons from DIR instead of 模组/塞西尔帝国/图标源图/.
 
 What it makes:
   Gawain's portraits
     LEADER_TSOD_GAWAIN_CECIL_NEUTRAL             731 x 1461  setup screen      } armoured Gawain, cut-out
-    LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND  731 x 1461  loading screen    } Processed Images/..._NEUTRAL.png
+    LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND  731 x 1461  loading screen    } 加工图/..._NEUTRAL.png
     FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL    825 x 1024  diplomacy screen, figure in the left 594 px:
-        seated Gawain, cut-out Processed Images/..._NEUTRAL-1.png of imgs/8ab7bc05….jpg (user's choice)
+        seated Gawain, cut-out 加工图/..._NEUTRAL-1.png of 人物/8ab7bc05….jpg (user's choice)
     LEADER_TSOD_GAWAIN_CECIL_DIPLOMACY_BACKGROUND 1920 x 1080 diplomacy background: the space scene
-        imgs/57c9a50d….jpg, cropped so the planet sits behind Gawain (user's choice)
+        地点与场景/57c9a50d….jpg, cropped so the planet sits behind Gawain (user's choice)
   Fog-of-war versions, from the current 256 px icons
     ICON_UNIT_TSOD_SCOUT_AMBER_FOW_*, ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_*  (22 32 38 50 80 256)
     ICON_BUILDING_TSOD_MANA_OBELISK_FOW_*                                  (32 38 50 80 128 256)
   Great person portraits ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_<NAME>_40/160/256: square bust crops of the
-  character art in imgs/ for Rebecca, Hettie, Byron, Philip, Pitman and Leite; the other six from
-  imgs/icons/greatperson_<name>.png
+  character art in 人物/ for Rebecca, Hettie, Byron, Philip, Pitman and Leite; the other six from
+  图标源图/greatperson_<name>.png
   once the user makes them. Writes src/Icons/TsoDCE_GreatPeopleIcons.xml.
-  Icons from the user's images in imgs/icons/ (specs in docs/icon-prompts.md), each only once its
+  Icons from the user's images in 图标源图/ (specs in docs/icon-prompts.md), each only once its
   image exists; until then the base-game icon it borrows stays:
     promotion_<name>.png  -> ICON_PROMOTION_TSOD_CE_<NAME>_32 (glyph on a tier-coloured badge)
     greatwork_<name>.png  -> ICON_GREATWORK_TSOD_CE_<NAME>_45/64/256
-      (until then the great works use a scene from imgs/ printed as a poster, GREATWORK_ART)
+      (until then the great works use a scene from 地点与场景/ printed as a poster, GREATWORK_ART)
     and rewrites src/Icons/TsoDCE_UnitPromotionIcons.xml / TsoDCE_GreatworkIcons.xml to match.
-  Historic moments from imgs/ (MOMENTS): MOMENT_UNIT_TSOD_GORGON_PLATFORM 456 x 332.
+  Historic moments from the library (MOMENTS): MOMENT_UNIT_TSOD_GORGON_PLATFORM 456 x 332.
 
 Everything else in src/Textures is hand-made and left alone. Crops are in source-image pixels;
 adjust them here and re-run. Same approach as tools/make_art.py in the Typhon mod.
@@ -42,12 +43,14 @@ import sys
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageOps
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMG = os.path.join(ROOT, 'imgs')
+# The user's art library in the workspace, outside the repo
+IMG = os.path.join(ROOT, '..', 'Civ6 modding', '黎明之剑-素材')
+MOD = os.path.join('模组', '塞西尔帝国')       # this mod's own work files in the library
 TEX_DIR = os.path.join(ROOT, 'src', 'Textures')
 XLP_DIR = os.path.join(ROOT, 'src', 'XLPs')
 GEN_DIR = os.path.join(ROOT, 'art', 'generated')
 
-SRC_GAWAIN = os.path.join('Processed Images', 'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL.png')
+SRC_GAWAIN = os.path.join(MOD, '加工图', 'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL.png')
 LEADER = 'LEADER_TSOD_GAWAIN_CECIL'
 UNIT_GLYPHS = ['ICON_UNIT_TSOD_SCOUT_AMBER', 'ICON_UNIT_TSOD_GORGON_PLATFORM']
 UNIT_SIZES = [22, 32, 38, 50, 80, 256]
@@ -63,16 +66,16 @@ NEUTRAL_BOX = (20, 130, 686, 1461)          # 666 x 1331, aspect of 731 x 1461
 # (cinema mode), 0.667 on the way out of it. At 1920 px the image therefore shows ~550 px at 0.714; the
 # rest of the 825 px canvas runs off the right edge. LeaderScene stretches the background to the full
 # screen (StretchMode Fill), so the planet goes at the same place in the background.
-SRC_GAWAIN_SEATED = os.path.join('Processed Images', 'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL-1.png')
+SRC_GAWAIN_SEATED = os.path.join(MOD, '加工图', 'LEADER_TSOD_GAWAIN_CECIL_NEUTRAL-1.png')
 # Seated cut-out (2048 x 4096): head top y=1420, head centre x=1250, hand on the temple reaches x=1850;
 # his resting right hand (viewer's lower left) spans x 70-600, y 3590-3990. The cut-out is the whole width
-# of the original art (imgs/8ab7bc05....jpg is 4134 wide, the cut-out covers x 24-4120), so nothing more
+# of the original art (人物/8ab7bc05....jpg is 4134 wide, the cut-out covers x 24-4120), so nothing more
 # of him exists to the left or right: take all of it. No edge fades (user, 10-25: the figure is already
 # narrow, fading it makes him a stick), and no crop of the hand (it was cut in half at x=353 before).
 # Scale 0.29 fits the whole width into 594 px, so the face and both hands are on screen in the 0.714 view.
 FALLBACK_BOX = (0, 1231, 2048, 4096)        # 2048 x 2865, from just above the head to the bottom edge
 FALLBACK_SCALE = 0.29                       # -> 594 x 831, bottom-aligned in the 825 x 1024 canvas
-SRC_DIPLO_BG = '57c9a50de27fe58a5dbac4a33ecf461d4c709593.jpg'
+SRC_DIPLO_BG = '地点与场景/57c9a50de27fe58a5dbac4a33ecf461d4c709593.jpg'
 # 4000 x 2115; planet at x 1000-1850 (centre 1425), y 900-1730 (centre 1315). The head is at ~78% across
 # while he speaks and ~90% in the normal view, so the planet centre goes at 83%, 47% down: it stays behind
 # him in both views and runs a little off the right edge.
@@ -85,9 +88,9 @@ FOW_EDGE = (52, 38, 24, 255)
 BUILDING_ICON = 'ICON_BUILDING_TSOD_MANA_OBELISK'
 BUILDING_SIZES = [32, 38, 50, 80, 128, 256]
 
-ICON_DIR = os.path.join(IMG, 'icons')
+ICON_DIR = os.path.join(IMG, MOD, '图标源图')
 ICON_XML_DIR = os.path.join(ROOT, 'src', 'Icons')
-# (promotion, level, borrowed ICON_ATLAS_PROMOTIONS index, image name in imgs/icons/)
+# (promotion, level, borrowed ICON_ATLAS_PROMOTIONS index, image name in ICON_DIR)
 PROMOTIONS = [
     ('SHADOW_REALM', 1, 15, 'promotion_shadow_realm'),
     ('MASTER_THIEF', 1, 15, 'promotion_master_thief'),
@@ -99,40 +102,40 @@ PROMOTIONS = [
 ]
 # (great work, image name); both borrow ICON_ATLAS_GREATWORKS index 0 like every base-game writing work
 GREATWORKS = [('IMMIGRANTS', 'greatwork_immigrants'), ('BEACON_FIRE', 'greatwork_beacon_fire')]
-# Until the user's generated poster (imgs/icons/greatwork_*.png) exists, print a scene from imgs/ as the
+# Until the user's generated poster (ICON_DIR/greatwork_*.png) exists, print a scene from the library as the
 # poster (user's new sketches, 10-25). Both works are magic films; the novel describes their posters.
 GREATWORK_ART = {
     # 烽火: an old-era knight; the mounted knight charging under a banner (watermark below y=1220 left out)
-    'BEACON_FIRE': ('场景——旧时代的骑士们.jpg', (0, 120, 753, 1180)),
+    'BEACON_FIRE': ('地点与场景/场景——旧时代的骑士们.jpg', (0, 120, 753, 1180)),
     # 移民: the novel's poster is a ship of migrants; the magic train with a lone traveller and his dog
-    'IMMIGRANTS': ('场景速写——魔能列车穿过原野2.jpg', (250, 28, 1650, 2000)),
+    'IMMIGRANTS': ('地点与场景/场景速写——魔能列车穿过原野2.jpg', (250, 28, 1650, 2000)),
 }
 # Historic moment illustrations made from the user's art (456 x 332 like the other three)
 MOMENTS = {
     # The Gorgon platforms are the smaller siblings of the flying fortress 尘世黎明号 (novel vol. 6):
     # anti-gravity platform with a synthetic "main brain". Crop leaves out the watermark at bottom right.
-    'MOMENT_UNIT_TSOD_GORGON_PLATFORM': ('尘世黎明号4.jpg', (0, 150, 2340, 1854)),
+    'MOMENT_UNIT_TSOD_GORGON_PLATFORM': ('建筑与造物/尘世黎明号4.jpg', (0, 150, 2340, 1854)),
 }
 GREATWORK_SIZES = [45, 64, 256]
 # Great person portraits, ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_<NAME>. 256 fills the Civilopedia portrait
 # slot (UI/CivilopediaPage_TsoDCE_GreatPersonPortraits.lua); 160 and 40 are what the "Real Great People"
 # mod asks for on its own page and list, under the same icon name.
 GP_SIZES = [40, 160, 256]
-# (individual, source in imgs/ and square crop box with the head centred) or (individual, None, None):
-# then the portrait comes from imgs/icons/greatperson_<name>.png once the user makes it.
+# (individual, source in the library and square crop box with the head centred) or (individual, None, None):
+# then the portrait comes from ICON_DIR/greatperson_<name>.png once the user makes it.
 GREAT_PEOPLE = [
-    ('REBECCA_CECIL', '瑞贝卡·塞西尔.jpeg', (352, 85, 742, 475)),
-    ('HETTIE_CECIL', '赫蒂·塞西尔.jpeg', (605, 40, 1185, 620)),
-    ('BYRON_KIRK', '拜伦·柯克.jpeg', (305, 26, 585, 306)),
-    ('SIR_PHILIP', '菲利普.jpg', (1225, 0, 2675, 1450)),
+    ('REBECCA_CECIL', '人物/瑞贝卡·塞西尔.jpeg', (352, 85, 742, 475)),
+    ('HETTIE_CECIL', '人物/赫蒂·塞西尔.jpeg', (605, 40, 1185, 620)),
+    ('BYRON_KIRK', '人物/拜伦·柯克.jpeg', (305, 26, 585, 306)),
+    ('SIR_PHILIP', '人物/菲利普.jpg', (1225, 0, 2675, 1450)),
     ('NICHOLAS_EGG', None, None),
-    ('PITMAN_LAUREN', '皮特曼·劳伦.jpg', (60, 0, 1020, 960)),
+    ('PITMAN_LAUREN', '人物/皮特曼·劳伦.jpg', (60, 0, 1020, 960)),
     ('FELM', None, None),
     ('JENNIE_PERRO', None, None),
     ('SANTIS_SAIDE', None, None),
     ('KAMEL_SLAYEN', None, None),
     ('NORRIS', None, None),
-    ('LEITE_AVIKEN', '莱特.jpg', (252, 440, 622, 810)),
+    ('LEITE_AVIKEN', '人物/莱特.jpg', (252, 440, 622, 810)),
 ]
 # Promotion badge colours by level, sampled from the base game's Promotions32.dds:
 # (light top corners, dark lower corners, bottom of the inset diamond)
