@@ -1,11 +1,8 @@
 cooker.log
 /Cooked
-# Art lives in ../Civ6 modding/黎明之剑-素材/ (outside the repo); the old art folders stay ignored
 /imgs
 /refs
 /images
-# PNG sources written by tools/make_art.py (the .dds/.tex in src/Textures are what ships)
 /art/generated/
-# Claude Code local settings and notes
 .claude/
 /docs/
