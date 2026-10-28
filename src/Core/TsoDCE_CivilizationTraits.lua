@@ -20,6 +20,9 @@ local AmberGoodyHutExpReward = 15
 -- rewarded from script instead.
 local AmberNaturalWonderExpReward = 30
 
+-- Each Selena activation grants this many turns of every Great Person point type.
+local SelenaPointTurns = 3
+
 -- Retirement: with a Foreign Ministry, Amber retires to head the Intelligence Bureau.
 local AmberUnitType = 'UNIT_TSOD_SCOUT_AMBER'
 local ForeignMinistryType = 'BUILDING_GOV_CITYSTATES'
@@ -187,6 +190,8 @@ function OnDistrictFirstConstructedGrantGreatPerson(playerId, districtId, _, _)
         GrantGreatPeopleOfCecil(playerId, 'NICHOLAS_EGG', 'ENGINEER', 'ERA_ANCIENT')
     elseif sDistrict == 'DISTRICT_PRESERVE' then
         GrantGreatPeopleOfCecil(playerId, 'NORRIS', 'SCIENTIST', 'ERA_ANCIENT')
+    elseif sDistrict == 'DISTRICT_ENTERTAINMENT_COMPLEX' or sDistrict == 'DISTRICT_WATER_ENTERTAINMENT_COMPLEX' then
+        GrantGreatPeopleOfCecil(playerId, 'SELENA_GELFIN', 'SCIENTIST', 'ERA_MEDIEVAL')
     end
 end
 
@@ -210,6 +215,17 @@ function OnCampusBuildingFirstConstructedGrantGreatPerson(iPlayer, _, buildingID
     end
 end
 
+function GrantGreatPersonPointTurns(pPlayer, iTurns)
+    local pPoints = pPlayer:GetGreatPeoplePoints()
+    for _, classSuffix in ipairs(AllClasses) do
+        local classId = GameInfo.GreatPersonClasses['GREAT_PERSON_CLASS_' .. classSuffix].Index
+        local points = pPoints:CalculatePointsPerTurn(classId) * iTurns
+        if points > 0 then
+            pPoints:ChangePointsTotal(classId, points)
+        end
+    end
+end
+
 function OnGreatPersonActivated(playerId, _, _, greatPersonIndividualId)
     if CecilPlayersMap == nil then
         return
@@ -230,6 +246,8 @@ function OnGreatPersonActivated(playerId, _, _, greatPersonIndividualId)
         pPlayer:GetCulture():TriggerBoost(culturaHerritageCivicId)
     elseif sIndividual == GreatPeopleTypePrefix .. 'HETTIE_CECIL' then
         pPlayer:SetProperty(IsHettiCecilActivated, true)
+    elseif sIndividual == GreatPeopleTypePrefix .. 'SELENA_GELFIN' then
+        GrantGreatPersonPointTurns(pPlayer, SelenaPointTurns)
     end
 end
 

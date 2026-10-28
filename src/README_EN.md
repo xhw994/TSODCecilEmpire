@@ -51,6 +51,8 @@ Passive: When the unit is at or adjacent to city center, +25% productivity when 
 Produces "The Immigrants" and "The Beacon Fire".
 [h3]Great Scientist Norris (Preserve)[/h3]
 Has 2 charges, the city gains 20% growth, stackable. Rice and wheat plots gain +1 food each.
+[h3]Great Scientist Selena Gelfin (Entertainment Complex or Water Park)[/h3]
+Has 2 charges: +10% Science and +10% Culture in the city, and instantly grants 3 turns' worth of Great Person points of every type.
 [/code]
 
 [hr][/hr]

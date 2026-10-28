@@ -39,7 +39,7 @@ end
 local CECIL_PEOPLE = {
     SIR_PHILIP = 'GENERAL', BYRON_KIRK = 'ADMIRAL', NICHOLAS_EGG = 'ENGINEER', PITMAN_LAUREN = 'MERCHANT',
     FELM = 'WRITER', REBECCA_CECIL = 'SCIENTIST', JENNIE_PERRO = 'SCIENTIST', SANTIS_SAIDE = 'SCIENTIST',
-    KAMEL_SLAYEN = 'SCIENTIST', LEITE_AVIKEN = 'PROPHET', HETTIE_CECIL = 'GOVERNOR', NORRIS = 'SCIENTIST',
+    KAMEL_SLAYEN = 'SCIENTIST', LEITE_AVIKEN = 'PROPHET', HETTIE_CECIL = 'GOVERNOR', NORRIS = 'SCIENTIST', SELENA_GELFIN = 'SCIENTIST',
 }
 local OFFICIAL_CLASSES = { 'GENERAL', 'ADMIRAL', 'ENGINEER', 'MERCHANT', 'PROPHET', 'SCIENTIST', 'WRITER', 'ARTIST', 'MUSICIAN' }
 local CECIL_CLASSES = { 'GENERAL', 'ADMIRAL', 'ENGINEER', 'MERCHANT', 'PROPHET', 'SCIENTIST', 'WRITER', 'GOVERNOR' }
@@ -177,7 +177,8 @@ local function Load(fSetup)
         Buildings = InfoTable({ { BuildingType = 'BUILDING_LIBRARY' }, { BuildingType = 'BUILDING_UNIVERSITY' },
             { BuildingType = 'BUILDING_RESEARCH_LAB' }, { BuildingType = 'BUILDING_GOV_CITYSTATES' }, { BuildingType = 'BUILDING_MONUMENT' } }, 'BuildingType'),
         Districts = InfoTable({ { DistrictType = 'DISTRICT_CAMPUS' }, { DistrictType = 'DISTRICT_GOVERNMENT' },
-            { DistrictType = 'DISTRICT_HOLY_SITE' }, { DistrictType = 'DISTRICT_AQUEDUCT' } }, 'DistrictType'),
+            { DistrictType = 'DISTRICT_HOLY_SITE' }, { DistrictType = 'DISTRICT_AQUEDUCT' },
+            { DistrictType = 'DISTRICT_ENTERTAINMENT_COMPLEX' }, { DistrictType = 'DISTRICT_WATER_ENTERTAINMENT_COMPLEX' } }, 'DistrictType'),
         Resources = InfoTable({ { ResourceType = 'RESOURCE_IRON' }, { ResourceType = 'RESOURCE_COAL' } }, 'ResourceType'),
         UnitPromotions = InfoTable({ { UnitPromotionType = 'PROMOTION_TSOD_CE_SHADOW_REALM' },
             { UnitPromotionType = 'PROMOTION_TSOD_CE_SHADOW_AUTHORITY' } }, 'UnitPromotionType'),
@@ -229,7 +230,7 @@ local cecil, other
 Load()
 cecil, other = Players[0], Players[1]
 local tAvail = cecil.props.TSOD_GreatPeopleOfCecilAvailability
-check(type(tAvail) == 'table' and #tAvail == 12, 'init: availability list holds the 12 Cecil great people')
+check(type(tAvail) == 'table' and #tAvail == 13, 'init: availability list holds the 13 Cecil great people')
 check(tAvail and tAvail.GREAT_PERSON_INDIVIDUAL_HYPATIA == nil, 'init: official great people are not in the list')
 check(cecil.props.TSOD_GawainGreatPeopleActivated and cecil.props.TSOD_GawainGreatPeopleActivated.SCIENTIST == 0,
     'init: activation counts start at 0')
@@ -306,6 +307,31 @@ Fire('Events.UnitGreatPersonActivated', 0, 1, 0, GameInfo.GreatPersonIndividuals
 check(cecil.research[7] == 300, 'rebecca: finishes the current research')
 Fire('Events.UnitGreatPersonActivated', 0, 1, 0, GameInfo.GreatPersonIndividuals.GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN.Index)
 check(cecil.boosts[GameInfo.Civics.CIVIC_CULTURAL_HERITAGE.Index] == true, 'kamel: boosts Cultural Heritage')
+
+-- Selena: granted by the first entertainment district, 3 turns of points per activation
+Load()
+cecil = Players[0]
+Fire('GameEvents.OnDistrictConstructed', 0, GameInfo.Districts.DISTRICT_WATER_ENTERTAINMENT_COMPLEX.Index, 0, 0)
+check(#World.grants == 1 and World.grants[1].ind == Hash('GreatPersonIndividuals', 'GREAT_PERSON_INDIVIDUAL_TSOD_CE_SELENA_GELFIN')
+    and World.grants[1].class == Hash('GreatPersonClasses', 'GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST'),
+    'selena: the first Water Park grants Selena as a Cecil Great Scientist')
+Fire('GameEvents.OnDistrictConstructed', 0, GameInfo.Districts.DISTRICT_ENTERTAINMENT_COMPLEX.Index, 0, 0)
+check(#World.grants == 1, 'selena: a later Entertainment Complex does not grant her again')
+Load()
+Fire('GameEvents.OnDistrictConstructed', 0, GameInfo.Districts.DISTRICT_ENTERTAINMENT_COMPLEX.Index, 0, 0)
+check(#World.grants == 1, 'selena: the first Entertainment Complex grants her too')
+cecil = Players[0]
+cecil.gppPerTurn[ClassIndex('GREAT_PERSON_CLASS_SCIENTIST')] = 8
+cecil.gppPerTurn[ClassIndex('GREAT_PERSON_CLASS_GENERAL')] = 2
+local iSelena = GameInfo.GreatPersonIndividuals.GREAT_PERSON_INDIVIDUAL_TSOD_CE_SELENA_GELFIN.Index
+Fire('Events.UnitGreatPersonActivated', 0, 1, 0, iSelena)
+check(cecil.gppAdded[ClassIndex('GREAT_PERSON_CLASS_SCIENTIST')] == 24 and cecil.gppAdded[ClassIndex('GREAT_PERSON_CLASS_GENERAL')] == 6,
+    'selena: activation grants 3 turns of each point type')
+check(cecil.gppAdded[ClassIndex('GREAT_PERSON_CLASS_ADMIRAL')] == nil, 'selena: types with no output get nothing')
+Fire('Events.UnitGreatPersonActivated', 0, 1, 0, iSelena)
+check(cecil.gppAdded[ClassIndex('GREAT_PERSON_CLASS_SCIENTIST')] == 48, 'selena: the second charge grants again')
+Fire('Events.UnitGreatPersonActivated', 1, 1, 0, iSelena)
+check(Players[1].gppAdded[ClassIndex('GREAT_PERSON_CLASS_SCIENTIST')] == nil, 'selena: other players get nothing')
 
 -- Hettie: military engineers building railroads refund coal --------------------
 Load()
