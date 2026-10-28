@@ -8,7 +8,7 @@ VALUES
     (
         'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
         'zh_Hans_CN',
-        '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}首次建成一个特殊区域，或者是首次建造学院区域建筑时，获赠一位塞西尔的独特伟人。'
+        '首次建成一个特殊区域，或者是首次建造学院区域建筑时，获赠一位塞西尔的独特伟人。[NEWLINE]{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}[NEWLINE]{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}'
     ),
     ('LOC_LEADER_TSOD_GAWAIN_CECIL_NAME', 'zh_Hans_CN', '高文·塞西尔'),
     ('LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME', 'zh_Hans_CN', '黎明之剑'),
@@ -58,7 +58,7 @@ VALUES
     ('LOC_DIPLO_MAKE_PEACE_AI_ACCEPT_DEAL_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '路就在那里，门只是一个虚无缥缈的装饰品罢了，只要抛开心理上的问题，哪怕是皇家宝库的大门也只需要一根芹菜而已。'),
     ('LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '我就是规矩。'),
     ('LOC_DIPLO_MAKE_PEACE_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '人人吃饱穿暖，就是最大的正义。'),
-    ('LOC_DIPLO_ACCEPT_OPEN_BORDERS_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '高文·塞西尔向你问好'),
+    ('LOC_DIPLO_ACCEPT_OPEN_BORDERS_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '道路已经敞开，让知识沿着它流动吧。'),
     ('LOC_DIPLO_REJECT_OPEN_BORDERS_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '我只是单纯地希望知识能传播出去，越广越好。'),
     ('LOC_DIPLO_OPEN_BORDERS_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '教导，学习，传播，知识的传递只要开始，就不会轻易停下，它会一直持续下去，直到每个人都有权利接触知识，都有权利思考和探究真理。你愿意向我们敞开边境吗？'),
     ('LOC_DIPLO_WARNING_TOO_MANY_TROOPS_NEAR_ME_LEADER_TSOD_GAWAIN_CECIL_ANY', 'zh_Hans_CN', '请把你的部队从塞西尔的边境上移走。'),
@@ -164,28 +164,28 @@ OR REPLACE INTO BaseGameText (Tag, Text)
 VALUES
     ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME', 'Cecil'),
     ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION', 'Cecil Empire'),
-    ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_ADJECTIVE', 'Cecil Empire''s'),
+    ('LOC_CIVILIZATION_TSOD_CECIL_EMPIRE_ADJECTIVE', 'Cecilian'),
     ('LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME', 'Quantifying the Truth'),
     (
         'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
-        '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}Upon first completing a special district, or a campus building for the first time, receive a unique Great Person of Cecil.'
+        'The first time each specialty district or Campus building is completed, receive a unique Great Person of Cecil.[NEWLINE]{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}[NEWLINE]{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}'
     ),
     ('LOC_LEADER_TSOD_GAWAIN_CECIL_NAME', 'Gawain Cecil'),
     ('LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME', 'The Sword of Dawn'),
     (
         'LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_DESCRIPTION',
-        'After recruiting a Great Person, gain an extra 20% in that type''s Great Person points per turn. Each additional Great Person of the same type increases this bonus by 10%. Additionally, each recruited Great Person provides an extra 5% in all types of Great Person points per turn. Each of these two mechanisms can independently provide up to 100% bonus points. Furthermore, Cecil''s Great People enhance the point output for their respective type in their recruitment region.'
+        'After recruiting a Great Person, gain an extra 20% in that type''s Great Person points per turn. Each additional Great Person of the same type increases this bonus by 10%. Additionally, each recruited Great Person provides an extra 5% in all types of Great Person points per turn. Each of these two mechanisms can independently provide up to 100% bonus points. Furthermore, Cecil''s Great People boost Great Person point output of their type in the district that granted them.'
     ),
     (
         'LOC_LOADING_INFO_LEADER_TSOD_GAWAIN_CECIL',
-        'Gawain Cecil, Lord of Knights, Pioneer, Protector, the Founder of the Kingdom. When this land was still called Ansu, you were its guardian in the south. Over the years, you have achieved numerous remarkable feats: revitalizing the southern lands, unifying a nation, leading an era, and even uniting the civilizations of this planet. You reclaimed the wastelands, defeated deities, and now you will lead this world against the Mana Tide, completing the final test before civilization steps into the stars... Such astonishing achievements, and to many people, all these feats are embodied in you. So, while achieving these great deeds, was there ever a moment, even just a fleeting instant, when you realized that you had almost become... a God?'
+        'Gawain Cecil, Lord of Knights, Pioneer, Protector, the Founder of the Kingdom. When this land was still called Ansu, you were its guardian in the south. Over the years, you have achieved numerous remarkable feats: revitalizing the southern lands, unifying a nation, leading an era, and even uniting the civilizations of this planet. You reclaimed the wastelands, defeated deities, and now you will lead this world against the mana tide, completing the final test before civilization steps into the stars... Such astonishing achievements, and to many people, all these feats are embodied in you. So, while achieving these great deeds, was there ever a moment, even just a fleeting instant, when you realized that you had almost become... a God?'
     ),
     -- Quotes
     ('LOC_LEADER_TSOD_GAWAIN_CECIL_INTRO_QUOTE', 'Knights are better than mages!'),
     ('LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Humanity will endure, even if it defies the gods.'),
     (
         'LOC_DIPLO_REJECT_DECLARE_FRIEND_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY',
-        'Only stronger partners can bring you greater benefits. I never worry about others'' development, as long as I ensure that I am the fastest developing one.'
+        'Only stronger partners can bring you greater benefits. I never worry about others'' development, as long as I make sure that I am the one developing fastest.'
     ),
     ('LOC_DIPLO_DECLARE_FRIEND_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Humans should revere nature, but not be hindered by it.'),
     ('LOC_DIPLO_ACCEPT_DECLARE_FRIEND_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Farewell is to meet again; good night is to embrace the next dawn together.'),
@@ -217,11 +217,11 @@ VALUES
     ),
     (
         'LOC_DIPLO_DENOUNCE_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY',
-        'If a ruler can only govern their people with violence and oppression, then their rule is not governance at all. Any wild beast could do the same. [NEWLINE] (Denouncing you)'
+        'If a ruler can only govern their people with violence and oppression, then their rule is not governance at all. Any wild beast could do the same.[NEWLINE](Denouncing you)'
     ),
     (
         'LOC_DIPLO_DENOUNCE_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY',
-        'If a ruler can only govern their people with violence and oppression, then their rule is not governance at all. Any wild beast could do the same. [NEWLINE] (Denouncing you)'
+        'If a ruler can only govern their people with violence and oppression, then their rule is not governance at all. Any wild beast could do the same.[NEWLINE](Denouncing you)'
     ),
     ('LOC_DIPLO_FIRST_MEET_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Humanity will endure, even if it defies the gods.'),
     ('LOC_DIPLO_FIRST_MEET_VISIT_RECIPIENT_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Welcome to Cecil, welcome to the future.'),
@@ -229,8 +229,8 @@ VALUES
     ('LOC_DIPLO_GREETING_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Gawain Cecil greets you.'),
     ('LOC_DIPLO_KUDO_EXIT_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Only justice and kindness will make people adhere, just as they naturally yearn for light.'),
     ('LOC_DIPLO_KUDO_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', '(You are strong in Science)'),
-    ('LOC_DIPLO_WARNING_EXIT_LEADER_TSOD_GAWAIN_CECIL_ANY', 'You have never really looked down to see the humble people.'),
-    ('LOC_DIPLO_WARNING_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', '(You are weak in Science.)'),
+    ('LOC_DIPLO_WARNING_EXIT_LEADER_TSOD_GAWAIN_CECIL_ANY', 'You have never truly looked down at the common people.'),
+    ('LOC_DIPLO_WARNING_LEADER_TSOD_GAWAIN_CECIL_REASON_ANY', '(You are weak in Science)'),
     (
         'LOC_DIPLO_MAKE_ALLIANCE_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY',
         'Alright, let''s put aside any class struggles or ideological differences. We are now in the same boat.'
@@ -241,7 +241,7 @@ VALUES
     ),
     ('LOC_DIPLO_MAKE_PEACE_AI_REFUSE_DEAL_LEADER_TSOD_GAWAIN_CECIL_ANY', 'I am the rule.'),
     ('LOC_DIPLO_MAKE_PEACE_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Everyone having enough to eat and wear is the greatest justice.'),
-    ('LOC_DIPLO_ACCEPT_OPEN_BORDERS_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Gawain Cecil greets you.'),
+    ('LOC_DIPLO_ACCEPT_OPEN_BORDERS_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'Our roads are open. Let knowledge travel along them.'),
     ('LOC_DIPLO_REJECT_OPEN_BORDERS_FROM_HUMAN_LEADER_TSOD_GAWAIN_CECIL_ANY', 'I simply wish for knowledge to be spread as widely as possible.'),
     (
         'LOC_DIPLO_OPEN_BORDERS_FROM_AI_LEADER_TSOD_GAWAIN_CECIL_ANY',
@@ -253,15 +253,15 @@ VALUES
     -- Pedia
     (
         'LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_1',
-        'Originally the Cecil territory in the southern Ansu region, the capital is also named Cecil. The first emperor was the legendary hero Gawain Cecil.'
+        'The empire began as the Cecil territory in southern Ansu, and its capital still bears the name Cecil. Its first emperor was the legendary hero Gawain Cecil.'
     ),
     (
         'LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_2',
-        'After the mana tide outbreak, a group of refugees (including Gawain Cecil) escaped from the Gondor Empire wasteland, opened up territories in the northern border, and established a kingdom, implementing the feudal lord system. The king (of the Moen family) resides in the central capital Silver Castle, with guardianship dukes (East: Loren; West: Franklin; South: Cecil; North: Wilder) guarding the four directions, under which countless fief lords are subordinate. Due to scarce resources, civilization level degraded to be equivalent to the mid-late medieval period.'
+        'After the mana tide outbreak, a group of refugees (including Gawain Cecil) escaped from the Gondor Empire wasteland, settled the lands beyond the northern border, and founded a feudal kingdom. The king, of the House of Moen, ruled from Silver Castle in the capital, while four guardian dukes held the four quarters (East: Loren; West: Franklin; South: Cecil; North: Wilder), each with countless vassal lords beneath them. With resources scarce, civilization fell back to roughly the level of the late Middle Ages.'
     ),
     (
         'LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_3',
-        'Seven hundred years later, when Gawain "resurrected," the Ansu Kingdom had entered the second dynasty due to the Fog Moon Rebellion, and the feudal system had stagnated and decayed, with civilization progress almost at a standstill.'
+        'Seven hundred years later, when Gawain "resurrected," the Ansu Kingdom had entered the second dynasty due to the Fog Moon Rebellion, and the feudal system had stagnated and decayed, bringing the progress of civilization almost to a standstill.'
     ),
     (
         'LOC_PEDIA_CIVILIZATIONS_PAGE_CIVILIZATION_TSOD_CECIL_EMPIRE_CHAPTER_HISTORY_PARA_4',
@@ -269,15 +269,15 @@ VALUES
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_CAPSULE_BODY',
-        'Gawain led the people to end the age of myths, resist the mana tide, and finally led all the civilizations on Loren planet towards the stars. In the game, he attempts to win through magitech and recruiting great people.'
+        'Gawain led the people to end the age of myths, resist the mana tide, and finally led all the civilizations of Loren towards the stars. In the game, he attempts to win through magitech and recruiting great people.'
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_DETAILED_BODY',
-        'Gawain has a gameplay focused on magitech and recruiting great people. Players need to obtain [ICON_Culture] culture points through pantheons in the early game to offset the disadvantage of not being able to build monuments. Once players can build the Mana Obelisk, they can gain significant district adjacency bonuses through careful planning and unlock relatively flexible development paths. The first time each specialty district is built, it grants a corresponding great person. These great people provide tactical bonuses that can change the game. Players can build an Encampment to obtain Sir Philip and unlock a conquest playstyle focused on saturation artillery bombardment; build a Holy Site to obtain Leite Aviken and, with religious beliefs, use [ICON_Faith] Faith to support the civilization; combine the Government Plaza, Industrial Zone, Commercial Hub, or Preserve to grow population efficiently and increase tile yields; or keep advancing technology to gain massive bonuses from the great people granted by Campus buildings. No matter which playstyle the player chooses, recruiting as many great people as possible and gaining great person point bonuses in the respective fields is essential.'
+        'Gawain has a gameplay focused on magitech and recruiting great people. Players need to obtain [ICON_Culture] culture points through pantheons in the early game to offset the disadvantage of not being able to build Monuments. Once players can build the Mana Obelisk, they can gain significant district adjacency bonuses through careful planning and unlock relatively flexible development paths. The first time each specialty district is built, it grants a corresponding great person. These great people provide tactical bonuses that can change the game. Players can build an Encampment to obtain Sir Philip and unlock a conquest playstyle focused on saturation artillery bombardment; build a Holy Site to obtain Leite Aviken and, with religious beliefs, use [ICON_Faith] Faith to support the civilization; combine the Government Plaza, Industrial Zone, Commercial Hub, or Preserve to grow population efficiently and increase tile yields; or keep advancing technology to gain massive bonuses from the great people granted by Campus buildings. No matter which playstyle the player chooses, recruiting as many great people as possible and gaining great person point bonuses in the respective fields is essential.'
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_HISTORY_PARA_1',
-        'The protagonist of "The Sword Of Dawn," a soul from Earth who crossed over due to a plane crash, awakening as a fixed perspective geostationary satellite floating over a planet. Later, possibly due to satellite failure, the soul was sent to the planet by an escape program and attached to the body of Gawain Cecil, an ancestor of the Cecil family of the Ansu Kingdom who died 700 years ago, and revived.'
+        'The protagonist of "The Sword of Dawn": a soul from Earth who crossed over after a plane crash and awoke as a geostationary satellite with a fixed view, floating above a planet. Later, possibly due to satellite failure, the soul was sent to the planet by an escape program and attached to the body of Gawain Cecil, an ancestor of the Cecil family of the Ansu Kingdom who died 700 years ago, and revived.'
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_HISTORY_PARA_2',
@@ -285,11 +285,11 @@ VALUES
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_HISTORY_PARA_3',
-        'Gawain later founded the Cecil Empire, served as emperor, while farming and developing magitech, pursued the truth of matters such as the "mana tide," "black trap," "deities," and "Pioneers," striving to lead everyone out of the millions of years of Great-Filter-like civilization cycle.'
+        'Gawain later founded the Cecil Empire and became its emperor. While building up his realm and developing magitech, he pursued the truth of matters such as the "mana tide," "black trap," "deities," and "Pioneers," striving to lead everyone out of the millions of years of Great-Filter-like civilization cycle.'
     ),
     (
         'LOC_PEDIA_LEADERS_PAGE_LEADER_TSOD_GAWAIN_CECIL_CHAPTER_HISTORY_PARA_4',
-        'After slaying the War God, Gawain united all races on the continent, established the "Theocracy Council," sought ways for gods and mortals to coexist, led the alliance to counterattack the wasteland, facilitated communications with the Noy civilization, and eventually proposed a complete homeworld barrier plan, leading the Loren mortal civilizations to a new dawn.'
+        'After slaying the God of War, Gawain united all races on the continent, established the Theocratic Council, sought ways for gods and mortals to coexist, led the alliance to counterattack the wasteland, facilitated communications with the Noy civilization, and eventually proposed a complete homeworld barrier plan, leading the Loren mortal civilizations to a new dawn.'
     ),
     -- City names
     ('LOC_CITY_NAME_TSOD_CECIL', 'Cecil'),
@@ -347,5 +347,5 @@ VALUES
     ('LOC_DIPLO_MODIFIER_TSOD_TRUTH_SEEKER_HIGH_SCIENCE', 'Gawain Cecil is pleased with your efforts to spread knowledge to the people'),
     ('LOC_DIPLO_MODIFIER_TSOD_TRUTH_SEEKER_LOW_SCIENCE', 'Gawain Cecil is disappointed that you keep your people uneducated'),
     -- Traits
-    ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', '+1 [ICON_Science] science to improved quarries.'),
-    ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', '+3 [ICON_Faith] faith to correctly improved Niter.');
+    ('LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION', 'Quarries provide +1 [ICON_Science] Science.'),
+    ('LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION', 'Mined Niter provides +3 [ICON_Faith] Faith.');

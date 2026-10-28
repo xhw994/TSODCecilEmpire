@@ -66,7 +66,7 @@ VALUES
     ('LOC_PROMOTION_TSOD_CE_NIGHT_MISTRESS_NAME', 'zh_Hans_CN', '夜幕之城的女主人'),
     ('LOC_PROMOTION_TSOD_CE_NIGHT_MISTRESS_DESCRIPTION', 'zh_Hans_CN', '+1视野范围，显示视野范围内的隐形单位。'),
     ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_NAME', 'zh_Hans_CN', '暗影权能'),
-    ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_DESCRIPTION', 'zh_Hans_CN', '攻击后可移动。+1对所有文明的外交等级。'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_DESCRIPTION', 'zh_Hans_CN', '攻击后可移动。+1对所有文明的外交能见度。'),
     ('LOC_VIZSOURCE_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '琥·总而言之就是超厉害·珀'),
     ('LOC_VIZSOURCE_ACTION_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '将琥珀提升至最高等级。'),
     ('LOC_GOSSIP_SOURCE_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '{1_Name}，发现了'),
@@ -87,20 +87,20 @@ VALUES
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_NAME', 'Rebecca Cecil'),
     ('LOC_GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL_DUMMY_DESCRIPTION', 'Instantly completes the technology currently being researched.'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_JENNIE_PERRO_NAME', 'Jennie Perro'),
-    ('LOC_GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS_DESCRIPTION', 'Instantly complete the Mathematics technology.'),
-    ('LOC_GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION', 'Construct a Mana Obelisk in the City Center.'),
+    ('LOC_GREATPERSON_GRANT_TECHNOLOGY_MATHEMATICS_DESCRIPTION', 'Instantly completes the Mathematics technology.'),
+    ('LOC_GREATPERSON_GRANT_BUILDING_TSOD_MANA_OBELISK_DESCRIPTION', 'Constructs a Mana Obelisk in the City Center.'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SANTIS_SAIDE_NAME', 'Santis Saide'),
-    ('LOC_GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE_DESCRIPTION', 'The city gains +4 [ICON_Science] Science.'),
+    ('LOC_GREATPERSON_SINGLE_CITY_ADD_4_SCIENCE_DESCRIPTION', '+4 [ICON_Science] Science in this city.'),
     ('LOC_UNIVERSITY_BONUS_AMENITY_ATTACH_DESCRIPTION', 'All cities with a University receive +1 [ICON_Amenities] Amenity.'),
     (
         'LOC_GREATPERSON_TSOD_CE_SANTIS_SAIDE_ACTIVE',
         'Instantly builds a University and a Library in this district. +4 [ICON_Science] Science in this city. All cities with a University receive +1 [ICON_Amenities] Amenity.'
     ),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_NAME', 'Kamel Slayen'),
-    ('LOC_GREATPERSON_ELECTRICITYTECHBOOST_DESCRIPTION', 'Trigger a [ICON_TechBoosted] Eureka moment for the Electricity technology.'),
+    ('LOC_GREATPERSON_ELECTRICITYTECHBOOST_DESCRIPTION', 'Triggers the [ICON_TechBoosted] Eureka moment for the Electricity technology.'),
     (
         'LOC_GREATPERSON_DUMMY_TSOD_CE_KAMEL_SLAYEN_INSPIRATION_DESCRIPTION',
-        'Trigger an [ICON_CivicBoosted] Inspiration moment for the Cultural Heritage civic.'
+        'Triggers the [ICON_CivicBoosted] Inspiration moment for the Cultural Heritage civic.'
     ),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_NORRIS_NAME', 'Norris'),
     ('LOC_GREATPERSON_SINGLE_CITY_20_GROWTH_DESCRIPTION', '+20% population growth in this city.'),
@@ -114,10 +114,10 @@ VALUES
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_GENERAL_NAME', 'Great General of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_SIR_PHILIP_NAME', 'Sir Philip'),
-    ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH_DESCRIPTION', '+1 [ICON_Range] range to siege units.'),
+    ('LOC_GREATPERSON_SIEGE_UNIT_ATTACK_RANGE_ATTACH_DESCRIPTION', '+1 [ICON_Range] Range to siege units.'),
     (
         'LOC_GREATPERSON_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_ATTACH_DESCRIPTION',
-        '+3 [ICON_Bombard] Bombard Strength to siege units vs. units, instead of the debuff.'
+        'Siege units attacking units get +3 [ICON_Bombard] Bombard Strength instead of the usual penalty.'
     ),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_NAME', 'The "Art"'),
     ('LOC_SIEGE_UNIT_ATTACK_DAMAGE_BUFF_VS_UNITS_DESCRIPTION', '+20 [ICON_Bombard] Bombard Strength vs. units.'),
@@ -125,7 +125,7 @@ VALUES
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_ADMIRAL_NAME', 'Great Admiral of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_BYRON_KIRK_NAME', 'Byron Kirk'),
     ('LOC_GREATPERSON_COMBAT_STRENGTH_AOE_ALL_ERA_SEA_DESCRIPTION', '+5 [ICON_Strength] Combat Strength to naval units within 2 tiles.'),
-    ('LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION', 'Gain 1 [ICON_Envoy] envoy.'),
+    ('LOC_GREATPERSON_GRANT_INFLUENCE_TOKEN_DESCRIPTION', 'Grants 1 [ICON_Envoy] Envoy.'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_PROPHET_NAME', 'Great Patriarch of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN_NAME', 'Leite Aviken'),
     ('LOC_ABILITY_COMBAT_STRENGTH_AOE_RELIGIOUS_NAME', 'Guidance of the Great Patriarch'),
@@ -133,13 +133,13 @@ VALUES
     ('LOC_COMBAT_STRENGTH_AOE_RELIGIOUS_DESCRIPTION', '+5 [ICON_Religion] Religious Strength to religious units within 2 tiles.'),
     (
         'LOC_GREATPERSON_CITY_POPULATION_RELIGIOUS_YIELD_ATTACH_DESCRIPTION',
-        'If this city follows any religion, +0.5 [ICON_Faith] faith yield per population.'
+        'If this city follows a Religion, +0.5 [ICON_Faith] Faith per Citizen.'
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_MERCHANT_NAME', 'Great Merchant of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_NAME', 'Pitman Lauren'),
     (
         'LOC_GREATPERSON_GRANT_LUXURY_POTION_DESCRIPTION',
-        'Grants 2 [ICON_RESOURCE_TSOD_CE_POTION] Potion, a uniquely manufactured Luxury resource which provides +4 [ICON_Amenities] Amenities.'
+        'Grants 2 [ICON_RESOURCE_TSOD_CE_POTION] Potions, a uniquely manufactured Luxury resource which provides +4 [ICON_Amenities] Amenities.'
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_WRITER_NAME', 'Great Playwright of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_FELM_NAME', 'Felm'),
@@ -152,31 +152,31 @@ VALUES
     ('LOC_UNIT_TSOD_GORGON_PLATFORM_NAME', 'Gorgon Platform'),
     (
         'LOC_UNIT_TSOD_GORGON_PLATFORM_DESCRIPTION',
-        'Cecil''s unique Atomic era support unit, replaces the Drone. Adds +1 [ICON_Range] range and +5 [ICON_Strength] bombard strength to siege units within 1 hex. Can heal adjacent units.'
+        'Cecilian unique Atomic era support unit that replaces the Drone. Siege units within 1 tile get +1 [ICON_Range] Range and +5 [ICON_Bombard] Bombard Strength. Can heal adjacent units.'
     ),
     (
         'LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_DESCRIPTION',
-        '+1 [ICON_Range] range and +5 [ICON_Strength] bombard strength to siege units adjacent to Gorgon Platform.'
+        '+1 [ICON_Range] Range and +5 [ICON_Bombard] Bombard Strength to siege units adjacent to a Gorgon Platform.'
     ),
-    ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_MODIFIER', '+{1_Amount} bombard strength adjacent to Gorgon Platform.'),
+    ('LOC_TSOD_GORGON_PLATFORM_SIEGE_BONUS_MODIFIER', '+{1_Amount} Bombard Strength from an adjacent Gorgon Platform.'),
     ('LOC_PROMOTION_CLASS_TSOD_SCOUT_AMBER_NAME', 'Amber'),
     ('LOC_PROMOTION_TSOD_CE_SHADOW_REALM_NAME', 'Shadow Realm'),
     ('LOC_PROMOTION_TSOD_CE_SHADOW_REALM_DESCRIPTION', '+1 sight range. Can see through all terrain types and features.'),
     ('LOC_PROMOTION_TSOD_CE_MASTER_THIEF_NAME', 'Master Thief'),
-    ('LOC_PROMOTION_TSOD_CE_MASTER_THIEF_DESCRIPTION', '+15 [ICON_Strength] combat strength against wounded enemies.'),
+    ('LOC_PROMOTION_TSOD_CE_MASTER_THIEF_DESCRIPTION', '+15 [ICON_Strength] Combat Strength against wounded enemies.'),
     ('LOC_PROMOTION_TSOD_CE_SHADOW_CREATURE_NAME', 'Shadow Creature'),
-    ('LOC_PROMOTION_TSOD_CE_SHADOW_CREATURE_DESCRIPTION', '+1 [ICON_Movement] movement. Ignore movement penalties from all terrain types.'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CREATURE_DESCRIPTION', '+1 [ICON_Movement] Movement. Ignores movement penalties from all terrain.'),
     ('LOC_PROMOTION_TSOD_CE_TAVERN_QUEEN_NAME', 'Tavern Queen'),
     (
         'LOC_PROMOTION_TSOD_CE_TAVERN_QUEEN_DESCRIPTION',
         'Heals outside of friendly territory. Will always heal at the end of turn regardless of action.'
     ),
     ('LOC_PROMOTION_TSOD_CE_SHADOW_CHOSEN_NAME', 'Night''s Chosen'),
-    ('LOC_PROMOTION_TSOD_CE_SHADOW_CHOSEN_DESCRIPTION', '+1 [ICON_Movement] movement. Only adjacent enemy units can reveal this unit.'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_CHOSEN_DESCRIPTION', '+1 [ICON_Movement] Movement. Only adjacent enemy units can reveal this unit.'),
     ('LOC_PROMOTION_TSOD_CE_NIGHT_MISTRESS_NAME', 'Night Mistress'),
-    ('LOC_PROMOTION_TSOD_CE_NIGHT_MISTRESS_DESCRIPTION', '+1 sight range, reveals invisible units within the vision range.'),
+    ('LOC_PROMOTION_TSOD_CE_NIGHT_MISTRESS_DESCRIPTION', '+1 sight range. Reveals stealthed units within sight range.'),
     ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_NAME', 'Shadow Authority'),
-    ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_DESCRIPTION', 'Can move after attacking. +1 diplomatic rank with all civilizations.'),
+    ('LOC_PROMOTION_TSOD_CE_SHADOW_AUTHORITY_DESCRIPTION', 'Can move after attacking. +1 diplomatic visibility with all civilizations.'),
     ('LOC_VIZSOURCE_TSOD_SCOUT_AMBER', 'Amber in Her Ultimate State!'),
     ('LOC_VIZSOURCE_ACTION_TSOD_SCOUT_AMBER', 'Promote Amber to the highest level.'),
     ('LOC_GOSSIP_SOURCE_TSOD_SCOUT_AMBER', '{1_Name}, uncovered news that'),
@@ -415,7 +415,7 @@ VALUES
     ),
     (
         'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_CHAPTER_HISTORY_PARA_1',
-        'Kamel was once a senior adviser to the Gondor mage corps a thousand years ago, and the watcher of the Defiant Fortress. Now a being made of mana and clad in rune-inscribed armor plates, he was for a time dangerously unstable; it was Gawain calling out his name that settled him. He then swore to keep the oath he had sworn a thousand years before, and pledged himself to the lord of Cecil.'
+        'A thousand years ago, Kamel was a senior adviser to the Gondor mage corps and the watcher of the Defiers'' Fortress. Now a being made of mana and clad in rune-inscribed armor plates, he was for a time dangerously unstable; it was Gawain calling out his name that settled him. He then swore to keep the oath he had sworn a thousand years before, and pledged himself to the lord of Cecil.'
     ),
     (
         'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_KAMEL_SLAYEN_CHAPTER_HISTORY_PARA_2',
@@ -459,7 +459,7 @@ VALUES
     ),
     (
         'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_LEITE_AVIKEN_CHAPTER_HISTORY_PARA_2',
-        'He saw for himself what the church had become on the Holy Spirit Plain, and on the way back he brought home a band of refugees the church had persecuted. He wears full plate armor but serves as a physician, with a conspicuous red triangle painted on his breastplate. In time he became the leader of the White Knights and Grand Patriarch of the new faith.'
+        'He saw for himself what the church had become on the Holy Spirit Plain, and on the way back he brought home a band of refugees the church had persecuted. He wears full plate armor but serves as a physician, with a conspicuous red triangle painted on his breastplate. In time he became the leader of the White Knights and Great Patriarch of the new faith.'
     ),
     (
         'LOC_PEDIA_GREATPEOPLE_PAGE_GREAT_PERSON_INDIVIDUAL_TSOD_CE_PITMAN_LAUREN_CHAPTER_HISTORY_PARA_1',
