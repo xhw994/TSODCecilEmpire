@@ -16,7 +16,7 @@ What it makes:
     FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL    825 x 1024  diplomacy screen, figure in the left 594 px:
         seated Gawain, cut-out 加工图/..._NEUTRAL-1.png of 人物/8ab7bc05….jpg (user's choice)
     LEADER_TSOD_GAWAIN_CECIL_DIPLOMACY_BACKGROUND 1920 x 1080 diplomacy background: the space scene
-        地点与场景/57c9a50d….jpg, cropped so the planet sits behind Gawain (user's choice)
+        建筑与造物/57c9a50d….jpg, cropped so the planet sits behind Gawain (user's choice)
   Fog-of-war versions, from the current 256 px icons
     ICON_UNIT_TSOD_SCOUT_AMBER_FOW_*, ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_*  (22 32 38 50 80 256)
     ICON_BUILDING_TSOD_MANA_OBELISK_FOW_*                                  (32 38 50 80 128 256)
@@ -75,7 +75,7 @@ SRC_GAWAIN_SEATED = os.path.join(MOD, '加工图', 'LEADER_TSOD_GAWAIN_CECIL_NEU
 # Scale 0.29 fits the whole width into 594 px, so the face and both hands are on screen in the 0.714 view.
 FALLBACK_BOX = (0, 1231, 2048, 4096)        # 2048 x 2865, from just above the head to the bottom edge
 FALLBACK_SCALE = 0.29                       # -> 594 x 831, bottom-aligned in the 825 x 1024 canvas
-SRC_DIPLO_BG = '地点与场景/57c9a50de27fe58a5dbac4a33ecf461d4c709593.jpg'
+SRC_DIPLO_BG = '建筑与造物/57c9a50de27fe58a5dbac4a33ecf461d4c709593.jpg'   # Gawain's true body: the orbital station around Lorren
 # 4000 x 2115; planet at x 1000-1850 (centre 1425), y 900-1730 (centre 1315). The head is at ~78% across
 # while he speaks and ~90% in the normal view, so the planet centre goes at 83%, 47% down: it stays behind
 # him in both views and runs a little off the right edge.
