@@ -6,3 +6,4 @@ cooker.log
 /art/generated/
 # Claude Code local settings and notes
 .claude/
+/docs/
