@@ -30,7 +30,11 @@ What it makes:
     greatwork_<name>.png  -> ICON_GREATWORK_TSOD_CE_<NAME>_45/64/256
       (until then the great works use a scene from 地点与场景/ printed as a poster, GREATWORK_ART)
     and rewrites src/Icons/TsoDCE_UnitPromotionIcons.xml / TsoDCE_GreatworkIcons.xml to match.
-  Historic moments from the library (MOMENTS): MOMENT_UNIT_TSOD_GORGON_PLATFORM 456 x 332.
+  Historic moments (MOMENTS), 456 x 332 in the official look: ink sketch toned dark brown to warm yellow,
+  edges faded with one of the civ6-modding skill's moment PS templates (MOMENT_TEMPLATES; user's choice, 10-27):
+    MOMENT_UNIT_TSOD_GORGON_PLATFORM, MOMENT_BUILDING_TSOD_MANA_OBELISK, MOMENT_UNIT_TSOD_SCOUT_AMBER
+  Loyalty lens pressure pip LOYALTY_PRESSURE_TSOD_CECIL_EMPIRE (128, emblem 44 px like the official ones;
+    only the .dds is written, the hand-made .tex stays).
 
 Everything else in src/Textures is hand-made and left alone. Crops are in source-image pixels;
 adjust them here and re-run. Same approach as tools/make_art.py in the Typhon mod.
@@ -110,12 +114,28 @@ GREATWORK_ART = {
     # 移民: the novel's poster is a ship of migrants; the magic train with a lone traveller and his dog
     'IMMIGRANTS': ('地点与场景/场景速写——魔能列车穿过原野2.jpg', (250, 28, 1650, 2000)),
 }
-# Historic moment illustrations made from the user's art (456 x 332 like the other three)
+# Historic moment illustrations: (source in the library, crop box or None when it is already 456 x 332,
+# edge template). The templates are the six whose edge is closest to the mean alpha of the 288 official
+# 456 x 332 Moment*.dds (11 and 13 closest); each moment gets its own, as the official ones vary.
+# The 25 templates are local files of the civ6-modding skill (assets/ is not in its git; see its
+# references/local-resources.md).
+MOMENT_TEMPLATES = os.path.join(ROOT, '..', 'Civ6 modding', 'civ6-modding-suite', 'skills', 'civ6-modding',
+                                'assets', 'templates', 'moment')
 MOMENTS = {
     # The Gorgon platforms are the smaller siblings of the flying fortress 尘世黎明号 (novel vol. 6):
     # anti-gravity platform with a synthetic "main brain". Crop leaves out the watermark at bottom right.
-    'MOMENT_UNIT_TSOD_GORGON_PLATFORM': ('建筑与造物/尘世黎明号4.jpg', (0, 150, 2340, 1854)),
+    'MOMENT_UNIT_TSOD_GORGON_PLATFORM': ('建筑与造物/尘世黎明号4.jpg', (0, 150, 2340, 1854), '11'),
+    # crop of the obelisk concept sheet 建筑与造物/7bf3087bly1gewtbt04phj20nh11qn38.jpg
+    'MOMENT_BUILDING_TSOD_MANA_OBELISK': (os.path.join(MOD, '加工图', 'MOMENT_BUILDING_TSOD_MANA_OBELISK.png'), None, '13'),
+    # Gawain and Amber, a cut-out of 人物/c255074c….jpg (its transparent corners are kept)
+    'MOMENT_UNIT_TSOD_SCOUT_AMBER': (os.path.join(MOD, '加工图', 'MOMENT_UNIT_TSOD_SCOUT_AMBER.png'), None, '7'),
 }
+MOMENT_SIZE = (456, 332)
+# Loyalty lens pressure pip: the user's hand-made 128 px emblem, shrunk so its long side is 44 px
+# (the 85 official Loyalty_Pressure_*.dds: median 43, range 36-54; it was 62)
+SRC_PRESSURE = os.path.join(MOD, '加工图', 'LOYALTY_PRESSURE_TSOD_CECIL_EMPIRE.png')
+PRESSURE = 'LOYALTY_PRESSURE_TSOD_CECIL_EMPIRE'
+PRESSURE_EMBLEM = 44
 GREATWORK_SIZES = [45, 64, 256]
 # Great person portraits, ICON_GREAT_PERSON_INDIVIDUAL_TSOD_CE_<NAME>. 256 fills the Civilopedia portrait
 # slot (UI/CivilopediaPage_TsoDCE_GreatPersonPortraits.lua); 160 and 40 are what the "Real Great People"
@@ -474,11 +494,67 @@ def poster(scene):
     return fit_rgba(canvas, 0.94)
 
 
+# The official moments' tone band, dark brown to warm yellow (civ6-modding skill, art_pipeline.py MOMENT_RAMP,
+# from the 288 official 456 x 332 Moment*.dds; their opaque pixels run from luminance ~53 to ~196)
+MOMENT_RAMP = [(55, 42, 20), (74, 56, 28), (88, 70, 36), (105, 86, 46), (122, 103, 55), (140, 119, 65),
+               (157, 136, 76), (174, 152, 87), (192, 169, 99), (210, 185, 112), (221, 195, 123)]
+
+
+def sketch_gray(gray, blur=5, mix=0.6, lift=0.75):
+    """Pencil sketch of a grey picture: colour dodge of the blurred negative keeps the lines and turns flat
+    areas to paper, times a lightened copy of the picture so forms keep some shading. The official moments
+    are ink drawings; plain toning left the dark paintings a muddy brown."""
+    neg = ImageOps.invert(gray).filter(ImageFilter.GaussianBlur(blur))
+    lines = Image.new('L', gray.size)
+    lines.putdata([255 if b >= 255 else min(255, a * 255 // (255 - b))
+                   for a, b in zip(gray.tobytes(), neg.tobytes())])
+    shade = gray.point(lambda v: round(255 * (v / 255) ** lift))
+    return ImageChops.multiply(lines, Image.blend(Image.new('L', gray.size, 255), shade, mix))
+
+
+def moment_look(img, template):
+    """456 x 332 picture -> official-style moment: ink sketch on the tone band; alpha is the picture's own
+    alpha times the template's brush edge (the PSD composite is the edge shape, white = keep)."""
+    alpha = img.getchannel('A')
+    visible = alpha.point(lambda v: 255 if v > 128 else 0)
+    gray = ImageOps.autocontrast(img.convert('L'), cutoff=1, mask=visible)    # levels from what shows
+    gray = ImageOps.autocontrast(sketch_gray(gray), cutoff=1, mask=visible)
+    n = len(MOMENT_RAMP) - 1
+    lut = [[], [], []]
+    for v in range(256):
+        t = v / 255 * n
+        i = min(int(t), n - 1)
+        for c in range(3):
+            lut[c].append(round(MOMENT_RAMP[i][c] + (MOMENT_RAMP[i + 1][c] - MOMENT_RAMP[i][c]) * (t - i)))
+    out = Image.merge('RGB', [gray.point(lut[c]) for c in range(3)]).convert('RGBA')
+    edge = Image.open(os.path.join(MOMENT_TEMPLATES, template + '.psd')).convert('L').resize(img.size, Image.LANCZOS)
+    out.putalpha(ImageChops.multiply(alpha, edge))
+    return out
+
+
 def moments():
     made = {}
-    for name, (src, box) in MOMENTS.items():
-        made[name] = emit(crop_resize(Image.open(os.path.join(IMG, src)).convert('RGBA'), box, (456, 332)), name)
+    for name, (src, box, template) in MOMENTS.items():
+        img = Image.open(os.path.join(IMG, src)).convert('RGBA')
+        img = crop_resize(img, box, MOMENT_SIZE) if box else img
+        if img.size != MOMENT_SIZE:
+            raise SystemExit('%s is %dx%d; moments are %dx%d' % (src, *img.size, *MOMENT_SIZE))
+        made[name] = emit(moment_look(img, template), name)
     return made
+
+
+def loyalty_pressure():
+    """Shrink the hand-made pressure pip's emblem to the official size. Writes the PNG and the .dds with its
+    full mip chain (Generic_BaseColor, like the official ones); the hand-made .tex already describes it."""
+    src = Image.open(os.path.join(IMG, SRC_PRESSURE)).convert('RGBA')
+    emblem = src.crop(src.getchannel('A').getbbox())
+    scale = PRESSURE_EMBLEM / max(emblem.size)
+    emblem = emblem.resize((round(emblem.width * scale), round(emblem.height * scale)), Image.LANCZOS)
+    pip = Image.new('RGBA', src.size, (255, 255, 255, 0))
+    pip.alpha_composite(emblem, ((src.width - emblem.width) // 2, (src.height - emblem.height) // 2))
+    pip.save(os.path.join(GEN_DIR, PRESSURE + '.png'))
+    write_dds(pip, os.path.join(TEX_DIR, PRESSURE + '.dds'), mips=True)
+    return pip
 
 
 def user_icons(icon_dir):
@@ -655,9 +731,14 @@ def previews(out, art, fow):
         for i, (name, im) in enumerate(items):
             sheet.alpha_composite(im, (i * 310 + 20, 15))
         sheet.save(os.path.join(out, 'great_person_portraits.png'))
-    # 7. historic moments made here
+    # 7. historic moments made here, on the timeline's parchment colour; the loyalty pip on a map green
     for name, im in art['moments'].items():
-        im.convert('RGB').save(os.path.join(out, name + '.jpg'), quality=90)
+        bg = Image.new('RGBA', im.size, (196, 172, 112, 255))
+        bg.alpha_composite(im)
+        bg.convert('RGB').save(os.path.join(out, name + '.jpg'), quality=90)
+    bg = Image.new('RGBA', (128, 128), (46, 58, 40, 255))
+    bg.alpha_composite(art['pressure'])
+    bg.save(os.path.join(out, PRESSURE + '.png'))
     # 8. user icons: promotions at 32 px and 4x, great works at 256
     if art['user']:
         items = list(art['user'].items())
@@ -684,6 +765,7 @@ def main():
     art['user'], promos, works = user_icons(icon_dir)
     art['people'] = great_person_portraits(icon_dir)
     art['moments'] = moments()
+    art['pressure'] = loyalty_pressure()
     people = list(art['people'])
     xml_changed = write_icon_xml(promos, works)
     xml_changed |= write_great_people_xml(people)
