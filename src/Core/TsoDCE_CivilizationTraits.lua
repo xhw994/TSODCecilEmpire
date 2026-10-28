@@ -20,6 +20,15 @@ local AmberGoodyHutExpReward = 15
 -- rewarded from script instead.
 local AmberNaturalWonderExpReward = 30
 
+-- Bureau Chief: the Foreign Ministry makes Amber head of the Intelligence Bureau.
+local AmberUnitType = 'UNIT_TSOD_SCOUT_AMBER'
+local ForeignMinistryType = 'BUILDING_GOV_CITYSTATES'
+local AmberBureauAbility = 'ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF'
+local AmberBureauModifier = 'MODIFIER_TSOD_CE_AMBER_BUREAU_DIPLO_VISIBILITY'
+local AmberBureauChiefProperty = 'TSOD_CE_AmberBureauChief'
+-- Defined further down, used by OnTurnBegin above it.
+local GrantAmberBureauAbility
+
 -- [featureId] = { { x, y }, ... } for every natural wonder on the map
 local NaturalWonderPlots = nil
 -- [playerId] = { [featureId] = true } snapshot of the wonders a player has revealed
@@ -257,6 +266,10 @@ function OnTurnBegin()
         -- silently so that Amber is only rewarded for her own discoveries.
         SyncRevealedNaturalWonders(iPlayer)
 
+        if pPlayer:GetProperty(AmberBureauChiefProperty) == true then
+            GrantAmberBureauAbility(pPlayer)
+        end
+
         local tGreatPeopleActivatedList = pPlayer:GetProperty(GawainGreatPeopleActivated)
         if not tGreatPeopleActivatedList then
             print('Error: Great person activated list was not intialized properly')
@@ -389,6 +402,58 @@ function OnGoodyHutRewardByAmber(playerId, unitId, _, _)
     print('Grant ' .. AmberGoodyHutExpReward .. ' experience to Amber on goody hut reward')
 end
 
+-- Shows the Bureau Chief ability on every Amber the player owns (she may be
+-- re-created, so this runs again each turn).
+GrantAmberBureauAbility = function(pPlayer)
+    for _, pUnit in pPlayer:GetUnits():Members() do
+        if GameInfo.Units[pUnit:GetType()].UnitType == AmberUnitType then
+            local pAbility = pUnit:GetAbility()
+            if pAbility:GetAbilityCount(AmberBureauAbility) < 1 then
+                pAbility:ChangeAbilityCount(AmberBureauAbility, 1)
+            end
+        end
+    end
+end
+
+-- The visibility bonus is attached once and is permanent: losing the Foreign
+-- Ministry later does not take it away.
+function ApplyAmberBureauChief(playerId)
+    local pPlayer = CecilPlayersMap and CecilPlayersMap[playerId]
+    if not pPlayer or pPlayer:GetProperty(AmberBureauChiefProperty) == true then
+        return false
+    end
+
+    pPlayer:AttachModifierByID(AmberBureauModifier)
+    pPlayer:SetProperty(AmberBureauChiefProperty, true)
+    GrantAmberBureauAbility(pPlayer)
+    print('Amber is now Bureau Chief for player ' .. playerId)
+    return true
+end
+
+local function PlayerHasForeignMinistry(pPlayer)
+    local row = GameInfo.Buildings[ForeignMinistryType]
+    if not row then
+        return false
+    end
+    for _, pCity in pPlayer:GetCities():Members() do
+        if pCity:GetBuildings():HasBuilding(row.Index) then
+            return true
+        end
+    end
+    return false
+end
+
+function OnForeignMinistryConstructed(playerId, _, buildingId, _, _)
+    if CecilPlayersMap == nil or not CecilPlayersMap[playerId] then
+        return
+    end
+
+    local row = GameInfo.Buildings[buildingId]
+    if row and row.BuildingType == ForeignMinistryType then
+        ApplyAmberBureauChief(playerId)
+    end
+end
+
 function InitTsoDCecilEmpireTraits()
     print('Initializing TSOD Cecil Empire civilization traits...')
     local tGreatPeopleAvailability = {}
@@ -434,8 +499,16 @@ function InitTsoDCecilEmpireTraits()
         end
     end
 
+    -- Saves from before this feature: a Foreign Ministry built earlier still counts.
+    for iPlayer, pPlayer in pairs(CecilPlayersMap) do
+        if pPlayer:GetProperty(AmberBureauChiefProperty) ~= true and PlayerHasForeignMinistry(pPlayer) then
+            ApplyAmberBureauChief(iPlayer)
+        end
+    end
+
     GameEvents.OnDistrictConstructed.Add(OnDistrictFirstConstructedGrantGreatPerson)
     GameEvents.BuildingConstructed.Add(OnCampusBuildingFirstConstructedGrantGreatPerson)
+    GameEvents.BuildingConstructed.Add(OnForeignMinistryConstructed)
     Events.UnitGreatPersonActivated.Add(OnGreatPersonActivated)
     Events.UnitOperationStarted.Add(OnMilitaryEngineerBuildRailroad)
     Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)
