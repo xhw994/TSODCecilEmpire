@@ -153,40 +153,21 @@ VALUES
         'TRAIT_UNIT_TSOD_SCOUT_AMBER'
     );
 
--- Bureau Chief: once a Cecil player completes the Foreign Ministry, Amber takes
--- charge of the Military Security Intelligence Bureau. The Lua script attaches
--- the visibility modifier to the player once (permanent, like Mary Katherine
--- Goddard's action) and shows the ability on Amber.
-INSERT INTO
-    Types (Type, Kind)
-VALUES
-    ('ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF', 'KIND_ABILITY');
-
-INSERT INTO
-    TypeTags (Type, Tag)
-VALUES
-    ('ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF', 'CLASS_TSOD_SCOUT_AMBER');
-
-INSERT INTO
-    UnitAbilities (UnitAbilityType, Name, Description, Inactive, ShowFloatTextWhenEarned, Permanent)
-VALUES
-    (
-        'ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF',
-        'LOC_ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF_NAME',
-        'LOC_ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF_DESCRIPTION',
-        1,
-        1,
-        1
-    );
-
+-- Retirement: with a Foreign Ministry, Amber can retire like a great person. The
+-- script attaches these permanent player modifiers, then removes her.
 INSERT INTO
     Modifiers (ModifierId, ModifierType, RunOnce, Permanent)
 VALUES
-    ('MODIFIER_TSOD_CE_AMBER_BUREAU_DIPLO_VISIBILITY', 'MODIFIER_PLAYER_ADD_DIPLO_VISIBILITY', 1, 1);
+    ('MODIFIER_TSOD_CE_AMBER_BUREAU_DIPLO_VISIBILITY', 'MODIFIER_PLAYER_ADD_DIPLO_VISIBILITY', 1, 1),
+    ('MODIFIER_TSOD_CE_AMBER_RETIRED_SHADOW_AUTHORITY', 'MODIFIER_PLAYER_ADD_DIPLO_VISIBILITY', 1, 1);
 
 INSERT INTO
     ModifierArguments (ModifierId, Name, VALUE)
 VALUES
     ('MODIFIER_TSOD_CE_AMBER_BUREAU_DIPLO_VISIBILITY', 'Amount', '1'),
     ('MODIFIER_TSOD_CE_AMBER_BUREAU_DIPLO_VISIBILITY', 'Source', 'SOURCE_TSOD_CE_AMBER_BUREAU'),
-    ('MODIFIER_TSOD_CE_AMBER_BUREAU_DIPLO_VISIBILITY', 'SourceType', 'DIPLO_SOURCE_ALL_NAMES');
+    ('MODIFIER_TSOD_CE_AMBER_BUREAU_DIPLO_VISIBILITY', 'SourceType', 'DIPLO_SOURCE_ALL_NAMES'),
+    -- Keeps Shadow Authority's +1 once the unit that carried it is gone.
+    ('MODIFIER_TSOD_CE_AMBER_RETIRED_SHADOW_AUTHORITY', 'Amount', '1'),
+    ('MODIFIER_TSOD_CE_AMBER_RETIRED_SHADOW_AUTHORITY', 'Source', 'SOURCE_TSOD_SCOUT_AMBER'),
+    ('MODIFIER_TSOD_CE_AMBER_RETIRED_SHADOW_AUTHORITY', 'SourceType', 'DIPLO_SOURCE_ALL_NAMES');

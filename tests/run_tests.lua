@@ -47,12 +47,15 @@ local CECIL_CLASSES = { 'GENERAL', 'ADMIRAL', 'ENGINEER', 'MERCHANT', 'PROPHET',
 local World
 
 local function NewUnit(iPlayer, iID, sType)
-    local u = { player = iPlayer, id = iID, sType = sType, xp = 0, abilities = {} }
+    local u = { player = iPlayer, id = iID, sType = sType, xp = 0, abilities = {}, promotions = {} }
     function u:GetID() return self.id end
     function u:GetType() return GameInfo.Units[self.sType].Index end
     function u:GetExperience()
         local unit = self
-        return { ChangeExperience = function(_, n) unit.xp = unit.xp + n end }
+        return {
+            ChangeExperience = function(_, n) unit.xp = unit.xp + n end,
+            HasPromotion = function(_, i) return unit.promotions[GameInfo.UnitPromotions[i].UnitPromotionType] == true end,
+        }
     end
     function u:GetAbility()
         local unit = self
@@ -71,7 +74,7 @@ local function NewCity(tBuildings)
 end
 
 local function NewPlayer(iID, sLeader, sCiv)
-    local p = { id = iID, leader = sLeader, civ = sCiv, units = {}, cities = {}, props = {},
+    local p = { id = iID, leader = sLeader, civ = sCiv, human = true, units = {}, cities = {}, props = {},
         gppPerTurn = {}, gppAdded = {}, coal = 0, modifiers = {}, boosts = {}, research = {} }
     -- The engine returns "no value" for a missing property.
     function p:GetProperty(k) local v = self.props[k]; if v == nil then return end; return v end
@@ -122,6 +125,7 @@ local function NewPlayer(iID, sLeader, sCiv)
         return { TriggerBoost = function(_, iCivic) pl.boosts[iCivic] = true end }
     end
     function p:AttachModifierByID(s) table.insert(self.modifiers, s) end
+    function p:IsHuman() return self.human end
     return p
 end
 
@@ -132,7 +136,7 @@ end
 -- Builds a fresh world, runs fSetup to customise it, then loads the script (which
 -- initialises itself on load, as it does in game).
 local function Load(fSetup)
-    World = { handlers = {}, grants = {}, revealed = {} }
+    World = { handlers = {}, grants = {}, revealed = {}, killed = {} }
     local function Event(sPrefix)
         return setmetatable({}, { __index = function(t, k)
             local e = { Add = function(f)
@@ -149,6 +153,10 @@ local function Load(fSetup)
     include = function() end
     print = function() end
     UnitOperationTypes = { BUILD_ROUTE = 11, BUILD_IMPROVEMENT = 12 }
+    UnitManager = { Kill = function(u)
+        table.insert(World.killed, u.id)
+        Players[u.player].units[u.id] = nil
+    end }
 
     local aIndividuals, aClasses = {}, {}
     for sName, sClass in pairs(CECIL_PEOPLE) do
@@ -171,6 +179,8 @@ local function Load(fSetup)
         Districts = InfoTable({ { DistrictType = 'DISTRICT_CAMPUS' }, { DistrictType = 'DISTRICT_GOVERNMENT' },
             { DistrictType = 'DISTRICT_HOLY_SITE' }, { DistrictType = 'DISTRICT_AQUEDUCT' } }, 'DistrictType'),
         Resources = InfoTable({ { ResourceType = 'RESOURCE_IRON' }, { ResourceType = 'RESOURCE_COAL' } }, 'ResourceType'),
+        UnitPromotions = InfoTable({ { UnitPromotionType = 'PROMOTION_TSOD_CE_SHADOW_REALM' },
+            { UnitPromotionType = 'PROMOTION_TSOD_CE_SHADOW_AUTHORITY' } }, 'UnitPromotionType'),
         Civics = InfoTable({ { CivicType = 'CIVIC_CULTURAL_HERITAGE' } }, 'CivicType'),
         Features = InfoTable({ { FeatureType = 'FEATURE_FOREST', NaturalWonder = false },
             { FeatureType = 'FEATURE_ULURU', NaturalWonder = true }, { FeatureType = 'FEATURE_KILIMANJARO', NaturalWonder = true } }, 'FeatureType'),
@@ -250,19 +260,16 @@ check(#World.grants == 2 and World.grants[2].ind == Hash('GreatPersonIndividuals
 Fire('GameEvents.BuildingConstructed', 0, 0, GameInfo.Buildings.BUILDING_RESEARCH_LAB.Index, 0, true)
 check(World.grants[3] and World.grants[3].era == Hash('Eras', 'ERA_MODERN'), 'building: Research Lab grants Kamel in the Modern era')
 
--- Known oddity: the class passed to GrantPerson must match the individual's own
--- class. Leite and Hettie are granted with a different class; reported, not failed,
--- while the AI recruitment report is open (see the project list).
+-- Every Cecil great person is granted under its own class (a mismatch was the
+-- only lead for the report of the AI recruiting them).
 Load()
 Fire('GameEvents.OnDistrictConstructed', 0, GameInfo.Districts.DISTRICT_HOLY_SITE.Index, 0, 0)
 Fire('GameEvents.OnDistrictConstructed', 0, GameInfo.Districts.DISTRICT_GOVERNMENT.Index, 0, 0)
+check(#World.grants == 2, 'class: Leite and Hettie are granted')
 for _, g in ipairs(World.grants) do
     local ind = GameInfo.GreatPersonIndividuals[g.ind - 1001]
-    local sOwnClass = ind and ind.GreatPersonClassType
-    local sGivenClass = GameInfo.GreatPersonClasses[g.class - 1001].GreatPersonClassType
-    if sOwnClass ~= sGivenClass then
-        io.write(string.format('NOTE: %s granted as %s (its class is %s)\n', ind.GreatPersonIndividualType, sGivenClass, sOwnClass))
-    end
+    local sGiven = GameInfo.GreatPersonClasses[g.class - 1001].GreatPersonClassType
+    check(ind.GreatPersonClassType == sGiven, 'class: ' .. ind.GreatPersonIndividualType .. ' granted under its own class')
 end
 
 -- Gawain: bonus great person points -----------------------------------------
@@ -279,6 +286,12 @@ Fire('Events.TurnBegin')
 check(cecil.gppAdded[iSci] == 3, 'gawain: one scientist gives +2 type and +1 total bonus points')
 Fire('Events.UnitGreatPersonCreated', 1, 1, iSci, 0)
 check(cecil.props.TSOD_GawainGreatPeopleActivated.SCIENTIST == 1, 'gawain: other players recruiting is not counted')
+Fire('Events.UnitGreatPersonCreated', 0, 1, ClassIndex('GREAT_PERSON_CLASS_TSOD_CE_GOVERNOR'), 0)
+check(cecil.props.TSOD_GawainGreatPeopleActivated.MERCHANT == 1, 'gawain: Hettie (Governor class) counts as a merchant')
+Fire('Events.UnitGreatPersonCreated', 0, 1, ClassIndex('GREAT_PERSON_CLASS_TSOD_CE_PROPHET'), 0)
+check(cecil.props.TSOD_GawainGreatPeopleActivated.PROPHET == 1, 'gawain: Leite counts as a prophet')
+Fire('Events.UnitGreatPersonCreated', 1, 1, ClassIndex('GREAT_PERSON_CLASS_TSOD_CE_GENERAL'), 0)
+check(true, 'gawain: another player receiving a Cecil class only logs a warning')
 
 Load(function() Players[0].props.TSOD_GawainGreatPeopleActivated = { SCIENTIST = 30, GENERAL = 0 } end)
 cecil = Players[0]
@@ -336,40 +349,57 @@ Fire('Events.UnitMoveComplete', 0, 6, 1, 0)
 Fire('Events.UnitMoveComplete', 0, 9, 1, 0)
 check(amber.xp == 0, 'amber: a wonder found by another unit is not credited to her')
 
--- Amber: Bureau Chief ------------------------------------------------------------
+-- Amber: retirement ---------------------------------------------------------------
+local iMinistry = GameInfo.Buildings.BUILDING_GOV_CITYSTATES.Index
+local function Retire(iPlayer, iUnit) Fire('GameEvents.TsoDCE_AmberRetire', iPlayer, { UnitID = iUnit }) end
+
 Load()
 cecil, other = Players[0], Players[1]
 amber = NewUnit(0, 9, 'UNIT_TSOD_SCOUT_AMBER')
 cecil.units[9] = amber
-local iMinistry = GameInfo.Buildings.BUILDING_GOV_CITYSTATES.Index
-Fire('GameEvents.BuildingConstructed', 0, 0, GameInfo.Buildings.BUILDING_MONUMENT.Index, 0, true)
-check(#cecil.modifiers == 0, 'bureau: other buildings do nothing')
+cecil.units[6] = NewUnit(0, 6, 'UNIT_SCOUT')
+Retire(0, 9)
+check(#cecil.modifiers == 0 and cecil.units[9] ~= nil, 'retire: not possible without a Foreign Ministry')
+cecil.cities = { NewCity({ BUILDING_GOV_CITYSTATES = true }) }
 Fire('GameEvents.BuildingConstructed', 0, 0, iMinistry, 0, true)
+check(#cecil.modifiers == 0 and cecil.units[9] ~= nil, 'retire: a human player is not retired automatically')
+Retire(0, 6)
+check(#cecil.modifiers == 0 and cecil.units[6] ~= nil, 'retire: only Amber can retire')
+Retire(1, 9)
+check(#cecil.modifiers == 0 and #other.modifiers == 0, 'retire: other players cannot retire her')
+Retire(0, 9)
 check(#cecil.modifiers == 1 and cecil.modifiers[1] == 'MODIFIER_TSOD_CE_AMBER_BUREAU_DIPLO_VISIBILITY',
-    'bureau: the Foreign Ministry attaches the visibility modifier')
-check(amber.abilities.ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF == 1, 'bureau: Amber shows the Bureau Chief ability')
-Fire('GameEvents.BuildingConstructed', 0, 0, iMinistry, 0, true)
-check(#cecil.modifiers == 1 and amber.abilities.ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF == 1, 'bureau: applied only once')
-Fire('GameEvents.BuildingConstructed', 1, 0, iMinistry, 0, true)
-check(#other.modifiers == 0, 'bureau: other players get nothing')
-local amber2 = NewUnit(0, 10, 'UNIT_TSOD_SCOUT_AMBER')
-cecil.units[10] = amber2
-Fire('Events.TurnBegin')
-check(amber2.abilities.ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF == 1 and #cecil.modifiers == 1,
-    'bureau: a later Amber gets the ability at turn start, without a second modifier')
+    'retire: attaches the permanent visibility modifier')
+check(cecil.units[9] == nil and World.killed[1] == 9, 'retire: Amber leaves the map')
+check(cecil.props.TSOD_CE_AmberRetired == true, 'retire: recorded on the player')
+cecil.units[10] = NewUnit(0, 10, 'UNIT_TSOD_SCOUT_AMBER')
+Retire(0, 10)
+check(#cecil.modifiers == 1 and cecil.units[10] ~= nil, 'retire: only once per player')
 
 Load(function()
     Players[0].cities = { NewCity({ BUILDING_GOV_CITYSTATES = true }) }
     Players[0].units[9] = NewUnit(0, 9, 'UNIT_TSOD_SCOUT_AMBER')
+    Players[0].units[9].promotions.PROMOTION_TSOD_CE_SHADOW_AUTHORITY = true
 end)
-check(#Players[0].modifiers == 1 and Players[0].units[9].abilities.ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF == 1,
-    'bureau: an older save with a Foreign Ministry gets the bonus on load')
+Retire(0, 9)
+check(#Players[0].modifiers == 2 and Players[0].modifiers[2] == 'MODIFIER_TSOD_CE_AMBER_RETIRED_SHADOW_AUTHORITY',
+    "retire: Shadow Authority's +1 is kept as a permanent modifier")
 
 Load(function()
-    Players[0].props.TSOD_CE_AmberBureauChief = true
-    Players[0].cities = { NewCity({ BUILDING_GOV_CITYSTATES = true }) }
+    Players[0].human = false
+    Players[0].units[9] = NewUnit(0, 9, 'UNIT_TSOD_SCOUT_AMBER')
 end)
-check(#Players[0].modifiers == 0, 'bureau: loading a save where it was already applied adds nothing')
+Players[0].cities = { NewCity({ BUILDING_GOV_CITYSTATES = true }) }
+Fire('GameEvents.BuildingConstructed', 0, 0, iMinistry, 0, true)
+check(#Players[0].modifiers == 1 and Players[0].units[9] == nil, 'retire: an AI Cecil retires her when the Foreign Ministry is built')
+
+Load(function()
+    Players[0].human = false
+    Players[0].cities = { NewCity({ BUILDING_GOV_CITYSTATES = true }) }
+    Players[0].units[9] = NewUnit(0, 9, 'UNIT_TSOD_SCOUT_AMBER')
+end)
+Fire('Events.TurnBegin')
+check(#Players[0].modifiers == 1 and Players[0].units[9] == nil, 'retire: an AI save with a Foreign Ministry retires her at turn start')
 
 -- No Cecil player in the game ------------------------------------------------------
 Load(function()

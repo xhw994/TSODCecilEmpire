@@ -20,14 +20,15 @@ local AmberGoodyHutExpReward = 15
 -- rewarded from script instead.
 local AmberNaturalWonderExpReward = 30
 
--- Bureau Chief: the Foreign Ministry makes Amber head of the Intelligence Bureau.
+-- Retirement: with a Foreign Ministry, Amber retires to head the Intelligence Bureau.
 local AmberUnitType = 'UNIT_TSOD_SCOUT_AMBER'
 local ForeignMinistryType = 'BUILDING_GOV_CITYSTATES'
-local AmberBureauAbility = 'ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF'
 local AmberBureauModifier = 'MODIFIER_TSOD_CE_AMBER_BUREAU_DIPLO_VISIBILITY'
-local AmberBureauChiefProperty = 'TSOD_CE_AmberBureauChief'
+local AmberShadowAuthorityModifier = 'MODIFIER_TSOD_CE_AMBER_RETIRED_SHADOW_AUTHORITY'
+local ShadowAuthorityPromotion = 'PROMOTION_TSOD_CE_SHADOW_AUTHORITY'
+local AmberRetiredProperty = 'TSOD_CE_AmberRetired'
 -- Defined further down, used by OnTurnBegin above it.
-local GrantAmberBureauAbility
+local RetireAiAmber
 
 -- [featureId] = { { x, y }, ... } for every natural wonder on the map
 local NaturalWonderPlots = nil
@@ -133,13 +134,16 @@ function GrantGreatPeopleOfCecil(playerId, sType, sClass, sEra)
     end
 
     local sFullType = GreatPeopleTypePrefix .. sType
-    local sFullClass = GreatPeopleClassPrefix .. sClass
 
     if tList[sFullType] == false then
         return
     end
 
-    if not GameInfo.GreatPersonIndividuals[sFullType] or not GameInfo.GreatPersonClasses[sFullClass] or not GameInfo.Eras[sEra] then
+    -- Always grant under the individual's own class: a mismatched class is the
+    -- only lead for the report of the AI recruiting Cecil's great people.
+    local tIndividual = GameInfo.GreatPersonIndividuals[sFullType]
+    local sFullClass = tIndividual and tIndividual.GreatPersonClassType
+    if not tIndividual or not GameInfo.GreatPersonClasses[sFullClass] or not GameInfo.Eras[sEra] then
         print(string.format('Error: Invalid Great Person - Type: %s, Class: %s, Era: %s', sType, sClass, sEra))
         return
     end
@@ -234,8 +238,12 @@ function OnUnitGreatPersonCreated(playerId, _, classId, _)
         return
     end
 
+    local classType = GameInfo.GreatPersonClasses[classId].GreatPersonClassType
     local pPlayer = CecilPlayersMap[playerId]
     if not pPlayer then
+        if startsWith(classType, GreatPeopleClassPrefix) then
+            print('Warning: player ' .. playerId .. ' received a Cecil great person of ' .. classType)
+        end
         return
     end
 
@@ -245,7 +253,10 @@ function OnUnitGreatPersonCreated(playerId, _, classId, _)
         return
     end
 
-    local classType = GameInfo.GreatPersonClasses[classId].GreatPersonClassType
+    -- Hettie (Great Governor of Cecil) has always counted as a merchant.
+    if classType == GreatPeopleClassPrefix .. 'GOVERNOR' then
+        classType = GreatPeopleClassPrefix .. 'MERCHANT'
+    end
     for _, suffix in ipairs(AllClasses) do
         if (endsWith(classType, suffix)) then
             tGreatPeopleActivatedList[suffix] = tGreatPeopleActivatedList[suffix] + 1
@@ -266,9 +277,7 @@ function OnTurnBegin()
         -- silently so that Amber is only rewarded for her own discoveries.
         SyncRevealedNaturalWonders(iPlayer)
 
-        if pPlayer:GetProperty(AmberBureauChiefProperty) == true then
-            GrantAmberBureauAbility(pPlayer)
-        end
+        RetireAiAmber(iPlayer)
 
         local tGreatPeopleActivatedList = pPlayer:GetProperty(GawainGreatPeopleActivated)
         if not tGreatPeopleActivatedList then
@@ -402,34 +411,6 @@ function OnGoodyHutRewardByAmber(playerId, unitId, _, _)
     print('Grant ' .. AmberGoodyHutExpReward .. ' experience to Amber on goody hut reward')
 end
 
--- Shows the Bureau Chief ability on every Amber the player owns (she may be
--- re-created, so this runs again each turn).
-GrantAmberBureauAbility = function(pPlayer)
-    for _, pUnit in pPlayer:GetUnits():Members() do
-        if GameInfo.Units[pUnit:GetType()].UnitType == AmberUnitType then
-            local pAbility = pUnit:GetAbility()
-            if pAbility:GetAbilityCount(AmberBureauAbility) < 1 then
-                pAbility:ChangeAbilityCount(AmberBureauAbility, 1)
-            end
-        end
-    end
-end
-
--- The visibility bonus is attached once and is permanent: losing the Foreign
--- Ministry later does not take it away.
-function ApplyAmberBureauChief(playerId)
-    local pPlayer = CecilPlayersMap and CecilPlayersMap[playerId]
-    if not pPlayer or pPlayer:GetProperty(AmberBureauChiefProperty) == true then
-        return false
-    end
-
-    pPlayer:AttachModifierByID(AmberBureauModifier)
-    pPlayer:SetProperty(AmberBureauChiefProperty, true)
-    GrantAmberBureauAbility(pPlayer)
-    print('Amber is now Bureau Chief for player ' .. playerId)
-    return true
-end
-
 local function PlayerHasForeignMinistry(pPlayer)
     local row = GameInfo.Buildings[ForeignMinistryType]
     if not row then
@@ -443,6 +424,49 @@ local function PlayerHasForeignMinistry(pPlayer)
     return false
 end
 
+-- The bonuses are permanent player modifiers, so they outlast Amber herself.
+function RetireAmber(playerId, unitId)
+    local pPlayer = CecilPlayersMap and CecilPlayersMap[playerId]
+    if not pPlayer or pPlayer:GetProperty(AmberRetiredProperty) == true or not PlayerHasForeignMinistry(pPlayer) then
+        return false
+    end
+    local pUnit = pPlayer:GetUnits():FindID(unitId)
+    if not pUnit or GameInfo.Units[pUnit:GetType()].UnitType ~= AmberUnitType then
+        return false
+    end
+
+    pPlayer:AttachModifierByID(AmberBureauModifier)
+    local promotion = GameInfo.UnitPromotions[ShadowAuthorityPromotion]
+    if promotion and pUnit:GetExperience():HasPromotion(promotion.Index) then
+        pPlayer:AttachModifierByID(AmberShadowAuthorityModifier)
+    end
+    pPlayer:SetProperty(AmberRetiredProperty, true)
+    UnitManager.Kill(pUnit)
+    print('Amber retired for player ' .. playerId)
+    return true
+end
+
+-- Sent from the unit panel button (UI.RequestPlayerOperation, EXECUTE_SCRIPT).
+function OnAmberRetireRequest(playerId, params)
+    if params and params.UnitID then
+        RetireAmber(playerId, params.UnitID)
+    end
+end
+
+-- AI players never press the button: retire as soon as the Foreign Ministry stands.
+RetireAiAmber = function(playerId)
+    local pPlayer = CecilPlayersMap and CecilPlayersMap[playerId]
+    if not pPlayer or pPlayer:IsHuman() or pPlayer:GetProperty(AmberRetiredProperty) == true then
+        return
+    end
+    for _, pUnit in pPlayer:GetUnits():Members() do
+        if GameInfo.Units[pUnit:GetType()].UnitType == AmberUnitType then
+            RetireAmber(playerId, pUnit:GetID())
+            return
+        end
+    end
+end
+
 function OnForeignMinistryConstructed(playerId, _, buildingId, _, _)
     if CecilPlayersMap == nil or not CecilPlayersMap[playerId] then
         return
@@ -450,7 +474,7 @@ function OnForeignMinistryConstructed(playerId, _, buildingId, _, _)
 
     local row = GameInfo.Buildings[buildingId]
     if row and row.BuildingType == ForeignMinistryType then
-        ApplyAmberBureauChief(playerId)
+        RetireAiAmber(playerId)
     end
 end
 
@@ -499,16 +523,10 @@ function InitTsoDCecilEmpireTraits()
         end
     end
 
-    -- Saves from before this feature: a Foreign Ministry built earlier still counts.
-    for iPlayer, pPlayer in pairs(CecilPlayersMap) do
-        if pPlayer:GetProperty(AmberBureauChiefProperty) ~= true and PlayerHasForeignMinistry(pPlayer) then
-            ApplyAmberBureauChief(iPlayer)
-        end
-    end
-
     GameEvents.OnDistrictConstructed.Add(OnDistrictFirstConstructedGrantGreatPerson)
     GameEvents.BuildingConstructed.Add(OnCampusBuildingFirstConstructedGrantGreatPerson)
     GameEvents.BuildingConstructed.Add(OnForeignMinistryConstructed)
+    GameEvents.TsoDCE_AmberRetire.Add(OnAmberRetireRequest)
     Events.UnitGreatPersonActivated.Add(OnGreatPersonActivated)
     Events.UnitOperationStarted.Add(OnMilitaryEngineerBuildRailroad)
     Events.UnitGreatPersonCreated.Add(OnUnitGreatPersonCreated)

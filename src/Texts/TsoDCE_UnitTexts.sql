@@ -2,7 +2,7 @@ INSERT
 OR REPLACE INTO LocalizedText (Tag, LANGUAGE, Text)
 VALUES
     ('LOC_UNIT_TSOD_SCOUT_AMBER_NAME', 'zh_Hans_CN', '琥珀'),
-    ('LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION', 'zh_Hans_CN', '塞西尔的特殊侦察单位，拥有独特的升级树。建立首都时自动获得，无法生产。初始拥有4视野，但正面战斗力极其薄弱。被击杀时将保留1点体力值，撤退至最近的城市。发现自然奇观与部落村庄时，获得三倍经验值。建成外交部后出任军情局局长，永久+1对所有文明的外交能见度。'),
+    ('LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION', 'zh_Hans_CN', '塞西尔的特殊侦察单位，拥有独特的升级树。建立首都时自动获得，无法生产。初始拥有4视野，但正面战斗力极其薄弱。被击杀时将保留1点体力值，撤退至最近的城市。发现自然奇观与部落村庄时，获得三倍经验值。建成外交部后可以隐退，出任军情局局长：永久+1对所有文明的外交能见度。'),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME', 'zh_Hans_CN', '塞西尔的大科学家'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_NAME', 'zh_Hans_CN', '瑞贝卡·塞西尔'),
     ('LOC_GREATPERSON_DUMMY_TSOD_CE_REBECCA_CECIL_DUMMY_DESCRIPTION', 'zh_Hans_CN', '立即完成当前正在研究的科技。'),
@@ -70,10 +70,11 @@ VALUES
     ('LOC_VIZSOURCE_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '琥·总而言之就是超厉害·珀'),
     ('LOC_VIZSOURCE_ACTION_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '将琥珀提升至最高等级。'),
     ('LOC_GOSSIP_SOURCE_TSOD_SCOUT_AMBER', 'zh_Hans_CN', '{1_Name}，发现了'),
-    ('LOC_ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF_NAME', 'zh_Hans_CN', '军情局局长'),
-    ('LOC_ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF_DESCRIPTION', 'zh_Hans_CN', '建成外交部后，琥珀出任塞西尔军事安全情报局局长：永久+1对所有文明的外交能见度。'),
+    ('LOC_TSOD_CE_AMBER_RETIRE_NAME', 'zh_Hans_CN', '隐退'),
+    ('LOC_TSOD_CE_AMBER_RETIRE_DESCRIPTION', 'zh_Hans_CN', '琥珀隐退，出任塞西尔军事安全情报局局长：永久+1对所有文明的外交能见度。若她已获得「暗影权能」，其+1外交能见度也永久保留。'),
+    ('LOC_TSOD_CE_AMBER_RETIRE_NEEDS_MINISTRY', 'zh_Hans_CN', '需要已建成外交部。'),
     ('LOC_VIZSOURCE_TSOD_CE_AMBER_BUREAU', 'zh_Hans_CN', '军事安全情报局'),
-    ('LOC_VIZSOURCE_ACTION_TSOD_CE_AMBER_BUREAU', 'zh_Hans_CN', '建成外交部，由琥珀出任军情局局长。');
+    ('LOC_VIZSOURCE_ACTION_TSOD_CE_AMBER_BUREAU', 'zh_Hans_CN', '建成外交部后让琥珀隐退。');
 
 INSERT
 OR REPLACE INTO BaseGameText (Tag, Text)
@@ -81,7 +82,7 @@ VALUES
     ('LOC_UNIT_TSOD_SCOUT_AMBER_NAME', 'Amber'),
     (
         'LOC_UNIT_TSOD_SCOUT_AMBER_DESCRIPTION',
-        'Cecil''s unique recon unit with a unique Promotion tree. Automatically received upon establishing the Capital and cannot be produced. She starts with a vision range of 4 but has extremely weak combat strength. When killed, retreats with 1 HP to the nearest city. She gains three times the experience from revealing Natural Wonders and from visiting Tribal Villages. Once the Foreign Ministry is built, she becomes Bureau Chief: permanently +1 diplomatic visibility with all civilizations.'
+        'Cecil''s unique recon unit with a unique Promotion tree. Automatically received upon establishing the Capital and cannot be produced. She starts with a vision range of 4 but has extremely weak combat strength. When killed, retreats with 1 HP to the nearest city. She gains three times the experience from revealing Natural Wonders and from visiting Tribal Villages. Once the Foreign Ministry is built, she can retire to head the Intelligence Bureau: permanently +1 diplomatic visibility with all civilizations.'
     ),
     ('LOC_GREAT_PERSON_CLASS_TSOD_CE_SCIENTIST_NAME', 'Great Scientist of Cecil'),
     ('LOC_GREAT_PERSON_INDIVIDUAL_TSOD_CE_REBECCA_CECIL_NAME', 'Rebecca Cecil'),
@@ -180,10 +181,11 @@ VALUES
     ('LOC_VIZSOURCE_TSOD_SCOUT_AMBER', 'Amber in Her Ultimate State!'),
     ('LOC_VIZSOURCE_ACTION_TSOD_SCOUT_AMBER', 'Promote Amber to the highest level.'),
     ('LOC_GOSSIP_SOURCE_TSOD_SCOUT_AMBER', '{1_Name}, uncovered news that'),
-    ('LOC_ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF_NAME', 'Bureau Chief'),
-    ('LOC_ABILITY_TSOD_CE_AMBER_BUREAU_CHIEF_DESCRIPTION', 'Once the Foreign Ministry is built, Amber heads Cecil''s Military Security Intelligence Bureau: permanently +1 diplomatic visibility with all civilizations.'),
+    ('LOC_TSOD_CE_AMBER_RETIRE_NAME', 'Retire'),
+    ('LOC_TSOD_CE_AMBER_RETIRE_DESCRIPTION', 'Amber retires to head Cecil''s Military Security Intelligence Bureau: permanently +1 diplomatic visibility with all civilizations. If she has Shadow Authority, its +1 diplomatic visibility is also kept permanently.'),
+    ('LOC_TSOD_CE_AMBER_RETIRE_NEEDS_MINISTRY', 'Requires a Foreign Ministry.'),
     ('LOC_VIZSOURCE_TSOD_CE_AMBER_BUREAU', 'Military Security Intelligence Bureau'),
-    ('LOC_VIZSOURCE_ACTION_TSOD_CE_AMBER_BUREAU', 'Build the Foreign Ministry so that Amber heads the Intelligence Bureau.');
+    ('LOC_VIZSOURCE_ACTION_TSOD_CE_AMBER_BUREAU', 'Build the Foreign Ministry and retire Amber.');
 
 INSERT
 OR REPLACE INTO LocalizedText (Tag, LANGUAGE, Text)
