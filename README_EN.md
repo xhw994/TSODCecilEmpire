@@ -1,6 +1,7 @@
 [h1]↑ Please give me a thumb up if you like this MOD. This means a lot![/h1]
 [i]My first ever MOD, dedicated to one of my three favorite web novels, and to this monster captivates and consumes my time.[/i]
 [b]This MOD adds the civilization Cecil Empire from the online novel "The Sword of Dawn", including the leader, Gawain Cecil, and his team.[/b]
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3829784925]The Sword of Dawn series collection: subscribe to all the MODs at once (Cecil Empire, Typhon Empire, Dream City)[/url]
 
 [hr][/hr]
 [code]

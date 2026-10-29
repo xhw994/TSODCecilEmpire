@@ -13,6 +13,8 @@
 
 This mod adds the **Cecil Empire** civilization to Civilization VI, led by **Gawain Cecil**. Inspired by the web novel *Sword of Dawn*, the civilization is built around great person recruitment, scientific advancement, and strategic district planning. It suits players who enjoy snowballing through technology while maintaining a credible military threat.
 
+It is one of the mods of the *Sword of Dawn* series, with the Typhon Empire and Dream City mods. The whole series is in the [Sword of Dawn series collection](https://steamcommunity.com/sharedfiles/filedetails/?id=3829784925) on the Steam Workshop: subscribe to all of the mods with one click.
+
 ---
 
 ## Civilization Features
