@@ -11,8 +11,8 @@ user's generated icons from DIR instead of 模组/塞西尔帝国/图标源图/.
 
 What it makes:
   Gawain's portraits
-    LEADER_TSOD_GAWAIN_CECIL_NEUTRAL             731 x 1461  setup screen      } armoured Gawain, cut-out
-    LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND  731 x 1461  loading screen    } 加工图/..._NEUTRAL.png
+    LEADER_TSOD_GAWAIN_CECIL_NEUTRAL             731 x 1461  setup screen: armoured Gawain, cut-out 加工图/..._NEUTRAL.png
+    LEADER_TSOD_GAWAIN_CECIL_LOADING_FOREGROUND  16 x 16     loading screen: blank, the background already shows Gawain
     FALLBACK_NEUTRAL_LEADER_TSOD_GAWAIN_CECIL    825 x 1024  diplomacy screen, figure in the left 594 px:
         seated Gawain, cut-out 加工图/..._NEUTRAL-1.png of 人物/8ab7bc05….jpg (user's choice)
     LEADER_TSOD_GAWAIN_CECIL_DIPLOMACY_BACKGROUND 1920 x 1080 diplomacy background: the space scene
@@ -333,7 +333,8 @@ def portraits():
         raise SystemExit('%s is %dx%d; the crop boxes assume 731x1461' % (SRC_GAWAIN, *src.size))
     neutral = feather(crop_resize(src, NEUTRAL_BOX, (731, 1461)), 30, 0, 60, 90)
     made = {'neutral': emit(neutral, LEADER + '_NEUTRAL')}
-    emit(neutral, LEADER + '_LOADING_FOREGROUND')
+    # The loading background already shows Gawain, so the loading portrait is blank (user, 10-28).
+    emit(Image.new('RGBA', (16, 16), (0, 0, 0, 0)), LEADER + '_LOADING_FOREGROUND')
     seated = Image.open(os.path.join(IMG, SRC_GAWAIN_SEATED)).convert('RGBA')
     if seated.size != (2048, 4096):
         raise SystemExit('%s is %dx%d; FALLBACK_BOX assumes 2048x4096' % (SRC_GAWAIN_SEATED, *seated.size))
@@ -703,10 +704,9 @@ def previews(out, art, fow):
         x = int(1920 * fx)
         screen.alpha_composite(art['fallback'].crop((0, 0, 1920 - x, 1024)), (x, 540 - 512))
         screen.convert('RGB').resize((960, 540)).save(os.path.join(out, 'diplomacy_%s.jpg' % mode), quality=88)
-    # 3. loading screen: foreground over the loading background
+    # 3. loading screen: the background alone (the foreground portrait is blank)
     load = read_dds(os.path.join(TEX_DIR, LEADER + '_LOADING_BACKGROUND.dds')).convert('RGBA')
     load = load.resize((round(load.width * 1461 / load.height), 1461))
-    load.alpha_composite(art['neutral'], (120, 0))
     load.convert('RGB').resize((load.width // 2, load.height // 2)).save(os.path.join(out, 'loading_screen.jpg'), quality=88)
     # 4. FOW icons next to the main glyphs, at 256 and the small sizes
     sheet = Image.new('RGBA', (256 * 4 + 30, 256 + 100), (70, 90, 120, 255))
