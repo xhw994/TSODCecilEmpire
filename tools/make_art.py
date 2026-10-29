@@ -17,6 +17,9 @@ What it makes:
         seated Gawain, cut-out 加工图/..._NEUTRAL-1.png of 人物/8ab7bc05….jpg (user's choice)
     LEADER_TSOD_GAWAIN_CECIL_DIPLOMACY_BACKGROUND 1920 x 1080 diplomacy background: the space scene
         建筑与造物/57c9a50d….jpg, cropped so the planet sits behind Gawain (user's choice)
+    LEADER_TSOD_GAWAIN_CECIL_BACKGROUND          2880 x 1440 setup screen background, from 加工图/..._BACKGROUND.png
+        (4000 x 2000). Official ones are 1920 x 960; 2880 x 1440 is pixel-identical on a 1440p screen
+        and half the old size (10-28: keeps the quality, unlike the official size on 1440p and 4K)
   Fog-of-war versions, from the current 256 px icons
     ICON_UNIT_TSOD_SCOUT_AMBER_FOW_*, ICON_UNIT_TSOD_GORGON_PLATFORM_FOW_*  (22 32 38 50 80 256)
     ICON_BUILDING_TSOD_MANA_OBELISK_FOW_*                                  (32 38 50 80 128 256)
@@ -84,6 +87,7 @@ SRC_DIPLO_BG = '建筑与造物/57c9a50de27fe58a5dbac4a33ecf461d4c709593.jpg'   
 # while he speaks and ~90% in the normal view, so the planet centre goes at 83%, 47% down: it stays behind
 # him in both views and runs a little off the right edge.
 DIPLO_BG_BOX = (0, 861, 1717, 1827)         # 1717 x 966 -> 1920 x 1080
+SRC_SETUP_BG = os.path.join(MOD, '加工图', 'LEADER_TSOD_GAWAIN_CECIL_BACKGROUND.png')   # 4000 x 2000 -> 2880 x 1440
 
 # FOW glyph colours (Typhon tools/icon_art.py unit_glyph): gold fill on a dark-brown outline
 FOW_FILL = (201, 164, 106, 255)
@@ -340,6 +344,8 @@ def portraits():
     made['fallback'] = emit(fallback, 'FALLBACK_NEUTRAL_' + LEADER, fallback=True)
     bg = Image.open(os.path.join(IMG, SRC_DIPLO_BG)).convert('RGBA')
     made['diplo_bg'] = emit(crop_resize(bg, DIPLO_BG_BOX, (1920, 1080)), LEADER + '_DIPLOMACY_BACKGROUND')
+    setup_bg = Image.open(os.path.join(IMG, SRC_SETUP_BG)).convert('RGBA')
+    made['setup_bg'] = emit(setup_bg.resize((2880, 1440), Image.LANCZOS), LEADER + '_BACKGROUND')
     made['source'] = src
     return made
 
