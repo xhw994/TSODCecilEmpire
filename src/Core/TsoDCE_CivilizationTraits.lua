@@ -23,9 +23,9 @@ local AmberNaturalWonderExpReward = 30
 -- Each Selena activation grants this many turns of every Great Person point type.
 local SelenaPointTurns = 3
 
--- Retirement: with a Foreign Ministry, Amber retires to head the Intelligence Bureau.
+-- Retirement: with a Diplomatic Quarter, Amber retires to head the Intelligence Bureau.
 local AmberUnitType = 'UNIT_TSOD_SCOUT_AMBER'
-local ForeignMinistryType = 'BUILDING_GOV_CITYSTATES'
+local DiplomaticQuarterType = 'DISTRICT_DIPLOMATIC_QUARTER'
 local AmberBureauModifier = 'MODIFIER_TSOD_CE_AMBER_BUREAU_DIPLO_VISIBILITY'
 local AmberShadowAuthorityModifier = 'MODIFIER_TSOD_CE_AMBER_RETIRED_SHADOW_AUTHORITY'
 local ShadowAuthorityPromotion = 'PROMOTION_TSOD_CE_SHADOW_AUTHORITY'
@@ -429,13 +429,13 @@ function OnGoodyHutRewardByAmber(playerId, unitId, _, _)
     print('Grant ' .. AmberGoodyHutExpReward .. ' experience to Amber on goody hut reward')
 end
 
-local function PlayerHasForeignMinistry(pPlayer)
-    local row = GameInfo.Buildings[ForeignMinistryType]
+local function PlayerHasDiplomaticQuarter(pPlayer)
+    local row = GameInfo.Districts[DiplomaticQuarterType]
     if not row then
         return false
     end
-    for _, pCity in pPlayer:GetCities():Members() do
-        if pCity:GetBuildings():HasBuilding(row.Index) then
+    for _, pDistrict in pPlayer:GetDistricts():Members() do
+        if pDistrict:GetType() == row.Index and pDistrict:IsComplete() then
             return true
         end
     end
@@ -445,7 +445,7 @@ end
 -- The bonuses are permanent player modifiers, so they outlast Amber herself.
 function RetireAmber(playerId, unitId)
     local pPlayer = CecilPlayersMap and CecilPlayersMap[playerId]
-    if not pPlayer or pPlayer:GetProperty(AmberRetiredProperty) == true or not PlayerHasForeignMinistry(pPlayer) then
+    if not pPlayer or pPlayer:GetProperty(AmberRetiredProperty) == true or not PlayerHasDiplomaticQuarter(pPlayer) then
         return false
     end
     local pUnit = pPlayer:GetUnits():FindID(unitId)
@@ -471,7 +471,7 @@ function OnAmberRetireRequest(playerId, params)
     end
 end
 
--- AI players never press the button: retire as soon as the Foreign Ministry stands.
+-- AI players never press the button: retire as soon as the Diplomatic Quarter stands.
 RetireAiAmber = function(playerId)
     local pPlayer = CecilPlayersMap and CecilPlayersMap[playerId]
     if not pPlayer or pPlayer:IsHuman() or pPlayer:GetProperty(AmberRetiredProperty) == true then
@@ -485,13 +485,13 @@ RetireAiAmber = function(playerId)
     end
 end
 
-function OnForeignMinistryConstructed(playerId, _, buildingId, _, _)
+function OnDiplomaticQuarterConstructed(playerId, districtTypeId, _, _)
     if CecilPlayersMap == nil or not CecilPlayersMap[playerId] then
         return
     end
 
-    local row = GameInfo.Buildings[buildingId]
-    if row and row.BuildingType == ForeignMinistryType then
+    local row = GameInfo.Districts[districtTypeId]
+    if row and row.DistrictType == DiplomaticQuarterType then
         RetireAiAmber(playerId)
     end
 end
@@ -543,7 +543,7 @@ function InitTsoDCecilEmpireTraits()
 
     GameEvents.OnDistrictConstructed.Add(OnDistrictFirstConstructedGrantGreatPerson)
     GameEvents.BuildingConstructed.Add(OnCampusBuildingFirstConstructedGrantGreatPerson)
-    GameEvents.BuildingConstructed.Add(OnForeignMinistryConstructed)
+    GameEvents.OnDistrictConstructed.Add(OnDiplomaticQuarterConstructed)
     GameEvents.TsoDCE_AmberRetire.Add(OnAmberRetireRequest)
     Events.UnitGreatPersonActivated.Add(OnGreatPersonActivated)
     Events.UnitOperationStarted.Add(OnMilitaryEngineerBuildRailroad)

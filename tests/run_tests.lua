@@ -125,6 +125,22 @@ local function NewPlayer(iID, sLeader, sCiv)
         return { TriggerBoost = function(_, iCivic) pl.boosts[iCivic] = true end }
     end
     function p:AttachModifierByID(s) table.insert(self.modifiers, s) end
+    -- districts: list of { type = 'DISTRICT_X', complete = bool }
+    p.districts = {}
+    function p:GetDistricts()
+        local pl = self
+        return { Members = function()
+            local i = 0
+            return function()
+                i = i + 1
+                local d = pl.districts[i]
+                if d then
+                    return i, { GetType = function() return GameInfo.Districts[d.type].Index end,
+                        IsComplete = function() return d.complete end }
+                end
+            end
+        end }
+    end
     function p:IsHuman() return self.human end
     return p
 end
@@ -178,7 +194,8 @@ local function Load(fSetup)
             { BuildingType = 'BUILDING_RESEARCH_LAB' }, { BuildingType = 'BUILDING_GOV_CITYSTATES' }, { BuildingType = 'BUILDING_MONUMENT' } }, 'BuildingType'),
         Districts = InfoTable({ { DistrictType = 'DISTRICT_CAMPUS' }, { DistrictType = 'DISTRICT_GOVERNMENT' },
             { DistrictType = 'DISTRICT_HOLY_SITE' }, { DistrictType = 'DISTRICT_AQUEDUCT' },
-            { DistrictType = 'DISTRICT_ENTERTAINMENT_COMPLEX' }, { DistrictType = 'DISTRICT_WATER_ENTERTAINMENT_COMPLEX' } }, 'DistrictType'),
+            { DistrictType = 'DISTRICT_ENTERTAINMENT_COMPLEX' }, { DistrictType = 'DISTRICT_WATER_ENTERTAINMENT_COMPLEX' },
+            { DistrictType = 'DISTRICT_DIPLOMATIC_QUARTER' } }, 'DistrictType'),
         Resources = InfoTable({ { ResourceType = 'RESOURCE_IRON' }, { ResourceType = 'RESOURCE_COAL' } }, 'ResourceType'),
         UnitPromotions = InfoTable({ { UnitPromotionType = 'PROMOTION_TSOD_CE_SHADOW_REALM' },
             { UnitPromotionType = 'PROMOTION_TSOD_CE_SHADOW_AUTHORITY' } }, 'UnitPromotionType'),
@@ -376,7 +393,7 @@ Fire('Events.UnitMoveComplete', 0, 9, 1, 0)
 check(amber.xp == 0, 'amber: a wonder found by another unit is not credited to her')
 
 -- Amber: retirement ---------------------------------------------------------------
-local iMinistry = GameInfo.Buildings.BUILDING_GOV_CITYSTATES.Index
+local DQ_DONE = { type = 'DISTRICT_DIPLOMATIC_QUARTER', complete = true }
 local function Retire(iPlayer, iUnit) Fire('GameEvents.TsoDCE_AmberRetire', iPlayer, { UnitID = iUnit }) end
 
 Load()
@@ -385,9 +402,12 @@ amber = NewUnit(0, 9, 'UNIT_TSOD_SCOUT_AMBER')
 cecil.units[9] = amber
 cecil.units[6] = NewUnit(0, 6, 'UNIT_SCOUT')
 Retire(0, 9)
-check(#cecil.modifiers == 0 and cecil.units[9] ~= nil, 'retire: not possible without a Foreign Ministry')
-cecil.cities = { NewCity({ BUILDING_GOV_CITYSTATES = true }) }
-Fire('GameEvents.BuildingConstructed', 0, 0, iMinistry, 0, true)
+check(#cecil.modifiers == 0 and cecil.units[9] ~= nil, 'retire: not possible without a Diplomatic Quarter')
+cecil.districts = { { type = 'DISTRICT_DIPLOMATIC_QUARTER', complete = false } }
+Retire(0, 9)
+check(#cecil.modifiers == 0 and cecil.units[9] ~= nil, 'retire: an unfinished Diplomatic Quarter does not count')
+cecil.districts = { DQ_DONE }
+Fire('GameEvents.OnDistrictConstructed', 0, GameInfo.Districts.DISTRICT_DIPLOMATIC_QUARTER.Index, 0, 0)
 check(#cecil.modifiers == 0 and cecil.units[9] ~= nil, 'retire: a human player is not retired automatically')
 Retire(0, 6)
 check(#cecil.modifiers == 0 and cecil.units[6] ~= nil, 'retire: only Amber can retire')
@@ -403,7 +423,7 @@ Retire(0, 10)
 check(#cecil.modifiers == 1 and cecil.units[10] ~= nil, 'retire: only once per player')
 
 Load(function()
-    Players[0].cities = { NewCity({ BUILDING_GOV_CITYSTATES = true }) }
+    Players[0].districts = { DQ_DONE }
     Players[0].units[9] = NewUnit(0, 9, 'UNIT_TSOD_SCOUT_AMBER')
     Players[0].units[9].promotions.PROMOTION_TSOD_CE_SHADOW_AUTHORITY = true
 end)
@@ -415,17 +435,17 @@ Load(function()
     Players[0].human = false
     Players[0].units[9] = NewUnit(0, 9, 'UNIT_TSOD_SCOUT_AMBER')
 end)
-Players[0].cities = { NewCity({ BUILDING_GOV_CITYSTATES = true }) }
-Fire('GameEvents.BuildingConstructed', 0, 0, iMinistry, 0, true)
-check(#Players[0].modifiers == 1 and Players[0].units[9] == nil, 'retire: an AI Cecil retires her when the Foreign Ministry is built')
+Players[0].districts = { DQ_DONE }
+Fire('GameEvents.OnDistrictConstructed', 0, GameInfo.Districts.DISTRICT_DIPLOMATIC_QUARTER.Index, 0, 0)
+check(#Players[0].modifiers == 1 and Players[0].units[9] == nil, 'retire: an AI Cecil retires her when the Diplomatic Quarter is built')
 
 Load(function()
     Players[0].human = false
-    Players[0].cities = { NewCity({ BUILDING_GOV_CITYSTATES = true }) }
+    Players[0].districts = { DQ_DONE }
     Players[0].units[9] = NewUnit(0, 9, 'UNIT_TSOD_SCOUT_AMBER')
 end)
 Fire('Events.TurnBegin')
-check(#Players[0].modifiers == 1 and Players[0].units[9] == nil, 'retire: an AI save with a Foreign Ministry retires her at turn start')
+check(#Players[0].modifiers == 1 and Players[0].units[9] == nil, 'retire: an AI save with a Diplomatic Quarter retires her at turn start')
 
 -- No Cecil player in the game ------------------------------------------------------
 Load(function()

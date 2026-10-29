@@ -2,7 +2,7 @@
 -- coexists with other unit panel mods); the click runs TsoDCE_AmberRetire in gameplay.
 
 local AMBER_UNIT_TYPE = 'UNIT_TSOD_SCOUT_AMBER'
-local FOREIGN_MINISTRY = 'BUILDING_GOV_CITYSTATES'
+local DIPLOMATIC_QUARTER = 'DISTRICT_DIPLOMATIC_QUARTER'
 
 local function GetLocalAmber()
     local pUnit = UI.GetHeadSelectedUnit()
@@ -16,14 +16,14 @@ local function GetLocalAmber()
     return pUnit
 end
 
-local function HasForeignMinistry(iPlayer)
-    local tRow = GameInfo.Buildings[FOREIGN_MINISTRY]
+local function HasDiplomaticQuarter(iPlayer)
+    local tRow = GameInfo.Districts[DIPLOMATIC_QUARTER]
     local pPlayer = Players[iPlayer]
     if tRow == nil or pPlayer == nil then
         return false
     end
-    for _, pCity in pPlayer:GetCities():Members() do
-        if pCity:GetBuildings():HasBuilding(tRow.Index) then
+    for _, pDistrict in pPlayer:GetDistricts():Members() do
+        if pDistrict:GetType() == tRow.Index and pDistrict:IsComplete() then
             return true
         end
     end
@@ -32,17 +32,12 @@ end
 
 local function Refresh()
     local pUnit = GetLocalAmber()
-    if pUnit == nil then
+    if pUnit == nil or not HasDiplomaticQuarter(pUnit:GetOwner()) then
         Controls.TsoDCE_AmberRetireGrid:SetHide(true)
         return
     end
 
-    local bReady = HasForeignMinistry(pUnit:GetOwner())
     local sTip = Locale.Lookup('LOC_TSOD_CE_AMBER_RETIRE_NAME') .. '[NEWLINE]' .. Locale.Lookup('LOC_TSOD_CE_AMBER_RETIRE_DESCRIPTION')
-    if not bReady then
-        sTip = sTip .. '[NEWLINE][COLOR:Red]' .. Locale.Lookup('LOC_TSOD_CE_AMBER_RETIRE_NEEDS_MINISTRY') .. '[ENDCOLOR]'
-    end
-    Controls.TsoDCE_AmberRetireButton:SetDisabled(not bReady)
     Controls.TsoDCE_AmberRetireButton:SetToolTipString(sTip)
     Controls.TsoDCE_AmberRetireGrid:SetHide(false)
 end

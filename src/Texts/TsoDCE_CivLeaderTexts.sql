@@ -8,7 +8,7 @@ VALUES
     (
         'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
         'zh_Hans_CN',
-        '首次建成一个特殊区域，或者是首次建造学院区域建筑时，获赠一位塞西尔的独特伟人。[NEWLINE]{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}[NEWLINE]{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}'
+        '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}首次建成一个特殊区域，或者是首次建造学院区域建筑时，获赠一位塞西尔的独特伟人。'
     ),
     ('LOC_LEADER_TSOD_GAWAIN_CECIL_NAME', 'zh_Hans_CN', '高文·塞西尔'),
     ('LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME', 'zh_Hans_CN', '黎明之剑'),
@@ -168,7 +168,7 @@ VALUES
     ('LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_NAME', 'Quantifying the Truth'),
     (
         'LOC_TRAIT_CIVILIZATION_TSOD_CECIL_EMPIRE_DESCRIPTION',
-        'The first time each specialty district or Campus building is completed, receive a unique Great Person of Cecil.[NEWLINE]{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION}[NEWLINE]{LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION}'
+        '{LOC_TSOD_QUARRY_BONUS_TECH_DESCRIPTION} {LOC_TSOD_NITER_MINE_BONUS_FAITH_DESCRIPTION} The first time each specialty district or Campus building is completed, receive a unique Great Person of Cecil.'
     ),
     ('LOC_LEADER_TSOD_GAWAIN_CECIL_NAME', 'Gawain Cecil'),
     ('LOC_TRAIT_LEADER_TSOD_GAWAIN_CECIL_NAME', 'The Sword of Dawn'),
