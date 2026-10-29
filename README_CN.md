@@ -77,4 +77,4 @@ tldr：科技胜利、征服胜利
 
 [h1]致谢[/h1]
 感谢 Hemmelfort、711403691 QQ群 和 Sukritact 的教程、工具、以及知识库。感谢 Sukritact 制作的 Ingolfur Arnarson、Ophidy 制作的
-碧蓝航线：铁血公国、和而不同制作组的和而不同、猫雷的毛泽东与中国共产党等 MOD 提供的技术参考。感谢 civilopedia 和 Civilization Fandom 提供的详实资料。感谢 ChatGPT4.0。
+碧蓝航线：铁血公国、和而不同制作组的和而不同、猫雷的毛泽东与中国共产党等 MOD 提供的技术参考。感谢 civilopedia 和 Civilization Fandom 提供的详实资料。感谢 ChatGPT4.0、Claude Opus/Sonnet 5.5。
