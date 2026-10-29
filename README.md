@@ -124,6 +124,7 @@ Tested against approximately **150 community mods** with no major conflicts dete
 | Unit & building icons | AI-generated + community resources |
 | Modding tutorials | Civ VI modding community |
 | Compatibility testing | Community playtesters |
+| Development assistance | ChatGPT 4.0, Claude Opus/Sonnet 5.5 |
 
 ---
 
