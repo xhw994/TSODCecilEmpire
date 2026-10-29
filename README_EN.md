@@ -69,6 +69,7 @@ Gawain has a gameplay focused on magitech and recruiting great people. Players n
 
 [hr][/hr]
 [h1]Compatibility[/h1]
+Requires the Gathering Storm ruleset, Rise and Fall, the Vietnam and Kublai Khan Pack and the Ethiopia Pack DLC.
 Given that I am a heavy MOD player, I have tested with approximately 150 community MODs, including 'Harmony in Diversity'. If there are any issues, it is highly likely that the issue lies with you, not me. If you don't believe me, please provide the list of MODs and the Database.log, Lua.log files in the comment section.
 
 [h1]Source[/h1]

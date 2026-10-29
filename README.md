@@ -3,7 +3,7 @@
 > A fan-made Civilization VI mod introducing the **Cecil Empire** from the Chinese web novel *Sword of Dawn (黎明之剑)*.
 
 <!-- Badges -->
-[![Steam Workshop](https://img.shields.io/badge/Steam-Workshop-blue?logo=steam)](https://steamcommunity.com/workshop/)
+[![Steam Workshop](https://img.shields.io/badge/Steam-Workshop-blue?logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=3251898146)
 ![Civ VI](https://img.shields.io/badge/Civilization_VI-compatible-green)
 ![Lua](https://img.shields.io/badge/language-Lua-blue)
 
@@ -17,11 +17,11 @@ This mod adds the **Cecil Empire** civilization to Civilization VI, led by **Gaw
 
 ## Civilization Features
 
-### Civilization Ability: *Measuring Truth*
+### Civilization Ability: *Quantifying the Truth*
 
-- Receive **unique great people** upon completing a special district or an academy building for the first time.
-- **Quarries** gain **+1 Science**.
-- Improved **saltpeter tiles** (properly worked) provide **+3 Faith**.
+- Quarries provide **+1 Science**.
+- Mined Niter provides **+3 Faith**.
+- The first time each specialty district or Campus building is completed, receive a **unique Great Person of Cecil** (13 in all; full list in [README_EN.md](README_EN.md)).
 
 ---
 
@@ -31,21 +31,21 @@ This mod adds the **Cecil Empire** civilization to Civilization VI, led by **Gaw
 |---|---|
 | Replaces | Drone (support unit) |
 | Range bonus to siege units within 1 tile | +1 Range |
-| Attack bonus to siege units within 1 tile | +5 Combat Strength |
+| Bombard bonus to siege units within 1 tile | +5 Bombard Strength |
 | Passive | Heals adjacent units each turn |
 
 The Gorgon Platform supercharges siege warfare. Position it behind your frontline to amplify bombardment and keep units healthy during prolonged campaigns.
 
 ---
 
-### Unique Building: Magical Obelisk
+### Unique Building: Mana Obelisk
 
 | Attribute | Value |
 |---|---|
 | Replaces | Monument |
 | Unlock | Mathematics |
-| Yields | +2 Science, +2 Production, +1 Housing |
-| Adjacency | Enhanced district adjacency bonuses |
+| Yields | +2 Science, +2 Production, +1 Amenity |
+| Adjacency | All districts receive an additional standard adjacency bonus |
 | Special | After researching **Electricity**, all buildings receive **doubled base yields** |
 
 The Obelisk delays your early Monument but pays off dramatically in the mid-to-late game. Plan your city layout for maximum district adjacency from the start.
@@ -54,7 +54,7 @@ The Obelisk delays your early Monument but pays off dramatically in the mid-to-l
 
 ### Leader: Gawain Cecil
 
-#### Ability: *Sword of Dawn*
+#### Ability: *The Sword of Dawn*
 
 - Recruiting a great person grants a **+20% yield bonus** in that great person's category.
 - Each additional recruit of the **same type** adds another **+10%**, up to a **+100% cap**.
@@ -62,7 +62,7 @@ The Obelisk delays your early Monument but pays off dramatically in the mid-to-l
 
 The ability rewards committing to specific great person types early and stacking recruits of the same category for exponential returns.
 
-#### Agenda: *Truth Seeking*
+#### Agenda: *Truth Seeker*
 
 - **Likes** civilizations with high Science output.
 - **Dislikes** civilizations neglecting Science.
@@ -80,11 +80,17 @@ The ability rewards committing to specific great person types early and stacking
 
 ---
 
+## Requirements
+
+Requires the Gathering Storm ruleset, Rise and Fall, the Vietnam and Kublai Khan Pack and the Ethiopia Pack DLC.
+
+---
+
 ## Installation
 
 ### Steam Workshop *(recommended)*
 
-1. Subscribe on the [Steam Workshop page](#) *(link to be added)*.
+1. Subscribe on the [Steam Workshop page](https://steamcommunity.com/sharedfiles/filedetails/?id=3251898146).
 2. Launch Civilization VI → **Additional Content** → enable **Cecil Empire**.
 
 ### Manual Installation

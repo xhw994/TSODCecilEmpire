@@ -5,7 +5,7 @@
     <Name>LOC_TSOD_CECIL_EMPIRE_MOD_TITLE</Name>
     <Guid>4883e185-c2d7-4031-aae3-b67e4e885a24</Guid>
     <ProjectGuid>5708e05e-1c10-490d-9b60-6fcefaec9649</ProjectGuid>
-    <ModVersion>1</ModVersion>
+    <ModVersion>2</ModVersion>
     <Teaser>LOC_TSOD_CECIL_EMPIRE_MOD_TEASER</Teaser>
     <Description>LOC_TSOD_CECIL_EMPIRE_MOD_DESCRIPTION</Description>
     <AffectsSavedGames>true</AffectsSavedGames>
